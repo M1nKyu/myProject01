@@ -1,0 +1,174 @@
+/* 상단 ===================================================== */
+.title01 {
+    position: absolute;
+    top: 43px;
+    left: 50px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #00b872;
+}   
+.title02 {
+    position: absolute;
+    top: 44px;
+    left: 88px;
+    font-size: 12px;
+    line-height: 24px;
+    color: #70737c;
+}
+.url {
+    position: absolute;
+    top: 44px;
+    left: 743px;
+    font-size: 12px;
+    line-height: 24px;
+    color: #70737c;
+    text-align: right;
+}
+.horizontal-line {
+    position: absolute;
+    left: 41px;
+    top: 80px;
+    width: 760px;
+    height: 1px;
+    background-color: #5a5c63;
+    transform: scaleY(0.3);
+    transform-origin: top;
+}
+
+/* 하단 ===================================================== */
+.text01 {
+    position: relative;
+    margin-bottom: 12px;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #009e62;
+
+}
+.text02 {
+    position: relative;
+
+    font-size: 10px;
+    line-height: 24px;
+}
+.section01 {
+    position: absolute;
+    top: 407px;
+    left: 50px;
+}
+.section02 {
+    position: absolute;
+    top: 407px;
+    left: 265px;
+}
+.section03 {
+    position: absolute;
+    top: 407px;
+    left: 469px;
+}
+.section04 {
+    position: absolute;
+    top: 407px;
+    left: 684px;
+}
+
+
+
+.div-b {
+    position: absolute;
+    top: 407px;
+    left: 50px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #009e62;
+}
+.p {
+    margin: 0;
+}
+.div2 {
+    position: absolute;
+    top: 455px;
+    left: 50px;
+    line-height: 24px;
+}
+.div3 {
+    position: absolute;
+    top: 479px;
+    left: 50px;
+    line-height: 24px;
+}
+.div4 {
+    position: absolute;
+    top: 503px;
+    left: 50px;
+    line-height: 24px;
+}
+.div5 {
+    position: absolute;
+    top: 527px;
+    left: 50px;
+    line-height: 24px;
+}
+.b2 {
+    position: absolute;
+    top: 407px;
+    left: 265px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #009e62;
+}
+.div6 {
+    position: absolute;
+    top: 455px;
+    left: 265px;
+    line-height: 24px;
+}
+.div7 {
+    position: absolute;
+    top: 479px;
+    left: 265px;
+    line-height: 24px;
+}
+.div8 {
+    position: absolute;
+    top: 503px;
+    left: 265px;
+    line-height: 24px;
+}
+.b3 {
+    position: absolute;
+    top: 407px;
+    left: 469px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #009e62;
+}
+.div9 {
+    position: absolute;
+    top: 455px;
+    left: 469px;
+    line-height: 24px;
+}
+.div10 {
+    position: absolute;
+    top: 479px;
+    left: 469px;
+    line-height: 24px;
+}
+.b4 {
+    position: absolute;
+    top: 407px;
+    left: 684px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #009e62;
+}
+.child {
+    position: absolute;
+    top: 80px;
+    left: calc(50% - 380px);
+    max-height: 100%;
+    width: 760px;
+    object-fit: contain;
+}

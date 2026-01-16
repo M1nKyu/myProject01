@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEP4QKW5CR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JEP4QKW5CR');
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eCarbon - 웹사이트 탄소배출량 분석 서비스</title>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    {% include 'includes/meta/meta-tags.html' %}
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    {% include 'includes/meta/structured-data.html' %}
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/main/main.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common/global.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/main/footer.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/main/responsive-main.css') }}" />
+
+    <script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+    <script>
+      const i18n = new I18n('{{ get_locale() }}');
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const ecoWebsiteList = document.querySelector('.eco-website-list');
+          const loadMoreButton = document.querySelector('.eco-website-button');
+          const buttonText = loadMoreButton ? loadMoreButton.querySelector('.eco-website-button-text') : null;
+          let ecoWebsites = [];
+          let displayedCount = 6; // 초기 표시 개수
+          const loadMoreCount = 6; // 한 번에 더 보여줄 개수
+          const maxDisplayCount = 12; // 최대 표시 개수
+          let isExpanded = false; // 확장 상태 추적
+
+          // Load eco websites data from JSON file
+          fetch('{{ url_for("static", filename="data/eco-websites.json") }}')
+            .then(response => response.json())
+            .then(data => {
+              ecoWebsites = data;
+              
+              // 초기 카드들에 데이터 채우기 (정확히 6개만 표시)
+              const initialCards = document.querySelectorAll('.eco-website-card');
+              const cardsToShow = 6; // 항상 6개 표시
+              
+              // 모든 카드를 먼저 표시 상태로 설정
+              initialCards.forEach((card) => {
+                const item = card.closest('.eco-website-item');
+                if (item) {
+                  item.style.display = '';
+                }
+              });
+              
+              // 초기 6개 카드에만 데이터 채우기
+              initialCards.forEach((card, index) => {
+                if (index < cardsToShow && index < ecoWebsites.length) {
+                  populateCard(card, ecoWebsites[index]);
+                } else if (index >= cardsToShow) {
+                  // 6개를 초과하는 카드는 숨김
+                  const item = card.closest('.eco-website-item');
+                  if (item) {
+                    item.style.display = 'none';
+                  }
+                }
+              });
+
+              // 버튼 상태 업데이트
+              updateButtonState();
+
+              // 버튼 클릭 이벤트
+              if (loadMoreButton) {
+                loadMoreButton.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  if (isExpanded) {
+                    minimizeWebsites();
+                  } else {
+                    loadMoreWebsites();
+                  }
+                });
+              }
+            })
+            .catch(error => {
+              console.error('Failed to load eco websites data:', error);
+            });
+
+          // 카드에 데이터 채우는 함수
+          function populateCard(card, site) {
+            if (!site) return;
+            // Link destination
+            card.href = site.url;
+            // Optional: label for accessibility
+            card.setAttribute('aria-label', `${site.name} - ${site.emission}`);
+            // Background image on the card area
+            if (site.image) {
+              card.style.backgroundImage = `url('${site.image}')`;
+              card.style.backgroundSize = 'cover';
+              card.style.backgroundPosition = 'center';
+              card.style.backgroundRepeat = 'no-repeat';
+            }
+            // Texts
+            const nameEl = card.querySelector('.eco-website-description-text-01');
+            const emissionEl = card.querySelector('.eco-website-description-text-02');
+            if (nameEl) nameEl.textContent = site.name;
+            if (emissionEl) emissionEl.textContent = site.emission;
+          }
+
+          // 더 많은 웹사이트 로드 함수
+          function loadMoreWebsites() {
+            const targetCount = Math.min(maxDisplayCount, ecoWebsites.length);
+            const countToLoad = targetCount - displayedCount;
+
+            for (let i = 0; i < countToLoad; i++) {
+              const site = ecoWebsites[displayedCount + i];
+              if (!site) break;
+
+              // 새 카드 요소 생성
+              const listItem = document.createElement('li');
+              listItem.className = 'eco-website-item';
+
+              const card = document.createElement('a');
+              card.href = site.url;
+              card.className = 'eco-website-card';
+              card.setAttribute('data-view', (displayedCount + i + 1).toString());
+              card.setAttribute('aria-label', `${site.name} - ${site.emission}`);
+
+              // Arrow span
+              const arrowSpan = document.createElement('span');
+              arrowSpan.className = 'eco-website-arrow';
+              arrowSpan.setAttribute('aria-hidden', 'true');
+              const arrowIcon = document.createElement('img');
+              arrowIcon.className = 'eco-website-arrow-icon';
+              arrowIcon.src = 'https://c.animaapp.com/kwylwCaZ/img/vector-6.svg';
+              arrowIcon.alt = '';
+              arrowSpan.appendChild(arrowIcon);
+
+              // Description span
+              const descSpan = document.createElement('span');
+              descSpan.className = 'eco-website-description';
+              const nameSpan = document.createElement('span');
+              nameSpan.className = 'eco-website-description-text-01';
+              nameSpan.textContent = site.name;
+              const emissionSpan = document.createElement('span');
+              emissionSpan.className = 'eco-website-description-text-02';
+              emissionSpan.textContent = site.emission;
+              descSpan.appendChild(nameSpan);
+              descSpan.appendChild(emissionSpan);
+
+              card.appendChild(arrowSpan);
+              card.appendChild(descSpan);
+              listItem.appendChild(card);
+              ecoWebsiteList.appendChild(listItem);
+
+              // 배경 이미지 설정
+              if (site.image) {
+                card.style.backgroundImage = `url('${site.image}')`;
+                card.style.backgroundSize = 'cover';
+                card.style.backgroundPosition = 'center';
+                card.style.backgroundRepeat = 'no-repeat';
+              }
+            }
+
+            displayedCount = targetCount;
+            isExpanded = true;
+            updateButtonState();
+          }
+
+          // 웹사이트 최소화 함수
+          function minimizeWebsites() {
+            const allItems = ecoWebsiteList.querySelectorAll('.eco-website-item');
+            allItems.forEach((item, index) => {
+              if (index >= 6) {
+                item.style.display = 'none';
+              }
+            });
+            
+            displayedCount = 6;
+            isExpanded = false;
+            updateButtonState();
+          }
+
+          // 버튼 상태 업데이트 함수
+          function updateButtonState() {
+            if (!loadMoreButton || !buttonText) return;
+
+            // 최대 개수에 도달했거나 더 이상 표시할 카드가 없으면 버튼 숨김
+            if (displayedCount >= maxDisplayCount || displayedCount >= ecoWebsites.length) {
+              if (isExpanded) {
+                // 확장 상태면 최소화 버튼으로 변경
+                buttonText.textContent = i18n ? i18n.t('home.eco_view_less') : '{{ _("home.eco_view_less") }}';
+                loadMoreButton.setAttribute('aria-label', i18n ? i18n.t('home.eco_view_less') : '{{ _("home.eco_view_less") }}');
+                loadMoreButton.style.display = '';
+              } else {
+                // 초기 상태에서 더 표시할 카드가 없으면 버튼 숨김
+                loadMoreButton.style.display = 'none';
+              }
+            } else {
+              // 더보기 버튼으로 표시
+              buttonText.textContent = i18n ? i18n.t('home.eco_view_all') : '{{ _("home.eco_view_all") }}';
+              loadMoreButton.setAttribute('aria-label', i18n ? i18n.t('home.eco_view_all') : '{{ _("home.eco_view_all") }}');
+              loadMoreButton.style.display = '';
+            }
+          }
+      });
+    </script>
+  </head>
+  <body>
+    <!-- 페이지 로딩 화면 -->
+    {% include 'includes/page-loader.html' %}
+    {% include 'includes/new-header.html' %}
+    <div class="main-container">
+      <!-- background element ============================================================= -->
+      <img class="top_bg" src="{{ url_for('static', filename='img/main/top_bg.svg') }}" alt="" />
+
+      <!-- hero section ============================================================= -->
+      <div class="hero-section">
+        <div class="hero-section-title">
+          <p class="hero-section-title-text">{{ _('home.hero_title')|safe }}</p>
+        </div>
+        <div class="hero-section-subtitle">
+          <p class="hero-section-subtitle-text">{{ _('home.hero_subtitle_line1') }}</p>
+          <p class="hero-section-subtitle-text">{{ _('home.hero_subtitle_line2') }}</p>
+        </div>
+      </div>
+
+      <!-- clip path group ============================================================= -->
+      <!-- <img class="clip-path-group" src="https://c.animaapp.com/kwylwCaZ/img/email@example.com" alt="" /> -->
+
+      <!-- URL input form ============================================================= -->
+      <div class="url-input-container">
+        <form class="url-input-form" id="measurementForm" method="post" action="{{ url_for('main.home')}}"
+          onsubmit="return validateAndSubmit(event)">
+          <div class="url-input-form-group">
+            <input type="text" name="wgd-cc-url" id="wgd-cc-url" class="url-input"
+              placeholder="{{ _('home.url_placeholder') }}" required>
+            <button type="submit" id="measureBtn" class="measure-btn">
+              <img class="url-input-icon" src="{{ url_for('static', filename='img/main/url-input-icon.svg') }}" alt="분석 시작" />
+            </button>
+          </div>
+          <div id="loadingIndicator" style="display:none; text-align:center;">
+            <div class="spinner"></div>
+          </div>
+        </form>
+      </div>
+
+      <!-- recent searches ============================================================= -->
+      {% if recent_urls %}
+      <div class="recent-searches-row">
+        <div class="recent-searches__header">{{ _('home.recent_searches') }}</div>
+        <div class="recent-searches__list">
+          {% for url in recent_urls %}
+          <div class="recent-searches__item">
+            <a href="#"
+              onclick="document.getElementById('wgd-cc-url').value='{{ url }}'; document.getElementById('measurementForm').submit(); return false;"
+              class="recent-searches__link" title="{{ url }}">{{ url }}</a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- info cards =================================================================== -->
+      <div class="info-cards-container">
+        <div class="info-cards-track">
+          <div class="info-card" id="info-card-1">
+            <div class="info-card-icon-background"></div>
+            <img class="info-card-icon-01" src="{{ url_for('static', filename='img/main/info-card-code.svg') }}"
+              alt="탄소배출량 측정 아이콘" />
+            <div class="info-card-title">{{ _('home.card_measurement_title') }}</div>
+            <div class="info-card-description">
+              <p class="info-card-description-text">{{ _('home.card_measurement_desc1') }}</p>
+              <p class="info-card-description-text">{{ _('home.card_measurement_desc2') }}</p>
+            </div>
+            <img class="info-card-mask-01" src="{{ url_for('static', filename='img/webp/main/info_card-01.webp') }}" alt="" />
+          </div>
+
+          <div class="info-card" id="info-card-2">
+            <div class="info-card-icon-background"></div>
+            <img class="info-card-icon-02" src="{{ url_for('static', filename='img/main/info-card-code.svg') }}"
+              alt="코드 최적화 아이콘" />
+            <div class="info-card-title">{{ _('home.card_code_title') }}</div>
+            <div class="info-card-description">
+              <p class="info-card-description-text">{{ _('home.card_code_desc1') }}</p>
+              <p class="info-card-description-text">{{ _('home.card_code_desc2') }}</p>
+              <p class="info-card-description-text">{{ _('home.card_code_desc3') }}</p>
+            </div>
+            <img class="info-card-mask-02" src="{{ url_for('static', filename='img/webp/main/info_card-02.webp') }}" alt="" />
+          </div>
+
+          <div class="info-card" id="info-card-3">
+            <div class="info-card-icon-background"></div>
+            <img class="info-card-icon-03" src="{{ url_for('static', filename='img/main/info-card-recycle.svg') }}"
+              alt="디자인 최적화 아이콘" />
+            <div class="info-card-title">{{ _('home.card_design_title') }}</div>
+            <div class="info-card-description">
+              <p class="info-card-description-text">{{ _('home.card_design_desc1') }}</p>
+              <p class="info-card-description-text">{{ _('home.card_design_desc2') }}</p>
+              <p class="info-card-description-text">{{ _('home.card_design_desc3') }}</p>
+            </div>
+            <img class="info-card-mask-03" src="{{ url_for('static', filename='img/webp/main/info_card-03.webp') }}" alt="" />
+          </div>
+
+          <div class="info-card" id="info-card-4">
+            <div class="info-card-icon-background"></div>
+            <img class="info-card-icon-03" src="{{ url_for('static', filename='img/main/info-card-leaf.svg') }}"
+              alt="친환경 호스팅 아이콘" />
+            <div class="info-card-title">{{ _('home.card_hosting_title') }}</div>
+            <div class="info-card-description">
+              <p class="info-card-description-text">{{ _('home.card_hosting_desc1') }}</p>
+              <p class="info-card-description-text">{{ _('home.card_hosting_desc2') }}</p>
+              <p class="info-card-description-text">{{ _('home.card_hosting_desc3') }}</p>
+              <p class="info-card-description-text">{{ _('home.card_hosting_desc4') }}</p>
+            </div>
+            <img class="info-card-mask-04" src="{{ url_for('static', filename='img/webp/main/info_card-04.webp') }}" alt="" />
+          </div>
+        </div>
+        <div class="info-card-buttons">
+          <button class="info-card-button-previous" aria-label="이전">
+            <span>&lt;</span>
+          </button>
+          <button class="info-card-button-next" aria-label="다음">
+            <span>&gt;</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- eco website ============================================================= -->
+      <div class="eco-website">
+        <div class="eco-website-title">{{ _('home.eco_website_title') }}</div>
+
+        <ul class="eco-website-list" role="list">
+          <li class="eco-website-item">
+            <a href="#" class="eco-website-card" data-view="2">
+              <span class="eco-website-arrow" aria-hidden="true">
+                <img class="eco-website-arrow-icon" src="https://c.animaapp.com/kwylwCaZ/img/vector-6.svg" alt="" />
+              </span>
+              <span class="eco-website-description">
+                <span class="eco-website-description-text-01">웹사이트 이름</span>
+                <span class="eco-website-description-text-02">0.2g CO2/page view</span>
+              </span>
+            </a>
+          </li>
+          <li class="eco-website-item">
+            <a href="#" class="eco-website-card" data-view="3">
+              <span class="eco-website-arrow" aria-hidden="true">
+                <img class="eco-website-arrow-icon" src="https://c.animaapp.com/kwylwCaZ/img/vector-6.svg" alt="" />
+              </span>
+              <span class="eco-website-description">
+                <span class="eco-website-description-text-01">웹사이트 이름</span>
+                <span class="eco-website-description-text-02">0.2g CO2/page view</span>
+              </span>
+            </a>
+          </li>
+          <li class="eco-website-item">
+            <a href="#" class="eco-website-card" data-view="4">
+              <span class="eco-website-arrow" aria-hidden="true">
+                <img class="eco-website-arrow-icon" src="https://c.animaapp.com/kwylwCaZ/img/vector-6.svg" alt="" />
+              </span>
+              <span class="eco-website-description">
+                <span class="eco-website-description-text-01">웹사이트 이름</span>
+                <span class="eco-website-description-text-02">0.2g CO2/page view</span>
+              </span>
+            </a>
+          </li>
+          <li class="eco-website-item">
+            <a href="#" class="eco-website-card" data-view="5">
+              <span class="eco-website-arrow" aria-hidden="true">
+                <img class="eco-website-arrow-icon" src="https://c.animaapp.com/kwylwCaZ/img/vector-6.svg" alt="" />
+              </span>
+              <span class="eco-website-description">
+                <span class="eco-website-description-text-01">웹사이트 이름</span>
+                <span class="eco-website-description-text-02">0.2g CO2/page view</span>
+              </span>
+            </a>
+          </li>
+          <li class="eco-website-item">
+            <a href="#" class="eco-website-card" data-view="6">
+              <span class="eco-website-arrow" aria-hidden="true">
+                <img class="eco-website-arrow-icon" src="https://c.animaapp.com/kwylwCaZ/img/vector-6.svg" alt="" />
+              </span>
+              <span class="eco-website-description">
+                <span class="eco-website-description-text-01">웹사이트 이름</span>
+                <span class="eco-website-description-text-02">0.2g CO2/page view</span>
+              </span>
+            </a>
+          </li>
+          <li class="eco-website-item">
+            <a href="#" class="eco-website-card" data-view="7">
+              <span class="eco-website-arrow" aria-hidden="true">
+                <img class="eco-website-arrow-icon" src="https://c.animaapp.com/kwylwCaZ/img/vector-6.svg" alt="" />
+              </span>
+              <span class="eco-website-description">
+                <span class="eco-website-description-text-01">웹사이트 이름</span>
+                <span class="eco-website-description-text-02">0.2g CO2/page view</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+
+        <a href="#" class="eco-website-button" aria-label="{{ _('home.eco_view_all') }}">
+          <span class="eco-website-button-text">{{ _('home.eco_view_all') }}</span>
+        </a>
+      </div>
+
+      <!-- membership info ============================================================= -->
+      <div class="membership-info">
+        <div class="membership-info-heading-1">{{ _('home.membership_heading1') }}</div>
+        <div class="membership-info-heading-2">{{ _('home.membership_heading2') }}</div>
+        <div class="membership-info-heading-3">
+          <p class="membership-info-heading-3-text">{{ _('home.membership_heading3_line1') }}<br>{{
+            _('home.membership_heading3_line2') }}</p>
+        </div>
+        <a href="#" class="membership-info-button" data-dev-link>
+          <div class="membership-info-button-text">{{ _('home.membership_button') }}</div>
+        </a>
+      </div>
+
+      <!-- footer ============================================================= -->
+      <div class="footer">
+        <!-- 로고 및 소개 영역 -->
+        <div class="footer-brand-area">
+          <div class="footer-logo">{{ _('footer.logo') }}</div>
+          <div class="footer-intro">{{ _('footer.intro') }}</div>
+        </div>
+
+        <!-- footer section 영역 -->
+        <div class="footer-sections-area">
+          <div class="footer-section-01">
+            <div class="footer-section-heading" role="button" tabindex="0" aria-expanded="false">{{ _('footer.section_service')
+              }}</div>
+            <div class="footer-section-link-01">
+              <div class="footer-section-link-text">{{ _('footer.ecarbon_intro') }}</div>
+            </div>
+            <div class="footer-section-link-02">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.membership_intro') }}</div>
+            </div>
+            <div class="footer-section-link-03">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.contact') }}</div>
+            </div>
+          </div>
+          <div class="footer-section-02">
+            <div class="footer-section-heading" role="button" tabindex="0" aria-expanded="false">{{ _('footer.section_service')
+              }}</div>
+            <div class="footer-section-link-01">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.announcement') }}</div>
+            </div>
+            <div class="footer-section-link-02">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.events') }}</div>
+            </div>
+            <div class="footer-section-link-03">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.faq') }}</div>
+            </div>
+          </div>
+          <div class="footer-section-03">
+            <div class="footer-section-heading" role="button" tabindex="0" aria-expanded="false">{{ _('footer.section_service')
+              }}</div>
+            <div class="footer-section-link-01">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.company_intro') }}</div>
+            </div>
+            <div class="footer-section-link-02">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.recruitment') }}</div>
+            </div>
+            <div class="footer-section-link-03">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.partners') }}</div>
+            </div>
+          </div>
+          <div class="footer-section-04">
+            <div class="footer-section-heading" role="button" tabindex="0" aria-expanded="false">{{ _('footer.section_service')
+              }}</div>
+            <div class="footer-section-link-01">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.terms') }}</div>
+            </div>
+            <div class="footer-section-link-02">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.privacy') }}</div>
+            </div>
+            <div class="footer-section-link-03">
+              <div class="footer-section-link-text" data-dev-link>{{ _('footer.terms') }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- sns 및 연락처 영역 -->
+        <div class="footer-sns-area">
+          <a href="https://www.instagram.com/example.com/" target="_blank" rel="noopener noreferrer" class="footer-sns-instagram"
+            aria-label="{{ _('footer.instagram_link') }}">
+            <div class="footer-sns-text">{{ _('footer.instagram_link') }}</div>
+            <div class="footer-sns-mail">https://www.instagram.com/example.com/</div>
+            <img class="footer-sns-icon" src="{{ url_for('static', filename='img/main/footer-right-arrow.svg') }}"
+              alt="오른쪽 화살표" />
+          </a>
+          <a href="https://www.youtube.com/@greeneezip" target="_blank" rel="noopener noreferrer" class="footer-sns-youtube"
+            aria-label="{{ _('footer.youtube_link') }}">
+            <div class="footer-sns-text">{{ _('footer.youtube_link') }}</div>
+            <div class="footer-sns-mail">https://www.youtube.com/@greeneezip</div>
+            <img class="footer-sns-icon" src="{{ url_for('static', filename='img/main/footer-right-arrow.svg') }}"
+              alt="오른쪽 화살표" />
+          </a>
+          <div class="footer-sns-contact" role="button" tabindex="0" aria-label="{{ _('footer.email_copy') }}">
+            <div class="footer-sns-text">{{ _('footer.contact') }}</div>
+            <div class="footer-sns-mail">contact@example.com</div>
+            <img class="footer-sns-icon" src="{{ url_for('static', filename='img/main/footer-right-arrow.svg') }}"
+              alt="오른쪽 화살표" />
+          </div>
+        </div>
+      </div>
+
+      <!-- legal-info ============================================================= -->
+      <div class="legal-info">
+        <div class="legal-info-copyright">{{ _('footer.copyright') }}</div>
+        <div class="legal-info-links">
+          <div class="legal-info-link-01">
+            <div class="legal-info-link-text-01" data-dev-link>{{ _('footer.privacy') }}</div>
+          </div>
+          <div class="legal-info-link-02">
+            <div class="legal-info-link-text-02" data-dev-link>{{ _('footer.terms') }}</div>
+          </div>
+          <div class="legal-info-link-03">
+            <div class="legal-info-link-text-02" data-dev-link>{{ _('footer.announcement') }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const track = document.querySelector('.info-cards-track');
+        if (!track) return; // track이 없으면 실행 중단
+
+        const cards = track.querySelectorAll('.info-card');
+        const prevBtn = document.querySelector('.info-card-button-previous');
+        const nextBtn = document.querySelector('.info-card-button-next');
+
+        if (cards.length === 0 || !prevBtn || !nextBtn) return; // 필수 요소가 없으면 실행 중단
+
+        let currentIndex = 0;
+        let totalCards = cards.length;
+        let cardsToShow = 3; // 기본값(데스크톱)
+        let gap = 24; // CSS gap과 동기화 (computeGap()로 갱신)
+        let cardWidth = cards[0].offsetWidth; // 초기 폭
+
+        function computeCardsToShow() {
+          const w = window.innerWidth;
+          if (w <= 767.98) return 1; // 모바일
+          if (w <= 1199.98) return 2; // 태블릿(임계는 필요 시 조정)
+          return 3; // 데스크톱
+        }
+
+        function isMobileMode() {
+          return window.matchMedia('(max-width: 767.98px)').matches;
+        }
+
+        function computeGap() {
+          const cs = window.getComputedStyle(track);
+          const g = cs.columnGap || cs.gap || '0px';
+          const v = parseFloat(g);
+          return isNaN(v) ? 0 : v;
+        }
+
+        function recalc() {
+          // 현재 카드 폭과 cardsToShow 재계산
+          cardWidth = cards[0].offsetWidth;
+          cardsToShow = computeCardsToShow();
+          gap = computeGap();
+          // 인덱스가 범위를 벗어나지 않도록 보정
+          const maxIndex = Math.max(0, totalCards - cardsToShow);
+          if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+          // 모드에 맞춰 초기 위치 반영
+          moveTrack(false);
+          updateButtonVisibility();
+        }
+
+        // 초기 설정
+        recalc();
+
+        nextBtn.addEventListener('click', () => {
+          const maxIndex = Math.max(0, totalCards - cardsToShow);
+          if (currentIndex < maxIndex) {
+            currentIndex++;
+            moveTrack(true);
+          }
+        });
+
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            moveTrack(true);
+          }
+        });
+
+        function moveTrack(smooth = true) {
+          const offset = currentIndex * (cardWidth + gap);
+          if (isMobileMode()) {
+            // 모바일: overflow-x 스크롤 기반으로 이동 (scroll-snap과 호환)
+            track.style.transform = '';
+            track.scrollTo({ left: offset, behavior: smooth ? 'smooth' : 'auto' });
+          } else {
+            // 데스크톱/태블릿: transform 기반 (기존 동작 유지)
+            track.style.transform = `translateX(${-offset}px)`;
+          }
+          updateButtonVisibility();
+        }
+
+        function updateButtonVisibility() {
+          const maxIndex = Math.max(0, totalCards - cardsToShow);
+          // 이전 버튼
+          if (currentIndex === 0) {
+            prevBtn.disabled = true;
+          } else {
+            prevBtn.disabled = false;
+          }
+          // 다음 버튼
+          if (currentIndex >= maxIndex) {
+            nextBtn.disabled = true;
+          } else {
+            nextBtn.disabled = false;
+          }
+        }
+
+        // 리사이즈 대응: 폭/카드수/인덱스 재계산
+        window.addEventListener('resize', () => {
+          // 레이아웃이 바뀌며 offsetWidth가 변하므로 약간의 딜레이 후 재계산
+          window.requestAnimationFrame(recalc);
+        });
+      });
+
+      // Form submission validation and duplicate submission prevention
+      let isSubmitting = false;
+      
+      function validateAndSubmit(event) {
+          if (isSubmitting) {
+              console.log('Form is already submitting.');
+              event.preventDefault();
+              return false;
+          }
+
+          const urlInput = document.getElementById('wgd-cc-url');
+          const measureBtn = document.getElementById('measureBtn');
+          const loadingIndicator = document.getElementById('loadingIndicator');
+          const url = urlInput.value.trim();
+          
+          if (!url) {
+              alert('Please enter a valid URL.');
+              event.preventDefault();
+              return false;
+          }
+
+          if (!url.startsWith('http://') && !url.startsWith('https://')) {
+              urlInput.value = 'https://' + url;
+          }
+          
+          isSubmitting = true;
+          measureBtn.style.display = 'none';
+          loadingIndicator.style.display = 'block';
+          
+          setTimeout(function() {
+              if (isSubmitting) {
+                  isSubmitting = false;
+                  measureBtn.style.display = 'block';
+                  loadingIndicator.style.display = 'none';
+              }
+          }, 10000);
+          
+          localStorage.setItem('measuring', 'true');
+          
+          return true;
+      }
+
+      window.addEventListener('load', function() {
+          if (localStorage.getItem('measuring') === 'true') {
+              localStorage.removeItem('measuring');
+          }
+      });
+    </script>
+    <script>
+      // Footer interactive behavior: SNS tile click feedback and mobile accordion for sections
+      document.addEventListener('DOMContentLoaded', function () {
+        // 인스타그램 링크: 실제 링크로 동작하되 시각적 피드백 추가
+        const instagramLink = document.querySelector('.footer-sns-instagram');
+        if (instagramLink) {
+          instagramLink.addEventListener('click', () => {
+            instagramLink.classList.add('clicked');
+            setTimeout(() => instagramLink.classList.remove('clicked'), 200);
+          });
+        }
+
+        // 유튜브 링크: 실제 링크로 동작하되 시각적 피드백 추가
+        const youtubeLink = document.querySelector('.footer-sns-youtube');
+        if (youtubeLink) {
+          youtubeLink.addEventListener('click', () => {
+            youtubeLink.classList.add('clicked');
+            setTimeout(() => youtubeLink.classList.remove('clicked'), 200);
+          });
+        }
+
+        // 문의하기: 이메일 주소 클립보드 복사
+        const contactTile = document.querySelector('.footer-sns-contact');
+        if (contactTile) {
+          contactTile.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              contactTile.click();
+            }
+          });
+          contactTile.addEventListener('click', async () => {
+            contactTile.classList.add('clicked');
+            setTimeout(() => contactTile.classList.remove('clicked'), 200);
+
+            try {
+              await navigator.clipboard.writeText('email@example.com');
+              // 복사 성공 알림
+              const originalText = contactTile.querySelector('.footer-sns-text').textContent;
+              contactTile.querySelector('.footer-sns-text').textContent = i18n.t('footer.copy_success');
+              setTimeout(() => {
+                contactTile.querySelector('.footer-sns-text').textContent = originalText;
+              }, 2000);
+            } catch (err) {
+              // 복사 실패 시 fallback
+              console.warn('클립보드 복사 실패:', err);
+              alert(i18n.t('footer.copy_manual'));
+            }
+          });
+        }
+
+        // Accordion: only enable below 768px
+        const sections = document.querySelectorAll('.footer [class^="footer-section-"]');
+        function isMobile() { return window.matchMedia('(max-width: 767.98px)').matches; }
+
+        function bindAccordion() {
+          sections.forEach(sec => {
+            const heading = sec.querySelector('.footer-section-heading');
+            if (!heading) return;
+            const handler = () => {
+              if (!isMobile()) return;
+              const open = sec.classList.toggle('open');
+              heading.setAttribute('aria-expanded', open ? 'true' : 'false');
+            };
+            // Ensure no duplicate listeners by cloning
+            const newHeading = heading.cloneNode(true);
+            heading.parentNode.replaceChild(newHeading, heading);
+            newHeading.addEventListener('click', handler);
+            newHeading.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); } });
+          });
+        }
+
+        bindAccordion();
+        window.addEventListener('resize', bindAccordion);
+      });
+    </script>
+    <script src="{{ url_for('static', filename='js/common/under-development-modal.js') }}"></script>
+  </body>
+</html>

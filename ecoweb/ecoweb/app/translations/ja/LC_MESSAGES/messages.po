@@ -1,0 +1,945 @@
+# Japanese translations for ECO-WEB
+# Copyright (C) 2025
+msgid ""
+msgstr ""
+"Project-Id-Version: ECO-WEB 1.0\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Header Navigation
+msgid "nav.service_intro"
+msgstr "サービス紹介"
+
+msgid "nav.carbon_analysis"
+msgstr "炭素排出量分析"
+
+msgid "nav.carbon_ranking"
+msgstr "炭素排出ランキング"
+
+msgid "nav.corporate_service"
+msgstr "企業サービス"
+
+# User Menu
+msgid "user.login"
+msgstr "ログイン"
+
+msgid "user.logout"
+msgstr "ログアウト"
+
+msgid "user.signup"
+msgstr "会員登録"
+
+msgid "user.greeting"
+msgstr "様"
+
+# Homepage
+msgid "home.main_title"
+msgstr "見えない炭素を\n今すぐ確認しましょう"
+
+msgid "home.main_subtitle"
+msgstr "URLを入力してウェブサイトの炭素排出量を分析し\n環境に優しい改善ガイドを受け取りましょう"
+
+msgid "home.url_placeholder"
+msgstr "ウェブサイトのアドレスを入力してください"
+
+msgid "home.analyze_button"
+msgstr "分析開始"
+
+msgid "home.recent_searches"
+msgstr "最近検索したURL"
+
+# Carbon Analysis
+msgid "analysis.carbon_emission"
+msgstr "炭素排出量"
+
+msgid "analysis.page_size"
+msgstr "ページサイズ"
+
+msgid "analysis.grade"
+msgstr "グレード"
+
+msgid "analysis.percentile"
+msgstr "百分位数"
+
+msgid "analysis.korea_average"
+msgstr "韓国平均"
+
+msgid "analysis.global_average"
+msgstr "世界平均"
+
+msgid "analysis.comparison"
+msgstr "比較"
+
+msgid "analysis.higher_than"
+msgstr "高い"
+
+msgid "analysis.lower_than"
+msgstr "低い"
+
+# Optimization
+msgid "optimization.code_title"
+msgstr "コード最適化"
+
+msgid "optimization.image_title"
+msgstr "画像最適化"
+
+msgid "optimization.font_title"
+msgstr "フォント最適化"
+
+# PDF Report
+msgid "pdf.generate_button"
+msgstr "PDFレポート生成"
+
+msgid "pdf.download_button"
+msgstr "ダウンロード"
+
+# Loading Messages
+msgid "loading.analyzing"
+msgstr "分析中です"
+
+msgid "loading.please_wait"
+msgstr "しばらくお待ちください"
+
+msgid "loading.processing"
+msgstr "処理中"
+
+# Error Messages
+msgid "error.invalid_url"
+msgstr "無効なURLです"
+
+msgid "error.analysis_failed"
+msgstr "分析に失敗しました"
+
+msgid "error.network_error"
+msgstr "ネットワークエラーが発生しました"
+
+msgid "error.server_error"
+msgstr "サーバーエラーが発生しました"
+
+# Common
+msgid "common.submit"
+msgstr "送信"
+
+msgid "common.cancel"
+msgstr "キャンセル"
+
+msgid "common.confirm"
+msgstr "確認"
+
+msgid "common.close"
+msgstr "閉じる"
+
+msgid "common.save"
+msgstr "保存"
+
+msgid "common.delete"
+msgstr "削除"
+
+msgid "common.edit"
+msgstr "編集"
+
+msgid "common.view_more"
+msgstr "もっと見る"
+
+msgid "common.loading"
+msgstr "読み込み中..."
+
+# Loading Page
+msgid "loading.page_title"
+msgstr "分析中... - eCarbon"
+
+msgid "loading.analyzing_url"
+msgstr "を分析しています！"
+
+msgid "loading.analyzing_main_page"
+msgstr "入力ページ分析中"
+
+msgid "loading.analyzing_subpages"
+msgstr "サブページ分析中"
+
+msgid "loading.optimizing_images"
+msgstr "画像最適化進行中"
+
+msgid "loading.analysis_complete"
+msgstr "分析完了！"
+
+msgid "loading.view_results"
+msgstr "結果を見る"
+
+msgid "loading.go_home"
+msgstr "ホームに戻る"
+
+msgid "loading.queued_message"
+msgstr "サーバーリクエストが多いため待機中です。（待機列：%(position)s番目）"
+
+msgid "loading.in_progress"
+msgstr "分析を進めています..."
+
+msgid "loading.cancelled_title"
+msgstr "分析がキャンセルされました"
+
+msgid "loading.cancelled_message"
+msgstr "ユーザーによって分析が中断されました。"
+
+msgid "loading.failed_title"
+msgstr "分析に失敗しました"
+
+msgid "loading.failed_message"
+msgstr "ウェブサイト分析中に問題が発生しました。"
+
+msgid "loading.new_analysis"
+msgstr "新しい分析を開始する"
+
+msgid "loading.check_site"
+msgstr "サイトを直接確認する"
+
+msgid "loading.try_different_url"
+msgstr "別のURLを入力する"
+
+msgid "loading.access_error_title"
+msgstr "サイトにアクセスできません"
+
+msgid "loading.access_error_message"
+msgstr "入力されたウェブサイトに接続できません。"
+
+msgid "loading.access_error_suggestion"
+msgstr "URLを再確認するか、該当サイトが正常に動作しているか確認してください。"
+
+msgid "loading.failure_suggestion"
+msgstr "URLを確認して再試行してください。"
+
+msgid "loading.check_site_status"
+msgstr "該当サイトが正常に動作しているか直接確認してください"
+
+msgid "loading.enter_different_url"
+msgstr "別のURLを入力する"
+
+msgid "loading.check_site_directly"
+msgstr "サイトを直接確認する"
+
+msgid "loading.view_results_button"
+msgstr "結果を見る"
+
+msgid "loading.measurement_in_progress"
+msgstr "測定中、しばらくお待ちください。"
+
+# Home Page - Hero Section
+msgid "home.hero_title"
+msgstr "見えない炭素、<br>今すぐ確認してみませんか"
+
+msgid "home.hero_subtitle_line1"
+msgstr "URLを入力してウェブサイトの炭素排出量を分析し"
+
+msgid "home.hero_subtitle_line2"
+msgstr "環境に優しい改善ガイドを受け取りましょう"
+
+# Home Page - Info Cards
+msgid "home.card_measurement_title"
+msgstr "デジタル炭素排出量測定"
+
+msgid "home.card_measurement_desc1"
+msgstr "ウェブサイトから発生する "
+
+msgid "home.card_measurement_desc2"
+msgstr "デジタル炭素排出量を測定し、管理しましょう"
+
+msgid "home.card_code_title"
+msgstr "コード最適化"
+
+msgid "home.card_code_desc1"
+msgstr "ウェブサイトのコードを軽く最適化して "
+
+msgid "home.card_code_desc2"
+msgstr "サーバー負担とエネルギー使用を減らすことができます"
+
+msgid "home.card_code_desc3"
+msgstr "速くて効率的なウェブを一緒に作りましょう"
+
+msgid "home.card_design_title"
+msgstr "持続可能なデザイン"
+
+msgid "home.card_design_desc1"
+msgstr "エネルギー効率を考えた持続可能な "
+
+msgid "home.card_design_desc2"
+msgstr "デザインで炭素フットプリントを減らしましょう"
+
+msgid "home.card_design_desc3"
+msgstr "デザインと環境保護は両立できます"
+
+msgid "home.card_hosting_title"
+msgstr "環境に優しいホスティング"
+
+msgid "home.card_hosting_desc1"
+msgstr "再生可能エネルギーを使用する "
+
+msgid "home.card_hosting_desc2"
+msgstr "環境に優しいホスティングに切り替えましょう"
+
+msgid "home.card_hosting_desc3"
+msgstr "小さな変化がより清潔なウェブ環境を作る"
+
+msgid "home.card_hosting_desc4"
+msgstr "始まりになることができます"
+
+# Home Page - Eco Website Section
+msgid "home.eco_website_title"
+msgstr "環境に優しいウェブサイト"
+
+msgid "home.eco_view_all"
+msgstr "サイトをもっと見る"
+
+msgid "home.eco_view_less"
+msgstr "サイトを最小化"
+
+# Home Page - Membership Section
+msgid "home.membership_heading1"
+msgstr "持続可能なウェブのための"
+
+msgid "home.membership_heading2"
+msgstr "カスタマイズされた分析と改善ガイドを無制限に"
+
+msgid "home.membership_heading3_line1"
+msgstr "メンバーシップ会員にのみ提供される"
+
+msgid "home.membership_heading3_line2"
+msgstr "高度な分析レポート、比較機能、改善シミュレーションをご活用ください。"
+
+msgid "home.membership_button"
+msgstr "メンバーシップを見る"
+
+# Home Page - Footer
+msgid "footer.logo"
+msgstr "eCarbon"
+
+msgid "footer.intro"
+msgstr "デジタル炭素排出量測定サービス"
+
+msgid "footer.section_service"
+msgstr "サービス"
+
+msgid "footer.ecarbon_intro"
+msgstr "eCarbon紹介"
+
+msgid "footer.membership_intro"
+msgstr "メンバーシップ紹介"
+
+msgid "footer.contact"
+msgstr "お問い合わせ"
+
+msgid "footer.announcement"
+msgstr "お知らせ"
+
+msgid "footer.events"
+msgstr "イベント"
+
+msgid "footer.faq"
+msgstr "よくある質問"
+
+msgid "footer.company_intro"
+msgstr "会社紹介"
+
+msgid "footer.recruitment"
+msgstr "採用情報"
+
+msgid "footer.partners"
+msgstr "協力業者"
+
+msgid "footer.terms"
+msgstr "利用規約"
+
+msgid "footer.privacy"
+msgstr "個人情報保護方針"
+
+msgid "footer.instagram_link"
+msgstr "インスタグラムアカウントへ"
+
+msgid "footer.youtube_link"
+msgstr "YouTubeチャンネルへ"
+
+msgid "footer.contact_email"
+msgstr "contact@example.com"
+
+msgid "footer.copyright"
+msgstr "© Designbase All rights reserved."
+
+msgid "footer.copy_success"
+msgstr "コピー完了！"
+
+msgid "footer.copy_manual"
+msgstr "contact@example.com のアドレスを手動でコピーしてください。"
+
+# Sidebar
+msgid "sidebar.site_address"
+msgstr "サイトアドレス"
+
+msgid "sidebar.integrated_analysis"
+msgstr "統合分析"
+
+msgid "sidebar.page_analysis"
+msgstr "ページ分析"
+
+msgid "sidebar.image_optimization"
+msgstr "画像最適化"
+
+msgid "sidebar.code_analysis"
+msgstr "コード分析"
+
+msgid "sidebar.sustainability_guidelines"
+msgstr "持続可能性ガイドライン"
+
+msgid "sidebar.get_badge"
+msgstr "バッジを取得"
+
+msgid "sidebar.settings"
+msgstr "設定"
+
+msgid "sidebar.my_account"
+msgstr "マイアカウント"
+
+msgid "sidebar.analysis_required"
+msgstr "先にウェブサイト分析を完了してください。"
+
+# User Bar
+msgid "userbar.carbon_analysis"
+msgstr "炭素排出量分析"
+
+msgid "userbar.greeting"
+msgstr "こんにちは、%(username)s様"
+
+msgid "userbar.user"
+msgstr "ユーザー"
+
+msgid "userbar.comparison_text"
+msgstr "は一般的なサイトより炭素排出量が "
+
+msgid "userbar.save_pdf"
+msgstr "PDFとして保存"
+
+msgid "userbar.compare_previous"
+msgstr "以前の分析と比較する"
+
+# Result Page
+msgid "result.page_title"
+msgstr "炭素排出量分析結果 - eCarbon"
+
+msgid "result.current_emission"
+msgstr "現在の炭素排出量"
+
+msgid "result.emission_percentile_description"
+msgstr "全分析サイト中上位%(percentile)s%%レベルの排出量です。"
+
+msgid "result.global_grade_comparison"
+msgstr "世界基準の炭素等級より"
+
+msgid "result.korea_grade_comparison"
+msgstr "大韓民国基準の炭素等級より"
+
+msgid "result.less_emission"
+msgstr "少なく"
+
+msgid "result.more_emission"
+msgstr "多く"
+
+msgid "result.emission_suffix"
+msgstr "排出"
+
+msgid "result.emission_status_suffix"
+msgstr "しています"
+
+msgid "result.global_avg_tooltip"
+msgstr "世界平均炭素排出量：%(value)sg"
+
+msgid "result.korea_avg_tooltip"
+msgstr "韓国平均炭素排出量：%(value)sg"
+
+# Equivalent
+msgid "equivalent.title"
+msgstr "年間炭素排出量換算"
+
+msgid "equivalent.coffee_title"
+msgstr "コーヒー<br />消費量"
+
+msgid "equivalent.coffee_unit"
+msgstr "杯"
+
+msgid "equivalent.car_title"
+msgstr "電気自動車<br />走行距離"
+
+msgid "equivalent.car_unit"
+msgstr "km"
+
+msgid "equivalent.phone_title"
+msgstr "スマートフォン<br />充電"
+
+msgid "equivalent.phone_formula"
+msgstr "3回充電<br />= 0.02 CO2"
+
+msgid "equivalent.phone_unit"
+msgstr "回"
+
+msgid "equivalent.tree_title"
+msgstr "木<br />吸収量"
+
+msgid "equivalent.tree_formula"
+msgstr "1本<br />= 0.02kg CO2/年"
+
+msgid "equivalent.tree_unit"
+msgstr "本"
+
+# Chart
+msgid "chart.emission_trend_title"
+msgstr "炭素排出量推移"
+
+msgid "chart.monthly_visitors_reference"
+msgstr "月間100万人訪問基準"
+
+msgid "chart.emission_label"
+msgstr "炭素排出量 (g CO₂/kWh)"
+
+msgid "chart.y_axis_label"
+msgstr "排出量 (g CO₂/kWh)"
+
+msgid "chart.x_axis_label"
+msgstr "日付"
+
+# Detailed Analysis Page
+msgid "detailed.page_title"
+msgstr "詳細分析結果 - eCarbon"
+
+msgid "detailed.emission_breakdown_title"
+msgstr "排出量内訳"
+
+msgid "detailed.device_title"
+msgstr "個人デバイス"
+
+msgid "detailed.home_network_title"
+msgstr "ホームネットワーク"
+
+msgid "detailed.home_network_label"
+msgstr "WiFi"
+
+msgid "detailed.external_network_title"
+msgstr "外部ネットワーク"
+
+msgid "detailed.external_network_label"
+msgstr "通信事業者"
+
+msgid "detailed.sea_cable_title"
+msgstr "海底ケーブル"
+
+msgid "detailed.server_title"
+msgstr "企業サーバー"
+
+msgid "detailed.server_label"
+msgstr "クラウド"
+
+msgid "detailed.content_emission_title"
+msgstr "コンテンツ別炭素排出量"
+
+msgid "detailed.content_count_title"
+msgstr "コンテンツ数"
+
+msgid "detailed.subpage_analysis_title"
+msgstr "サブページ分析"
+
+msgid "detailed.total_pages"
+msgstr "総ページ数"
+
+msgid "detailed.avg_co2_per_page"
+msgstr "平均CO2/ページ"
+
+msgid "detailed.subpage_co2"
+msgstr "サブページCO2"
+
+msgid "detailed.emission_level_low"
+msgstr "低 (<0.8g)"
+
+msgid "detailed.emission_level_medium"
+msgstr "中 (0.8-1.1g)"
+
+msgid "detailed.emission_level_high"
+msgstr "高 (>1.1g)"
+
+msgid "detailed.page_emission_list"
+msgstr "ページ別排出量"
+
+msgid "detailed.no_subpages"
+msgstr "サブページが見つかりません。"
+
+# Image Optimization Page
+msgid "imgopt.page_title"
+msgstr "画像最適化結果 - eCarbon"
+
+msgid "imgopt.main_title"
+msgstr "画像最適化"
+
+msgid "imgopt.expected_size_title"
+msgstr "最適化前と比較した予想画像サイズ"
+
+msgid "imgopt.already_optimized_label"
+msgstr "既に最適化済み"
+
+msgid "imgopt.reduction_percent"
+msgstr "% 削減"
+
+msgid "imgopt.expected_reduction"
+msgstr "予想削減量"
+
+msgid "imgopt.co2_per_visit"
+msgstr "g CO2/訪問"
+
+msgid "imgopt.current_image_size"
+msgstr "現在の画像サイズ"
+
+msgid "imgopt.optimized_image_size"
+msgstr "最適化後の画像サイズ"
+
+msgid "imgopt.captured_website_image"
+msgstr "キャプチャされたウェブサイト画像"
+
+msgid "imgopt.image_load_error"
+msgstr "ウェブサイト画像を読み込めません。"
+
+msgid "imgopt.high_emission_area"
+msgstr "高炭素排出エリア"
+
+msgid "imgopt.current_label"
+msgstr "現在"
+
+msgid "imgopt.optimized_label"
+msgstr "最適化後"
+
+msgid "imgopt.image_size"
+msgstr "画像サイズ"
+
+msgid "imgopt.analysis_title"
+msgstr "画像最適化分析"
+
+msgid "imgopt.total_image_capacity"
+msgstr "画像総容量"
+
+msgid "imgopt.total_image_resource_description"
+msgstr "全体の画像リソースサイズ"
+
+msgid "imgopt.possible_optimization"
+msgstr "可能な画像最適化"
+
+msgid "imgopt.webp_conversion_benefit"
+msgstr "WebP形式への変換で節約可能"
+
+msgid "imgopt.format_conversion_list"
+msgstr "形式変換推奨画像リスト"
+
+msgid "imgopt.total_bytes_count"
+msgstr "合計 %(bytes)s bytes、(%(count)s個)"
+
+msgid "imgopt.category_icon"
+msgstr "アイコン"
+
+msgid "imgopt.category_logo"
+msgstr "ロゴ"
+
+msgid "imgopt.category_other"
+msgstr "その他"
+
+msgid "imgopt.converted_image_list"
+msgstr "変換済み画像リスト"
+
+msgid "imgopt.download_images_zip"
+msgstr "画像ファイルをダウンロード (.zip)"
+
+msgid "imgopt.download_error"
+msgstr "ファイルのダウンロード中にエラーが発生しました。"
+
+msgid "imgopt.webp_label"
+msgstr "Webp"
+
+# Sustainability Analysis Page
+msgid "sustain.page_title"
+msgstr "持続可能性分析結果 - eCarbon"
+
+msgid "sustain.main_title"
+msgstr "W3C持続可能性ガイドライン分析"
+
+msgid "sustain.category_ux"
+msgstr "UX"
+
+msgid "sustain.category_bm"
+msgstr "BM"
+
+msgid "sustain.category_hosting"
+msgstr "ホスティング"
+
+msgid "sustain.category_web_design"
+msgstr "Webデザイン"
+
+msgid "sustain.overall_score"
+msgstr "総合スコア"
+
+msgid "sustain.evaluation_results"
+msgstr "持続可能性ガイドライン評価結果"
+
+msgid "sustain.header_guideline_id"
+msgstr "ガイドラインID"
+
+msgid "sustain.header_title"
+msgstr "タイトル"
+
+msgid "sustain.header_difficulty"
+msgstr "難易度"
+
+msgid "sustain.header_importance"
+msgstr "重要度"
+
+msgid "sustain.header_compliance"
+msgstr "準拠"
+
+msgid "sustain.header_detail"
+msgstr "詳細"
+
+msgid "sustain.view_more"
+msgstr "詳細を見る"
+
+msgid "sustain.no_guidelines"
+msgstr "ガイドライン情報なし"
+
+msgid "sustain.chart_label"
+msgstr "カテゴリ別スコア"
+
+# Sustainability Modal
+msgid "sustain_modal.title_default"
+msgstr "ガイドライン詳細情報"
+
+msgid "sustain_modal.subtitle"
+msgstr "W3C 持続可能性ガイドライン"
+
+msgid "sustain_modal.guideline_id"
+msgstr "ガイドラインID:"
+
+msgid "sustain_modal.area"
+msgstr "領域:"
+
+msgid "sustain_modal.compliance"
+msgstr "準拠状況:"
+
+msgid "sustain_modal.compliant"
+msgstr "✓ 準拠"
+
+msgid "sustain_modal.non_compliant"
+msgstr "✗ 非準拠"
+
+msgid "sustain_modal.difficulty"
+msgstr "実装難易度:"
+
+msgid "sustain_modal.impact"
+msgstr "環境への影響度:"
+
+msgid "sustain_modal.description"
+msgstr "説明:"
+
+msgid "sustain_modal.no_description"
+msgstr "説明情報がありません。"
+
+msgid "sustain_modal.intent"
+msgstr "意図 (Intent):"
+
+msgid "sustain_modal.no_intent"
+msgstr "意図情報がありません。"
+
+msgid "sustain_modal.benefits"
+msgstr "メリット (Benefits):"
+
+msgid "sustain_modal.no_benefits"
+msgstr "メリット情報がありません。"
+
+# Under Development Modal
+msgid "modal.under_development_title"
+msgstr "🚧 開発中のページです 🚧"
+
+msgid "modal.under_development_message"
+msgstr "ご不便をおかけして申し訳ございません。"
+
+# Login Page
+msgid "login.page_title"
+msgstr "ログイン - eCarbon"
+
+msgid "login.title_line1"
+msgstr "持続可能なウェブ、"
+
+msgid "login.title_line2"
+msgstr "eCarbonと一緒に"
+
+msgid "login.id_placeholder"
+msgstr "IDを入力してください"
+
+msgid "login.password_placeholder"
+msgstr "パスワードを入力してください"
+
+msgid "login.save_id"
+msgstr "IDを保存"
+
+msgid "login.find_credentials"
+msgstr "ID・パスワードを探す"
+
+msgid "login.login_button"
+msgstr "ログイン"
+
+msgid "login.google_login"
+msgstr "Googleでログイン"
+
+msgid "login.not_member"
+msgstr "まだ会員ではありませんか？"
+
+msgid "login.signup_link"
+msgstr "会員登録"
+
+# Code Analysis Page
+msgid "code.page_title"
+msgstr "コード分析結果 - eCarbon"
+
+msgid "code.main_title"
+msgstr "コード詳細分析"
+
+msgid "code.total_resource_title"
+msgstr "総リソース容量 (100%%)"
+
+msgid "code.total_resource_description"
+msgstr "ページを構成する全リソースのサイズです。"
+
+msgid "code.third_party_script"
+msgstr "サードパーティスクリプト"
+
+msgid "code.third_party_description"
+msgstr "外部スクリプトにより無駄になる可能性のある容量です。"
+
+msgid "code.used_javascript"
+msgstr "使用中JavaScript"
+
+msgid "code.used_javascript_description"
+msgstr "実際にページで使用されているJavaScript容量です。"
+
+msgid "code.unused_javascript"
+msgstr "未使用JavaScript"
+
+msgid "code.unused_javascript_description"
+msgstr "読み込まれたが使用されていないJavaScript容量です。"
+
+msgid "code.reducible"
+msgstr "削減可能"
+
+msgid "code.total_javascript"
+msgstr "全JavaScript"
+
+msgid "code.total_javascript_description"
+msgstr "ページ内の全JavaScriptリソースの総容量です。"
+
+msgid "code.unused_css"
+msgstr "未使用CSS"
+
+msgid "code.unused_css_description"
+msgstr "使用されていないCSSルールにより最適化可能な容量です"
+
+msgid "code.other_resources"
+msgstr "その他のリソース"
+
+msgid "code.file_explorer_title"
+msgstr "コードファイルエクスプローラ"
+
+msgid "code.sort_by_name"
+msgstr "名前順"
+
+msgid "code.compliance_rate"
+msgstr "ガイドライン準拠率:"
+
+msgid "code.no_data"
+msgstr "コード分析データがありません。"
+
+msgid "code.font_optimization_title"
+msgstr "フォント最適化"
+
+msgid "code.font_grade_very_good"
+msgstr "'非常に優秀'グレード"
+
+msgid "code.font_grade_good"
+msgstr "'優秀'グレード"
+
+msgid "code.font_grade_needs_improvement"
+msgstr "'改善必要'グレード"
+
+msgid "code.font_grade_urgent"
+msgstr "'緊急改善必要'グレード"
+
+msgid "code.font_grade_text"
+msgstr "フォントから排出される炭素量は"
+
+msgid "code.font_grade_suffix"
+msgstr "です"
+
+msgid "code.total_file_size"
+msgstr "総ファイルサイズ"
+
+msgid "code.total_co2_emission"
+msgstr "総CO2排出量"
+
+msgid "code.discovered_fonts_title"
+msgstr "発見されたフォント"
+
+msgid "code.no_font_data"
+msgstr "ダウンロードされたフォントファイル情報が見つかりません。"
+
+msgid "code.font_optimization_plan"
+msgstr "フォント最適化方案"
+
+msgid "code.before_optimization"
+msgstr "最適化前"
+
+msgid "code.optimization_method"
+msgstr "最適化方法"
+
+msgid "code.file_size_reduction"
+msgstr "ファイルサイズ削減"
+
+msgid "code.co2_reduction"
+msgstr "CO2削減"
+
+msgid "code.reduction_percent_100"
+msgstr "100.0%%削減"
+
+msgid "code.reduction_percent_75"
+msgstr "75.0%%削減"
+
+msgid "code.reduction_percent_70"
+msgstr "70.0%%削減"
+
+msgid "code.reduction_percent_50"
+msgstr "50.0%%削減"
+
+msgid "code.reduction_percent_45"
+msgstr "45.0%%削減"
+
+msgid "code.system_font"
+msgstr "システムフォントに変更"
+
+msgid "code.subset_font"
+msgstr "サブセットフォントに変更"
+
+msgid "code.variable_font"
+msgstr "可変フォントに変更"
+
+msgid "code.woff2_font"
+msgstr "WOFF2フォントに変更"
+
+msgid "code.woff_font"
+msgstr "WOFFフォントに変更"
+
+msgid "userbar.below_avg"
+msgstr "低いです"
+
+msgid "userbar.above_avg"
+msgstr "高いです"
+
+msgid "imgopt.reduction_text"
+msgstr "削減"

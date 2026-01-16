@@ -1,0 +1,8 @@
+<!-- Structured Data (Schema.org JSON-LD) -->
+{% if structured_data %}
+  {% for schema in structured_data %}
+    <script type="application/ld+json">
+{{ schema|tojson(indent=2)|safe }}
+    </script>
+  {% endfor %}
+{% endif %}

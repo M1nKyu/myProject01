@@ -1,0 +1,59 @@
+/* ========================================
+   Responsive Header - Mobile Adaptations
+   ======================================== */
+
+@media screen and (max-width: 950px) {
+    .header-nav {
+        display: none;
+    }
+
+    .header--flex {
+        padding: 0 16px;
+    }
+
+    .header-logo {
+        font-size: 20px;
+    }
+
+    .header-controls {
+        gap: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-nav {
+        display: none !important;
+    }
+
+    .header--flex {
+        padding: 0 12px;
+    }
+
+    .header-logo {
+        font-size: 18px;
+    }
+
+    .header-controls {
+        gap: 8px;
+    }
+
+    .header-language-flag,
+    .header-language-option-flag {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header-darkmode-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header-login-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .header-user-button {
+        font-size: 14px;
+    }
+}

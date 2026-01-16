@@ -1,0 +1,322 @@
+<!-- i18n Library for client-side translations -->
+<script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+<script>
+    const i18n = new I18n('{{ get_locale() }}');
+</script>
+
+<!-- Modal Structure -->
+<div class="modal-overlay" id="guidelineModal">
+    <div class="modal-container">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+
+        <div class="modal-header">
+            <h2 class="modal-title" id="modalTitle">{{ _('sustain_modal.title_default') }}</h2>
+            <div class="modal-subtitle" id="modalSubtitle">{{ _('sustain_modal.subtitle') }}</div>
+        </div>
+
+        <div class="modal-content">
+            <div class="guideline-detail">
+                <!-- Left column box -->
+                <div class="detail-box">
+                    <div class="box-content" id="leftBoxContent">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Right column box -->
+                <div class="detail-box">
+                    <div class="box-content" id="rightBoxContent">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Modal overlay */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Modal container */
+    .modal-container {
+        width: 1540px;
+        height: 730px;
+        backdrop-filter: blur(8px);
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.94);
+        position: relative;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+    }
+
+    .modal-overlay.show .modal-container {
+        transform: scale(1);
+    }
+
+    /* Close button */
+    .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #333;
+        transition: background-color 0.2s ease;
+        z-index: 10;
+    }
+
+    .modal-close:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /* Modal header */
+    .modal-header {
+        padding: 30px 40px 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-title {
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: #292a2d;
+        margin: 0;
+    }
+
+    .modal-subtitle {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #70737c;
+        margin-top: 8px;
+    }
+
+    /* Modal content */
+    .modal-content {
+        padding: 30px 40px;
+        height: calc(100% - 140px);
+        overflow-y: auto;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .guideline-detail {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        height: 100%;
+    }
+
+    .detail-box {
+        border-radius: 12px;
+        background-color: #dbdcdf;
+        height: 480px;
+        padding: 24px;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+
+    .box-content {
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        line-height: 24px;
+        font-family: Roboto;
+        color: #46474c;
+        text-align: left;
+    }
+
+    /* Responsive for smaller screens */
+    @media screen and (max-width: 1600px) {
+        .modal-container {
+            width: 90vw;
+            height: 80vh;
+            max-width: 1540px;
+            max-height: 730px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .modal-container {
+            width: 95vw;
+            height: 90vh;
+        }
+
+        .guideline-detail {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .detail-box {
+            height: 200px;
+        }
+
+        .modal-header {
+            padding: 20px 24px 16px;
+        }
+
+        .modal-content {
+            padding: 20px 24px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+        }
+    }
+
+    /* Make 더보기 button clickable */
+    .div36 .all {
+        cursor: pointer !important;
+        user-select: none;
+    }
+
+    .div36 .all:hover {
+        opacity: 0.8;
+    }
+</style>
+
+
+<script>
+    // Modal functionality
+    function openModal(guidelineData) {
+        const modal = document.getElementById('guidelineModal');
+
+        // Populate modal with data
+        if (guidelineData) {
+            document.getElementById('modalTitle').textContent = `${guidelineData.id}: ${guidelineData.title}` || i18n.t('sustain_modal.title_default');
+
+            // Populate left box with basic info and description
+            const leftBox = document.getElementById('leftBoxContent');
+            if (leftBox) {
+                leftBox.innerHTML = `
+                    <div style="margin-bottom: 15px;">
+                        <strong>${i18n.t('sustain_modal.guideline_id')}</strong> ${guidelineData.id || '-'}
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <strong>${i18n.t('sustain_modal.area')}</strong> ${guidelineData.area || '-'}
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <strong>${i18n.t('sustain_modal.compliance')}</strong>
+                        <span style="color: ${guidelineData.compliance_status ? 'green' : 'red'}; font-weight: bold;">
+                            ${guidelineData.compliance_status ? i18n.t('sustain_modal.compliant') : i18n.t('sustain_modal.non_compliant')}
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <strong>${i18n.t('sustain_modal.difficulty')}</strong>
+                        <span style="color: #eeb60d; font-weight: bold;">
+                            ${guidelineData.effort_display || guidelineData.effort || '-'}
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <strong>${i18n.t('sustain_modal.impact')}</strong>
+                        <span style="color: #eeb60d; font-weight: bold;">
+                            ${guidelineData.impact_display || guidelineData.impact || '-'}
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <strong>${i18n.t('sustain_modal.description')}</strong><br>
+                        <div style="margin-top: 8px; line-height: 1.5;">
+                            ${guidelineData.description || i18n.t('sustain_modal.no_description')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Populate right box with intent and benefits
+            const rightBox = document.getElementById('rightBoxContent');
+            if (rightBox) {
+                let benefitsHtml = '';
+                if (guidelineData.benefits && typeof guidelineData.benefits === 'object') {
+                    benefitsHtml = '<div style="margin-top: 8px;">';
+                    for (const [key, value] of Object.entries(guidelineData.benefits)) {
+                        benefitsHtml += `
+                            <div style="margin-bottom: 10px;">
+                                <strong style="color: #00d282;">${key}:</strong><br>
+                                <span style="font-size: 16px; line-height: 1.4;">${value}</span>
+                            </div>
+                        `;
+                    }
+                    benefitsHtml += '</div>';
+                } else {
+                    benefitsHtml = `<div style="margin-top: 8px;">${i18n.t('sustain_modal.no_benefits')}</div>`;
+                }
+
+                rightBox.innerHTML = `
+                    <div style="margin-bottom: 20px;">
+                        <strong>${i18n.t('sustain_modal.intent')}</strong><br>
+                        <div style="margin-top: 8px; line-height: 1.5;">
+                            ${guidelineData.intent || i18n.t('sustain_modal.no_intent')}
+                        </div>
+                    </div>
+                    <div>
+                        <strong>${i18n.t('sustain_modal.benefits')}</strong>
+                        ${benefitsHtml}
+                    </div>
+                `;
+            }
+        }
+
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('guidelineModal');
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+
+    // Initialize modal events when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('guidelineModal');
+
+        // Close modal when clicking outside
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    });
+
+    // Expose functions globally for external access
+    window.openGuidelineModal = openModal;
+    window.closeGuidelineModal = closeModal;
+</script>

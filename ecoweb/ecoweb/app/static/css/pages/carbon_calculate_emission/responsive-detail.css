@@ -1,0 +1,325 @@
+/* 더 좁은 화면에서 좌우 패딩 고려하여 살짝 축소 */
+.detail-section01-road {
+  width: min(844px, 92vw) !important;
+}
+
+:root {
+  /* 공통 레이아웃 변수 (필요 시 확장) */
+  --container-max-width: 1200px;
+  --page-gutter: 16px;
+  /* 디자인 캔버스(데스크톱 기준 1920px)를 중앙 정렬하기 위한 최대 폭 */
+  --detail-canvas-max: 1920px;
+}
+
+/* 초기화/유틸 (필요 시 확장) */
+.detail-container,
+.detail-wrapper,
+#detail-root {
+  box-sizing: border-box;
+}
+
+/* ================= 중앙 축소(zoom/shrink) 정렬: 비파괴적 오버라이드 ================= */
+/* 페이지 루트 컨테이너를 1920px 캔버스로 고정/중앙 정렬하여
+   절대 배치된 자식들이 화면 축소 시에도 가운데 기준으로 줄어들도록 함. */
+.detailed_analysis {
+  max-width: var(--detail-canvas-max);
+  width: 100%; /* 모바일에서도 전체 너비 사용 */
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; /* 절대배치 자식들의 기준점 보장 */
+  height: auto !important; /* 반응형에서 자동 높이 */
+  min-height: 1937px; /* 데스크톱에서 최소 높이 보장 */
+  overflow: visible !important; /* 컨텐츠가 잘리지 않도록 */
+}
+
+/* 모바일에서 max-width 제한 제거 */
+@media (max-width: 1600px) {
+  .detailed_analysis {
+    max-width: 100% !important; /* 모바일에서 전체 너비 사용 */
+    width: 100% !important;
+    height: auto !important; /* 반응형에서 자동 높이 */
+    min-height: auto !important; /* 최소 높이 제거 */
+    overflow: visible !important; /* 컨텐츠가 잘리지 않도록 */
+  }
+}
+
+/* 섹션들도 캔버스 폭에 맞춰 가운데 정렬(원본 폭/포지션은 유지) */
+.detailed_analysis .detail-section03 {
+  max-width: 100%;
+  margin-inline: 0;
+  position: relative; /* 개별 섹션 기준 필요 시 */
+}
+
+/* ===== Z-축 레이어: 로드 이미지/타이틀은 뒤, 카드/클라우드는 앞 ===== */
+.detail-section01-road {
+  /* 위치는 기본 CSS(absolute) 유지 */
+  z-index: 0 !important;
+  pointer-events: none; /* 이벤트 차단: 뒤 배경 역할 */
+}
+.detail-section01-title {
+  position: relative !important;
+  z-index: 0 !important;
+}
+
+/* 카드와 내부 플로팅 정보는 상위 레이어 */
+.detail-section01 .detail-card { position: relative; z-index: 1; }
+.detail-section01 .vector-parent { position: absolute; z-index: 2; }
+
+
+/* ================= 반응형 전환: Section01 (배출량 상세비율) ================= */
+/* 1600px 이하: 2열 그리드로 재배치, 절대좌표 제거 */
+@media (max-width: 1600px) {
+  /* 페이지 좌우 패딩 및 컨테이너 폭 보정 */
+  .detailed_analysis { 
+    max-width: 100% !important; 
+    width: 100% !important;
+    padding: 20px; /* 최상위 부모에 일관된 패딩 */
+  }
+
+  /* 각 카드의 텍스트 라벨/타이틀을 흐름에 배치하여 중앙 정렬 */
+  .detail-section01-device-title,
+  .detail-section01-home-network-title,
+  .detail-section01-home-network-label,
+  .detail-section01-external-network-title,
+  .detail-section01-external-network-label,
+  .detail-section01-sea-title,
+  .detail-section01-server-title,
+  .detail-section01-server-label {
+    position: static !important;
+    top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+    margin: 4px 0;
+    text-align: center;
+  }
+
+  /* 2열 배치 순서: 장치/홈/외부/서버/해저 (필요시 조정) */
+  .detail-section01 .card-device { order: 1; }
+  .detail-section01 .card-home { order: 2; }
+  .detail-section01 .card-external { order: 3; }
+  .detail-section01 .card-server { order: 4; }
+  .detail-section01 .card-sea { order: 5; }
+
+  /* 벡터 정보(클라우드) 레이어는 각 카드 내부 기준 유지 */
+  .detail-section01 .vector-parent { left: 50% !important; transform: translateX(-50%) !important; }
+
+  /* subpage-list를 relative position으로 변경 */
+  .subpage-list {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+
+/* ========================
+   Section02: Responsive grid
+   - Wide/medium: 1 row x 2 cols (content-emission | child1)
+   - Narrow: 2 rows x 1 col (stack)
+   ======================== */
+@media (max-width: 1600px) {
+  /* Make section02 a grid container */
+  .detail-section02 {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* 2 columns */
+    grid-auto-rows: auto !important;
+    gap: 20px !important;
+    width: 100% !important; /* 전체 너비 사용 */
+    max-width: 100% !important; /* 제한 제거 */
+    box-sizing: border-box !important; /* padding 포함 크기 계산 */
+  }
+
+  /* Ensure children participate in grid (remove absolute positioning) */
+  .detail-section02 .content-emission,
+  .detail-section02 .child1 {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100% !important; /* 모바일에서 전체 너비 사용 */
+    height: auto !important; /* allow content to define height */
+    min-height: 420px; /* taller box on medium screens */
+    box-sizing: border-box !important; /* padding 포함 크기 계산 */
+  }
+
+  /* Order control (explicit, though DOM order already matches) */
+  .detail-section02 .content-emission { order: 1; }
+  .detail-section02 .child1 { order: 2; }
+
+  /* Center the graph box within the card */
+  .detail-section02 .content-emission {
+    display: flex !important;
+    align-items: flex-end !important; /* place inner box near bottom */
+    justify-content: center !important;
+    padding-bottom: 16px !important;  /* small breathing room from bottom */
+  }
+  .detail-section02 .content-emission .content-emission-content {
+    position: relative !important;   /* reset from absolute for centering */
+    top: auto !important;
+    left: auto !important;
+    width: min(520px, 90%) !important; /* responsive width cap */
+    height: 300px !important;         /* preserve intended graph height */
+    max-width: 100% !important; /* 부모를 넘지 않도록 */
+    box-sizing: border-box !important;
+  }
+
+  /* 그래프 막대와 라벨을 중앙 정렬 */
+  .detail-section02 .content-emission-content .content-graph-bar,
+  .detail-section02 .content-emission-content .content-graph-label {
+    justify-items: center !important; /* 각 그리드 셀의 내용을 중앙 정렬 */
+    gap: 4px 6px !important; /* 반응형에서 gap을 줄여 정렬 개선 */
+  }
+
+  /* 반응형에서 라벨 폰트 크기 줄이기 */
+  .detail-section02 .content-emission-content .content-graph-label > div {
+    font-size: 10px !important;
+    line-height: 12px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .detail-section02 {
+    grid-template-columns: 1fr !important; /* stack */
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Optional: reduce min-height slightly on small screens */
+  .detail-section02 .content-emission,
+  .detail-section02 .child1 {
+    min-height: 380px; /* taller box on small screens */
+    width: 100% !important; /* 모바일에서 전체 너비 보장 */
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 모바일에서 section02 너비 문제 해결 */
+@media (max-width: 768px) {
+  .detail-section02 {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+
+  .detail-section02 .content-emission,
+  .detail-section02 .child1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 !important; /* 내부 패딩 제거하여 너비 문제 방지 */
+  }
+
+  /* content-emission-content도 부모를 넘지 않도록 */
+  .detail-section02 .content-emission .content-emission-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 모바일에서도 그래프 막대와 라벨을 중앙 정렬 */
+  .detail-section02 .content-emission-content .content-graph-bar,
+  .detail-section02 .content-emission-content .content-graph-label {
+    justify-items: center !important; /* 각 그리드 셀의 내용을 중앙 정렬 */
+    gap: 3px 4px !important; /* 모바일에서 gap을 더 줄여 정렬 개선 */
+  }
+
+  /* 모바일에서 라벨 폰트 크기 더 줄이기 */
+  .detail-section02 .content-emission-content .content-graph-label > div {
+    font-size: 9px !important;
+    line-height: 11px !important;
+  }
+
+  /* 차트 컨테이너와 차트 자체를 반응형으로 */
+  .detail-section02 .content-count-chart-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .detail-section02 #contentCountPieChart {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important; /* 정사각형 비율 유지 */
+  }
+}
+
+/* 모바일에서 절대 위치 요소들의 너비 문제 해결 */
+@media (max-width: 768px) {
+  .detailed_analysis {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px; /* 최상위 부모에 일관된 패딩 */
+  }
+
+
+  .detail-section01-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  /* Section03: 화면 너비에서 좌우 약간의 공백만 가지는 너비 */
+  .detail-section03 {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  /* Section02의 자식 요소들도 전체 너비 사용 */
+  .detail-section02 .content-emission,
+  .detail-section02 .child1 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 모바일에서 subpage-content를 2행 레이아웃으로 변경 */
+  .subpage-content {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important; /* 첫 번째 행: URL과 배지 */
+    grid-template-rows: auto auto !important; /* 두 개의 행 */
+    gap: 12px !important;
+    height: auto !important;
+    padding: 12px 0 !important;
+    align-items: center !important;
+  }
+
+  /* 첫 번째 행: URL (왼쪽) */
+  .subpage-url {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 / 2 !important;
+    flex: none !important;
+    max-width: 100% !important;
+    width: auto !important;
+    margin-right: 12px !important;
+  }
+
+  /* 첫 번째 행: 배출량 배지 (오른쪽) */
+  .subpage-emission-badge {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 / 2 !important;
+    flex: none !important;
+    width: 80px !important;
+  }
+
+  /* 두 번째 행: 막대바 (전체 너비) */
+  .subpage-bar {
+    grid-column: 1 / -1 !important; /* 전체 컬럼에 걸침 */
+    grid-row: 2 / 3 !important;
+    flex: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}

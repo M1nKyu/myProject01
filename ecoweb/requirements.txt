@@ -1,0 +1,191 @@
+# EcoWeb 프로젝트 의존성 패키지 목록
+# 탄소 배출량 분석 및 지속가능한 웹 개발 플랫폼
+
+# 웹 프레임워크 / 서버 ====================================
+Flask[async]==3.1.0               # 메인 웹 프레임워크 (async 지원)
+Flask-Session                     # 세션 관리
+Flask-SocketIO==5.4.1             # 실시간 통신
+Flask-Babel==4.0.0                # 국제화(i18n) 지원
+gunicorn                          # WSGI/ASGI 서버
+uvicorn[standard]==0.32.1         # Phase 4: ASGI 서버 (Gunicorn worker용)
+asgiref==3.8.1                    # Phase 4: ASGI 유틸리티
+Werkzeug==3.1.3                   # Flask 유틸리티
+
+# 비동기 처리 / 작업 큐 ===================================
+celery==5.4.0                     # 백그라운드 작업 처리
+redis==5.2.0                      # 캐시 및 메시지 브로커
+amqp==5.3.1                       # AMQP 프로토콜
+billiard==4.2.1                   # 멀티프로세싱
+kombu==5.4.2                      # 메시징 라이브러리
+vine==5.1.0                       # 콜백 체인
+
+# 웹 스크래핑 / 분석 ======================================
+beautifulsoup4==4.13.3            # HTML 파싱
+selenium==4.26.1                  # 웹 드라이버 자동화
+webdriver-manager                 # 웹드라이버 자동 관리
+requests==2.32.3                  # HTTP 요청
+requests-toolbelt==1.0.0          # 요청 확장 도구
+user-agents==2.2.0                # 사용자 에이전트 파싱
+
+# 데이터베이스 ============================================
+pymongo==4.9.1                    # MongoDB 드라이버 (동기) - Phase 4: motor 호환 버전
+motor==3.6.0                      # Phase 4: 비동기 MongoDB 드라이버 (pymongo<4.10 요구)
+# SQLAlchemy==2.0.35                # SQL ORM - MongoDB만 사용
+
+# AI/ML 및 데이터 분석 ====================================
+tensorflow==2.18.0                # 머신러닝 프레임워크 (이미지 분류)
+keras==3.6.0                      # 딥러닝 API
+tensorboard==2.18.0               # 모델 시각화
+tensorboard-data-server==0.7.2    # 텐서보드 데이터 서버
+numpy==1.26.4                     # 수치 계산
+pandas==2.1.4                     # 데이터 분석
+opencv-python==0.0.0.0          # 컴퓨터 비전
+
+# LangChain / RAG 시스템 ==================================
+langchain==0.3.8                  # LLM 체인 프레임워크
+langchain-community==0.3.8        # 커뮤니티 통합
+langchain-core==0.3.21            # 핵심 기능
+langchain-ollama==0.2.0           # Ollama 통합
+langchain-pinecone==0.2.0         # Pinecone 벡터DB 통합
+langchain-text-splitters==0.3.2   # 텍스트 분할
+langsmith==0.1.145                # LangChain 추적
+ollama==0.4.1                     # 로컬 LLM 서버
+
+# 클라우드 서비스 =========================================
+boto3==1.36.23                    # AWS SDK
+botocore==1.36.23                 # AWS 핵심 라이브러리
+s3transfer==0.11.2                # S3 전송 유틸리티
+
+# 템플릿 / 마크업 =========================================
+Jinja2==3.1.4                     # 템플릿 엔진
+MarkupSafe==3.0.2                 # 안전한 마크업 처리
+Markdown==3.7                     # 마크다운 파서
+
+# 코드 최적화 / 압축 ======================================
+htmlmin==0.1.12                   # HTML 압축
+rcssmin==1.2.0                    # CSS 압축
+rjsmin==1.2.3                     # JS 압축
+
+# PDF 생성 ================================================
+# weasyprint==62.3                  # React PDF로 대체됨
+playwright==1.39.0                 # Chromium 기반 PDF 생성 (greenlet 호환)
+PyPDF2==3.0.1                      # PDF 병합 처리
+
+# CSS 처리 ================================================
+# cssutils==2.10.0                  # React PDF로 대체됨 - CSS 파싱 불필요
+
+# HTTP / 네트워킹 =========================================
+aiohttp==3.9.5                    # 비동기 HTTP 클라이언트
+httpx==0.27.2                     # 현대적 HTTP 클라이언트
+httpcore==1.0.7                   # HTTP 핵심 라이브러리
+urllib3==2.2.3                    # HTTP 라이브러리
+certifi==2024.8.30                # SSL 인증서
+PySocks==1.7.1                    # SOCKS 프록시
+
+# 데이터 직렬화 / 검증 ====================================
+pydantic==2.10.1                  # 데이터 검증
+pydantic-core==2.27.1             # Pydantic 핵심
+pydantic-settings==2.6.1          # 설정 관리
+# marshmallow==3.23.1               # 직렬화/역직렬화 - Pydantic으로 대체
+
+# 유틸리티 라이브러리 =====================================
+python-dotenv==1.0.1              # 환경변수 관리
+aiofiles==24.1.0                  # Phase 4: 비동기 파일 I/O
+# click==8.1.7                      # CLI 도구 - 웹 애플리케이션에서 불필요
+# rich==13.9.4                      # 터미널 출력 개선 - 프로덕션에서 불필요
+tqdm==4.67.0                      # 진행률 표시
+tenacity==9.0.0                   # 재시도 로직
+
+# OAuth / 인증 =============================================
+google-auth==2.34.0               # Google 인증 라이브러리
+google-auth-oauthlib==1.2.1       # Google OAuth2 흐름
+google-auth-httplib2==0.2.0       # Google 인증 HTTP 어댑터
+
+# 개발 도구 ===============================================
+# Pygments==2.18.0                  # 코드 하이라이팅 - 프로덕션에서 불필요
+
+# 시스템 / 저수준 =========================================
+# eventlet==0.38.0                  # 비동기 네트워킹 - 현재 사용되지 않음
+# greenlet==3.1.1                   # 경량 스레드 - playwright가 자동으로 호환 버전 설치
+netifaces==0.10.6                 # 네트워크 인터페이스
+psutil==5.9.8                     # 시스템 모니터링 (CPU, 메모리, 프로세스)
+
+# TensorFlow 의존성 ======================================= 
+absl-py==2.1.0
+astunparse==1.6.3
+flatbuffers==24.3.25
+gast==0.6.0
+google-pasta==0.2.0
+grpcio==1.68.0
+h5py==3.12.1
+libclang==18.1.1
+ml-dtypes>=0.4.0,<0.5.0
+opt_einsum==3.4.0
+protobuf>=3.19.6,<4.24.0
+tensorflow-io-gcs-filesystem==0.31.0
+termcolor==2.5.0
+wrapt>=1.11.0,<1.15.0
+
+# 기타 의존성 =============================================
+aiohappyeyeballs==2.4.3
+aiosignal==1.3.1
+annotated-types==0.7.0
+anyio==4.6.2.post1
+attrs==24.2.0
+bidict==0.23.1
+blinker==1.9.0
+cffi==1.17.1
+charset-normalizer==3.4.0
+click-didyoumean==0.3.1
+click-plugins==1.1.1
+click-repl==0.3.0
+colorama==0.4.6
+dataclasses-json==0.6.7
+dnspython==2.7.0
+filelock==3.17.0
+frozenlist==1.5.0
+gdown==5.2.0
+h11==0.14.0
+httpx-sse==0.4.0
+idna==3.10
+itsdangerous==2.2.0
+jmespath==1.0.1
+jsonpatch==1.33
+jsonpointer==3.0.0
+markdown-it-py==3.0.0
+mdurl==0.1.2
+multidict==6.1.0
+mypy-extensions==1.0.0
+namex==0.0.8
+optree==0.13.1
+orjson==3.10.12
+outcome==1.3.0.post0
+packaging==24.2
+pillow==11.0.0
+prompt_toolkit==3.0.48
+propcache==0.2.0
+pycparser==2.22
+python-dateutil==2.9.0.post0
+python-engineio==4.10.1
+python-socketio==5.11.4
+PyYAML==6.0.2
+simple-websocket==1.1.0
+six==1.16.0
+sniffio==1.3.1
+sortedcontainers==2.4.0
+soupsieve==2.6
+trio==0.27.0
+trio-websocket==0.11.1
+typing-inspect==0.9.0
+typing_extensions==4.12.2
+tzdata==2024.2
+wcwidth==0.2.13
+websocket-client==1.8.0
+wsproto==1.2.0
+yarl==1.18.0
+
+# 비활성화된 패키지 =======================================
+# bs4==0.0.2                      # 불필요 - beautifulsoup4 사용
+# pinecone-client==5.0.1          # langchain-pinecone으로 대체
+# pinecone-plugin-inference==1.1.0 # 사용되지 않음
+# pinecone-plugin-interface==0.0.7 # 사용되지 않음

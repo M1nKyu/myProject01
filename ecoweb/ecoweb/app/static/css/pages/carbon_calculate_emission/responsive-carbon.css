@@ -1,0 +1,551 @@
+/* ================= 중앙 축소(zoom/shrink) 정렬: 비파괴적 오버라이드 ================= */
+/* 페이지 루트 컨테이너를 1920px 캔버스로 고정/중앙 정렬하여
+   절대 배치된 자식들이 화면 축소 시에도 가운데 기준으로 줄어들도록 함. */
+.div-wrapper {
+  max-width: 1920px;
+  width: 100%; /* 모바일에서도 전체 너비 사용 */
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; /* 절대배치 자식들의 기준점 보장 */
+  height: auto !important; /* 반응형에서 자동 높이 */
+  min-height: 1960px; /* 데스크톱에서 최소 높이 보장 */
+  overflow: visible !important; /* 컨텐츠가 잘리지 않도록 */
+}
+
+/* 모바일에서 max-width 제한 제거 */
+@media (max-width: 1600px) {
+  .div-wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 20px; /* 최상위 부모에 일관된 패딩 */
+    box-sizing: border-box;
+    display: block !important; /* flex를 block으로 변경하여 세로 배치 */
+    flex-direction: column !important; /* 혹시 flex가 유지되면 column으로 */
+  }
+}
+
+/* ===================== 반응형 레이아웃 (1600px 이하) ===================== */
+@media (max-width: 1600px) {
+  /* 모든 주요 영역을 relative positioning으로 변경 */
+  .carbon-emission,
+  .carbon-grade,
+  .carbon-emission-equivalent,
+  .carbon-emission-trend {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
+
+  /* ================= 속도계 영역 (carbon-emission) ================= */
+  .carbon-emission {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 속도계 영역 내부 모든 absolute 요소를 static/relative로 변경 */
+  .carbon-emission-header {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .carbon-emission-title {
+    position: static !important;
+    margin: 0 !important;
+    text-align: center;
+  }
+
+  .carbon-emission-info-icon {
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  .carbon-emission .p {
+    position: static !important;
+    margin: 0 0 20px 0 !important;
+    text-align: center;
+  }
+
+  /* 속도계 컨테이너: 비율 유지하며 축소 */
+  .carbon-emission-speedmeter {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: min(605px, 100%) !important;
+    height: auto !important;
+    aspect-ratio: 605 / 336; /* 원본 비율 유지 */
+    margin: 0 auto 20px auto;
+    /* scale을 위한 wrapper 역할 */
+    --speedmeter-scale: min(1, calc(100vw - 40px) / 605); /* 패딩 고려 */
+  }
+
+  /* 속도계 배경: 컨테이너에 맞춰 비율 유지 */
+  .carbon-emission-speedmeter-bg {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    margin: 0;
+  }
+
+  /* 속도계 바늘: 원본 위치 비율 유지 */
+  .carbon-emission-speedmeter-needle {
+    position: absolute !important;
+    /* 원본 위치: top: 184px / 336px = 54.76%, left: 33px / 605px = 5.45% */
+    top: 54.76% !important;
+    left: 7.45% !important;
+    width: 50.41% !important; /* 바늘 이미지가 컨테이너 너비의 약 50% 정도로 비율 유지 */
+    height: auto !important;
+    max-width: 100%;
+    max-height: 100%;
+    transform-origin: right bottom; /* 원본 transform-origin 유지 */
+    margin: 0;
+    object-fit: contain;
+  }
+
+  /* 속도계 마크: 원본 위치 비율 유지 */
+  .carbon-emission-speedmeter-mark {
+    position: absolute !important;
+    /* 원본 위치: top: 212px / 336px = 63.1%, left: 0px */
+    top: 63.1% !important;
+    left: 0 !important;
+    width: 16.36% !important; /* 99px / 605px */
+    height: auto !important;
+    aspect-ratio: 99 / 31; /* 원본 비율 유지 */
+    margin: 0;
+    object-fit: contain;
+  }
+
+  .carbon-emission-value,
+  .carbon-emission-unit {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  /* ================= 탄소 등급 영역 (carbon-grade) ================= */
+  .carbon-grade {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2열 1행 (넓은 화면) */
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+
+  .carbon-grade-item {
+    position: relative !important;
+    width: 100%;
+    height: auto;
+    min-height: 270px;
+  }
+
+  .carbon-grade-text-wrapper {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 20px;
+  }
+
+  .carbon-grade-icon-wrapper {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: 207px;
+    height: auto;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carbon-grade-item:last-child .carbon-grade-icon-wrapper {
+    max-width: 176px;
+  }
+
+  .carbon-grade-icon {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100%;
+    height: auto;
+  }
+
+  .carbon-grade-icon-text {
+    position: absolute !important; /* 아이콘 내부에서는 absolute 유지 */
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+  }
+
+  .carbon-grade-item:first-child .carbon-grade-icon-text {
+    top: 61% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+  }
+
+  .carbon-grade-item:last-child .carbon-grade-icon-text {
+    top: 64% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+  }
+
+  .carbon-grade-item .carbon-emission-info {
+    position: absolute !important; /* 카드 내부에서는 absolute 유지 */
+    bottom: 20px;
+    left: 20px;
+  }
+
+  /* ================= 탄소 배출량 환산 영역 (carbon-emission-equivalent) ================= */
+
+  .equivalent-header {
+    margin-bottom: 20px;
+  }
+
+  .equivalent-content {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .equivalent-content-item {
+    position: relative !important;
+    /* 원본 크기 유지: 높이 300px 고정, 너비는 그리드에서 자동 계산되지만 원본 기준 약 370px */
+    width: 100%;
+    height: 300px !important; /* 원본 높이 고정으로 모든 아이템의 높이 통일 */
+    min-height: 300px;
+    overflow: hidden; /* 원본과 동일 */
+  }
+
+  /* 원본 CSS의 absolute 배치를 그대로 유지하여 일관된 레이아웃 보장 */
+  /* 텍스트와 value-box는 원본 CSS의 위치 그대로 사용 (절대 위치) */
+  /* 이미지는 원본 CSS의 위치 그대로 사용 (절대 위치, 각 아이템마다 다른 크기/위치) */
+  /* 반응형에서는 컨테이너 너비에 맞춰 비율로 조정됨 */
+
+  .equivalent-content-item-shadow {
+    display: none; /* 그림자 이미지 숨김 */
+  }
+
+  /* ================= 탄소 배출량 추이 그래프 영역 (carbon-emission-trend) ================= */
+  .carbon-emission-trend-header {
+    margin-bottom: 20px;
+  }
+
+  .carbon-emission-trend-graph {
+    position: relative !important;
+    width: 100% !important;
+    height: 400px !important;
+    min-height: 300px;
+  }
+
+  .carbon-emission-trend-graph canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+/* 태블릿 크기 (1200px 이하) */
+@media (max-width: 1200px) {
+  .carbon-emission,
+  .carbon-grade,
+  .carbon-emission-equivalent,
+  .carbon-emission-trend {
+    margin-bottom: 32px;
+    margin-top: 32px;
+  }
+
+  /* carbon-grade를 1열 2행으로 변경 */
+  .carbon-grade {
+    grid-template-columns: 1fr !important; /* 1열 */
+    grid-template-rows: auto auto !important; /* 2행 */
+    gap: 12px !important;
+  }
+
+  /* 1열 2행 레이아웃에서 아이콘 텍스트 위치 조정 */
+  .carbon-grade-item:first-child .carbon-grade-icon-text {
+    top: 70% !important; /* 1열 2행에서는 중앙 정렬 */
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+  }
+
+  .carbon-grade-item:last-child .carbon-grade-icon-text {
+    top: 62% !important; /* 1열 2행에서는 중앙 정렬 */
+    left: 48% !important;
+    transform: translate(-50%, -50%);
+  }
+
+  .equivalent-content {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* 1200px 이하: equivalent-content-item을 가로 배치로 변경 */
+  .equivalent-content-item {
+    /* flexbox로 가로 배치: image | text-wrapper (title+formula 세로) | value-box */
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    height: auto !important; /* 높이 자동 조정 */
+    min-height: 120px; /* 최소 높이 설정 */
+    padding: 16px;
+    box-sizing: border-box !important; /* padding이 너비에 포함되도록 */
+    width: 100% !important; /* 부모 컨테이너 너비를 넘지 않도록 */
+    max-width: 100% !important; /* 최대 너비 제한 */
+    overflow: hidden !important; /* 내용이 박스 밖으로 나가지 않도록 */
+  }
+
+  /* 이미지: 좌측에 배치 */
+  .equivalent-content-item-image {
+    position: relative !important;
+    top: auto !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 120px; /* 적절한 크기로 제한 */
+    max-height: 120px;
+    flex-shrink: 0; /* 축소 방지 */
+    margin: 0 !important;
+    object-fit: contain;
+  }
+
+  /* 각 아이템별 이미지 크기 조정: 200px ~ 150px 사이로 동적 조절 */
+  .equivalent-content-item:nth-child(1) .equivalent-content-item-image {
+    max-width: clamp(170px, 12.5vw, 200px) !important;
+    max-height: clamp(170px, 12.5vw, 200px) !important;
+    left: -35px;
+  }
+
+  .equivalent-content-item:nth-child(2) .equivalent-content-item-image {
+    max-width: clamp(170px, 12.5vw, 200px) !important;
+    max-height: clamp(170px, 12.5vw, 200px) !important;
+    left: -50px;
+  }
+
+  .equivalent-content-item:nth-child(3) .equivalent-content-item-image {
+    max-width: clamp(170px, 12.5vw, 200px) !important;
+    max-height: clamp(170px, 12.5vw, 200px) !important;
+    left: -55px;
+  }
+
+  .equivalent-content-item:nth-child(4) .equivalent-content-item-image {
+    max-width: clamp(170px, 12.5vw, 200px) !important;
+    max-height: clamp(170px, 12.5vw, 200px) !important;
+    left: -45px;
+  }
+
+  /* text-wrapper: title과 formula를 묶는 컨테이너 */
+  .equivalent-content-item-text-wrapper {
+    position: relative !important;
+    top: 0;
+    left: 0;
+    flex: 1 1 0; /* 남은 공간 차지 */
+    min-width: 0;
+    display: flex;
+    flex-direction: column; /* title과 formula를 세로로 배치 */
+    justify-content: center;
+    line-height: 23px;
+  }
+
+  /* title과 formula: text-wrapper 내부에서 세로로 배치 */
+  .equivalent-content-item-title,
+  .equivalent-content-item-formula {
+    position: relative !important;
+    text-align: left;
+    margin: 0 !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  .equivalent-content-item-title {
+    margin-bottom: 4px !important;
+  }
+
+  .equivalent-content-item-formula {
+    margin-top: 0 !important;
+    font-size: clamp(13px, 1.5vw, 18px) !important; /* 최소 13px, 최대 18px로 동적 조절 */
+  }
+
+  /* value-box: 우측에 배치 */
+  .equivalent-content-item-value-box {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    min-width: 200px; /* 최소 너비 */
+    max-width: 250px;
+    height: 60px !important;
+    flex-shrink: 0; /* 축소 방지 */
+    margin: 0 !important;
+  }
+}
+
+/* 작은 모바일 크기 (500px 이하): 원본 레이아웃으로 복원 */
+@media (max-width: 556px) {
+  /* equivalent-header: title과 basis를 세로로 배치 */
+  .equivalent-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .equivalent-basis {
+    margin-top: 0 !important;
+  }
+
+  /* 1200px에서 적용한 flexbox 레이아웃을 모두 제거하고 원본 레이아웃으로 복원 */
+  .equivalent-content-item {
+    display: block !important; /* flex 제거 */
+    flex-direction: unset !important;
+    align-items: unset !important;
+    gap: unset !important;
+    height: 230px !important; /* 원본 높이 */
+    padding: 0 !important; /* 원본에는 padding 없음 */
+    overflow: hidden !important; /* 이미지가 박스 밖으로 나가지 않도록 */
+  }
+
+  /* 이미지: 500px 이하에서는 크기와 위치를 조정하여 박스 안에 들어오도록 */
+  .equivalent-content-item-image {
+    position: absolute !important;
+    object-fit: contain;
+  }
+
+  /* 커피 아이템 이미지 위치: 크기와 위치를 비율로 조정 */
+  .equivalent-content-item:nth-child(1) .equivalent-content-item-image {
+    width: 55% !important; /* 컨테이너 너비의 55% */
+    height: auto !important;
+    aspect-ratio: 290 / 225; /* 원본 비율 유지 */
+    top: -10px !important; /* 약간 위로 걸치도록 */
+    left: -10% !important; /* 약간 왼쪽으로 걸치도록 */
+    transform: rotate(15deg) !important; /* 회전 각도 약간 줄임 */
+    transform-origin: center center !important;
+    transform-box: fill-box !important;
+    max-width: 200px !important; /* 최대 크기 제한 */
+  }
+
+  /* 전기차 아이템 이미지 위치: 크기와 위치를 비율로 조정 */
+  .equivalent-content-item:nth-child(2) .equivalent-content-item-image {
+    width: 65% !important; /* 컨테이너 너비의 65% */
+    height: auto !important;
+    max-width: 250px !important; /* 최대 크기 제한 */
+    top: -40px !important; /* 약간 위로 걸치도록 */
+    left: -25% !important; /* 약간 왼쪽으로 걸치도록 */
+    transform: scaleX(-1) !important;
+  }
+
+  /* 스마트폰 아이템 이미지 위치: 크기와 위치를 비율로 조정 */
+  .equivalent-content-item:nth-child(3) .equivalent-content-item-image {
+    width: 60% !important; /* 컨테이너 너비의 60% */
+    height: auto !important;
+    aspect-ratio: 270 / 210; /* 원본 비율 유지 */
+    max-width: 200px !important; /* 최대 크기 제한 */
+    top: -25px !important; /* 약간 위로 걸치도록 */
+    left: -15% !important; /* 약간 왼쪽으로 걸치도록 */
+  }
+
+  /* 나무 아이템 이미지 위치: 크기와 위치를 비율로 조정 */
+  .equivalent-content-item:nth-child(4) .equivalent-content-item-image {
+    width: 75% !important; /* 컨테이너 너비의 75% */
+    height: auto !important;
+    aspect-ratio: 370 / 288; /* 원본 비율 유지 */
+    max-width: 280px !important; /* 최대 크기 제한 */
+    top: -30px !important; /* 약간 위로 걸치도록 */
+    left: -21% !important; /* 약간 왼쪽으로 걸치도록 */
+  }
+
+  /* text-wrapper: 원본 CSS처럼 absolute positioning 사용 */
+  .equivalent-content-item-text-wrapper {
+    position: absolute !important;
+    top: 10px !important; /* 원본 40px에서 조정 */
+    left: 50% !important; /* 중앙 정렬 */
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important; /* title과 formula 사이 간격 */
+    width: 90% !important; /* 너비 제한 */
+  }
+
+  /* title과 formula: text-wrapper 내부에서 relative 정렬 */
+  .equivalent-content-item-title,
+  .equivalent-content-item-formula {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
+  .equivalent-content-item-title {
+    font-size: clamp(16px, 8vw, 35px) !important; /* 동적 크기 조절, 최대 35px */
+    line-height: 1.2 !important;
+    width: 100% !important;
+  }
+
+  .equivalent-content-item-formula {
+    font-size: clamp(12px, 3vw, 24px) !important; /* 동적 크기 조절, 최대 24px */
+    line-height: 1.4 !important;
+    width: 100% !important;
+  }
+
+  /* value-box: 500px 이하에서는 크기와 위치 조정 */
+  .equivalent-content-item-value-box {
+    position: absolute !important;
+    width: calc(100% - 40px) !important; /* 원본 302px에서 조정 */
+    max-width: 280px !important;
+    height: 60px !important; /* 원본 높이 유지 */
+    top: 150px !important; /* 원본 위치 유지 */
+    left: 50% !important; /* 중앙 정렬 */
+    transform: translateX(-50%) !important;
+    min-width: unset !important;
+    flex-shrink: unset !important;
+    margin: 0 !important;
+  }
+}
+
+/* 모바일 크기 (768px 이하) */
+@media (max-width: 768px) {
+  .carbon-emission,
+  .carbon-grade,
+  .carbon-emission-equivalent,
+  .carbon-emission-trend {
+    margin-bottom: 24px;
+  }
+
+  .carbon-emission-title {
+    font-size: clamp(24px, 5vw, 32px) !important;
+  }
+
+  .equivalent-title,
+  .carbon-emission-trend-title {
+    font-size: clamp(18px, 4vw, 20px) !important;
+  }
+
+  .carbon-emission-value {
+    font-size: clamp(60px, 12vw, 100px) !important;
+  }
+
+  .carbon-emission-trend-graph {
+    height: 300px !important;
+    min-height: 250px;
+  }
+}

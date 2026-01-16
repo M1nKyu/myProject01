@@ -1,0 +1,147 @@
+
+/* 로고 및 소개 =============================================== */
+.cover-header-brand {
+    position: absolute;
+    top: 45px;
+    left: 50px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+.cover-header-name {
+    position: relative;
+    margin-right: 26px;
+
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #00cc7e;
+    text-align: left;
+    display: inline-block;
+}
+.cover-header-text {
+    position: relative;
+
+    font-size: 12px;
+    line-height: 20px;
+    color: #009e62;
+    text-align: left;
+    display: inline-block;
+}
+
+/* 보고서 일자 =============================================== */
+.cover-date {
+    position: absolute;
+    top: 45px;
+    right: 50px;
+}
+.cover-date-quarter {
+    position: relative;
+    display: block;
+
+    font-size: 10px;
+    line-height: 20px;
+    color: #009e62;
+    text-align: right;
+}
+.cover-date-detail {
+    position: relative;
+    display: block;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #009e62;
+    text-align: right;
+}
+
+/* 보고서 제목 =============================================== */
+.cover-title-section {
+    position: absolute;
+    top: 193px;
+    left: 50px;
+}
+.cover-title-pretext {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+
+    font-size: 18px;
+    line-height: 24px;
+    color: #70737c;
+    text-align: left;
+}
+.cover-title-main {
+    position: relative;
+    display: block;
+    margin-bottom: 44px;
+
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 900;
+    color: #292a2d;
+    text-align: left;
+}
+.cover-title-subtext {
+    position: relative;
+    display: block;
+
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #70737c;
+    text-align: left;
+}
+
+/* 문서번호, 분류, 분류대상, 측정기준 ========================= */
+.cover-meta {
+    position: absolute;
+    top: 512px;
+    left: 50px;
+    
+    width: 742px;
+    height: 40px;
+}
+.cover-meta-doc-num {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 88px;
+}
+.cover-meta-category {
+    position: absolute;
+    top: 0;
+    left: 116px;
+    width: 100px;
+}
+.cover-meta-target {
+    position: absolute;
+    top: 0;
+    left: 244px;
+    width: 190px;
+}
+.cover-meta-standard {
+    position: absolute;
+    top: 0;
+    left: 419px;
+    width: 323px;
+}
+.meta-label {
+    position: relative;
+    display: block;
+
+    font-size: 10px;
+    line-height: 16px;
+    color: #009e62;
+    text-align: left;
+}
+.meta-value {
+    position: relative;
+    display: block;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #009e62;
+    text-align: left;
+}

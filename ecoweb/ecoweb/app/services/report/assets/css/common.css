@@ -1,0 +1,207 @@
+/* PDF 보고서 공통 스타일 */
+
+/* 전체 페이지 기본 설정 ====================================== */
+body {
+    margin: 0;
+}
+
+.div {
+    position: relative;
+    width: 842px;
+    height: 595px;
+    background-color: #f4f4f5;
+    overflow: hidden;
+    text-align: left;
+    font-size: 10px;
+    color: #878a93;
+    font-family: Roboto;
+}
+
+/* 공통 폰트 클래스 ========================================== */
+.common-subtitle {
+    font-family: Roboto;
+    font-size: 10px;
+    font-weight: bold;
+    color: #009e62;
+    line-height: 18px;
+    display: inline-block;
+    text-align: left;
+
+    position: relative;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.common-text {
+    font-family: Roboto;
+    font-size: 8px;
+    color: #5a5c63;
+    line-height: 14px;
+    text-align: left;
+    
+    position: relative;
+    display: block;
+}
+
+.common-ul {
+    margin: 0;
+    padding-left: 11px;
+}
+
+.p {
+    margin: 0;
+}
+
+/* 헤더 공통 스타일 ========================================== */
+.report-header {
+    position: absolute;
+    top: 43px;
+    left: 180px;
+    width: 650px;
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+.report-header-text01 {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    color: #00b872;
+}
+.report-header-text02 {
+    position: relative;
+    display: inline-block;
+    margin-left: 12px;
+    font-size: 12px;
+    line-height: 24px;
+    color: #70737c;
+}
+.report-header-url {
+    position: absolute;
+    right: 40px;
+    top: 0;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 24px;
+    color: #70737c;
+}
+.report-header-line {
+    position: absolute;
+    left: 0;
+    top: 37px;
+    width: 628px;
+    height: 1px;
+    background-color: #5a5c63;
+    transform: scaleY(0.3);
+    transform-origin: top;
+}
+
+/* 수직선 컴포넌트 =========================================== */
+.vertical-line-460 {
+    position: absolute;
+    left: 491px;
+    top: 100px;
+    width: 1px;
+    height: 460px;
+    background-color: #5a5c63;
+    transform: scaleX(0.3);
+    transform-origin: left;
+}
+
+/* 사이드바 공통 스타일 ====================================== */
+.report-sidebar {
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    border-radius: 0px 12px 0px 0px;
+    background-color: #dbdcdf;
+    width: 154px;
+    height: 515px;
+}
+
+.report-sidebar-title {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    line-height: 14px;
+    color: #37383c;
+    font-family: Roboto;
+    font-weight: bold;
+}
+
+/* section01 */
+.report-sidebar-section01 {
+    position: absolute;
+    top: 56px;
+    left: 24px;
+}
+
+.report-sidebar-section01-header {
+    position: relative;
+    line-height: 14px;
+    font-weight: bold;
+    color: #009e62;
+    margin-bottom: 4px;
+}
+
+.report-sidebar-section01-item {
+    position: relative;
+    line-height: 14px;
+    color: #46474c;
+    margin-bottom: 4px;
+}
+
+/* section02 */
+.report-sidebar-section02 {
+    position: absolute;
+    top: 190px;
+    left: 24px;
+}
+
+.report-sidebar-section02-header {
+    position: relative;
+    line-height: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.report-sidebar-section02-item {
+    position: relative;
+    line-height: 14px;
+    margin-bottom: 4px;
+}
+
+/* section03 */
+.report-sidebar-section03 {
+    position: absolute;
+    top: 306px;
+    left: 24px;
+}
+
+.report-sidebar-section03-header {
+    position: relative;
+    line-height: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.report-sidebar-section03-item {
+    position: relative;
+    line-height: 14px;
+    margin-bottom: 4px;
+}
+
+/* section04 */
+.report-sidebar-section04 {
+    position: absolute;
+    top: 404px;
+    left: 24px;
+}
+
+.report-sidebar-section04-header {
+    position: relative;
+    line-height: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}

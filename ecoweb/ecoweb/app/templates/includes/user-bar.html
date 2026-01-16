@@ -1,0 +1,62 @@
+
+<div class="user-bar">
+  <!-- 최상단 제목 ============================================================ -->
+  <div class="userbar-title">
+    <img class="userbar-title-icon" alt="탄소 분석 아이콘" src="{{ url_for('static', filename='img/detailed_analysis/detail-small-icon.svg') }}" />
+    <div class="userbar-title-text">{{ _('userbar.carbon_analysis') }}</div>
+  </div>
+
+  <!-- 사용자 정보 ============================================================ -->
+  <div class="userbar-user-name">
+    {{ _('userbar.greeting', username=session.get('username', _('userbar.user'))) }}
+  </div>
+
+  <!-- 사이트 정보 ============================================================ -->
+  <div class="userbar-site-info">
+    <div class="userbar-site-info-url" title="{{ url | default(_('sidebar.site_address')) }}">
+      <div class="userbar-site-info-url-text">{{ url | default(_('sidebar.site_address')) }}</div>
+    </div>
+    {% if korea_carbon_percentage_diff is defined and korea_emission_status is defined %}
+    <div class="userbar-site-info-emission-status">
+      <div class="userbar-site-info-emission-status-text">{{ _('userbar.comparison_text') }}</div>
+      <div class="userbar-site-info-emission-status-value">
+        {{ korea_carbon_percentage_diff }}%
+        {% if korea_emission_status == 'below_avg' %}
+          {{ _('userbar.below_avg') }}
+        {% else %}
+          {{ _('userbar.above_avg') }}
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- 액션 버튼 ============================================================ -->
+  <div class="userbar-actions">
+    <div class="userbar-compare" data-dev-link>
+      <div class="userbar-actions-text">
+        <span class="text-full">{{ _('userbar.compare_previous') }}</span>
+        <span class="text-short">이전 분석</span>
+      </div>
+    </div>
+    <div class="userbar-pdf">
+      <div class="userbar-actions-text">
+        <span class="text-full">{{ _('userbar.save_pdf') }}</span>
+        <span class="text-short">PDF저장</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/common/user-bar.css') }}" />
+
+<!-- Responsive overrides for common components -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/common/responsive-common.css') }}" />
+
+<!-- PDF Report JavaScript -->
+<script src="{{ url_for('static', filename='js/components/pdf-report.js') }}"></script>
+
+
+
+
+

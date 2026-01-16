@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEP4QKW5CR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JEP4QKW5CR');
+    </script>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+    {% if meta %}
+      <title>{{ meta.title }}</title>
+    {% else %}
+      <title>{{ _('detailed.page_title') }}</title>
+    {% endif %}
+
+  	<!-- Open Graph / Social Media Meta Tags -->
+    {% include 'includes/meta/meta-tags.html' %}
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    {% include 'includes/meta/structured-data.html' %}
+
+  	<link rel="stylesheet"  href="{{ url_for('static', filename='css/pages/detailed_analysis/detailed_analysis.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common/global.css') }}" />
+    <!-- Responsive overrides: must load after base CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/carbon_calculate_emission/responsive-detail.css') }}" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" />
+    <!-- Chart.js for pie chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body data-task-id="{{ task_id }}">
+    <!-- 페이지 로딩 화면 -->
+    {% include 'includes/page-loader.html' %}
+
+    <!-- Hidden input for task_id (fallback for older scripts) -->
+    <input type="hidden" id="task-id" name="task_id" value="{{ task_id }}">
+
+    {% include 'includes/sidebar.html' %}
+    {% include 'includes/new-header.html' %}
+  	<div class="detailed_analysis">
+        {% include 'includes/user-bar.html' %}
+        <!--section 01==========================================================-->
+        <div class="detail-section01">
+            <div class="detail-section01-wrapper">
+                <div class="detail-section01-scale">
+            <!--title-->
+    		<img class="detail-section01-road" alt="탄소배출 경로 다이어그램" src="{{ url_for('static', filename='img/detailed_analysis/detail-road.svg') }}">
+    		<div class="detail-section01-title">{{ _('detailed.emission_breakdown_title') }}</div>
+
+            <!--개인디바이스-->
+            <div class="detail-card card-device">
+                <div class="detail-section01-device-title">{{ _('detailed.device_title') }}</div>
+                <div class="detail-section01-device">
+                    <img class="detail-section01-device-icon" alt="노트북 아이콘" src="{{ url_for('static', filename='img/detailed_analysis/detail-notebook.svg') }}">
+                    <div class="vector-parent vp-toggle vp-hidden" id="vp-device">
+                        <img class="group-icon" alt="탄소배출량 표시" src="{{ url_for('static', filename='img/detailed_analysis/detail-cloud.svg') }}">
+                        <div class="g14">{{ '%.2f'|format((emissions_breakdown.device.total_g if emissions_breakdown and emissions_breakdown.device and emissions_breakdown.device.total_g is not none else 0) | float) }}g</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--홈네트워크-->
+            <div class="detail-card card-home">
+                <div class="detail-section01-home-network-title">{{ _('detailed.home_network_title') }}</div>
+                <div class="detail-section01-home-network-label">{{ _('detailed.home_network_label') }}</div>
+                <div class="detail-section01-home-network">
+                    <img class="detail-section01-home-network-icon" alt="홈 네트워크 아이콘" src="{{ url_for('static', filename='img/detailed_analysis/detail-home-network.svg') }}">
+                    <div class="vector-parent vp-toggle vp-hidden" id="vp-home">
+                        <img class="group-icon" alt="탄소배출량 표시" src="{{ url_for('static', filename='img/detailed_analysis/detail-cloud.svg') }}">
+                        <div class="g14">{{ '%.2f'|format((emissions_breakdown.network_detail.home_g if emissions_breakdown and emissions_breakdown.network_detail and emissions_breakdown.network_detail.home_g is not none else 0) | float) }}g</div>
+                    </div>
+                </div>
+            </div>
+
+            <!--외부네트워크-->
+            <div class="detail-card card-external">
+                <div class="detail-section01-external-network-title">{{ _('detailed.external_network_title') }}</div>
+                <div class="detail-section01-external-network-label">{{ _('detailed.external_network_label') }}</div>
+                <div class="detail-section01-external-network">
+                    <img class="detail-section01-external-network-icon" alt="외부 네트워크 아이콘" src="{{ url_for('static', filename='img/detailed_analysis/detail-external-network.svg') }}">
+                    <div class="vector-parent vp-toggle vp-hidden">
+                        <img class="group-icon" alt="탄소배출량 표시" src="{{ url_for('static', filename='img/detailed_analysis/detail-cloud.svg') }}">
+                        <div class="g14">{{ '%.2f'|format((emissions_breakdown.network_detail.external_g if emissions_breakdown and emissions_breakdown.network_detail and emissions_breakdown.network_detail.external_g is not none else 0) | float) }}g</div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!--해저케이블-->
+            <div class="detail-card card-sea">
+                <div class="detail-section01-sea-title">{{ _('detailed.sea_cable_title') }}</div>
+                <div class="detail-section01-sea">
+                    <img class="detail-section01-sea-icon" alt="해저 케이블 아이콘" src="{{ url_for('static', filename='img/detailed_analysis/detail-sea.svg') }}">
+                    <div class="vector-parent vp-toggle vp-hidden" id="vp-network">
+                        <img class="group-icon" alt="탄소배출량 표시" src="{{ url_for('static', filename='img/detailed_analysis/detail-cloud.svg') }}">
+                        <div class="g14">{{ '%.2f'|format((emissions_breakdown.network_detail.sea_g if emissions_breakdown and emissions_breakdown.network_detail and emissions_breakdown.network_detail.sea_g is not none else 0) | float) }}g</div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!--기업서버-->
+            <div class="detail-card card-server">
+                <div class="detail-section01-server-title">{{ _('detailed.server_title') }}</div>
+                <div class="detail-section01-server-label">{{ _('detailed.server_label') }}</div>
+                <div class="detail-section01-server">
+                    <img class="detail-section01-server-icon" alt="서버 아이콘" src="{{ url_for('static', filename='img/detailed_analysis/detail-server.svg') }}">
+                    <div class="vector-parent vp-toggle vp-hidden" id="vp-server">
+                        <img class="group-icon" alt="탄소배출량 표시" src="{{ url_for('static', filename='img/detailed_analysis/detail-cloud.svg') }}">
+                        <div class="g14">{{ '%.2f'|format((emissions_breakdown.server.total_g if emissions_breakdown and emissions_breakdown.server and emissions_breakdown.server.total_g is not none else 0) | float) }}g</div>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </div>
+
+            <script>
+            (function(){
+              function applySection01Scale(){
+                const wrapper = document.querySelector('.detail-section01-wrapper');
+                const scaleEl = wrapper ? wrapper.querySelector('.detail-section01-scale') : null;
+                if (!wrapper || !scaleEl) return;
+                const cw = wrapper.clientWidth || 0;
+                // Base canvas: 941x830
+                const s = Math.max(0.4, Math.min(1, cw / 941));
+
+                // Center-based scaling to prevent right-side clipping
+                scaleEl.style.transformOrigin = 'top center';
+                scaleEl.style.transform = `scale(${s})`;
+                scaleEl.style.left = '50%';
+                scaleEl.style.transform = `translateX(-50%) scale(${s})`;
+
+                // Keep wrapper height in sync so layout below stays correct
+                wrapper.style.height = `${830 * s}px`;
+              }
+              window.addEventListener('resize', applySection01Scale);
+              document.addEventListener('DOMContentLoaded', applySection01Scale);
+            })();
+            </script>
+
+        </div>
+
+        <!--section 02==========================================================-->
+        <div class="detail-section02">
+            <!--콘텐츠별 탄소배출량-->
+            <div class="content-emission">
+                <!--title-->
+                <div class="content-emission-title">{{ _('detailed.content_emission_title') }}</div>
+                
+                <!--content-->
+                <div class="content-emission-content">
+                    
+                    <div class="content-graph-bar">
+                        <div class="child11"></div>
+                        <div class="child12"></div>
+                        <div class="child13"></div>
+                        <div class="child14"></div>
+                        <div class="child15"></div>
+                        <div class="child16"></div>
+                        <div class="child17"></div>
+                        <div class="child18"></div>
+                    </div>
+
+                    <div class="content-graph-label">
+                        <div class="images">Images</div>
+                        <div class="fonts">Fonts</div>
+                        <div class="java-script">
+                            <p class="java">Java</p>
+                            <p class="java">Script</p>
+                        </div>
+                        <div class="html">HTML</div>
+                        <div class="css">CSS</div>
+                        <div class="media">Media</div>
+                        <div class="third-party">
+                            <p class="java">Third</p>
+                            <p class="java">-Party</p>
+                        </div>  
+                        <div class="other">Other</div>
+                    </div>
+                </div>
+            </div>
+        
+            <!--콘텐츠 수-->
+    		<div class="child1">
+                <div class="div6">{{ _('detailed.content_count_title') }}</div>
+                <!-- Chart.js 파이차트 -->
+                <div class="content-count-chart-container">
+                    <canvas id="contentCountPieChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!--하위 페이지 분석==========================================================-->
+
+        <div class="detail-section03">
+
+            <!--title-->
+    		<div class="div2">{{ _('detailed.subpage_analysis_title') }}</div>
+
+            <!--01-->
+            <div class="section03-subpage-count">
+                <img class="mask-group-icon" alt="서브페이지 아이콘" src="{{ url_for('static', filename='img/detailed_analysis/detail-subpage.svg') }}">
+                <div class="div3">{{ subpages|length if subpages else 0 }}</div>
+                <div class="div11">{{ _('detailed.total_pages') }}</div>
+            </div>
+
+            <!--02-->
+            <div class="section03-subpage-avg-emission">
+                <div class="g">{{ '%.2fg'|format((avg_emission_g if avg_emission_g is defined else 0) | float) }}</div>
+                <div class="co2">{{ _('detailed.avg_co2_per_page') }}</div>
+            </div>
+
+            <!--03-->
+            <div class="section03-subpage-total-emission">
+                <div class="g1">{{ '%.2fg'|format((total_emission_g if total_emission_g is defined else 0) | float) }}</div>
+                <div class="co21">{{ _('detailed.subpage_co2') }}</div>
+            </div>
+
+            <!--04-->
+            <div class="g-parent">
+                <div class="all">{{ _('detailed.emission_level_low') }}</div>
+                <div class="all">|</div>
+                <div class="all">{{ _('detailed.emission_level_medium') }}</div>
+                <div class="all">|</div>
+                <div class="all">{{ _('detailed.emission_level_high') }}</div>
+            </div>
+
+            <div class="section03-subpage-list">
+
+                <div class="subpage-list-title">{{ _('detailed.page_emission_list') }}</div>
+
+                <!-- sorting bar -->
+                <!-- <div class="sorting-bar">
+                    <div class="sorting-bar-item sorting-bar-item-selected" data-filter="all">
+                        <div class="filter-text">All {{ subpages|length if subpages else 0 }}</div>
+                    </div>
+                    <div class="sorting-bar-item" data-filter="low">
+                        <div class="filter-text">낮음</div>
+                    </div>
+                    <div class="sorting-bar-item" data-filter="medium">
+                        <div class="filter-text">중간</div>
+                    </div>
+                    <div class="sorting-bar-item" data-filter="high">
+                        <div class="filter-text">높음</div>
+                    </div>
+                </div> -->
+
+                <!-- search-bar -->
+                <!-- <div class="search-bar">
+                    <img class="vector-icon" alt="" src="{{ url_for('static', filename='img/detailed_analysis/detail-search.svg') }}">
+                </div>
+                 -->
+                <div class="subpage-list">
+                    {% if subpages %}
+                        {% for subpage in subpages %}
+                        <div class="subpage-item">
+                            <div class="subpage-content">
+                                {% set url_text = subpage if subpage is string else (subpage.url if subpage.url is defined else (subpage['url'] if 'url' in subpage else subpage)) %}
+                                <div class="subpage-url" title="{{ url_text }}">{{ url_text }}</div>
+                                <div class="subpage-bar">
+                                    <div class="subpage-bar-bg"></div>
+                                    {% set bar_pct = 0 %}
+                                    {% if subpage is mapping and 'emission_pct' in subpage %}
+                                        {% set bar_pct = subpage['emission_pct'] %}
+                                    {% elif subpage is defined and subpage.emission_pct is defined %}
+                                        {% set bar_pct = subpage.emission_pct %}
+                                    {% endif %}
+                                    {# emission_pct는 이미 0~100 사이의 백분율 값이므로 * 100을 하지 않음 #}
+                                    <div class="subpage-bar-fill" style="width: {{ (bar_pct | float) | round(1) }}%;"></div>
+                                </div>
+                                {# 서브페이지별 탄소배출량(g) 표시 #}
+                                {% set emission_val = None %}
+                                {% if subpage is mapping %}
+                                    {% if 'emission_g' in subpage %}
+                                        {% set emission_val = subpage['emission_g'] %}
+                                    {% endif %}
+                                {% elif subpage is defined and subpage.emission_g is defined %}
+                                    {% set emission_val = subpage.emission_g %}
+                                {% endif %}
+                                <div class="subpage-emission-badge">
+                                    <div class="subpage-emission-value" title="{{ emission_val is not none and (('%.2f'|format(emission_val | float)) ~ ' g CO2') or 'unknown' }}">
+                                        {{ emission_val is not none and (('%.2f'|format(emission_val | float)) ~ ' g') or 'N/A' }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if not loop.last %}
+                        <div class="subpage-divider"></div>
+                        {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <div class="subpage-item">
+                            <div class="subpage-content">
+                                <div class="subpage-url">{{ _('detailed.no_subpages') }}</div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+  	</div>
+  	<script>
+    		var container2 = document.getElementById("container2");
+    		if(container2) {
+      			container2.addEventListener("click", function (e) {
+        				// Add your code here
+      			});
+    		}
+    		
+    		var container3 = document.getElementById("container3");
+    		if(container3) {
+      			container3.addEventListener("click", function (e) {
+        				// Add your code here
+      			});
+    		}
+    		
+    		var container4 = document.getElementById("container4");
+    		if(container4) {
+      			container4.addEventListener("click", function (e) {
+        				// Add your code here
+      			});
+    		}
+        </script>
+        <script>
+            // Emissions breakdown from backend
+            const emissionsBreakdown = {{ emissions_breakdown | tojson | safe }};
+            console.log('emissions_breakdown:', emissionsBreakdown);
+        </script>
+        <script>
+            // Hover interactions to show vector info and toggle border
+            function setupHover(circleSelector, onEnter, onLeave) {
+                const el = document.querySelector(circleSelector);
+                if (!el) return;
+                el.addEventListener('mouseenter', () => { try { onEnter(el); } catch(e){} });
+                el.addEventListener('mouseleave', () => { try { onLeave(el); } catch(e){} });
+            }
+
+            function show(el) { if (el) el.classList.remove('vp-hidden'); }
+            function hide(el) { if (el) el.classList.add('vp-hidden'); }
+
+            // 1) 개인 디바이스: 컨테이너(.detail-section01-device) -> vp-device
+            setupHover('.detail-section01-device', (el)=>{
+                show(document.getElementById('vp-device'));
+                el.style.borderStyle = 'solid';
+            }, (el)=>{
+                hide(document.getElementById('vp-device'));
+                el.style.borderStyle = 'dashed';
+            });
+
+            // 2) 홈/외부/해저: 컨테이너들에 hover 시 각자 클라우드 표시 + 그룹 하이라이트
+            const networkCircles = [
+                '.detail-section01-home-network',
+                '.detail-section01-external-network',
+                '.detail-section01-sea'
+            ]
+                .map(sel => document.querySelector(sel))
+                .filter(Boolean);
+            let networkHoverCount = 0;
+            function setNetworkBorders(style) {
+                networkCircles.forEach(el => { el.style.borderStyle = style; });
+            }
+            function getNetworkCloudFor(el) {
+                if (el.matches('.detail-section01-home-network')) {
+                    return document.getElementById('vp-home');
+                }
+                if (el.matches('.detail-section01-external-network')) {
+                    return document.querySelector('.detail-section01-external-network .vector-parent');
+                }
+                if (el.matches('.detail-section01-sea')) {
+                    return document.getElementById('vp-network');
+                }
+                return null;
+            }
+            networkCircles.forEach(el => {
+                const cloud = getNetworkCloudFor(el);
+                el.addEventListener('mouseenter', () => {
+                    networkHoverCount++;
+                    setNetworkBorders('solid');
+                    show(cloud);
+                });
+                el.addEventListener('mouseleave', () => {
+                    networkHoverCount = Math.max(0, networkHoverCount - 1);
+                    if (networkHoverCount === 0) setNetworkBorders('dashed');
+                    hide(cloud);
+                });
+            });
+
+            // 3) 서버: 컨테이너(.detail-section01-server) -> vp-server
+            setupHover('.detail-section01-server', (el)=>{
+                show(document.getElementById('vp-server'));
+                el.style.borderStyle = 'solid';
+            }, (el)=>{
+                hide(document.getElementById('vp-server'));
+                el.style.borderStyle = 'dashed';
+            });
+        </script>
+        <script>
+            const detailedSubpages = {{ subpages | default([]) | tojson | safe }};
+            console.log('Subpages Data:', detailedSubpages);
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // Phase 4: 백엔드에서 전달받은 content_emission_data 사용
+                const contentEmissionData = {{ content_emission_data | tojson | safe }};
+                console.log('콘텐츠 유형별 탄소 배출량 데이터:', contentEmissionData);
+
+                // 콘텐츠 유형별 동적 그래프 렌더링 (신규 구조 대응)
+                renderContentEmissionGraph(contentEmissionData);
+                
+                // 콘텐츠 타입별 카운트 파이차트 렌더링
+                const contentCountData = {{ content_count_data | default([]) | tojson | safe }};
+                console.log('콘텐츠 타입별 카운트 파이차트 데이터:', contentCountData);
+                renderContentCountPieChart(contentCountData);
+            });
+            
+            function renderContentEmissionGraph(data) {
+                const container = document.querySelector('.content-emission');
+                if (!container) return;
+                // 고정 순서: 레이아웃과 1:1 매핑
+                const order = [
+                    { type: 'image',       bar: 'child11', label: 'images' },
+                    { type: 'font',        bar: 'child12', label: 'fonts' },
+                    { type: 'script',      bar: 'child13', label: 'java-script' },
+                    { type: 'document',    bar: 'child14', label: 'html' },
+                    { type: 'stylesheet',  bar: 'child15', label: 'css' },
+                    { type: 'media',       bar: 'child16', label: 'media' },
+                    { type: 'third-party', bar: 'child17', label: 'third-party' },
+                    { type: 'other',       bar: 'child18', label: 'other' }
+                ];
+
+                // 데이터 정규화: 배열 또는 객체 모두 허용
+                const dataArray = Array.isArray(data)
+                    ? data
+                    : (data && typeof data === 'object') ? Object.values(data) : [];
+                const hasData = !!(dataArray && dataArray.length);
+                if (!hasData) {
+                    console.log('콘텐츠 배출량 데이터가 없습니다. 기본 0 막대를 렌더링합니다.');
+                }
+
+                // Total 제외 후 타입별로 매핑하기 쉽게 객체로 변환
+                const filtered = hasData
+                    ? dataArray.filter(d => d && d.type !== 'total')
+                    : order.map(o => ({ type: o.type, emission: 0 }));
+                const byType = {};
+                filtered.forEach(d => { byType[d.type] = d; });
+
+                // 전체 합계(기준) 추출: data 내 type === 'total' 선호, 없으면 합산
+                const totalEntry = hasData && Array.isArray(dataArray) ? dataArray.find(d => d.type === 'total') : null;
+                const totalEmission = (totalEntry && typeof totalEntry.emission === 'number')
+                    ? totalEntry.emission : filtered.reduce((s, d) => s + (d.emission || 0), 0);
+
+                // 막대 최대 높이: 툴팁의 원 중심이 컨테이너 상단을 넘지 않도록 동적 계산
+                const contentBox = container.querySelector('.content-emission-content');
+                // 컨테이너 포지셔닝 보장(툴팁/호버존 절대좌표 기준) - 먼저 설정 (미디어쿼리 !important 무시)
+                try {
+                    if (container) {
+                        container.style.setProperty('position', 'relative', 'important');
+                        container.style.setProperty('z-index', '3000', 'important');
+                    }
+                    if (contentBox) {
+                        contentBox.style.setProperty('position', 'relative', 'important');
+                        contentBox.style.setProperty('z-index', '3001', 'important');
+                    }
+                } catch (e) {
+                    if (contentBox && getComputedStyle(contentBox).position === 'static') {
+                        contentBox.style.position = 'relative';
+                    }
+                }
+                const MIN_BAR_HEIGHT = 20;  // px for 0.0g
+                // addTooltipToBar()와 동일한 레이아웃 상수 재사용
+                const TOOLTIP_HEIGHT = 55;               // px
+                const CIRCLE_TOP_PERC = 0.7091;          // 70.91%
+                const CIRCLE_HEIGHT_PERC = 0.2909;       // 29.09%
+                const circleTopPx = CIRCLE_TOP_PERC * TOOLTIP_HEIGHT;
+                const circleHeightPx = CIRCLE_HEIGHT_PERC * TOOLTIP_HEIGHT;
+                const circleCenterOffset = circleTopPx + (circleHeightPx / 2);
+                // barTop = containerHeight - barHeight (bottom 정렬)
+                // tooltipTop = barTop - circleCenterOffset >= 0 이어야 함
+                // => barHeight <= containerHeight - circleCenterOffset
+                const containerHeight = contentBox ? contentBox.clientHeight : 0;
+                const MAX_BAR_HEIGHT = Math.max(MIN_BAR_HEIGHT, Math.floor(containerHeight - circleCenterOffset));
+
+                // 막대/라벨 업데이트
+                // 렌더 전에 기존 툴팁/호버존 정리 (중복 생성 방지)
+                container.querySelectorAll('.bar-tooltip, .bar-hover-zone').forEach(el => el.remove());
+
+                order.forEach(o => {
+                    const barEl = container.querySelector(`.${o.bar}`);
+                    if (!barEl) return;
+
+                    const emission = (byType[o.type]?.emission) || 0;
+                    let newHeight;
+                    let ratio = 0; // 색상 및 높이 계산에 공통 사용
+                    if (!totalEmission || totalEmission <= 0) {
+                        // 총합이 0이거나 없음: 모두 최소 높이
+                        newHeight = MIN_BAR_HEIGHT;
+                        ratio = 0;
+                    } else {
+                        ratio = Math.max(0, Math.min(1, emission / totalEmission));
+                        newHeight = Math.round(MIN_BAR_HEIGHT + (MAX_BAR_HEIGHT - MIN_BAR_HEIGHT) * ratio);
+                    }
+
+                    // 높이만 설정(바닥 정렬: CSS bottom:0 적용)
+                    barEl.style.height = `${newHeight}px`;
+                    barEl.style.top = '';
+
+                    // 색상 그레이스케일 유지
+                    if (ratio > 0.7) barEl.style.backgroundColor = '#5a5c63';
+                    else if (ratio > 0.4) barEl.style.backgroundColor = '#878a93';
+                    else barEl.style.backgroundColor = '#c2c4c8';
+
+                    // 툴팁
+                    addTooltipToBar(barEl, { emission });
+                });
+
+                // 라벨 텍스트 업데이트
+                const labelText = {
+                    'images': 'Images', 'fonts': 'Fonts', 'java-script': 'JavaScript', 'html': 'HTML',
+                    'css': 'CSS', 'media': 'Media', 'third-party': 'Third-Party', 'other': 'Other'
+                };
+                Object.entries(labelText).forEach(([cls, text]) => {
+                    const el = container.querySelector(`.${cls}`);
+                    if (!el) return;
+                    if (cls === 'java-script') {
+                        el.innerHTML = '<p class="java">Java</p><p class="java">Script</p>';
+                    } else if (cls === 'third-party') {
+                        el.innerHTML = '<p class="java">Third</p><p class="java">-Party</p>';
+                    } else {
+                        el.textContent = text;
+                    }
+                });
+
+                // (이전 위치에서 선이동: 이미 상단에서 설정함)
+
+                // 그래프 상단 표시(선택 사항): 최댓값 표시 - 안전하게 계산
+                const values = filtered.map(d => Number(d.emission || 0)).filter(v => Number.isFinite(v));
+                if (values.length > 0) {
+                    const topVal = Math.max(...values);
+                    const tooltipElement = document.querySelector('.graph22 .g-wrapper .all');
+                    if (tooltipElement && Number.isFinite(topVal)) {
+                        tooltipElement.textContent = `${topVal.toFixed(3)}g`;
+                    }
+                }
+            }
+            
+            function addTooltipToBar(barElement, itemData) {
+                const DEBUG_TOOLTIP = false; // true 로 바꾸면 콘솔 로깅/시각 보조
+                // 툴팁 요소 생성
+                const tooltip = document.createElement('div');
+                tooltip.className = 'bar-tooltip';
+                // 컨테이너(.content-emission-content) 기준 좌표 계산
+                const containerBox = document.querySelector('.content-emission .content-emission-content');
+                if (!containerBox) return; // 안전 가드
+                const barRect = barElement.getBoundingClientRect();
+                const containerRect = containerBox.getBoundingClientRect();
+                // 초기 스타일(위치 0, 숨김) – 실제 크기는 DOM에 추가 후 계산
+                tooltip.style.cssText = `
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 65px; /* 기본값, 미디어쿼리로 바뀔 수 있음 */
+                    height: 55px; /* 기본값, 실제 계산은 DOM 추가 후 수행 */
+                    font-size: 16px;
+                    color: #006b42;
+                    display: none;
+                    z-index: 1000;
+                    pointer-events: none; /* 툴팁이 호버 이벤트를 가로채지 않도록 */
+                `;
+                
+                // 툴팁 내용: 심플한 값 박스 (반응형에 안전)
+                const tooltipBox = document.createElement('div');
+                tooltipBox.style.cssText = `
+                    padding: 6px 8px;
+                    background: #daf2e9;
+                    border: 1px solid #b0ebd4;
+                    border-radius: 8px;
+                    color: #006b42;
+                    font-weight: 600;
+                    line-height: 1;
+                    text-align: center;
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+                    white-space: nowrap;
+                `;
+                const tooltipText = document.createElement('div');
+                tooltipText.className = 'all';
+                tooltipText.textContent = `${(itemData.emission || 0).toFixed(2)}g`;
+                tooltipBox.appendChild(tooltipText);
+                tooltip.appendChild(tooltipBox);
+                
+                // 컨테이너에 툴팁 추가(영역 내 포함)
+                containerBox.appendChild(tooltip);
+
+                // 반응형: 실제 툴팁 크기 측정 후 위치 재계산
+                const recomputeAndPlace = () => {
+                    const br = barElement.getBoundingClientRect();
+                    const cr = containerBox.getBoundingClientRect();
+                    const tRect = tooltip.getBoundingClientRect();
+                    // 막대 바로 위에 배치 (작은 간격만 유지)
+                    const gap = 2;
+                    const topNow = Math.max(0, (br.top - cr.top) - (tRect.height || 55) - gap);
+                    // 가로는 막대 중앙에 툴팁 중앙 정렬
+                    const leftNow = Math.round((br.left - cr.left) + (br.width - (tRect.width || 65)) / 2);
+                    tooltip.style.top = `${topNow}px`;
+                    tooltip.style.left = `${leftNow}px`;
+                };
+                // 초기 위치 계산(레이아웃 확정 후)
+                if ('requestAnimationFrame' in window) {
+                    requestAnimationFrame(() => recomputeAndPlace());
+                } else {
+                    setTimeout(recomputeAndPlace, 0);
+                }
+
+                // 작은 막대도 쉽게 호버할 수 있도록 투명 호버존 생성
+                const hoverZone = document.createElement('div');
+                const barLeft = Math.round(barRect.left - containerRect.left);
+                const barTop = Math.round(barRect.top - containerRect.top);
+                const barWidth = Math.round(barRect.width);
+                const barHeight = Math.round(barRect.height);
+                const pad = 10; // 위아래로 약간 여유를 줘서 호버가 끊기지 않도록
+                const hzTop = Math.max(0, barTop - pad);
+                const hzHeight = Math.min(containerRect.height, barHeight + pad * 2);
+                hoverZone.style.cssText = `
+                    position: absolute;
+                    top: ${hzTop}px;
+                    left: ${barLeft}px;
+                    height: ${hzHeight}px;
+                    width: ${Math.max(barWidth || 0, 24)}px; /* 최소 호버 폭 보장 */
+                    background: transparent;
+                    z-index: 2000; /* 컨텐츠 위로 */
+                    cursor: pointer;
+                `;
+                hoverZone.className = 'bar-hover-zone';
+                containerBox.appendChild(hoverZone);
+
+                // 호버존/막대 모두에 이벤트 연결
+                const showTooltip = () => {
+                    // 호버 시점에 위치 재계산(스크롤/리사이즈 대응)
+                    recomputeAndPlace();
+                    tooltip.style.display = 'block';
+                    if (DEBUG_TOOLTIP) console.log('[tooltip] show', { bar: barElement.className });
+                };
+                const hideTooltip = () => { 
+                    tooltip.style.display = 'none'; 
+                    if (DEBUG_TOOLTIP) console.log('[tooltip] hide', { bar: barElement.className });
+                };
+                hoverZone.addEventListener('mouseenter', showTooltip);
+                hoverZone.addEventListener('mouseleave', hideTooltip);
+                hoverZone.addEventListener('mousemove', showTooltip);
+                barElement.addEventListener('mouseenter', showTooltip);
+                barElement.addEventListener('mouseleave', hideTooltip);
+                barElement.addEventListener('mousemove', showTooltip);
+                
+                // 막대 요소에 커서 포인터 추가
+                barElement.style.cursor = 'pointer';
+
+                // 창 리사이즈 시 위치 재계산 (반응형 안정성)
+                window.addEventListener('resize', recomputeAndPlace, { passive: true });
+
+                // 디버그: 시각적으로 호버존 영역을 확인하고 싶을 때
+                if (DEBUG_TOOLTIP) {
+                    hoverZone.style.background = 'rgba(255,0,0,0.06)';
+                    console.log('[tooltip] hoverZone created', { rect: hoverZone.getBoundingClientRect() });
+                }
+            }
+        </script>
+        <script>
+            // Detailed Analysis Sorting Bar Filter functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const filterItems = document.querySelectorAll('.sorting-bar-item');
+
+                filterItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        // Remove selected class from all items
+                        filterItems.forEach(filterItem => {
+                            filterItem.classList.remove('sorting-bar-item-selected');
+                        });
+
+                        // Add selected class to clicked item
+                        this.classList.add('sorting-bar-item-selected');
+
+                        // Get filter value
+                        const filterValue = this.getAttribute('data-filter');
+                        console.log('Detailed analysis sorting filter selected:', filterValue);
+
+                        // TODO: Implement filtering logic based on filterValue
+                        // 'all' - show all subpages
+                        // 'low' - show low emission pages (<0.8g)
+                        // 'medium' - show medium emission pages (0.8-1.1g)
+                        // 'high' - show high emission pages (>1.1g)
+                    });
+                });
+            });
+        </script>
+        <script>
+            // 콘텐츠 타입별 카운트 파이차트 렌더링 함수
+            function renderContentCountPieChart(data) {
+                const canvas = document.getElementById('contentCountPieChart');
+                if (!canvas) {
+                    console.error('파이차트 canvas 요소를 찾을 수 없습니다.');
+                    return;
+                }
+
+                // 기존 가짜 데이터 (동적 데이터가 없을 때 사용)
+                const defaultData = [
+                    { label: 'PNG', count: 208 },
+                    { label: 'JPG', count: 26 },
+                    { label: 'JS', count: 13 },
+                    { label: 'WOFF', count: 38 },
+                    { label: 'SVG', count: 27 },
+                    { label: 'HTML', count: 38 },
+                    { label: 'DO', count: 13 },
+                    { label: 'WOFF2', count: 13 },
+                    { label: 'CSS', count: 27 },
+                    { label: 'ETC', count: 2 },
+                    { label: 'ICO', count: 2 }
+                ];
+
+                // 데이터 준비: 전달받은 데이터가 있으면 사용, 없으면 기본 데이터 사용
+                const chartData = (data && data.length > 0) ? data : defaultData;
+                const labels = chartData.map(item => item.label || item.ext?.toUpperCase());
+                
+                // 모든 파이가 같은 각도를 가지도록 동일한 값 사용 (기존 디자인 유지)
+                const itemCount = chartData.length;
+                const equalValues = Array(itemCount).fill(1); // 모든 조각이 같은 크기
+                
+                // 기본 색상: #5a5c63 (모든 조각이 같은 색상)
+                const baseColor = '#5a5c63';
+                // 호버 색상: #E8F5E9
+                const hoverColor = '#E8F5E9';
+                // 기본 텍스트 색상: #dbdcdf
+                const baseTextColor = '#dbdcdf';
+                // 호버 텍스트 색상: #292a2d
+                const hoverTextColor = '#292a2d';
+
+                // 기존 차트가 있으면 제거
+                if (window.contentCountChart) {
+                    window.contentCountChart.destroy();
+                }
+
+                // Chart.js 파이차트 생성
+                const ctx = canvas.getContext('2d');
+                
+                // 호버 상태 추적 (차트 생성 전에 선언)
+                let hoveredIndex = -1;
+                
+                // 모든 조각의 기본 색상 배열 생성
+                const backgroundColorArray = Array(itemCount).fill(baseColor);
+                // 테두리 색상 배열 생성 (공백을 위해 흰색 유지, 호버 시에도 흰색)
+                const borderColorArray = Array(itemCount).fill('#fff');
+                
+                window.contentCountChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: equalValues,
+                            backgroundColor: backgroundColorArray, // 배열로 직접 관리
+                            borderColor: borderColorArray, // 공백을 위해 흰색 테두리 유지
+                            borderWidth: 3, // 공백을 위한 경계선 (간격을 줄이기 위해 약간 줄임)
+                            borderAlign: 'inner', // 경계선을 내부로 정렬하여 공백 효과
+                            borderRadius: 15 // 도형의 끝을 둥글게
+                        }]
+                    },
+                    options: {
+                        responsive: true, // 반응형으로 변경
+                        maintainAspectRatio: true, // 비율 유지
+                        cutout: 0, // 도넛 차트가 아닌 파이 차트
+                        plugins: {
+                            legend: {
+                                display: false // 범례 숨김 (기존 디자인에는 범례가 없음)
+                            },
+                            tooltip: {
+                                enabled: false // 툴팁 비활성화 (기존 디자인에는 툴팁이 없음)
+                            }
+                        },
+                        onHover: (event, activeElements) => {
+                            // 호버 효과는 커스텀으로 처리
+                            canvas.style.cursor = activeElements.length > 0 ? 'pointer' : 'default';
+                        },
+                        animation: {
+                            animateRotate: true,
+                            animateScale: false,
+                            duration: 800
+                        },
+                        transitions: {
+                            active: {
+                                animation: {
+                                    duration: 300 // 호버 시 색상 변경 애니메이션 속도 (천천히)
+                                }
+                            }
+                        },
+                        elements: {
+                            arc: {
+                                hoverBackgroundColor: undefined, // 호버 시 기본 배경색 제거
+                                hoverBorderColor: undefined, // 호버 시 기본 테두리 색상 제거
+                                hoverOffset: 0 // 호버 시 오프셋 제거
+                            }
+                        },
+                        interaction: {
+                            intersect: true,
+                            mode: 'nearest'
+                        }
+                    },
+                    plugins: [{
+                        id: 'customText',
+                        afterDraw: (chart) => {
+                            const {ctx} = chart;
+                            const activeElements = chart.getActiveElements();
+                            const hoveredIdx = activeElements.length > 0 ? activeElements[0].index : -1;
+                            const meta = chart.getDatasetMeta(0);
+                            
+                            // 모든 조각에 텍스트 표시 (도형 끝쪽에 위치)
+                            chartData.forEach((item, index) => {
+                                const arc = meta.data[index];
+                                if (!arc) return;
+                                
+                                const label = labels[index];
+                                const count = item.count || 0;
+                                const angle = (arc.startAngle + arc.endAngle) / 2;
+                                
+                                // 크기 확대 없이 고정 위치 사용
+                                const baseRadius = arc.outerRadius - 35;
+                                const radius = baseRadius;
+                                
+                                const x = arc.x + Math.cos(angle) * radius;
+                                const y = arc.y + Math.sin(angle) * radius;
+                                
+                                // 호버된 조각은 검정색, 나머지는 기본 색상
+                                const textColor = (index === hoveredIdx) ? hoverTextColor : baseTextColor;
+                                
+                                ctx.save();
+                                ctx.fillStyle = textColor;
+                                ctx.font = '600 24px Roboto';
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'middle';
+                                ctx.fillText(count.toString(), x, y - 10);
+                                ctx.font = '600 14px Roboto';
+                                ctx.fillText(label, x, y + 10);
+                                ctx.restore();
+                            });
+                        }
+                    }]
+                });
+                
+                // 호버 이벤트 처리 (Chart.js의 내장 메서드 사용)
+                canvas.addEventListener('mousemove', (e) => {
+                    const chart = window.contentCountChart;
+                    if (!chart) return;
+                    
+                    // Chart.js의 getElementsAtEventForMode를 사용하여 정확한 요소 감지
+                    const points = chart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
+                    
+                    let newHoveredIndex = -1;
+                    if (points.length > 0) {
+                        newHoveredIndex = points[0].index;
+                    }
+                    
+                    if (hoveredIndex !== newHoveredIndex) {
+                        // 이전 호버된 조각 색상 복원
+                        if (hoveredIndex >= 0 && hoveredIndex < backgroundColorArray.length) {
+                            backgroundColorArray[hoveredIndex] = baseColor;
+                            borderColorArray[hoveredIndex] = '#fff'; // 테두리는 흰색 유지
+                        }
+                        
+                        hoveredIndex = newHoveredIndex;
+                        
+                        // 새로운 호버된 조각 색상 변경
+                        if (hoveredIndex >= 0 && hoveredIndex < backgroundColorArray.length) {
+                            backgroundColorArray[hoveredIndex] = hoverColor;
+                            borderColorArray[hoveredIndex] = '#fff'; // 테두리는 흰색 유지 (공백 유지)
+                            chart.setActiveElements([{datasetIndex: 0, index: hoveredIndex}]);
+                        } else {
+                            chart.setActiveElements([]);
+                        }
+                        
+                        chart.update('active'); // 부드러운 전환 애니메이션 적용
+                    }
+                });
+                
+                canvas.addEventListener('mouseleave', () => {
+                    if (hoveredIndex !== -1) {
+                        // 호버 해제 시 색상 복원
+                        if (hoveredIndex >= 0 && hoveredIndex < backgroundColorArray.length) {
+                            backgroundColorArray[hoveredIndex] = baseColor;
+                            borderColorArray[hoveredIndex] = '#fff'; // 테두리는 흰색 유지
+                        }
+                        hoveredIndex = -1;
+                        const chart = window.contentCountChart;
+                        if (chart) {
+                            chart.setActiveElements([]);
+                            chart.update('active'); // 부드러운 전환 애니메이션 적용
+                        }
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,945 @@
+# Simplified Chinese translations for ECO-WEB
+# Copyright (C) 2025
+msgid ""
+msgstr ""
+"Project-Id-Version: ECO-WEB 1.0\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Header Navigation
+msgid "nav.service_intro"
+msgstr "服务介绍"
+
+msgid "nav.carbon_analysis"
+msgstr "碳排放分析"
+
+msgid "nav.carbon_ranking"
+msgstr "碳排放排名"
+
+msgid "nav.corporate_service"
+msgstr "企业服务"
+
+# User Menu
+msgid "user.login"
+msgstr "登录"
+
+msgid "user.logout"
+msgstr "退出登录"
+
+msgid "user.signup"
+msgstr "注册"
+
+msgid "user.greeting"
+msgstr ""
+
+# Homepage
+msgid "home.main_title"
+msgstr "发现看不见的碳排放\n立即检查"
+
+msgid "home.main_subtitle"
+msgstr "输入URL分析网站的碳排放量\n获取环保改进指南"
+
+msgid "home.url_placeholder"
+msgstr "请输入网站地址"
+
+msgid "home.analyze_button"
+msgstr "开始分析"
+
+msgid "home.recent_searches"
+msgstr "最近搜索的URL"
+
+# Carbon Analysis
+msgid "analysis.carbon_emission"
+msgstr "碳排放量"
+
+msgid "analysis.page_size"
+msgstr "页面大小"
+
+msgid "analysis.grade"
+msgstr "等级"
+
+msgid "analysis.percentile"
+msgstr "百分位数"
+
+msgid "analysis.korea_average"
+msgstr "韩国平均"
+
+msgid "analysis.global_average"
+msgstr "全球平均"
+
+msgid "analysis.comparison"
+msgstr "比较"
+
+msgid "analysis.higher_than"
+msgstr "更高"
+
+msgid "analysis.lower_than"
+msgstr "更低"
+
+# Optimization
+msgid "optimization.code_title"
+msgstr "代码优化"
+
+msgid "optimization.image_title"
+msgstr "图片优化"
+
+msgid "optimization.font_title"
+msgstr "字体优化"
+
+# PDF Report
+msgid "pdf.generate_button"
+msgstr "生成PDF报告"
+
+msgid "pdf.download_button"
+msgstr "下载"
+
+# Loading Messages
+msgid "loading.analyzing"
+msgstr "正在分析"
+
+msgid "loading.please_wait"
+msgstr "请稍候"
+
+msgid "loading.processing"
+msgstr "处理中"
+
+# Error Messages
+msgid "error.invalid_url"
+msgstr "无效的URL"
+
+msgid "error.analysis_failed"
+msgstr "分析失败"
+
+msgid "error.network_error"
+msgstr "发生网络错误"
+
+msgid "error.server_error"
+msgstr "发生服务器错误"
+
+# Common
+msgid "common.submit"
+msgstr "提交"
+
+msgid "common.cancel"
+msgstr "取消"
+
+msgid "common.confirm"
+msgstr "确认"
+
+msgid "common.close"
+msgstr "关闭"
+
+msgid "common.save"
+msgstr "保存"
+
+msgid "common.delete"
+msgstr "删除"
+
+msgid "common.edit"
+msgstr "编辑"
+
+msgid "common.view_more"
+msgstr "查看更多"
+
+msgid "common.loading"
+msgstr "加载中..."
+
+# Loading Page
+msgid "loading.page_title"
+msgstr "分析中... - eCarbon"
+
+msgid "loading.analyzing_url"
+msgstr "正在分析！"
+
+msgid "loading.analyzing_main_page"
+msgstr "正在分析输入页面"
+
+msgid "loading.analyzing_subpages"
+msgstr "正在分析子页面"
+
+msgid "loading.optimizing_images"
+msgstr "图片优化进行中"
+
+msgid "loading.analysis_complete"
+msgstr "分析完成！"
+
+msgid "loading.view_results"
+msgstr "查看结果"
+
+msgid "loading.go_home"
+msgstr "返回首页"
+
+msgid "loading.queued_message"
+msgstr "服务器请求过多，正在等待中。（队列位置：第%(position)s位）"
+
+msgid "loading.in_progress"
+msgstr "正在进行分析..."
+
+msgid "loading.cancelled_title"
+msgstr "分析已取消"
+
+msgid "loading.cancelled_message"
+msgstr "分析已被用户中断。"
+
+msgid "loading.failed_title"
+msgstr "分析失败"
+
+msgid "loading.failed_message"
+msgstr "网站分析过程中出现问题。"
+
+msgid "loading.new_analysis"
+msgstr "开始新的分析"
+
+msgid "loading.check_site"
+msgstr "直接检查网站"
+
+msgid "loading.try_different_url"
+msgstr "输入其他URL"
+
+msgid "loading.access_error_title"
+msgstr "无法访问网站"
+
+msgid "loading.access_error_message"
+msgstr "无法连接到输入的网站。"
+
+msgid "loading.access_error_suggestion"
+msgstr "请重新确认URL或检查该网站是否正常运行。"
+
+msgid "loading.failure_suggestion"
+msgstr "请确认URL后重试。"
+
+msgid "loading.check_site_status"
+msgstr "请直接确认该网站是否正常运行"
+
+msgid "loading.enter_different_url"
+msgstr "输入其他URL"
+
+msgid "loading.check_site_directly"
+msgstr "直接检查网站"
+
+msgid "loading.view_results_button"
+msgstr "查看结果"
+
+msgid "loading.measurement_in_progress"
+msgstr "测量中，请稍候。"
+
+# Home Page - Hero Section
+msgid "home.hero_title"
+msgstr "看不见的碳排放，<br>现在就来确认吧"
+
+msgid "home.hero_subtitle_line1"
+msgstr "输入URL分析网站的碳排放量"
+
+msgid "home.hero_subtitle_line2"
+msgstr "获取环保改进指南"
+
+# Home Page - Info Cards
+msgid "home.card_measurement_title"
+msgstr "数字碳排放量测量"
+
+msgid "home.card_measurement_desc1"
+msgstr "测量和管理 "
+
+msgid "home.card_measurement_desc2"
+msgstr "网站产生的数字碳排放量"
+
+msgid "home.card_code_title"
+msgstr "代码优化"
+
+msgid "home.card_code_desc1"
+msgstr "轻量优化网站代码 "
+
+msgid "home.card_code_desc2"
+msgstr "减少服务器负担和能源使用"
+
+msgid "home.card_code_desc3"
+msgstr "让我们一起打造快速高效的网络"
+
+msgid "home.card_design_title"
+msgstr "可持续设计"
+
+msgid "home.card_design_desc1"
+msgstr "通过考虑能源效率的可持续 "
+
+msgid "home.card_design_desc2"
+msgstr "设计来减少碳足迹"
+
+msgid "home.card_design_desc3"
+msgstr "设计与环保可以共存"
+
+msgid "home.card_hosting_title"
+msgstr "环保托管"
+
+msgid "home.card_hosting_desc1"
+msgstr "切换到使用 "
+
+msgid "home.card_hosting_desc2"
+msgstr "可再生能源的环保托管"
+
+msgid "home.card_hosting_desc3"
+msgstr "小小的改变可以成为创造"
+
+msgid "home.card_hosting_desc4"
+msgstr "更清洁网络环境的开始"
+
+# Home Page - Eco Website Section
+msgid "home.eco_website_title"
+msgstr "环保网站"
+
+msgid "home.eco_view_all"
+msgstr "查看更多网站"
+
+msgid "home.eco_view_less"
+msgstr "最小化"
+
+# Home Page - Membership Section
+msgid "home.membership_heading1"
+msgstr "为了可持续的网络"
+
+msgid "home.membership_heading2"
+msgstr "无限制的定制分析和改进指南"
+
+msgid "home.membership_heading3_line1"
+msgstr "仅为会员提供的"
+
+msgid "home.membership_heading3_line2"
+msgstr "高级分析报告、比较功能、改进模拟，请尽情使用。"
+
+msgid "home.membership_button"
+msgstr "查看会员"
+
+# Home Page - Footer
+msgid "footer.logo"
+msgstr "eCarbon"
+
+msgid "footer.intro"
+msgstr "数字碳排放量测量服务"
+
+msgid "footer.section_service"
+msgstr "服务"
+
+msgid "footer.ecarbon_intro"
+msgstr "eCarbon介绍"
+
+msgid "footer.membership_intro"
+msgstr "会员介绍"
+
+msgid "footer.contact"
+msgstr "联系我们"
+
+msgid "footer.announcement"
+msgstr "公告"
+
+msgid "footer.events"
+msgstr "活动"
+
+msgid "footer.faq"
+msgstr "常见问题"
+
+msgid "footer.company_intro"
+msgstr "公司介绍"
+
+msgid "footer.recruitment"
+msgstr "人才招聘"
+
+msgid "footer.partners"
+msgstr "合作伙伴"
+
+msgid "footer.terms"
+msgstr "使用条款"
+
+msgid "footer.privacy"
+msgstr "隐私政策"
+
+msgid "footer.instagram_link"
+msgstr "Instagram账号"
+
+msgid "footer.youtube_link"
+msgstr "YouTube频道"
+
+msgid "footer.contact_email"
+msgstr "contact@example.com"
+
+msgid "footer.copyright"
+msgstr "© Designbase All rights reserved."
+
+msgid "footer.copy_success"
+msgstr "复制成功！"
+
+msgid "footer.copy_manual"
+msgstr "请手动复制 contact@example.com 地址。"
+
+# Sidebar
+msgid "sidebar.site_address"
+msgstr "网站地址"
+
+msgid "sidebar.integrated_analysis"
+msgstr "综合分析"
+
+msgid "sidebar.page_analysis"
+msgstr "页面分析"
+
+msgid "sidebar.image_optimization"
+msgstr "图片优化"
+
+msgid "sidebar.code_analysis"
+msgstr "代码分析"
+
+msgid "sidebar.sustainability_guidelines"
+msgstr "可持续性指南"
+
+msgid "sidebar.get_badge"
+msgstr "获取徽章"
+
+msgid "sidebar.settings"
+msgstr "设置"
+
+msgid "sidebar.my_account"
+msgstr "我的账户"
+
+msgid "sidebar.analysis_required"
+msgstr "请先完成网站分析。"
+
+# User Bar
+msgid "userbar.carbon_analysis"
+msgstr "碳排放量分析"
+
+msgid "userbar.greeting"
+msgstr "您好，%(username)s"
+
+msgid "userbar.user"
+msgstr "用户"
+
+msgid "userbar.comparison_text"
+msgstr "与一般网站相比，碳排放量 "
+
+msgid "userbar.save_pdf"
+msgstr "保存为PDF"
+
+msgid "userbar.compare_previous"
+msgstr "与以前的分析比较"
+
+# Result Page
+msgid "result.page_title"
+msgstr "碳排放量分析结果 - eCarbon"
+
+msgid "result.current_emission"
+msgstr "当前碳排放量"
+
+msgid "result.emission_percentile_description"
+msgstr "在所有分析网站中排名前%(percentile)s%%的排放水平。"
+
+msgid "result.global_grade_comparison"
+msgstr "与全球碳等级相比"
+
+msgid "result.korea_grade_comparison"
+msgstr "与韩国碳等级相比"
+
+msgid "result.less_emission"
+msgstr "更少"
+
+msgid "result.more_emission"
+msgstr "更多"
+
+msgid "result.emission_suffix"
+msgstr "排放"
+
+msgid "result.emission_status_suffix"
+msgstr ""
+
+msgid "result.global_avg_tooltip"
+msgstr "全球平均碳排放量：%(value)sg"
+
+msgid "result.korea_avg_tooltip"
+msgstr "韩国平均碳排放量：%(value)sg"
+
+# Equivalent
+msgid "equivalent.title"
+msgstr "年度碳排放量换算"
+
+msgid "equivalent.coffee_title"
+msgstr "咖啡<br />消费量"
+
+msgid "equivalent.coffee_unit"
+msgstr "杯"
+
+msgid "equivalent.car_title"
+msgstr "电动车<br />行驶里程"
+
+msgid "equivalent.car_unit"
+msgstr "km"
+
+msgid "equivalent.phone_title"
+msgstr "智能手机<br />充电"
+
+msgid "equivalent.phone_formula"
+msgstr "充电3次<br />= 0.02 CO2"
+
+msgid "equivalent.phone_unit"
+msgstr "次"
+
+msgid "equivalent.tree_title"
+msgstr "树木<br />吸收量"
+
+msgid "equivalent.tree_formula"
+msgstr "1棵树<br />= 0.02kg CO2/年"
+
+msgid "equivalent.tree_unit"
+msgstr "棵"
+
+# Chart
+msgid "chart.emission_trend_title"
+msgstr "碳排放量趋势"
+
+msgid "chart.monthly_visitors_reference"
+msgstr "基于每月100万访问者"
+
+msgid "chart.emission_label"
+msgstr "碳排放量 (g CO₂/kWh)"
+
+msgid "chart.y_axis_label"
+msgstr "排放量 (g CO₂/kWh)"
+
+msgid "chart.x_axis_label"
+msgstr "日期"
+
+# Detailed Analysis Page
+msgid "detailed.page_title"
+msgstr "详细分析结果 - eCarbon"
+
+msgid "detailed.emission_breakdown_title"
+msgstr "排放量明细"
+
+msgid "detailed.device_title"
+msgstr "个人设备"
+
+msgid "detailed.home_network_title"
+msgstr "家庭网络"
+
+msgid "detailed.home_network_label"
+msgstr "WiFi"
+
+msgid "detailed.external_network_title"
+msgstr "外部网络"
+
+msgid "detailed.external_network_label"
+msgstr "运营商"
+
+msgid "detailed.sea_cable_title"
+msgstr "海底电缆"
+
+msgid "detailed.server_title"
+msgstr "企业服务器"
+
+msgid "detailed.server_label"
+msgstr "云"
+
+msgid "detailed.content_emission_title"
+msgstr "按内容类型划分的碳排放"
+
+msgid "detailed.content_count_title"
+msgstr "内容数量"
+
+msgid "detailed.subpage_analysis_title"
+msgstr "子页面分析"
+
+msgid "detailed.total_pages"
+msgstr "总页数"
+
+msgid "detailed.avg_co2_per_page"
+msgstr "平均CO2/页"
+
+msgid "detailed.subpage_co2"
+msgstr "子页面CO2"
+
+msgid "detailed.emission_level_low"
+msgstr "低 (<0.8g)"
+
+msgid "detailed.emission_level_medium"
+msgstr "中 (0.8-1.1g)"
+
+msgid "detailed.emission_level_high"
+msgstr "高 (>1.1g)"
+
+msgid "detailed.page_emission_list"
+msgstr "各页排放量"
+
+msgid "detailed.no_subpages"
+msgstr "未找到子页面。"
+
+# Image Optimization Page
+msgid "imgopt.page_title"
+msgstr "图像优化结果 - eCarbon"
+
+msgid "imgopt.main_title"
+msgstr "图像优化"
+
+msgid "imgopt.expected_size_title"
+msgstr "与优化前相比的预期图像大小"
+
+msgid "imgopt.already_optimized_label"
+msgstr "已优化"
+
+msgid "imgopt.reduction_percent"
+msgstr "% 减少"
+
+msgid "imgopt.expected_reduction"
+msgstr "预期减少量"
+
+msgid "imgopt.co2_per_visit"
+msgstr "g CO2/访问"
+
+msgid "imgopt.current_image_size"
+msgstr "当前图像大小"
+
+msgid "imgopt.optimized_image_size"
+msgstr "优化后图像大小"
+
+msgid "imgopt.captured_website_image"
+msgstr "捕获的网站图像"
+
+msgid "imgopt.image_load_error"
+msgstr "无法加载网站图像。"
+
+msgid "imgopt.high_emission_area"
+msgstr "高碳排放区域"
+
+msgid "imgopt.current_label"
+msgstr "当前"
+
+msgid "imgopt.optimized_label"
+msgstr "优化后"
+
+msgid "imgopt.image_size"
+msgstr "图像大小"
+
+msgid "imgopt.analysis_title"
+msgstr "图像优化分析"
+
+msgid "imgopt.total_image_capacity"
+msgstr "图像总容量"
+
+msgid "imgopt.total_image_resource_description"
+msgstr "总图像资源大小"
+
+msgid "imgopt.possible_optimization"
+msgstr "可能的图像优化"
+
+msgid "imgopt.webp_conversion_benefit"
+msgstr "通过转换为WebP格式可节省"
+
+msgid "imgopt.format_conversion_list"
+msgstr "推荐格式转换图像列表"
+
+msgid "imgopt.total_bytes_count"
+msgstr "总计 %(bytes)s bytes，(%(count)s个)"
+
+msgid "imgopt.category_icon"
+msgstr "图标"
+
+msgid "imgopt.category_logo"
+msgstr "徽标"
+
+msgid "imgopt.category_other"
+msgstr "其他"
+
+msgid "imgopt.converted_image_list"
+msgstr "已转换图像列表"
+
+msgid "imgopt.download_images_zip"
+msgstr "下载图像文件 (.zip)"
+
+msgid "imgopt.download_error"
+msgstr "下载文件时发生错误。"
+
+msgid "imgopt.webp_label"
+msgstr "Webp"
+
+# Sustainability Analysis Page
+msgid "sustain.page_title"
+msgstr "可持续性分析结果 - eCarbon"
+
+msgid "sustain.main_title"
+msgstr "W3C可持续性指南分析"
+
+msgid "sustain.category_ux"
+msgstr "UX"
+
+msgid "sustain.category_bm"
+msgstr "BM"
+
+msgid "sustain.category_hosting"
+msgstr "托管"
+
+msgid "sustain.category_web_design"
+msgstr "网页设计"
+
+msgid "sustain.overall_score"
+msgstr "总分"
+
+msgid "sustain.evaluation_results"
+msgstr "可持续性指南评估结果"
+
+msgid "sustain.header_guideline_id"
+msgstr "指南ID"
+
+msgid "sustain.header_title"
+msgstr "标题"
+
+msgid "sustain.header_difficulty"
+msgstr "难度"
+
+msgid "sustain.header_importance"
+msgstr "重要性"
+
+msgid "sustain.header_compliance"
+msgstr "符合性"
+
+msgid "sustain.header_detail"
+msgstr "详情"
+
+msgid "sustain.view_more"
+msgstr "查看更多"
+
+msgid "sustain.no_guidelines"
+msgstr "无指南信息"
+
+msgid "sustain.chart_label"
+msgstr "各类别分数"
+
+# Sustainability Modal
+msgid "sustain_modal.title_default"
+msgstr "指南详细信息"
+
+msgid "sustain_modal.subtitle"
+msgstr "W3C 可持续性指南"
+
+msgid "sustain_modal.guideline_id"
+msgstr "指南ID:"
+
+msgid "sustain_modal.area"
+msgstr "领域:"
+
+msgid "sustain_modal.compliance"
+msgstr "合规情况:"
+
+msgid "sustain_modal.compliant"
+msgstr "✓ 合规"
+
+msgid "sustain_modal.non_compliant"
+msgstr "✗ 不合规"
+
+msgid "sustain_modal.difficulty"
+msgstr "实施难度:"
+
+msgid "sustain_modal.impact"
+msgstr "环境影响度:"
+
+msgid "sustain_modal.description"
+msgstr "说明:"
+
+msgid "sustain_modal.no_description"
+msgstr "暂无说明信息。"
+
+msgid "sustain_modal.intent"
+msgstr "意图 (Intent):"
+
+msgid "sustain_modal.no_intent"
+msgstr "暂无意图信息。"
+
+msgid "sustain_modal.benefits"
+msgstr "收益 (Benefits):"
+
+msgid "sustain_modal.no_benefits"
+msgstr "暂无收益信息。"
+
+# Under Development Modal
+msgid "modal.under_development_title"
+msgstr "🚧 页面开发中 🚧"
+
+msgid "modal.under_development_message"
+msgstr "给您带来不便，敬请谅解。"
+
+# Login Page
+msgid "login.page_title"
+msgstr "登录 - eCarbon"
+
+msgid "login.title_line1"
+msgstr "可持续网络，"
+
+msgid "login.title_line2"
+msgstr "与eCarbon同行"
+
+msgid "login.id_placeholder"
+msgstr "请输入ID"
+
+msgid "login.password_placeholder"
+msgstr "请输入密码"
+
+msgid "login.save_id"
+msgstr "保存ID"
+
+msgid "login.find_credentials"
+msgstr "查找ID/密码"
+
+msgid "login.login_button"
+msgstr "登录"
+
+msgid "login.google_login"
+msgstr "使用Google登录"
+
+msgid "login.not_member"
+msgstr "还不是会员？"
+
+msgid "login.signup_link"
+msgstr "注册"
+
+# Code Analysis Page
+msgid "code.page_title"
+msgstr "代码分析结果 - eCarbon"
+
+msgid "code.main_title"
+msgstr "代码详细分析"
+
+msgid "code.total_resource_title"
+msgstr "总资源容量 (100%%)"
+
+msgid "code.total_resource_description"
+msgstr "构成页面的全部资源大小。"
+
+msgid "code.third_party_script"
+msgstr "第三方脚本"
+
+msgid "code.third_party_description"
+msgstr "外部脚本可能浪费的容量。"
+
+msgid "code.used_javascript"
+msgstr "使用中JavaScript"
+
+msgid "code.used_javascript_description"
+msgstr "页面实际使用的JavaScript容量。"
+
+msgid "code.unused_javascript"
+msgstr "未使用JavaScript"
+
+msgid "code.unused_javascript_description"
+msgstr "已加载但未使用的JavaScript容量。"
+
+msgid "code.reducible"
+msgstr "可削减"
+
+msgid "code.total_javascript"
+msgstr "全部JavaScript"
+
+msgid "code.total_javascript_description"
+msgstr "页面内所有JavaScript资源的总容量。"
+
+msgid "code.unused_css"
+msgstr "未使用CSS"
+
+msgid "code.unused_css_description"
+msgstr "由于未使用的CSS规则可优化的容量"
+
+msgid "code.other_resources"
+msgstr "其他资源"
+
+msgid "code.file_explorer_title"
+msgstr "代码文件浏览器"
+
+msgid "code.sort_by_name"
+msgstr "按名称排序"
+
+msgid "code.compliance_rate"
+msgstr "指南合规率:"
+
+msgid "code.no_data"
+msgstr "无代码分析数据。"
+
+msgid "code.font_optimization_title"
+msgstr "字体优化"
+
+msgid "code.font_grade_very_good"
+msgstr "'非常优秀'等级"
+
+msgid "code.font_grade_good"
+msgstr "'优秀'等级"
+
+msgid "code.font_grade_needs_improvement"
+msgstr "'需要改进'等级"
+
+msgid "code.font_grade_urgent"
+msgstr "'急需改进'等级"
+
+msgid "code.font_grade_text"
+msgstr "字体产生的碳排放量为"
+
+msgid "code.font_grade_suffix"
+msgstr "水平"
+
+msgid "code.total_file_size"
+msgstr "总文件大小"
+
+msgid "code.total_co2_emission"
+msgstr "总CO2排放量"
+
+msgid "code.discovered_fonts_title"
+msgstr "发现的字体"
+
+msgid "code.no_font_data"
+msgstr "找不到下载的字体文件信息。"
+
+msgid "code.font_optimization_plan"
+msgstr "字体优化方案"
+
+msgid "code.before_optimization"
+msgstr "优化前"
+
+msgid "code.optimization_method"
+msgstr "优化方法"
+
+msgid "code.file_size_reduction"
+msgstr "文件大小削减"
+
+msgid "code.co2_reduction"
+msgstr "CO2削减"
+
+msgid "code.reduction_percent_100"
+msgstr "100.0%%削减"
+
+msgid "code.reduction_percent_75"
+msgstr "75.0%%削减"
+
+msgid "code.reduction_percent_70"
+msgstr "70.0%%削减"
+
+msgid "code.reduction_percent_50"
+msgstr "50.0%%削减"
+
+msgid "code.reduction_percent_45"
+msgstr "45.0%%削减"
+
+msgid "code.system_font"
+msgstr "改为系统字体"
+
+msgid "code.subset_font"
+msgstr "改为子集字体"
+
+msgid "code.variable_font"
+msgstr "改为可变字体"
+
+msgid "code.woff2_font"
+msgstr "改为WOFF2字体"
+
+msgid "code.woff_font"
+msgstr "改为WOFF字体"
+
+msgid "userbar.below_avg"
+msgstr "较低"
+
+msgid "userbar.above_avg"
+msgstr "较高"
+
+msgid "imgopt.reduction_text"
+msgstr "减少"

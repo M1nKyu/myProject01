@@ -1,0 +1,320 @@
+/* Responsive overrides for common components: user-bar and sidebar
+   Non-destructive: only apply at breakpoints; desktop CSS remains intact.
+*/
+
+:root {
+  --common-container-max: 1200px;
+  --common-gap-lg: 24px;
+  --common-gap-md: 16px;
+  --common-gap-sm: 10px;
+  /* Match main canvas width so common components shrink from center */
+  --common-canvas-max: 1920px;
+}
+
+/* Anchor the absolute-positioned sidebar to the centered 1920px canvas */
+.sidebar {
+  left: calc((100vw - min(var(--common-canvas-max), 100vw)) / 2);
+  right: auto;
+  transition: width 0.3s ease;
+}
+
+/* General media helpers */
+@media (max-width: 1600px) {
+  .common-fluid { max-width: var(--common-container-max); margin-inline: auto; padding-inline: 12px; }
+}
+
+/* ================= USER BAR: Responsive Redesign ================= */
+@media (max-width: 1600px) {
+  .user-bar {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin-top: 80px !important; /* Add space below fixed header */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    height: auto !important;
+    box-sizing: border-box;
+    overflow: visible !important;
+    width: 100% !important; /* 반응형에서 전체 너비 사용 */
+    max-width: 100% !important;
+    right: 0 !important;
+    padding: 0; /* 좌우 약간의 공백을 padding으로 처리 */
+  }
+
+  /* Header section: icon + title + user name */
+  .userbar-title,
+  .userbar-user-name {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    display: block !important;
+  }
+
+  .userbar-title {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .userbar-title-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .userbar-title-text {
+    font-size: 14px;
+    margin: 0;
+    color: #70737c;
+  }
+
+  .userbar-user-name {
+    font-size: 20px;
+    margin: 4px 0 0 0;
+  }
+
+  /* Site info bar */
+  .userbar-site-info {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 50px;
+    padding: 0px 16px;
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    box-sizing: border-box;
+    overflow: hidden !important;
+  }
+
+  .userbar-site-info-url {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100px;
+    overflow: hidden;
+  }
+
+  .userbar-site-info-url-text {
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .userbar-site-info-emission-status {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    gap: 8px;
+  }
+
+  .userbar-site-info-emission-status-text {
+    font-size: 14px !important;
+  }
+
+  .userbar-site-info-emission-status-value {
+    font-size: 18px !important;
+  }
+
+  /* Action buttons container - single row */
+  .userbar-actions {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .userbar-compare,
+  .userbar-pdf {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 48px !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #dbdcdf;
+    cursor: pointer;
+    flex: 1 1 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .userbar-actions-arrow {
+    position: static !important;
+    transform: rotate(90deg);
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #5a5c63;
+    line-height: 1;
+  }
+
+  .userbar-actions-text {
+    position: static !important;
+    font-size: 16px;
+  }
+
+  /* Show full text by default, hide short text */
+  .userbar-actions-text .text-short {
+    display: none;
+  }
+
+  .userbar-actions-text .text-full {
+    display: inline;
+  }
+}
+
+/* Tablet optimization */
+@media (max-width: 768px) {
+  .user-bar {
+    padding: 0;
+  }
+
+  .userbar-title-text {
+    font-size: 13px;
+  }
+
+  .userbar-user-name {
+    font-size: 18px;
+  }
+
+  .userbar-site-info {
+    min-height: 60px;
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .userbar-site-info-url {
+    max-width: none !important;
+  }
+
+  .userbar-site-info-url-text {
+    font-size: 14px;
+  }
+
+  .userbar-site-info-emission-status-text {
+    font-size: 13px !important;
+  }
+
+  .userbar-site-info-emission-status-value {
+    font-size: 16px !important;
+  }
+
+  /* Keep buttons in one row on tablet */
+  .userbar-actions {
+    flex-direction: row !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .userbar-compare,
+  .userbar-pdf {
+    padding: 10px 16px;
+    font-size: 15px;
+    flex: 1 1 0 !important;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  .user-bar {
+    gap: 10px !important;
+  }
+
+  .userbar-title-text {
+    font-size: 12px;
+  }
+
+  .userbar-user-name {
+    font-size: 16px;
+  }
+
+  .userbar-site-info {
+    padding: 8px 10px;
+  }
+
+  .userbar-site-info-url-text {
+    font-size: 13px;
+  }
+
+  .userbar-site-info-emission-status-text {
+    font-size: 10px !important;
+  }
+
+  .userbar-site-info-emission-status-value {
+    font-size: 12px !important;
+  }
+
+  /* Keep buttons in one row on mobile */
+  .userbar-actions {
+    flex-direction: row !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  /* Switch to short text on mobile */
+  .userbar-actions-text .text-full {
+    display: none !important;
+  }
+
+  .userbar-actions-text .text-short {
+    display: inline !important;
+  }
+
+  .userbar-actions-text {
+    font-size: 14px;
+  }
+
+  .userbar-compare,
+  .userbar-pdf {
+    padding: 10px 12px;
+    gap: 6px;
+    flex: 1 1 0 !important;
+  }
+}
+
+/* ================= SIDEBAR ================= */
+@media (max-width: 1600px) {
+  /* Keep sidebar at its design width; do not shrink */
+  .sidebar {
+    position: fixed; /* ensure it is not clipped by ancestor overflow and stays on top */
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    flex: 0 0 var(--sidebar-width);
+    top: 106px; /* preserve original offset */
+    left: calc((100vw - min(var(--common-canvas-max), 100vw)) / 2); /* anchor to centered canvas */
+    will-change: transform; /* smoother collapse animation */
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.collapsed {
+    left: calc(-1 * var(--sidebar-width) + (100vw - min(var(--common-canvas-max), 100vw)) / 2) !important;
+  }
+
+  .sidebar.collapsed .sidebar-toggle {
+    left: calc(100% - (100vw - min(var(--common-canvas-max), 100vw)) / 2) !important;
+  }
+
+  .sidebar-wrapper { position: relative; }
+  .sidebar img { max-width: 100%; height: auto; }
+
+  .sidebar-toggle {
+    cursor: pointer;
+    transition: left 0.3s ease;
+  }
+}
+

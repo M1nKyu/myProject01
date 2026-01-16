@@ -1,0 +1,53 @@
+.horizontal-line {
+    position: relative;
+    width: 140px;
+    height: 1px;
+    transform: scaleY(0.3);
+    transform-origin: top;
+    background-color: #5a5c63;
+}
+.content {
+    position: absolute;
+    top: 276px;
+    left: 112px;
+
+    height: 110px;
+    width: 640px;
+}
+.title {
+    position: absolute;
+    top: 176px;
+    left: 280px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+}
+.item {
+    position: relative;
+    margin-right: 20px;
+    width: 140px;
+
+    display: inline-block;
+}
+/* 01 */
+.text01 {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    
+    font-size: 10px;
+    line-height: 18px;
+    font-weight: 600;
+    color: #46474c;
+    text-align: left;
+}
+.text02 {
+    position: relative;
+    display: block;
+    margin-bottom: 32px;
+
+    font-size: 40px;
+    line-height: 40px;
+    color: #5a5c63;
+    text-align: left;
+}

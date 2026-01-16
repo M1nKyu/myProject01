@@ -1,0 +1,336 @@
+<!--보고서 38-->
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" />
+  	<style>{{ css_content }}</style>
+</head>
+<body>
+	{% from 'pdf-macros.html' import render_header, render_sidebar, render_vertical_line_460 %}
+
+	<div class="div">
+		{{ render_header(website_url=website_url, title='웹사이트 탄소 발자국 측정', subtitle='Measure Website Carbon Footprint') }}
+		{{ render_sidebar() }}
+		{{ render_vertical_line_460() }}
+
+		<!-- 컨텐츠 -->
+		<!--01. 시간대별 탄소 배출 패턴 분석 =========================================== -->
+		<div class="content01">
+			<div class="common-subtitle">시간대별 탄소 배출 패턴 분석</div>
+			<div class="common-text">2시간 단위 트래픽 패턴 분석 결과, 오전 9시11시와 오후 2시4시에 배출량이 집중되는 양상을 보였습니다. 이는 업무 시간대 집중 접속으로 인한 것으로, 이 시간대의 서버 효율성 개선과 CDN 활용 강화가 필요합니다.</div>
+			<div class="content01-img01">
+				<canvas id="hourlyEmissionChart"></canvas>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+		<script>
+			const ctx = document.getElementById('hourlyEmissionChart');
+			new Chart(ctx, {
+				type: 'line',
+				data: {
+					labels: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00'],
+					datasets: [{
+						label: '탄소 배출량 (g CO₂)',
+						data: [800, 600, 500, 2100, 1800, 2400, 1500, 1200],
+						borderColor: '#009e62',
+						backgroundColor: '#009e62',
+						pointBackgroundColor: '#009e62',
+						pointBorderColor: '#009e62',
+						pointRadius: 4,
+						pointHoverRadius: 6,
+						borderWidth: 2,
+						tension: 0.3
+					}]
+				},
+				options: {
+					devicePixelRatio: 3,
+					responsive: true,
+					maintainAspectRatio: false,
+					plugins: {
+						legend: {
+							display: false
+						}
+					},
+					scales: {
+						y: {
+							beginAtZero: true,
+							max: 3000,
+							ticks: {
+								stepSize: 500,
+								font: {
+									size: 8
+								},
+								color: '#5a5c63'
+							},
+							grid: {
+								color: '#e0e0e0'
+							}
+						},
+						x: {
+							ticks: {
+								font: {
+									size: 8
+								},
+								color: '#5a5c63'
+							},
+							grid: {
+								display: false
+							}
+						}
+					}
+				}
+			});
+		</script>
+
+		<!--02. 벤치 마킹 및 포지셔닝 분석 =========================================== -->
+		<div class="content02">
+			<div class="common-subtitle">벤치 마킹 및 포지셔닝 분석</div>
+			<div class="common-text">
+				<p class="p">
+					<b>동종업계 평균 대비 분석</b>
+				</p>
+				<p class="p">부산시 웹페이지의 디지털 탄소 배출량은 페이지당 1.11g CO₂로, 국내 공공기관 평균인 0.72g CO₂ 대비 54% 높은 수준입니다. 이는 주로 레거시 시스템과 최적화되지 않은 미디어 자산에서 기인합니다. 세부적으로 살펴보면, JavaScript 실행으로 인한 배출(0.509g)이 업계 평균(0.287g)보다 77% 높으며, 이는 즉각적인 개선이 필요한 영역입니다. 반면, 서버 응답 시간은 업계 평균보다 15% 우수하여 인프라 측면에서는 상대적 강점을 보이고 있습니다."</p>
+			</div>
+			<div class="content02-img01">
+				<canvas id="benchmarkChart"></canvas>
+			</div>
+		</div>
+
+		<script>
+			const ctx2 = document.getElementById('benchmarkChart');
+			new Chart(ctx2, {
+				type: 'bar',
+				data: {
+					labels: ['서울특별시', '대구광역시', '울산광역시', '부산광역시'],
+					datasets: [
+						{
+							label: 'CO2/페이지',
+							data: [45, 62, 78, 54],
+							backgroundColor: '#009e62',
+							borderColor: '#009e62',
+							borderWidth: 1
+						},
+						{
+							label: '업계평균 대비',
+							data: [30, 48, 95, 77],
+							backgroundColor: '#17845f',
+							borderColor: '#17845f',
+							borderWidth: 1
+						}
+					]
+				},
+				options: {
+					devicePixelRatio: 3,
+					indexAxis: 'y',
+					responsive: true,
+					maintainAspectRatio: false,
+					barPercentage: 1.0,
+					categoryPercentage: 0.8,
+					layout: {
+						padding: {
+							left: 0,
+							right: 5,
+							top: 0,
+							bottom: 0
+						}
+					},
+					plugins: {
+						legend: {
+							display: true,
+							position: 'bottom',
+							labels: {
+								font: {
+									size: 6
+								},
+								color: '#5a5c63',
+								boxWidth: 8,
+								boxHeight: 8,
+								padding: 6
+							}
+						}
+					},
+					scales: {
+						x: {
+							min: -50,
+							max: 150,
+							ticks: {
+								stepSize: 50,
+								font: {
+									size: 6
+								},
+								color: '#5a5c63'
+							},
+							grid: {
+								color: '#e0e0e0'
+							}
+						},
+						y: {
+							ticks: {
+								font: {
+									size: 6
+								},
+								color: '#5a5c63',
+								autoSkip: false,
+								padding: 2
+							},
+							grid: {
+								display: false
+							}
+						}
+					}
+				}
+			});
+		</script>
+
+		
+		<!--03. 글로벌 표준 대비 위치 =========================================== -->
+		<div class="content03">
+			<div class="common-subtitle">글로벌 표준 대비 위치</div>
+
+			<!-- 글로벌 표준 지표 3개 컬럼 -->
+			<div class="global-metrics">
+				<!-- 컬럼1: 글로벌 상위 -->
+				<div class="metric-column">
+					<div class="metric-icon">{{ svg.report02_global|safe }}</div>
+					<div class="metric-label">글로벌 상위</div>
+					<div class="metric-value">71%</div>
+				</div>
+
+				<!-- 컬럼2: 공공 웹사이트 대비 -->
+				<div class="metric-column">
+					<div class="metric-icon">{{ svg.report02_public_website|safe }}</div>
+					<div class="metric-label">공공 웹사이트 대비</div>
+					<div class="metric-value">2.7배</div>
+				</div>
+
+				<!-- 컬럼3: 가이드라인 준수율 -->
+				<div class="metric-column">
+					<div class="metric-icon">{{ svg.report02_w3c|safe }}</div>
+					<div class="metric-label">가이드라인 준수율</div>
+					<div class="metric-value">60.9%</div>
+				</div>
+			</div>
+
+			<div class="common-text">
+				<ul class="common-ul">
+					<li>Website Carbon Calculator의 글로벌 데이터베이스 기준, 부산시는 전 세계 웹사이트 중 하위 29% (상위 71%)에 위치합니다. 이는 개선이 시급한 수준이며, 특히 공공기관 평균(0.41g CO₂)과 비교 시 2.7배 높은 배출량을 보입니다.</li>
+					<li>W3C Web Sustainability Guidelines 1.0 준수율은 60.9%로, 글로벌 선도 기업들의 평균 준수율 85%에 미치지 못합니다. 그러나 국내 기관 평균 45%보다는 높아, 상대적으로는 양호한 편입니다.</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--04. 경쟁사 대비 강약점 =========================================== -->
+		<div class="content04">
+			<div class="common-subtitle">경쟁사 대비 강약점</div>
+			<div class="content04-text01">www.busan.go.kr/는 디지털 탄소 배출 관리에서 경쟁사 대비 2-3년 뒤처진 상태입니다. ESG 경영이 기업 평가의 핵심 지표로 부상하는 현 시점에서, 이는 단순한 기술적 문제를 넘어 기관의 지속가능성 리더십과 직결되는 사안입니다. 특히 공공 웹사이트라는 기관의 성격을 고려할 때, 디지털 지속가능성 표준을 선도해야 할 위치에서 최하위 성과를 보이는 것은 대외 신뢰도에 부정적 영향을 미칠 수 있습니다. 3개월 내 F→D등급, 1년 내 C등급 달성을 목표로 한 단계적 개선 전략 수립이 시급합니다.</div>
+			<div class="content04-img01">
+				<canvas id="radarChart"></canvas>
+			</div>
+		</div>
+
+		<script>
+			const ctx3 = document.getElementById('radarChart');
+			new Chart(ctx3, {
+				type: 'radar',
+				data: {
+					labels: ['서버효율성', '캐싱', '이미지', '폰트', 'UX', '코드최적화'],
+					datasets: [
+						{
+							label: '본기업',
+							data: [5, 6, 4, 3, 7, 5],
+							borderColor: '#009e62',
+							backgroundColor: 'rgba(0, 158, 98, 0.2)',
+							pointRadius: 0,
+							pointHoverRadius: 0,
+							borderWidth: 1
+						},
+						{
+							label: '경쟁사1',
+							data: [7, 8, 7, 6, 8, 7],
+							borderColor: '#41b8d5',
+							backgroundColor: 'rgba(65, 184, 213, 0.2)',
+							pointRadius: 0,
+							pointHoverRadius: 0,
+							borderWidth: 1
+						},
+						{
+							label: '경쟁사2',
+							data: [6, 7, 8, 7, 6, 8],
+							borderColor: '#2d8bba',
+							backgroundColor: 'rgba(45, 139, 186, 0.2)',
+							pointRadius: 0,
+							pointHoverRadius: 0,
+							borderWidth: 1
+						}
+					]
+				},
+				options: {
+					devicePixelRatio: 3,
+					responsive: true,
+					maintainAspectRatio: true,
+					aspectRatio: 1,
+					layout: {
+						padding: {
+							top: 5,
+							bottom: 2,
+							left: 5,
+							right: 5
+						}
+					},
+					plugins: {
+						legend: {
+							display: true,
+							position: 'bottom',
+							labels: {
+								font: {
+									size: 4
+								},
+								color: '#5a5c63',
+								boxWidth: 5,
+								boxHeight: 5,
+								padding: 2
+							}
+						}
+					},
+					scales: {
+						r: {
+							min: 0,
+							max: 10,
+							ticks: {
+								stepSize: 2,
+								font: {
+									size: 4
+								},
+								color: '#5a5c63',
+								backdropColor: 'transparent',
+								display: true,
+								showLabelBackdrop: false
+							},
+							pointLabels: {
+								font: {
+									size: 4
+								},
+								color: '#5a5c63',
+								padding: 1
+							},
+							grid: {
+								color: '#e0e0e0',
+								lineWidth: 0.5
+							},
+							angleLines: {
+								color: '#e0e0e0',
+								lineWidth: 0.5
+							}
+						}
+					}
+				}
+			});
+		</script>
+
+  	</div>
+</body>
+</html>

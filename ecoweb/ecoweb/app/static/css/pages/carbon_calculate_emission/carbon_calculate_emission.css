@@ -1,0 +1,402 @@
+.div-wrapper {
+  background-color: #f4f4f5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  width: 1920px;
+  height: 1960px;
+  font-family: Roboto;
+}
+.p {
+  position: relative;
+  margin-left: 20px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #5a5c63;
+  display: block;
+}
+/* 속도계 영역 =================================================*/
+.carbon-emission {
+  position: absolute;
+  top: 277px;
+  left: 340px;
+  width: 1020px;
+  height: 552px;
+}
+.carbon-emission-title {
+  position: relative;
+  margin-left: 20px;
+  display: inline-block;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  color: #292a2d;
+}
+/* 속도계 */
+.carbon-emission-speedmeter {
+  position: absolute;
+  width: 605px;
+  height: 336px;
+  top: 141px;
+  left: 355px;
+}
+.carbon-emission-speedmeter-bg {
+  position: absolute;
+  width: 601px;
+  height: 336px;
+  top: 0;
+  left: 0;
+}
+.carbon-emission-speedmeter-needle {
+  position: absolute;
+  top: 184px;
+  left: 33px;
+}
+.carbon-emission-speedmeter-mark {
+  position: absolute;
+  width: 99px;
+  height: 31px;
+  top: 212px;
+  left: 0;
+}
+/* 배출량 값 */
+.carbon-emission-value {
+  position: absolute;
+  top: 362px;
+  left: 20px;
+  font-weight: 600;
+  color: #292a2d;
+  font-size: 100px;
+  letter-spacing: 0;
+  line-height: 102.4px;
+  white-space: nowrap;
+}
+.carbon-emission-unit {
+  position: absolute;
+  top: 465px;
+  left: 20px;
+  font-size: 20px;  
+  line-height: 28px;
+  font-weight: 600;
+  color: #46474c;
+}
+
+/* 한국/세계 탄소 등급 =================================================*/
+.carbon-grade {
+  position: absolute;
+  top: 277px;
+  left: 1380px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 12px;
+}
+
+/* 탄소 등급 아이템 (세계/한국 공통) */
+.carbon-grade-item {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+/* 텍스트 래퍼 */
+.carbon-grade-text-wrapper {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+}
+
+/* 텍스트 스타일 */
+.carbon-grade-text-label {
+  margin: 0;
+  margin-bottom: 4px;
+  font-weight: 400;
+  color: #70737c;
+  font-size: 18px;
+  letter-spacing: 0px;
+  line-height: 24px;
+}
+.carbon-grade-text-value {
+  margin: 0;
+  margin-bottom: 4px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: #f9560e;
+  text-align: left;
+  display: inline-block;
+}
+.carbon-grade-text-suffix {
+  margin: 0;
+  font-weight: 400;
+  color: #70737c;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+/* 등급 아이콘 */
+.carbon-grade-icon-wrapper {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+.carbon-grade-item:first-child .carbon-grade-icon-wrapper {
+  width: 207px;
+  height: 184px;
+}
+.carbon-grade-item:last-child .carbon-grade-icon-wrapper {
+  width: 176px;
+  height: 235px;
+  top: 20px;
+}
+.carbon-grade-icon {
+  position: absolute;
+}
+.carbon-grade-item:first-child .carbon-grade-icon {
+  top: 0px;
+  left: 0px;
+}
+.carbon-grade-item:last-child .carbon-grade-icon {
+  width: 176px;
+  height: 235px;
+  top: 0px;
+  left: 0px;
+}
+.carbon-grade-icon-text {
+  position: absolute;
+  font-family: "NEXON Football Gothic", Helvetica;
+  font-weight: 700;
+  font-size: 100px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+.carbon-grade-item:first-child .carbon-grade-icon-text {
+  top: 35px;
+  left: 80px;
+}
+.carbon-grade-item:last-child .carbon-grade-icon-text {
+  top: 52px;
+  left: 50px;
+}
+
+/* 정보 아이콘 */
+.carbon-grade-item .carbon-emission-info {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  bottom: 20px;
+  left: 20px;
+}
+/* equivalent section =================================================*/
+.carbon-emission-equivalent {
+  position: absolute;
+  top: 900px;
+  left: 340px;
+  width: 1540px;
+  height: 400px;
+}
+
+.equivalent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 19px;
+  width: 100%;
+}
+
+.equivalent-title {
+  position: relative;
+  font-weight: 600;
+  color: #292a2d;
+  font-size: 20px;
+  line-height: 28px;
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+/* 방문자 기준 정보 표시*/
+.equivalent-basis {
+  position: relative;
+  color: #878a93;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.equivalent-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 20px;
+}
+
+.equivalent-content-item {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* text-wrapper: title과 formula를 묶는 컨테이너 */
+.equivalent-content-item-text-wrapper {
+  position: absolute;
+  top: 40px;
+  left: 213px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* title과 formula 사이 간격: 116px - 40px - 32px(line-height) = 44px */
+}
+
+.equivalent-content-item-title {
+  position: relative;
+  font-weight: 600;
+  color: #46474c;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+/* 공식 */
+.equivalent-content-item-formula {
+  position: relative;
+  font-size: 18px;
+  line-height: 24px;
+  color: #70737c;
+  text-align: left;
+}
+
+.equivalent-content-item-value-box {
+  position: absolute;
+  width: 302px;
+  height: 60px;
+  top: 211px;
+  left: 35px;
+  background-color: #f4f4f5;
+  border-radius: 20px;
+  border: 1px solid;
+  border-color: #dbdcdf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.equivalent-content-item-value-box p {
+  font-weight: 600;
+  color: #46474c;
+  font-size: 32px;
+  text-align: center;
+  line-height: 32px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.equivalent-content-item-value {
+  line-height: 40px;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-size: 32px;
+}
+
+.equivalent-content-item-unit {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.equivalent-content-item-image {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.equivalent-content-item-shadow {
+  position: absolute;
+}
+
+/* 커피 아이템 이미지 위치 */
+.equivalent-content-item:nth-child(1) .equivalent-content-item-image {
+  width: 290px;
+  height: 225px;
+  top: -40px;
+  left: -55px;
+  transform: rotate(20deg);
+  transform-origin: center center;
+  transform-box: fill-box;
+}
+/* 전기차 아이템 이미지 위치 */
+.equivalent-content-item:nth-child(2) .equivalent-content-item-image {
+  top: -80px;
+  left: -140px;
+  transform: scaleX(-1);
+}
+
+/* 스마트폰 아이템 이미지 위치 */
+.equivalent-content-item:nth-child(3) .equivalent-content-item-image {
+  width: 270px;
+  height: 210px;
+  top: -24px;
+  left: -63px;
+}
+
+/* 나무 아이템 이미지 위치 */
+.equivalent-content-item:nth-child(4) .equivalent-content-item-image {
+  width: 370px;
+  height: 288px;
+  top: -45px;
+  left: -106px;
+}
+.equivalent-value-box {
+  position: relative;
+  width: 300px;
+  height: 60px;
+  background-color: #f4f4f5;
+  border-radius: 20px;
+  border: 1px solid;
+  border-color: #dbdcdf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* carbon-emission-trend ==============================================*/
+.carbon-emission-trend {
+  position: absolute;
+  top: 1320px;
+  left: 340px;
+  width: 1540px;
+  height: 455px;
+}
+.carbon-emission-trend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 19px;
+  width: 100%;
+}
+.carbon-emission-trend-title {
+  font-weight: 600;
+  color: #292a2d;
+  font-size: 20px;
+  line-height: 28px;
+}
+.carbon-emission-trend-graph {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.carbon-emission-trend-graph canvas {
+  width: 100% !important;
+  height: 100% !important;
+}

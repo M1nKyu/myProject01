@@ -1,0 +1,177 @@
+<!--보고서 48-->
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" />
+  	<style>{{ css_content }}</style>
+  	
+  	
+  	
+</head>
+<body>
+	{% from 'pdf-macros.html' import render_header, render_sidebar %}
+
+	<div class="div">
+		<!-- 헤더 매크로 -->
+		{{ render_header(website_url=website_url, title='폰트 최적화 상세 분석', subtitle='Font Optimization Deep Dive') }}
+
+		<!-- 사이드바 매크로 -->
+		{{ render_sidebar() }}
+
+		<!-- 컨텐츠 -->
+		
+		<div class="title">
+			<div class="common-subtitle">사용중인 폰트</div>
+		</div>
+
+		<!--01. content01 ================================================== -->
+		<div class="content01">
+			<!-- 조치 사항 -->
+			<div class="content01-action" style="color: #ef4444;">긴급 개선 필요</div>
+
+			<!-- 총 폰트 크기 -->
+			<div class="content01-total-font">
+				<div class="content01-text-title">총 폰트 크기</div>
+				<div class="content01-text-value">2.213MB</div>
+			</div>
+			
+			<!-- CO2 배출량 -->
+			<div class="content01-co2">
+				<div class="content01-text-title">CO2 배출량</div>
+				<div class="content01-text-value">0.264g</div>
+			</div>
+		</div>
+
+		<!--02. content02 ================================================== -->
+		<div class="content02">
+			<div class="content02-title">발견된 폰트 파일 (10개)</div>
+
+			<div class="content02-grid">
+				<!-- 폰트 1 -->
+				<div class="content02-item">
+					<div class="content02-item-value" style="color: #ef4444;">856.8KB</div>
+					<div class="content02-item-text">
+						<div>NanumBarunGothicWeb.woff</div>
+						<div>한글 폰트</div>
+					</div>
+				</div>
+
+				<!-- 폰트 2 -->
+				<div class="content02-item">
+					<div class="content02-item-value" style="color: #ef4444;">731.9KB</div>
+					<div class="content02-item-text">
+						<div>NanumBarunGothicWebBold.woff</div>
+						<div>한글 폰트</div>
+					</div>
+				</div>
+
+				<!-- 폰트 3 -->
+				<div class="content02-item">
+					<div class="content02-item-value" style="color: #ff7638;">656.3KB</div>
+					<div class="content02-item-text">
+						<div>NanumBarunGothicWebLight.woff</div>
+						<div>한글 폰트</div>
+					</div>
+				</div>
+
+				<!-- 폰트 4 -->
+				<div class="content02-item">
+					<div class="content02-item-value" style="color: #00b872;">10.6KB</div>
+					<div class="content02-item-text">
+						<div>Roboto-Regular.woff2</div>
+						<div>영문 폰트</div>
+					</div>
+				</div>
+
+				<!-- 폰트 5 -->
+				<div class="content02-item">
+					<div class="content02-item-value" style="color: #00b872;">10.5KB</div>
+					<div class="content02-item-text">
+						<div>Roboto-Bold.woff2</div>
+						<div>영문 폰트</div>
+					</div>
+				</div>
+
+				<!-- 폰트 6 -->
+				<div class="content02-item">
+					<div class="content02-item-value" style="color: #ff7638;">8.2KB</div>
+					<div class="content02-item-text">
+						<div>icon-font.woff</div>
+						<div>아이콘 폰트</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 03. 표 =========================================================== -->
+		<div class="table-container">
+			<!-- 테이블 헤더 -->
+			<div class="table-header">
+				<div class="table-cell">최적화 방안</div>
+				<div class="table-cell">현재</div>
+				<div class="table-cell">최적화 후</div>
+				<div class="table-cell">절감률</div>
+				<div class="table-cell">CO2 절감</div>
+				<div class="table-cell">구현 난이도</div>
+			</div>
+
+			<!-- 테이블 행 1 -->
+			<div class="table-row">
+				<div class="table-cell">WOFF2 형식 변환</div>
+				<div class="table-cell">2.213MB</div>
+				<div class="table-cell">0.996MB</div>
+				<div class="table-cell table-pass">-55%</div>
+				<div class="table-cell table-pass">-0.145g</div>
+				<div class="table-cell table-pass">쉬움</div>
+			</div>
+
+			<!-- 테이블 행 2 -->
+			<div class="table-row">
+				<div class="table-cell">서브셋 폰트 적용</div>
+				<div class="table-cell">2.213MB</div>
+				<div class="table-cell">1.549MB</div>
+				<div class="table-cell table-partial">-30%</div>
+				<div class="table-cell table-partial">-0.79g</div>
+				<div class="table-cell table-partial">중간</div>
+			</div>
+
+			<!-- 테이블 행 3 -->
+			<div class="table-row">
+				<div class="table-cell">가변 폰트 통합</div>
+				<div class="table-cell">3개 weight</div>
+				<div class="table-cell">1개 파일</div>
+				<div class="table-cell table-partial">-50%</div>
+				<div class="table-cell table-partial">-0.132g</div>
+				<div class="table-cell table-partial">중간</div>
+			</div>
+
+			<!-- 테이블 행 4 -->
+			<div class="table-row">
+				<div class="table-cell">시스템 폰트 우선</div>
+				<div class="table-cell">2.213MB</div>
+				<div class="table-cell">0.553MB</div>
+				<div class="table-cell table-pass">-75%</div>
+				<div class="table-cell table-pass">-0.198g</div>
+				<div class="table-cell table-pass">쉬움</div>
+			</div>
+
+			<!-- 테이블 행 5 -->
+			<div class="table-row">
+				<div class="table-cell">Preload 최적화</div>
+				<div class="table-cell">지연 로딩</div>
+				<div class="table-cell">사전 로딩</div>
+				<div class="table-cell">-</div>
+				<div class="table-cell">체감 속도 개선</div>
+				<div class="table-cell table-pass">쉬움</div>
+			</div>
+		</div>
+
+		<div class="horizontal-dashed-line01"></div>
+		<div class="vertical-line01"></div>
+
+  	</div>
+</body>
+</html>

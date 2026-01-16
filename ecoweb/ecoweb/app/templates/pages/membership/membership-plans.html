@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEP4QKW5CR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JEP4QKW5CR');
+    </script>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	{% if meta %}
+      <title>{{ meta.title }}</title>
+    {% else %}
+      <title>멤버십 요금제 - eCarbon</title>
+    {% endif %}
+
+  	<!-- Open Graph / Social Media Meta Tags -->
+    {% include 'includes/meta/meta-tags.html' %}
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    {% include 'includes/meta/structured-data.html' %}
+
+  	<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/membership/membership-plans.css') }}" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" />
+  	
+</head>
+<body>
+    {% include 'includes/new-header.html' %}
+  	<div class="membership-plans">
+        <!--배경 영역-->
+        <div class="membership-bg">
+            <div class="inner"></div>
+            <div class="ellipse-div"></div>
+            <div class="child1"></div>
+            <div class="child2"></div>
+            <div class="child3"></div>
+        </div>
+
+        <!--상단 영역-->
+        <div class="membership-section01">
+            <img class="icon6" alt="" src="{{ url_for('static', filename='img/membership/plans-lock.svg') }}">
+            <div class="div1">
+                <p class="p">페이지, 이미지, 코드까지 한 번에 진단하고</p>
+                <p class="p">탄소를 30% 줄이세요!</p>
+            </div>
+            <div class="div3">숨겨진 그린 인사이트를 열어 더 빠른 웹과 더 가벼운 지구를 만들어보세요</div>
+            <div class="rectangle-parent">
+                <div class="group-child">
+                </div>
+                <div class="parent">
+                        <div class="div4">7일 무료 체험 시작하기</div>
+                        <div class="wrapper">
+                            <div class="div5">카드 정보 불필요</div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!--구독 영역-->
+        <div class="membership-section02">
+            <!--월간 구독 -->
+            <div class="rectangle-div"></div>
+            <div class="div7">월간 구독</div>
+            <div class="div9">/ 월</div>
+            <div class="div15">₩ 49,000</div>
+
+            <div class="lets-iconscheck-fill-parent4">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">페이지 분석</div>
+            </div>
+            <div class="lets-iconscheck-fill-parent5">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">이미지 분석</div>
+            </div>
+            <div class="lets-iconscheck-fill-parent6">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">코드 분석</div>
+            </div>
+            <div class="lets-iconscheck-fill-parent7">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">국제 지속가능성 가이드라인 평가</div>
+            </div>
+            <div class="lets-iconscheck-fill-parent8">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">인증 배너 받기</div>
+            </div>
+            <div class="lets-iconscheck-fill-parent9">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">맞춤형 개선 리포트</div>
+            </div>
+
+            <!--연간 구독-->
+            <div class="child4"></div>
+            <div class="div6">연간 구독</div>
+            <div class="div8">/ 년</div>
+            <div class="container">
+                <div class="div13">2개월 무료 (20% 할인)</div>
+            </div>
+            <div class="div14">₩ 470,000</div>
+            <div class="div12">월 39,000원</div>
+            <div class="child5"></div>
+            <div class="div16">추천</div>
+            <div class="lets-iconscheck-fill-parent">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">페이지 분석</div>
+            </div>
+            <div class="lets-iconscheck-fill-group">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">이미지 분석</div>
+            </div>
+            <div class="lets-iconscheck-fill-container">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">코드 분석</div>
+            </div>
+            <div class="lets-iconscheck-fill-parent1">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">국제 지속가능성 가이드라인 평가</div>
+            </div>
+            <div class="lets-iconscheck-fill-parent2">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">인증 배너 받기</div>
+            </div>
+            <div class="lets-iconscheck-fill-parent3">
+                <img class="lets-iconscheck-fill" alt="" src="{{ url_for('static', filename='img/membership/plans-check.svg') }}">
+                <div class="div19">맞춤형 개선 리포트</div>
+            </div>
+
+
+            <!--하단 영역-->
+            <div class="div10">100% 환불 보장</div>
+            <div class="div11">7일 무료 체험 + 30일 이내 환불 가능 ・ 취소 수수료 없음</div>
+            <img class="icon-park-solidprotect" alt="" src="{{ url_for('static', filename='img/membership/plans-protect.svg') }}">
+
+        </div>
+
+        <!-- 예상 개선 효과 영역-->
+        <div class="membership-section03">
+            <!--title-->
+            <div class="div2">내 사이트 예상 개선 효과</div>
+            
+            <!--현재 (무료 버전)-->
+            <div class="child6"></div>
+            <div class="div17">현재 (무료 버전)</div>
+            <div class="co2kwh">CO2/kWh</div>
+            <div class="g">0.34g</div>
+
+            <!--PRO 버전 예상-->
+            <div class="child7"></div>
+            <div class="pro1">PRO 버전 예상</div>
+            <div class="co2kwh1">CO2/kWh</div>
+            <div class="g1">0.24g</div>
+
+            <div class="child19"></div>
+            <img class="ggarrow-up-o-icon" alt="" src="{{ url_for('static', filename='img/membership/plans-arrow-right.svg') }}">
+
+        </div>
+
+        <!-- 프리미엄 기능 소개 영역-->
+        <div class="membership-section04">
+            <!--title-->
+            <div class="pro">PRO에서만 가능한 심층 분석</div>
+            <!--01.페이지분석-->
+            <div class="child8"></div>
+            <img class="icon" alt="" src="{{ url_for('static', filename='img/membership/plans-page.svg') }}">
+            <div class="div66">페이지 분석</div>
+            <div class="html-css-container">
+                    <p class="p">HTML, CSS 최적화로 페이지 용량을</p>
+                    <p class="p">줄이고 로딩 속도 개선</p>
+            </div>
+            <div class="frame">
+                <div class="a">평균 25% 절감</div>
+            </div>
+
+            <!--02.이미지분석-->
+            <div class="child10"></div>
+            <img class="icon1" alt="" src="{{ url_for('static', filename='img/membership/plans-image.svg') }}">
+            <div class="div62">이미지 분석</div>
+            <div class="div67">
+                <p class="p">이미지 포맷, 크기, 압축을 최적화로</p>
+                <p class="p">대역폭 절약</p>
+            </div>
+            <div class="wrapper1">
+                <div class="a">평균 40% 절감</div>
+            </div>
+
+            <!--03.코드분석-->
+            <div class="child12"></div>
+            <img class="icon3" alt="" src="{{ url_for('static', filename='img/membership/plans-code.svg') }}">
+            <div class="div63">코드 분석</div>
+            <div class="javascript-css-container">
+                <p class="p">JavaScript, CSS 번들 최적화로</p>
+                <p class="p">실행 효율성 향상</p>
+            </div>
+            <div class="wrapper2">
+                <div class="a">평균 20% 절감</div>
+            </div>
+
+            <!--04.국제지속가능성성평가-->
+            <div class="child9"></div>
+            <img class="icon4" alt="" src="{{ url_for('static', filename='img/membership/plans-guide.svg') }}">
+            <div class="div71">국제 지속가능성 평가</div>
+            <div class="div68">글로벌 친환경 웹 표준 준수 여부 종합 평가</div>
+            <div class="a-wrapper">
+                <div class="a">A+ 등급 달성</div>
+            </div>
+
+            <!--05.인증배너받기-->
+            <div class="child11"></div>
+            <img class="icon2" alt="" src="{{ url_for('static', filename='img/membership/plans-banner.svg') }}">
+            <div class="div64">인증 배너 받기</div>
+            <div class="div69">사이트에 부착 가능한 공식 친환경 인증 배지</div>
+            <div class="wrapper3">
+                <div class="a">브랜드 가치 상승</div>
+            </div>
+
+            <!--06.맞춤형 개선리포트-->
+            <div class="child13"></div>
+            <img class="icon5" alt="" src="{{ url_for('static', filename='img/membership/plans-report.svg') }}">
+            <div class="div65">맞춤형 개선 리포트</div>
+            <div class="div70">
+                <p class="p">우선순위별 구체적인 </p>
+                <p class="p">개선 방안과 예상 효과</p>
+            </div>
+            <div class="wrapper4">
+                    <div class="a">실행 가능한 인사이트</div>
+            </div>
+        </div>
+
+        <!-- 후기 영역-->
+        <div class="membership-section05">
+            <!--title-->
+            <div class="div56">이미 10개 기업이 탄소 절감에 성공했어요!</div>
+            
+            <!--01-->
+            <div class="child15"></div>
+            <div class="ecarbon-pro-container">
+                <p class="p">Ecarbon PRO로 웹사이트 탄소 배출을 35% 줄였고, </p>
+                <p class="p">페이지 속도도 2배 빨라졌습니다. ESG 보고서에 활용하기 완벽해요</p>
+            </div>
+            <div class="child16"></div>
+            <div class="parent2">
+                <div class="div57">김민수</div>
+                <div class="div58">네이버 지속가능경영팀</div>
+            </div>
+            <img class="oouiquotes-ltr-icon" alt="" src="{{ url_for('static', filename='img/membership/plans-double-quote-open.svg') }}">
+            <img class="oouiquotes-rtl-icon" alt="" src="{{ url_for('static', filename='img/membership/plans-double-quote-close.svg') }}">
+    
+            <!--02-->
+            <div class="child17"></div>
+            <div class="child18"></div>
+            <div class="parent3">
+                <div class="div57">이지은</div>
+                <div class="div58">쿠팡 마케팅팀</div>
+            </div>
+            <div class="div61">
+                <p class="p">인증 배지를 달고 나서 브랜드 이미지가 확실히 개선됐어요.</p>
+                <p class="p">고객들이 우리 회사의 환경 노력을 인정해주더라고요.</p>
+            </div>
+            <img class="oouiquotes-ltr-icon1" alt="" src="{{ url_for('static', filename='img/membership/plans-double-quote-open.svg') }}">
+            <img class="oouiquotes-rtl-icon1" alt="" src="{{ url_for('static', filename='img/membership/plans-double-quote-close.svg') }}">
+        
+        </div>
+  	</div>
+    {% include 'includes/sidebar.html' %}
+</body>
+</html>

@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEP4QKW5CR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JEP4QKW5CR');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('loading.page_title') }}</title>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    {% include 'includes/meta/meta-tags.html' %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" />
+
+    <!-- i18n JavaScript Library -->
+    <script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+    <script>
+        // Initialize i18n
+        const i18n = new I18n('{{ get_locale() }}');
+    </script>
+
+    <style>
+        .div1 {
+            font-size: 22px;
+            line-height: 32px;
+            color: #878a93;
+            text-align: center;
+            position: static;
+            margin-bottom: 16px; /* parent와의 간격 16px (icon과는 아래 .icon margin으로 25px 보장) */
+        }
+        .url {
+            position: relative;
+            line-height: 32px;
+            font-weight: 600;
+            display: inline-block;
+            max-width: 560px; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .div2 {
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px solid #c2c4c8;
+            box-sizing: border-box;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            max-width: 600px; /* container width for URL */
+            overflow: hidden;
+        }
+        .div3 {
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 600;
+            text-align: center;
+            position: static;
+        }
+        .parent {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 24px;
+            color: #37383c;
+            position: static;
+            margin-bottom: 24px;
+        }
+        .vector-icon {
+            width: 36px;
+            height: 36px;
+            position: relative;
+            max-height: 100%;
+            display: block;
+        }
+        .div4 {
+            line-height: 28px;
+            position: static;
+        }
+        .row-1,
+        .row-2,
+        .row-3 {
+            display: flex;
+            flex-direction: row;
+            align-items: center; /* icon과 텍스트 수직 정렬 */
+            justify-content: flex-start; /* 좌측 정렬 */
+            gap: 24px; /* 아이콘-텍스트 간격 통일 */
+            position: static;
+            margin: 24px 0; /* 세 행 모두 동일 상하 간격 */
+        }
+        .frame-item {
+            width: 36px;
+            position: relative;
+            border-radius: 50%;
+            border: 3.8px solid #c2c4c8;
+            box-sizing: border-box;
+            height: 36px;
+        }
+        /* 회전 애니메이션 (진행 중 아이콘) */
+        @keyframes spin360 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .spinning { animation: spin360 1.2s linear infinite; }
+        .icon {
+            width: min(322px, 80vw);
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            position: static;
+            margin: 0 0 25px; /* div1과의 간격 25px */
+        }
+        .div {
+            width: 100%;
+            position: relative;
+            background: linear-gradient(180deg, #daf2e9, #f4f4f5);
+            min-height: 100vh;
+            overflow: hidden;
+            text-align: center;
+            font-size: 18px;
+            color: #70737c;
+            font-family: Roboto, sans-serif;
+        }
+        /* 수직 스택: 화면 중앙 정렬 및 반응형 배치 */
+        .stack {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 800px;
+            min-height: 0; /* flexbox 최소 높이 제한 해제 */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .hidden { display: none; }
+        /* 실패 시 홈 버튼 링크 기본 스타일 */
+        #error-actions a { text-decoration: none; color: #37383c; }
+        
+        /* 결과 보기 스타일 */
+        .result-container {
+            max-width: 600px;
+            margin: 20px auto 0;
+            padding: 16px;
+            text-align: center;
+        }
+        .result-header h3 {
+            color: #37383c;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .result-header p {
+            color: #70737c;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .result-btn {
+            padding: 16px 32px;
+            background: #37383c;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .result-btn:hover {
+            background: #2a2b2f;
+        }
+
+        /* 모바일 반응형 최적화 */
+        @media (max-height: 700px) {
+            .stack {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin: 20px auto;
+                padding: 10px;
+            }
+            .div {
+                min-height: auto;
+                padding: 20px 0;
+            }
+            .icon {
+                width: min(250px, 70vw);
+                max-height: 180px;
+                margin: 0 0 15px;
+            }
+            .row-1, .row-2, .row-3 {
+                margin: 16px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .div3 {
+                font-size: 24px;
+                line-height: 32px;
+            }
+            .div1 {
+                font-size: 18px;
+                line-height: 28px;
+            }
+            .parent {
+                flex-direction: column;
+                gap: 8px;
+                margin-bottom: 16px;
+            }
+            .div2 {
+                max-width: 90%;
+                padding: 6px 10px;
+            }
+            .row-1, .row-2, .row-3 {
+                gap: 16px;
+                margin: 12px 0;
+            }
+            .vector-icon {
+                width: 28px;
+                height: 28px;
+            }
+            .frame-item {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <div class="stack">
+            <img class="icon" alt="" src="{{ url_for('static', filename='img/loading/loading-big.svg') }}">
+
+            <div class="div1" id="status-text">{{ _('loading.please_wait') }}...</div>
+            <div class="parent">
+                <div class="div2">
+                    <div class="url" id="url-text"></div>
+                </div>
+                <div class="div3">{{ _('loading.analyzing_url') }}</div>
+            </div>
+
+            <!-- 실패 시 표시될 액션 영역: .div2 스타일 버튼으로 홈 이동 -->
+            <div id="error-actions" class="hidden" aria-live="polite">
+                <a href="{{ url_for('main.home') }}" class="div2" id="go-home-btn">{{ _('loading.go_home') }}</a>
+            </div>
+
+            <div class="row-1" id="row-1">
+                <img class="vector-icon" id="icon-1" alt="" src="{{ url_for('static', filename='img/loading/loading-wait.svg') }}">
+                <div class="div4" id="text-1">{{ _('loading.analyzing_main_page') }}</div>
+            </div>
+            <div class="row-2" id="row-2">
+                <img class="vector-icon" id="icon-2" alt="" src="{{ url_for('static', filename='img/loading/loading-wait.svg') }}">
+                <div class="div4" id="text-2">{{ _('loading.analyzing_subpages') }}</div>
+            </div>
+            <div class="row-3" id="row-3">
+                <img class="vector-icon" id="icon-3" alt="" src="{{ url_for('static', filename='img/loading/loading-wait.svg') }}">
+                <div class="div4" id="text-3">{{ _('loading.optimizing_images') }}</div>
+            </div>
+
+            <!-- 설문조사 영역 (AJAX로 로드) -->
+            <div id="survey-section" class="hidden"></div>
+
+            <!-- 측정 완료 후 결과 보기 버튼 -->
+            <div id="result-ready" class="result-container hidden">
+                <button id="view-results" class="result-btn hidden">{{ _('loading.view_results') }}</button>
+            </div>
+
+            <!-- 디버깅용 취소 버튼 (숨김) -->
+            <div style="position: fixed; top: 10px; right: 10px; z-index: 9999; display: none;">
+                <button id="debug-cancel" style="background: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+                    🚫 Debug Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlValue = "{{ url|safe }}";
+            const taskId = "{{ task_id|safe }}";
+            const statusText = document.getElementById('status-text');
+            const urlText = document.getElementById('url-text');
+            const icon1 = document.getElementById('icon-1');
+            const icon2 = document.getElementById('icon-2');
+            const icon3 = document.getElementById('icon-3');
+            const text1 = document.getElementById('text-1');
+            const text2 = document.getElementById('text-2');
+            const text3 = document.getElementById('text-3');
+
+            const ICON_WAIT = "{{ url_for('static', filename='img/loading/loading-wait.svg') }}";
+            const ICON_PROGRESS = "{{ url_for('static', filename='img/loading/loading-in-progress.svg') }}";
+            const ICON_DONE = "{{ url_for('static', filename='img/loading/loading-done.svg') }}";
+
+            // URL 표시
+            urlText.textContent = urlValue || '';
+            if (urlValue) {
+                urlText.setAttribute('title', urlValue);
+            } else {
+                urlText.removeAttribute('title');
+            }
+
+            let intervalId;
+            let surveyStarted = false;
+            let surveyCompleted = false;
+            let surveyData = {};
+            let measurementComplete = false;
+            // 동적 단계 구성: 1(접속경로),2(직군),3(운영여부),4(방문자),5(유형),6(감사인사/이메일)
+            let visibleSteps = [1,2,3,4,5,6];
+            let currentStepIndex = 0; // 0-based index into visibleSteps
+
+            // 간단한 fetch 재시도 유틸
+            function fetchWithRetry(url, options = {}, retries = 3, delayMs = 1000) {
+                return new Promise((resolve, reject) => {
+                    const attempt = (n) => {
+                        fetch(url, options)
+                            .then(res => {
+                                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                                resolve(res);
+                            })
+                            .catch(err => {
+                                if (n > 0) {
+                                    console.warn(`fetch retry (${retries - n + 1}) for`, url, 'after error:', err);
+                                    setTimeout(() => attempt(n - 1), delayMs);
+                                } else {
+                                    reject(err);
+                                }
+                            });
+                    };
+                    attempt(retries);
+                });
+            }
+
+            function setIcon(el, src, spinning=false) {
+                el.src = src;
+                if (spinning) el.classList.add('spinning'); else el.classList.remove('spinning');
+            }
+
+            function setIconByStep(el, stepStatus) {
+                switch (stepStatus) {
+                    case 'in_progress':
+                        setIcon(el, ICON_PROGRESS, true);
+                        break;
+                    case 'done':
+                        setIcon(el, ICON_DONE, false);
+                        break;
+                    case 'waiting':
+                    default:
+                        setIcon(el, ICON_WAIT, false);
+                        break;
+                }
+            }
+
+            function checkStatus() {
+                fetch(`/check_status/${taskId}`)
+                    .then(response => {
+                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.debug('[check_status]', new Date().toISOString(), data);
+                        const status = data.status;
+                        const normStatus = (status || '').toString().trim().toUpperCase();
+                        const progress = data.progress || {};
+                        const steps = (progress.steps) || {};
+                        const inputStep = steps.input || {};
+                        const subpagesStep = steps.subpages || {};
+                        const imageOptStep = steps.image_opt || {};
+                        // Phase 2 수정: SUCCESS도 완료 상태로 처리 (Celery 완료 상태)
+                        if (normStatus === 'SUCCESS' || normStatus === 'MEASUREMENT_COMPLETE') {
+                            clearInterval(intervalId);
+                            statusText.textContent = i18n.t('loading.analysis_complete');
+                            // 두 단계 모두 완료 처리
+                            setIconByStep(icon1, 'done');
+                            setIconByStep(icon2, 'done');
+                            setIconByStep(icon3, 'done');
+
+                            // 결과가 DB에 확실히 저장되었는지 추가 확인 (1초 대기 - Phase 2 수정)
+                            setTimeout(() => {
+                                // 설문조사가 아직 시작되지 않았다면 시작
+                                if (!surveyStarted) {
+                                    showSurvey();
+                                }
+                                // 결과 보기 버튼 표시
+                                showResultReady();
+                            }, 1000);
+                        } else if (normStatus === 'QUEUED') {
+                            statusText.textContent = i18n.t('loading.queued_message', {position: data.queue_position});
+                            // 모두 대기 상태
+                            setIconByStep(icon1, 'waiting');
+                            setIconByStep(icon2, 'waiting');
+                            setIconByStep(icon3, 'waiting');
+                        } else if (normStatus === 'PENDING' || normStatus === 'STARTED' || normStatus === 'PROGRESS') {
+                            statusText.textContent = i18n.t('loading.in_progress');
+                            // 디버그: 현재 세부 단계 로그 남기기
+                            console.debug('[progress]', {
+                                input: inputStep.status,
+                                subpages: subpagesStep.status,
+                                image_opt: imageOptStep.status
+                            });
+                            // 상세 단계 정보가 있으면 반영, 없으면 기본 규칙 적용
+                            if (inputStep.status || subpagesStep.status || imageOptStep.status) {
+                                setIconByStep(icon1, inputStep.status || 'waiting');
+                                setIconByStep(icon2, subpagesStep.status || 'waiting');
+                                setIconByStep(icon3, imageOptStep.status || 'waiting');
+                            } else {
+                                // 기본: 1단계 진행, 2단계 대기
+                                setIconByStep(icon1, 'in_progress');
+                                setIconByStep(icon2, 'waiting');
+                                setIconByStep(icon3, 'waiting');
+                            }
+                            // Fallback: 모든 세부 단계가 done이면 완료로 처리
+                            const allDone = [inputStep.status, subpagesStep.status, imageOptStep.status]
+                                .every(s => (s || '').toString().toLowerCase() === 'done');
+                            if (allDone) {
+                                clearInterval(intervalId);
+                                statusText.textContent = i18n.t('loading.analysis_complete');
+                                setIconByStep(icon1, 'done');
+                                setIconByStep(icon2, 'done');
+                                setIconByStep(icon3, 'done');
+
+                                // 결과가 DB에 확실히 저장되었는지 추가 확인 (1초 대기 - Phase 2 수정)
+                                setTimeout(() => {
+                                    if (!surveyStarted) {
+                                        showSurvey();
+                                    }
+                                    showResultReady();
+                                }, 1000);
+                            }
+                        } else if (status === 'CANCELLED') {
+                            clearInterval(intervalId);
+                            taskCancelled = true;
+
+                            statusText.innerHTML = `
+                                <div style="color: #f39c12; font-weight: 600; margin-bottom: 8px;">
+                                    ${i18n.t('loading.cancelled_title')}
+                                </div>
+                                <div style="margin-bottom: 12px;">
+                                    ${i18n.t('loading.cancelled_message')}
+                                </div>
+                            `;
+
+                            // 모든 아이콘을 대기 상태로 설정
+                            setIconByStep(icon1, 'waiting');
+                            setIconByStep(icon2, 'waiting');
+                            setIconByStep(icon3, 'waiting');
+
+                            // 실패 시 URL 표시 블록 숨기고 홈 버튼 노출
+                            const parentBlock = document.querySelector('.parent');
+                            const errorActions = document.getElementById('error-actions');
+                            if (parentBlock) parentBlock.classList.add('hidden');
+                            if (errorActions) {
+                                errorActions.innerHTML = `
+                                    <a href="/" class="div2" style="text-decoration: none; color: #37383c; cursor: pointer;" onclick="taskCancelled = true;">${i18n.t('loading.new_analysis')}</a>
+                                `;
+                                errorActions.classList.remove('hidden');
+                            }
+                        } else if (status === 'FAILURE') {
+                            clearInterval(intervalId);
+
+                            // 오류 정보가 있으면 사용자 친화적 메시지 표시
+                            if (data.error_info && data.error_info.title) {
+                                // 접근성 체크 실패인 경우 더 간단한 메시지
+                                if (data.error_info.title.includes('접근할 수 없습니다')) {
+                                    statusText.innerHTML = `
+                                        <div style="color: #e74c3c; font-weight: 600; margin-bottom: 8px;">
+                                            ${data.error_info.title}
+                                        </div>
+                                        <div style="margin-bottom: 12px;">
+                                            ${data.error_info.message}
+                                        </div>
+                                        <div style="font-size: 16px; color: #7f8c8d; line-height: 1.4;">
+                                            💡 ${data.error_info.suggestion}
+                                        </div>
+                                    `;
+                                } else {
+                                    // 일반 오류의 경우 URL 링크 포함
+                                    statusText.innerHTML = `
+                                        <div style="color: #e74c3c; font-weight: 600; margin-bottom: 8px;">
+                                            ${data.error_info.title}
+                                        </div>
+                                        <div style="margin-bottom: 12px;">
+                                            ${data.error_info.message}
+                                        </div>
+                                        <div style="font-size: 16px; color: #7f8c8d; line-height: 1.4;">
+                                            💡 ${data.error_info.suggestion}<br>
+                                            🔍 해당 사이트가 정상적으로 작동하는지 직접 확인해 보세요:
+                                            <a href="${urlValue}" target="_blank" rel="noopener noreferrer"
+                                               style="color: #3498db; text-decoration: underline; font-weight: 500;">
+                                                ${urlValue}
+                                            </a>
+                                        </div>
+                                    `;
+                                }
+                            } else {
+                                statusText.innerHTML = `
+                                    <div style="color: #e74c3c; font-weight: 600; margin-bottom: 8px;">
+                                        ${i18n.t('loading.failure_title')}
+                                    </div>
+                                    <div style="margin-bottom: 12px;">
+                                        ${i18n.t('loading.failure_message')}
+                                    </div>
+                                    <div style="font-size: 16px; color: #7f8c8d; line-height: 1.4;">
+                                        💡 ${i18n.t('loading.failure_suggestion')}<br>
+                                        🔍 ${i18n.t('loading.check_site_status')}:
+                                        <a href="${urlValue}" target="_blank" rel="noopener noreferrer"
+                                           style="color: #3498db; text-decoration: underline; font-weight: 500;">
+                                            ${urlValue}
+                                        </a>
+                                    </div>
+                                `;
+                            }
+
+                            // 실패 시: 진행 단계가 있다면 해당 상태 유지, 없으면 대기 아이콘
+                            if (inputStep.status || subpagesStep.status || imageOptStep.status) {
+                                setIconByStep(icon1, inputStep.status || 'waiting');
+                                setIconByStep(icon2, subpagesStep.status || 'waiting');
+                                setIconByStep(icon3, imageOptStep.status || 'waiting');
+                            } else {
+                                setIconByStep(icon1, 'waiting');
+                                setIconByStep(icon2, 'waiting');
+                                setIconByStep(icon3, 'waiting');
+                            }
+                            // 실패 시 URL 표시 블록 숨기고 적절한 버튼 노출
+                            const parentBlock = document.querySelector('.parent');
+                            const errorActions = document.getElementById('error-actions');
+                            if (parentBlock) parentBlock.classList.add('hidden');
+                            if (errorActions) {
+                                // 접근성 체크 실패인 경우 다시 시도 버튼도 함께 표시
+                                if (data.error_info && data.error_info.title && data.error_info.title.includes('접근할 수 없습니다')) {
+                                    errorActions.innerHTML = `
+                                        <div style="display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
+                                            <a href="/" class="div2" style="text-decoration: none; color: #37383c; cursor: pointer;" onclick="taskCancelled = true;">${i18n.t('loading.enter_different_url')}</a>
+                                            <a href="${urlValue}" target="_blank" rel="noopener noreferrer" class="div2" style="text-decoration: none; color: #37383c; cursor: pointer;">${i18n.t('loading.check_site_directly')}</a>
+                                        </div>
+                                    `;
+                                } else {
+                                    // 일반 실패의 경우 기본 홈 버튼만 표시
+                                    errorActions.innerHTML = `
+                                        <a href="/" class="div2" style="text-decoration: none; color: #37383c; cursor: pointer;" onclick="taskCancelled = true;">${i18n.t('loading.go_home')}</a>
+                                    `;
+                                }
+                                errorActions.classList.remove('hidden');
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching task status:', error);
+                        clearInterval(intervalId);
+                        statusText.textContent = '상태 확인 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
+                    });
+            }
+
+            function showResultReady() {
+                measurementComplete = true;
+                const ready = document.getElementById('result-ready');
+                if (ready) ready.classList.remove('hidden');
+                const viewBtn = document.getElementById('view-results');
+                if (viewBtn) viewBtn.classList.remove('hidden');
+                // 마지막 슬라이드 CTA 상태 갱신
+                updateFinalCTA();
+            }
+
+            // 설문조사 관련 함수들
+            function showSurvey() {
+                if (surveyStarted) return;
+                
+                // 먼저 사용자의 설문조사 완료 상태 확인
+                fetch('/check_survey_status')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.has_completed_survey) {
+                            // 이미 설문조사를 완료했거나 건너뛴 경우
+                            console.log('사용자가 이미 설문조사를 완료했습니다.');
+                            surveyCompleted = true;
+                            document.getElementById('view-results').classList.remove('hidden');
+                            return;
+                        }
+                        
+                        // 설문조사를 완료하지 않은 경우에만 표시
+                        surveyStarted = true;
+                        
+                        // AJAX로 HTML fragment 로드 (연결 리셋 등 일시적 오류 대비 재시도)
+                        fetchWithRetry('/survey_fragment', {}, 3, 1200)
+                    .then(response => response.text())
+                    .then(html => {
+                        const surveySection = document.getElementById('survey-section');
+                        surveySection.innerHTML = html;
+                        surveySection.classList.remove('hidden');
+                        
+                        // fragment 로드 후 이벤트 리스너 등록
+                        setupSurveyEventListeners();
+                        // 진행 막대 동적 생성 및 초기화
+                        buildProgressBars(visibleSteps.length);
+                        showOnlyCurrentStep();
+                        updateProgress(currentStepIndex + 1);
+                        updateStepLabel(currentStepIndex + 1, visibleSteps.length);
+                        updateButtonVisibility();
+                        updateFinalCTA();
+                if (surveyCompleted) {
+                    document.getElementById('view-results').classList.remove('hidden');
+                }
+            })
+            .catch(error => {
+                console.error('Survey fragment load error:', error);
+                // 실패 시에는 조용히 재시도 예약 (최대 1회 추가)
+                setTimeout(() => {
+                    fetchWithRetry('/survey_fragment', {}, 1, 1500)
+                        .then(r => r.text())
+                        .then(html2 => {
+                            const surveySection = document.getElementById('survey-section');
+                            surveySection.innerHTML = html2;
+                            surveySection.classList.remove('hidden');
+                            setupSurveyEventListeners();
+                            buildProgressBars(visibleSteps.length);
+                            showOnlyCurrentStep();
+                            updateProgress(currentStepIndex + 1);
+                            updateStepLabel(currentStepIndex + 1, visibleSteps.length);
+                            updateButtonVisibility();
+                            updateFinalCTA();
+                        })
+                        .catch(err2 => {
+                            console.error('Survey fragment second attempt failed:', err2);
+                            // 최종 실패 시 설문조사 완료로 처리
+                            surveyCompleted = true;
+                            if (measurementComplete) {
+                                document.getElementById('view-results').classList.remove('hidden');
+                            }
+                        });
+                }, 1500);
+            });
+                    })
+                    .catch(error => {
+                        console.error('설문조사 상태 확인 실패:', error);
+                        // 상태 확인 실패 시에도 설문조사 표시
+                        surveyStarted = true;
+                        
+                        fetchWithRetry('/survey_fragment', {}, 3, 1200)
+                            .then(response => response.text())
+                            .then(html => {
+                                const surveySection = document.getElementById('survey-section');
+                                surveySection.innerHTML = html;
+                                surveySection.classList.remove('hidden');
+                                setupSurveyEventListeners();
+                                buildProgressBars(visibleSteps.length);
+                                showOnlyCurrentStep();
+                                updateProgress(currentStepIndex + 1);
+                                updateStepLabel(currentStepIndex + 1, visibleSteps.length);
+                                updateButtonVisibility();
+                                updateFinalCTA();
+                            })
+                            .catch(err => console.error('Survey fragment load error:', err));
+                    });
+            }
+
+            function nextQuestion() {
+                const currentStep = visibleSteps[currentStepIndex];
+                const currentQ = document.getElementById(`question-${currentStep}`);
+                // 단계별 데이터 수집 및 최소 선택 체크
+                if (!collectStepData(currentStep)) {
+                    alert('답변을 선택해주세요.');
+                    return;
+                }
+                // owner 응답에 따라 visibleSteps 재구성 (한 번만 적용)
+                if (currentStep === 3) {
+                    const owner = (surveyData.step2 || {}).owner;
+                    if (owner === 'yes') {
+                        visibleSteps = [1,2,3,4,5,6];
+                    } else {
+                        visibleSteps = [1,2,3,6];
+                    }
+                    buildProgressBars(visibleSteps.length);
+                }
+                // 다음 인덱스로 이동
+                currentStepIndex++;
+                if (currentStepIndex >= visibleSteps.length) {
+                    // 마지막을 지나면 완료 버튼 로직으로 유도
+                    currentStepIndex = visibleSteps.length - 1;
+                }
+                showOnlyCurrentStepWithAnimation('next');
+                updateButtonVisibility();
+                updateProgress(currentStepIndex + 1);
+                updateStepLabel(currentStepIndex + 1, visibleSteps.length);
+                updateFinalCTA();
+            }
+
+            function prevQuestion() {
+                // 이전 인덱스로 이동
+                if (currentStepIndex > 0) {
+                    currentStepIndex--;
+                }
+                showOnlyCurrentStepWithAnimation('prev');
+                updateButtonVisibility();
+                updateProgress(currentStepIndex + 1);
+                updateStepLabel(currentStepIndex + 1, visibleSteps.length);
+                updateFinalCTA();
+            }
+
+            function updateButtonVisibility() {
+                const nextBtn = document.getElementById('survey-next');
+                const prevBtn = document.getElementById('survey-prev');
+                const completeBtn = document.getElementById('survey-complete');
+
+                if (currentStepIndex === visibleSteps.length - 1) {
+                    // 마지막 슬라이드: 모든 하단 버튼 숨김
+                    if (nextBtn) nextBtn.classList.add('hidden');
+                    if (prevBtn) prevBtn.classList.add('hidden');
+                    if (completeBtn) completeBtn.classList.add('hidden');
+                } else {
+                    // 중간 슬라이드
+                    if (nextBtn) nextBtn.classList.add('hidden'); // 다음 버튼은 항상 숨김 (자동 진행)
+                    if (completeBtn) completeBtn.classList.add('hidden');
+
+                    // 이전 버튼은 첫 슬라이드가 아닐 때만 표시
+                    if (currentStepIndex > 0) {
+                        if (prevBtn) prevBtn.classList.remove('hidden');
+                    } else {
+                        if (prevBtn) prevBtn.classList.add('hidden');
+                    }
+                }
+            }
+
+            function completeSurvey() {
+                // 마지막 단계 데이터 수집 (유효성은 선택적)
+                const step = visibleSteps[currentStepIndex];
+                collectStepData(step);
+                surveyCompleted = true;
+                // 모든 막대 활성화 처리
+                updateProgress(visibleSteps.length);
+                updateStepLabel(visibleSteps.length, visibleSteps.length);
+
+                // 설문 데이터를 새로운 API 형식으로 변환하여 전송
+                const surveyPayload = {
+                    step1_source: surveyData.step1?.source || null,
+                    step2_role: surveyData.step2?.role || null,
+                    step2_owner: surveyData.step2?.owner || null,
+                    step3_visitors: surveyData.step3?.visitors || null,
+                    step3_type: surveyData.step3?.type || null,
+                    step4_email: surveyData.step4?.email || null,
+                    step7_updates_optin: surveyData.step7?.updates_optin || false,
+                    is_completed: true,
+                    is_skipped: false
+                };
+
+                fetch('/submit_survey', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(surveyPayload)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log('설문조사 저장 완료:', data.message);
+                    } else {
+                        console.error('설문조사 저장 실패:', data.error);
+                    }
+                })
+                .catch(error => console.error('Survey submission error:', error));
+
+                document.getElementById('survey-section').classList.add('hidden');
+
+                if (measurementComplete) {
+                    document.getElementById('view-results').classList.remove('hidden');
+                }
+            }
+
+            function skipSurvey() {
+                surveyCompleted = true;
+                
+                // 설문조사 건너뛰기 API 호출
+                fetch('/skip_survey', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log('설문조사 건너뛰기 저장 완료:', data.message);
+                    } else {
+                        console.error('설문조사 건너뛰기 저장 실패:', data.error);
+                    }
+                })
+                .catch(error => console.error('Survey skip error:', error));
+                
+                document.getElementById('survey-section').classList.add('hidden');
+                
+                if (measurementComplete) {
+                    document.getElementById('view-results').classList.remove('hidden');
+                }
+            }
+
+            function finishSurvey() {
+                // 마지막 단계 데이터 수집 (6단계 이메일 및 업데이트 수신 동의)
+                collectStepData(6);
+                surveyCompleted = true;
+
+                // 설문 데이터를 새로운 API 형식으로 변환하여 전송
+                const surveyPayload = {
+                    step1_source: surveyData.step1?.source || null,
+                    step2_role: surveyData.step2?.role || null,
+                    step2_owner: surveyData.step2?.owner || null,
+                    step3_visitors: surveyData.step3?.visitors || null,
+                    step3_type: surveyData.step3?.type || null,
+                    step4_email: surveyData.step4?.email || null,
+                    step7_updates_optin: surveyData.step7?.updates_optin || false,
+                    is_completed: true,
+                    is_skipped: false
+                };
+
+                fetch('/submit_survey', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(surveyPayload)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log('설문조사 저장 완료:', data.message);
+                    } else {
+                        console.error('설문조사 저장 실패:', data.error);
+                    }
+                })
+                .catch(error => console.error('Survey submission error:', error));
+
+                // 설문조사 창 닫기
+                document.getElementById('survey-section').classList.add('hidden');
+                
+                if (measurementComplete) {
+                    document.getElementById('view-results').classList.remove('hidden');
+                }
+            }
+
+            function viewResults() {
+                // 결과 페이지로 이동하기 전에 한 번 더 상태 확인
+                fetch(`/check_status/${taskId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const status = (data.status || '').toString().trim().toUpperCase();
+
+                        // 확실히 완료된 상태인지 확인
+                        if (status === 'SUCCESS' || status === 'MEASUREMENT_COMPLETE') {
+                            // 결과 페이지로 이동할 때는 취소하지 않음
+                            taskCancelled = true;
+                            window.location.href = `/carbon_calculate_emission/${taskId}`;
+                        } else {
+                            // 아직 완료되지 않은 경우 사용자에게 알림
+                            alert(i18n.t('loading.please_wait_completion'));
+                            console.warn('[viewResults] Task not ready yet. Status:', status);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error checking final status:', error);
+                        // 에러가 발생해도 이동 시도 (fallback)
+                        taskCancelled = true;
+                        window.location.href = `/carbon_calculate_emission/${taskId}`;
+                    });
+            }
+
+            // 설문조사 fragment 로드 후 이벤트 리스너 등록
+            function setupSurveyEventListeners() {
+                const nextBtn = document.getElementById('survey-next');
+                const prevBtn = document.getElementById('survey-prev');
+                const completeBtn = document.getElementById('survey-complete');
+                const skipBtn = document.getElementById('survey-skip');
+                const skipBtnBottom = document.getElementById('survey-skip-bottom');
+                const finishBtn = document.getElementById('survey-finish');
+
+                if (nextBtn) nextBtn.addEventListener('click', nextQuestion);
+                if (prevBtn) prevBtn.addEventListener('click', prevQuestion);
+                if (completeBtn) completeBtn.addEventListener('click', completeSurvey);
+                if (skipBtn) skipBtn.addEventListener('click', skipSurvey);
+                if (skipBtnBottom) skipBtnBottom.addEventListener('click', skipSurvey);
+                if (finishBtn) finishBtn.addEventListener('click', finishSurvey);
+
+                // 단일 선택 질문(radio)에 자동 진행 이벤트 리스너 추가
+                const radioInputs = document.querySelectorAll('#survey-section input[type="radio"]');
+                radioInputs.forEach(radio => {
+                    radio.addEventListener('change', function() {
+                        // 짧은 딜레이 후 자동으로 다음 질문으로 이동 (사용자가 선택을 확인할 시간 제공)
+                        setTimeout(() => {
+                            nextQuestion();
+                        }, 400);
+                    });
+                });
+            }
+
+            // 진행 막대 상태 업데이트: 현재 질문 번호까지 활성화
+            function updateProgress(stepPosition) {
+                const bars = document.querySelectorAll('#survey-section .progress-bar');
+                if (!bars || bars.length === 0) return;
+                bars.forEach((bar, idx) => {
+                    if (idx < stepPosition) bar.classList.add('active');
+                    else bar.classList.remove('active');
+                });
+            }
+
+            // 설문 번호 라벨 갱신 (원형 숫자: ❶..❻), 현재 표시 위치 기준
+            function updateStepLabel(stepPosition, total) {
+                const labelEl = document.querySelector('#survey-section #survey-step-label');
+                if (!labelEl) return;
+                const circled = ['❶', '❷', '❸', '❹', '❺', '❻'];
+                const text = circled[stepPosition - 1] || `${stepPosition}`;
+                labelEl.textContent = text;
+            }
+
+            // 단계별 데이터 수집/검증
+            function collectStepData(step) {
+                const root = document.getElementById('survey-section');
+                if (!root) return true;
+                switch (step) {
+                    case 1: {
+                        const sourceEl = root.querySelector('input[name="step1_source"]:checked');
+                        const source = sourceEl ? sourceEl.value : null;
+                        if (!source) return false; // 필수
+                        surveyData.step1 = { source };
+                        return true;
+                    }
+                    case 2: {
+                        const roleEl = root.querySelector('input[name="step2_role"]:checked');
+                        const role = roleEl ? roleEl.value : null;
+                        if (!role) return false; // 필수
+                        surveyData.step2 = { role };
+                        return true;
+                    }
+                    case 3: {
+                        const ownerEl = root.querySelector('input[name="step2_owner"]:checked');
+                        const owner = ownerEl ? ownerEl.value : null;
+                        if (!owner) return false; // 필수
+                        surveyData.step2 = Object.assign({}, surveyData.step2 || {}, { owner });
+                        return true;
+                    }
+                    case 4: {
+                        // visitors (선택)
+                        const visitorsEl = root.querySelector('input[name="step3_visitors"]:checked');
+                        const visitors = visitorsEl ? visitorsEl.value : null;
+                        surveyData.step3 = Object.assign({}, surveyData.step3 || {}, { visitors });
+                        return true;
+                    }
+                    case 5: {
+                        // type (선택)
+                        const typeEl = root.querySelector('input[name="step3_type"]:checked');
+                        const type = typeEl ? typeEl.value : null;
+                        surveyData.step3 = Object.assign({}, surveyData.step3 || {}, { type });
+                        return true;
+                    }
+                    case 6: {
+                        // 감사 인사 슬라이드: 이메일 및 업데이트 수신 동의 수집
+                        const emailRaw = (root.querySelector('#step4_email') || {}).value || '';
+                        const email = emailRaw.trim();
+                        const updatesOptIn = !!(root.querySelector('#step7_updates_optin') || {}).checked;
+                        surveyData.step4 = { email: email || null };
+                        surveyData.step7 = { updates_optin: updatesOptIn };
+                        return true;
+                    }
+                    default:
+                        return true;
+                }
+            }
+
+            function buildProgressBars(count) {
+                const container = document.querySelector('#survey-section .progress-bars');
+                if (!container) return;
+                container.innerHTML = '';
+                for (let i = 0; i < count; i++) {
+                    const div = document.createElement('div');
+                    div.className = 'progress-bar';
+                    div.dataset.step = String(i + 1);
+                    container.appendChild(div);
+                }
+            }
+
+            function showOnlyCurrentStep() {
+                const all = document.querySelectorAll('#survey-section .question');
+                all.forEach(q => q.classList.add('hidden'));
+                const step = visibleSteps[currentStepIndex];
+                const currentQ = document.getElementById(`question-${step}`);
+                if (currentQ) currentQ.classList.remove('hidden');
+
+                // 건너뛰기 버튼은 첫 번째 슬라이드에서만 표시
+                const skipBtn = document.getElementById('survey-skip-bottom');
+                if (skipBtn) {
+                    if (currentStepIndex === 0) {
+                        skipBtn.classList.remove('hidden');
+                    } else {
+                        skipBtn.classList.add('hidden');
+                    }
+                }
+            }
+
+            function showOnlyCurrentStepWithAnimation(direction) {
+                const all = document.querySelectorAll('#survey-section .question');
+                const prevStep = visibleSteps[direction === 'next' ? currentStepIndex - 1 : currentStepIndex + 1];
+                const currentStep = visibleSteps[currentStepIndex];
+                const prevQ = document.getElementById(`question-${prevStep}`);
+                const currentQ = document.getElementById(`question-${currentStep}`);
+
+                if (!currentQ) {
+                    showOnlyCurrentStep();
+                    return;
+                }
+
+                // 이전 질문 슬라이드 아웃
+                if (prevQ && !prevQ.classList.contains('hidden')) {
+                    const outClass = direction === 'next' ? 'slide-out-left' : 'slide-out-right';
+                    prevQ.classList.add(outClass);
+
+                    setTimeout(() => {
+                        prevQ.classList.add('hidden');
+                        prevQ.classList.remove(outClass);
+                    }, 300);
+                }
+
+                // 현재 질문 슬라이드 인
+                const inClass = direction === 'next' ? 'slide-in-right' : 'slide-in-left';
+                currentQ.classList.remove('hidden');
+                currentQ.classList.add(inClass);
+
+                setTimeout(() => {
+                    currentQ.classList.remove(inClass);
+                }, 300);
+
+                // 다른 질문들은 숨김
+                all.forEach(q => {
+                    if (q !== prevQ && q !== currentQ) {
+                        q.classList.add('hidden');
+                    }
+                });
+
+                // 건너뛰기 버튼은 첫 번째 슬라이드에서만 표시
+                const skipBtn = document.getElementById('survey-skip-bottom');
+                if (skipBtn) {
+                    if (currentStepIndex === 0) {
+                        skipBtn.classList.remove('hidden');
+                    } else {
+                        skipBtn.classList.add('hidden');
+                    }
+                }
+            }
+
+            // 마지막(감사) 슬라이드 CTA 버튼 상태 업데이트
+            function updateFinalCTA() {
+                const cta = document.querySelector('#survey-section #final-cta');
+                if (!cta) return;
+                // 클릭 이벤트 초기화
+                const newCta = cta.cloneNode(true);
+                cta.parentNode.replaceChild(newCta, cta);
+                if (measurementComplete) {
+                    newCta.removeAttribute('aria-disabled');
+                    newCta.textContent = i18n.t('loading.view_results_button');
+                    newCta.addEventListener('click', function() {
+                        // 결과 페이지로 이동할 때는 취소하지 않음
+                        taskCancelled = true;
+                        viewResults();
+                    });
+                } else {
+                    newCta.setAttribute('aria-disabled', 'true');
+                    newCta.textContent = i18n.t('loading.measurement_in_progress');
+                }
+            }
+            
+            // 결과 보기 버튼 이벤트 리스너
+            document.getElementById('view-results').addEventListener('click', viewResults);
+
+            // 디버깅용 취소 버튼 이벤트 리스너
+            document.getElementById('debug-cancel').addEventListener('click', function() {
+                console.log('[DEBUG] Manual cancel button clicked');
+                cancelTask();
+            });
+
+            // 브라우저 닫기/새로고침/페이지 이동 감지하여 작업 취소 요청
+            let taskCancelled = false;
+
+            function cancelTask() {
+                if (taskCancelled) return;
+                taskCancelled = true;
+
+                console.log(`[CANCEL] Attempting to cancel task: ${taskId}`);
+
+                // 즉시 작업 취소 요청 전송 (동기 방식으로 전송 보장)
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', `/cancel_task/${taskId}`, false); // false = 동기 요청
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                try {
+                    const payload = JSON.stringify({reason: 'client_disconnected'});
+                    console.log(`[CANCEL] Sending request to /cancel_task/${taskId} with payload:`, payload);
+                    xhr.send(payload);
+                    console.log(`[CANCEL] Response status: ${xhr.status}, response: ${xhr.responseText}`);
+                } catch (e) {
+                    console.log('Task cancellation request failed:', e);
+                }
+            }
+
+            // beforeunload 이벤트: 브라우저 닫기, 새로고침, 다른 페이지로 이동
+            window.addEventListener('beforeunload', function(e) {
+                // 측정 완료 후에는 취소하지 않음 (정상적인 페이지 이동)
+                if (!taskCancelled && !measurementComplete) {
+                    cancelTask();
+                }
+            });
+
+            // unload 이벤트: 페이지가 완전히 언로드될 때
+            window.addEventListener('unload', function(e) {
+                // 측정 완료 후에는 취소하지 않음 (정상적인 페이지 이동)
+                if (!taskCancelled && !measurementComplete) {
+                    cancelTask();
+                }
+            });
+
+            // 페이지 숨김 감지 (모바일에서 앱 전환 등)
+            document.addEventListener('visibilitychange', function() {
+                // 측정 완료 후에는 취소하지 않음
+                if (document.hidden && !taskCancelled && !measurementComplete) {
+                    // 페이지가 숨겨졌을 때 일정 시간 후 취소 (즉시 취소하지 않음)
+                    setTimeout(() => {
+                        if (document.hidden && !taskCancelled && !measurementComplete) {
+                            cancelTask();
+                        }
+                    }, 30000); // 30초 후 취소
+                }
+            });
+
+            // 3초 후 설문조사 자동 시작
+            setTimeout(() => {
+                if (!surveyStarted && !measurementComplete) {
+                    showSurvey();
+                }
+            }, 3000);
+
+            if (taskId) {
+                intervalId = setInterval(checkStatus, 3000);
+                checkStatus();
+            } else {
+                statusText.textContent = '잘못된 접근입니다. 작업 ID를 찾을 수 없습니다.';
+            }
+        });
+    </script>
+</body>
+</html>

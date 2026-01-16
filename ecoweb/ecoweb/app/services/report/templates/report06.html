@@ -1,0 +1,132 @@
+<!--보고서 42-->
+<!DOCTYPE html>
+<html>
+<head>	
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" />
+  	<style>{{ css_content }}</style>
+</head>
+<body>
+	{% from 'pdf-macros.html' import render_header, render_sidebar %}
+
+	<div class="div">
+		<!-- 헤더 매크로 -->
+		{{ render_header(website_url=website_url, title='W3C 가이드라인 평가', subtitle='Web Sustainability Guidelines (WSG) 1.0 Compliance') }}
+
+		<!-- 사이드바 매크로 -->
+		{{ render_sidebar() }}
+
+		<!-- 컨텐츠 -->
+		<!-- 01. 상단 =============================================== -->
+		<div class="content01">
+			<div class="common-subtitle">지속가능한 UX 디자인 평가</div>
+		</div>
+
+		<!-- 02. 표 ================================================= -->
+		<div class="table-container">
+			<!-- 테이블 헤더 -->
+			<div class="table-header">
+				<div class="table-cell">가이드라인 ID</div>
+				<div class="table-cell">제목</div>
+				<div class="table-cell">점수</div>
+				<div class="table-cell">준수 여부</div>
+				<div class="table-cell">비고</div>
+			</div>
+
+			<!-- 테이블 행 1 -->
+			<div class="table-row">
+				<div class="table-cell">UX01</div>
+				<div class="table-cell">프로젝트에 부정적 영향을 미치는 변수들을 표시하기</div>
+				<div class="table-cell">75</div>
+				<div class="table-cell table-partial">부분 준수</div>
+				<div class="table-cell">외부 변수 식별 필요</div>
+			</div>
+
+			<!-- 테이블 행 2 -->
+			<div class="table-row">
+				<div class="table-cell">UX02</div>
+				<div class="table-cell">사용자 요구사항이나 제약사항을 이해하고 접근 장벽 해결하기</div>
+				<div class="table-cell">90</div>
+				<div class="table-cell table-pass">준수</div>
+				<div class="table-cell">사용자 연구 우수</div>
+			</div>
+
+			<!-- 테이블 행 3 -->
+			<div class="table-row">
+				<div class="table-cell">UX03</div>
+				<div class="table-cell">비사용자에게 미치는 영향 이해하기</div>
+				<div class="table-cell">55</div>
+				<div class="table-cell table-fail">미준수</div>
+				<div class="table-cell">비사용자 영향 분석 체계 부재</div>
+			</div>
+
+			<!-- 테이블 행 4 -->
+			<div class="table-row">
+				<div class="table-cell">UX04</div>
+				<div class="table-cell">아이디어 구상 과정의 모든 단계에 지속가능성 동합하기</div>
+				<div class="table-cell">88</div>
+				<div class="table-cell table-pass">준수</div>
+				<div class="table-cell">지속가능성 동합 양호</div>
+			</div>
+
+			<!-- 테이블 행 5 -->
+			<div class="table-row">
+				<div class="table-cell">UX05</div>
+				<div class="table-cell">구현 전에 영향받는 당사자들의 문제를 해결할 방법 찾기</div>
+				<div class="table-cell">82</div>
+				<div class="table-cell table-pass">준수</div>
+				<div class="table-cell">사전 이슈 해결 프로세스 존재</div>
+			</div>
+
+			<!-- 테이블 행 6 -->
+			<div class="table-row">
+				<div class="table-cell">UX06</div>
+				<div class="table-cell">비필수적인 콘텐츠, 상호작용, 경로 최소화하기</div>
+				<div class="table-cell">92</div>
+				<div class="table-cell table-pass">준수</div>
+				<div class="table-cell">효율적인 사용자 경로 구현</div>
+			</div>
+
+			<!-- 테이블 행 7 -->
+			<div class="table-row">
+				<div class="table-cell">UX07</div>
+				<div class="table-cell">장식적 디자인 신중하게 사용하기</div>
+				<div class="table-cell">89</div>
+				<div class="table-cell table-pass">준수</div>
+				<div class="table-cell">장식적 디자인 최소화</div>
+			</div>
+
+			<!-- 테이블 행 8 -->
+			<div class="table-row">
+				<div class="table-cell">UX08</div>
+				<div class="table-cell">내비게이션과 경로 안내가 잘 구조화되도록 하기</div>
+				<div class="table-cell">94</div>
+				<div class="table-cell table-pass">준수</div>
+				<div class="table-cell">네비게이션 구조 우수</div>
+			</div>
+
+			<!-- 테이블 행 9 -->
+			<div class="table-row">
+				<div class="table-cell">UX09</div>
+				<div class="table-cell">주의를 분산시키지 않고 도움이 되는 디자인하기</div>
+				<div class="table-cell">91</div>
+				<div class="table-cell table-pass">준수</div>
+				<div class="table-cell">사용자 집중도 고려 설계</div>
+			</div>
+
+			<!-- 테이블 행 10 -->
+			<div class="table-row">
+				<div class="table-cell">UX010</div>
+				<div class="table-cell">확립된 디자인 패턴과 적절한 컴포넌트 사용하기</div>
+				<div class="table-cell">93</div>
+				<div class="table-cell table-pass">준수</div>
+				<div class="table-cell">표준 디자인 패턴 활용</div>
+			</div>
+			
+		</div>
+
+  	</div>
+</body>
+</html>

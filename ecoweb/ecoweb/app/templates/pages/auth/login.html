@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEP4QKW5CR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JEP4QKW5CR');
+    </script>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>{{ _('login.page_title') }}</title>
+  	<link rel="stylesheet"  href="{{ url_for('static', filename='css/pages/auth/login.css') }}" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=[object Object]&display=swap" />
+</head>
+<body>
+  	<div class="login">
+
+        <!-- 로고 -->
+        <a href="/" class="ecarbon-wrapper" style="text-decoration:none;">
+            <div class="ecarbon2">eCarbon</div>
+        </a>
+
+        <!-- 제목 -->
+        <div class="ecarbon">
+            <p class="p">{{ _('login.title_line1') }}</p>
+            <p class="p">{{ _('login.title_line2') }}</p>
+        </div>
+        
+        <!-- 이미지 -->
+        <img class="rectangle-icon" alt="" src="{{ url_for('static', filename='img/webp/auth/login-picture.webp') }}">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="login-flash-container">
+                {% for category, message in messages %}
+                <div class="login-flash-message {{ category }}">
+                    <span class="login-flash-icon">{% if category == 'success' %}✔{% elif category == 'error' %}✖{% else %}ℹ{% endif %}</span>
+                    <span class="login-flash-text">{{ message }}</span>
+                    <button class="login-flash-close" onclick="this.parentElement.style.display='none'">×</button>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+        
+        <form class="login-form" method="POST" action="{{ url_for('auth.login') }}" autocomplete="off">
+            <!-- 아이디 입력 -->
+            <div class="login-id-input">
+                <div class="login-id-input-content">
+                    <img class="login-id-input-icon" alt="" src="{{ url_for('static', filename='img/auth/login-id.svg') }}">
+                    <input type="text" name="username" id="login-username" class="login-id-input-field" autocomplete="username" required />
+                    <div class="login-id-input-text" id="login-id-placeholder">{{ _('login.id_placeholder') }}</div>
+                </div>
+            </div>
+
+            <!-- 비밀번호 입력 -->
+            <div class="login-pw-input">
+                <div class="login-pw-input-content">
+                    <img class="login-pw-input-icon" alt="" src="{{ url_for('static', filename='img/auth/login-pw.svg') }}">
+                    <input type="password" name="password" id="login-password" class="login-pw-input-field" autocomplete="current-password" required />
+                    <div class="login-pw-input-text" id="login-pw-placeholder">{{ _('login.password_placeholder') }}</div>
+                    <div class="login-pw-input-eye" id="login-pw-eye-toggle">
+                        <img class="login-pw-eye-icon" id="login-pw-eye-icon" alt="" src="{{ url_for('static', filename='img/auth/login-eye-off.svg') }}">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 아이디 저장/찾기 행 -->
+            <div class="login-form-row">
+                <div class="login-save-check">
+                    <div class="login-save-check-box">
+                        <div class="icon-parent">
+                            <img class="icon" alt="" src="{{ url_for('static', filename='img/auth/login-check.svg') }}">
+                        </div>
+                    </div>
+                    <div class="div2">{{ _('login.save_id') }}</div>
+                </div>
+                <div class="div5">{{ _('login.find_credentials') }}</div>
+            </div>
+
+            <!-- 로그인 버튼 -->
+            <button type="submit" class="login-button">
+                <div class="login-button-child"></div>
+                <div class="div8">{{ _('login.login_button') }}</div>
+            </button>
+
+            <!-- Google 로그인 버튼 -->
+            <a href="{{ url_for('auth.google_login') }}" class="group-parent" style="text-decoration: none; color: inherit;">
+                <img class="frame-child" alt="" src="{{ url_for('static', filename='img/auth/login-google.svg') }}">
+                <div class="div">{{ _('login.google_login') }}</div>
+            </a>
+
+            <!-- 회원가입 이동 -->
+            <div class="login-signup-move">
+                <div class="parent">
+                    <div class="div2">{{ _('login.not_member') }}</div>
+                    <a href="{{ url_for('auth.signup') }}" class="div7">{{ _('login.signup_link') }}</a>
+                </div>
+            </div>
+        </div>
+
+   </div>
+   <script src="{{ url_for('static', filename='js/components/login-form.js') }}"></script>
+</body>
+</html>

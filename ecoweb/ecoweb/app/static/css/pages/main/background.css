@@ -1,0 +1,71 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+.background-container {
+  width: 100%;
+  height: 3750px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1000; /* 다른 요소들보다 뒤에 위치하도록 설정 */
+}
+
+.background-element {
+  position: absolute;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.top_bg-left-circle {
+  width: 1284px;
+  height: 1284px;
+  top: -195px;
+  left: -85px;
+}
+.top_bg-left-big {
+  width: 872.32px;
+  height: 1091.2px;
+  top: -59px;
+  left: 138px;
+  /*테두리1px*/
+}
+.top_bg-left-small {
+  width: 811.85px;
+  height: 1012.98px;
+  top: 23px;
+  left: 149px;
+  /*테두리100px*/
+}
+.top_bg-right-circle {
+  width: 908px;
+  height: 908px;
+  top: 389px;
+  left: 1173px;
+}
+.top_bg-right-big {
+  width: 571.87px;
+  height: 715.37px;
+  top: 230px;
+  left: 1378px;
+  /*테두리1px*/
+}
+.top_bg-right-small {
+  width: 536.02px;
+  height: 668.81px;
+  top: 263px;
+  left: 1438.52px;
+  /*테두리 60px*/
+}
+.top_bg {
+  width: 2200px;
+  height: 1500px;
+  top: -165px;
+  left: 0px;
+}

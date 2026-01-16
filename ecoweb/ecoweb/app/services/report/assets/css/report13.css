@@ -1,0 +1,10 @@
+.font-optimization {
+    position: absolute;
+    left: 180px;
+    top: 100px;
+    width: 621px;
+}
+.font-optimization-item {
+    position: relative;
+    margin-bottom: 40px;
+}

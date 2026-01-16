@@ -1,0 +1,115 @@
+<!--보고서 41-->
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" />
+  	<style>{{ css_content }}</style>
+  	
+  	
+  	
+</head>
+<body>
+	{% from 'pdf-macros.html' import render_header, render_sidebar %}
+
+	<div class="div">
+		{{ render_header(website_url=website_url, title='W3C 가이드라인 평가', subtitle='Web Sustainability Guidelines (WSG) 1.0 Compliance') }}
+		{{ render_sidebar() }}
+
+		<!-- 컨텐츠 -->
+		<!-- 01. 상단 ================================================= -->
+		<div class="content01">
+			<div class="common-subtitle">세부 평가</div>
+			<div class="common-text">
+				<p class="p">웹 표준 단체인 WorldWideWeb Consortium(W3C)  Web Sustainability Guidelines 1.0 "92개 가이드라인 중 56개 준수로 60.9%의 이행률을 보입니다.</p>
+				<p class="p">UX 디자인 영역(72%)은 상대적으로 양호하나, 인프라 영역(45%)은 시급한 개선이 필요합니다. 특히 재생에너지 사용, 효율적 캐싱, 미디어 최적화 부문에서 미준수 항목이 집중되어 있습니다.</p>
+				<p class="p">EU 디지털 서비스법 (DSA) 준비도 "2024년 2월 전면 시행된 DSA의 핵심 요구사항 중 환경 지속가능성 공시 의무에 대한 준비도는 45%입니다. </p>
+				<p class="p">특히 알고리즘의 에너지 소비 투명성, 다크 패턴 금지,디지털 서비스의 환경 영향 평가 부문에서 보완이 필요합니다.</p>
+			</div>
+		</div>
+
+		<!-- 02. 표 =================================================== -->
+		<div class="table-container">
+			<!-- 테이블 헤더 -->
+			<div class="table-header">
+				<div class="table-cell">가이드라인 ID</div>
+				<div class="table-cell">제목</div>
+				<div class="table-cell">카테고리</div>
+				<div class="table-cell">난이도</div>
+				<div class="table-cell">중요도</div>
+				<div class="table-cell">준수 여부</div>
+				<div class="table-cell">개선 사항</div>
+			</div>
+
+			<!-- 테이블 행 1 -->
+			<div class="table-row">
+				<div class="table-cell">UX-1.1</div>
+				<div class="table-cell">Respect the user's attention</div>
+				<div class="table-cell">UX Design</div>
+				<div class="table-cell table-easy">쉬움</div>
+				<div class="table-cell table-high">높음</div>
+				<div class="table-cell table-pass">준수</div>
+				<div class="table-cell">-</div>
+			</div>
+
+			<!-- 테이블 행 2 -->
+			<div class="table-row">
+				<div class="table-cell">UX-2.3</div>
+				<div class="table-cell">Minimize forced user actions</div>
+				<div class="table-cell">UX Design</div>
+				<div class="table-cell table-medium">중간</div>
+				<div class="table-cell table-high">높음</div>
+				<div class="table-cell table-partial">부분 준수</div>
+				<div class="table-cell">불필요한 팝업 3개 제거 필요</div>
+			</div>
+
+			<!-- 테이블 행 3 -->
+			<div class="table-row">
+				<div class="table-cell">WD-3.1</div>
+				<div class="table-cell">Optimize media assets</div>
+				<div class="table-cell">Web Dev</div>
+				<div class="table-cell table-easy">쉬움</div>
+				<div class="table-cell table-high">높음</div>
+				<div class="table-cell table-fail">미준수</div>
+				<div class="table-cell">이미지 최적화로 30% 용량 절감 가능</div>
+			</div>
+
+			<!-- 테이블 행 4 -->
+			<div class="table-row">
+				<div class="table-cell">WD-4.2</div>
+				<div class="table-cell">Mininize JavaScript ececution</div>
+				<div class="table-cell">Web Dev</div>
+				<div class="table-cell table-easy">쉬움</div>
+				<div class="table-cell table-high">높음</div>
+				<div class="table-cell table-fail">미준수</div>
+				<div class="table-cell">미사용 코드 0.255g CO2 제거 필요</div>
+			</div>
+
+			<!-- 테이블 행 5 -->
+			<div class="table-row">
+				<div class="table-cell">IF-5.1</div>
+				<div class="table-cell">Use renewable energy</div>
+				<div class="table-cell">Infrastructure</div>
+				<div class="table-cell table-hard">어려움</div>
+				<div class="table-cell table-high">높음</div>
+				<div class="table-cell table-partial">부분 준수</div>
+				<div class="table-cell">재생에너지 전환율 15% → 60% 목표</div>
+			</div>
+
+			<!-- 테이블 행 6 -->
+			<div class="table-row">
+				<div class="table-cell">BS-6.1</div>
+				<div class="table-cell">Define sustainability goals</div>
+				<div class="table-cell">Busuness</div>
+				<div class="table-cell table-easy">쉬움</div>
+				<div class="table-cell table-medium">중간</div>
+				<div class="table-cell table-pass">준수</div>
+				<div class="table-cell">Net Zero 2040 목표 설정 완료</div>
+			</div>
+		</div>
+
+  	</div>
+</body>
+</html>

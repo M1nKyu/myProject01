@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEP4QKW5CR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JEP4QKW5CR');
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% if meta %}
+      <title>{{ meta.title }}</title>
+    {% else %}
+      <title>{{ _('result.page_title') }}</title>
+    {% endif %}
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    {% include 'includes/meta/meta-tags.html' %}
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    {% include 'includes/meta/structured-data.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/carbon_calculate_emission/carbon_calculate_emission.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/carbon_calculate_emission/responsive-carbon.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common/global.css') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common/fonts.css') }}" />
+  </head>
+
+  <body data-task-id="{{ task_id }}">
+    {% include 'includes/page-loader.html' %}
+    <!-- Hidden input for task_id (fallback for older scripts) -->
+    <input type="hidden" id="task-id" name="task_id" value="{{ task_id }}">
+
+    {% include 'includes/new-header.html' %}
+    {% include 'includes/sidebar.html' %}
+    <div class="div-wrapper">
+
+      {% include 'includes/user-bar.html' %}
+
+      <div class="carbon-emission">
+        <!-- 상단 -->
+        <div class="carbon-emission-header">
+          <div class="carbon-emission-title">{{ _('result.current_emission') }}</div>
+          <img class="carbon-emission-info-icon" alt="정보 아이콘" src="{{url_for('static', filename='img/carbon_calculate_emission/info-icon.svg') }}" />
+        </div>
+        {% if emission_percentile is defined %}
+        <p class="p">{{ _('result.emission_percentile_description', percentile=emission_percentile) }}</p>
+        {% endif %}
+
+        <!-- 속도계 -->
+        <div class="carbon-emission-speedmeter">
+          <img class="carbon-emission-speedmeter-bg" alt="탄소 배출량 속도계" src="{{url_for('static', filename='img/carbon_calculate_emission/speedmeter-bg.svg') }}" />
+          <img id="speedometer-needle" class="carbon-emission-speedmeter-needle" alt="탄소 배출량 속도계 바늘" src="{{url_for('static', filename='img/carbon_calculate_emission/speedmeter-needle02.svg') }}" style="transform-origin: right bottom; transition: transform 1s ease-in-out;" />
+          <img id="gauge-indicator-line" class="carbon-emission-speedmeter-mark" alt="탄소 배출량 속도계 표시선" src="{{url_for('static', filename='img/webp/carbon_calculate_emission/speedmeter-mark.webp') }}" />
+        </div>
+
+        <!-- 배출량 값 -->
+        <div class="carbon-emission-value">{{carbon_emission}}g</div>
+        <div class="carbon-emission-unit">CO2/kWh</div>
+      </div>
+
+      <!-- 한국/세계 탄소 등급 ==================================================== -->
+      <div class="carbon-grade">
+      
+        <!-- 🌍 세계 -->
+        <div class="carbon-grade-item">
+          <!-- 텍스트 -->
+          <div class="carbon-grade-text-wrapper">
+            <p class="carbon-grade-text-label">{{ _('result.global_grade_comparison') }}</p>
+            <p class="carbon-grade-text-value"
+              style="color: {% if global_diff >= 0 %}#00d282{% else %}{% if global_diff_abs > 0.5 %}#ef4444{% else %}#f9560e{% endif %}{% endif %}">
+              {{ global_diff_abs }}g {% if global_diff >= 0 %}{{ _('result.less_emission') }}{% else %}{{
+              _('result.more_emission') }}{% endif %} {{ _('result.emission_suffix') }}
+            </p>
+            <p class="carbon-grade-text-suffix">{{ _('result.emission_status_suffix') }}</p>
+          </div>
+      
+          <!-- 등급 아이콘 -->
+          <div class="carbon-grade-icon-wrapper">
+            {% set grade_map = {'A+':1,'A':2,'B':3,'C':4,'D':5,'E':6,'F':7} %}
+            {% set g = grade_map.get(world_carbon_emission_grade, world_carbon_emission_grade) %}
+            <img class="carbon-grade-icon" alt="세계 탄소 배출 등급 아이콘"
+              src="{{ url_for('static', filename='img/carbon_calculate_emission/' + ( 'global-A.svg' if g in [1,2] else ( 'global-B.svg' if g in [3,4] else 'global-C.svg' ) ) ) }}" />
+            <div class="carbon-grade-icon-text"
+              style="color: {% if g in [1,2] %}#00d282{% elif g in [3,4] %}#f9560e{% else %}#ef4444{% endif %};">{{
+              world_carbon_emission_grade }}</div>
+          </div>
+          <img class="carbon-emission-info" alt="정보 아이콘"
+            src="{{ url_for('static', filename='img/carbon_calculate_emission/info-icon.svg') }}"
+            title="세계 평균 탄소 배출량: {{ '%.2f'|format(global_avg_carbon|float) }}g&#10;한국 평균 탄소 배출량: {{ '%.2f'|format(korea_avg_carbon|float) }}g" />
+        </div>
+      
+        <!-- 🇰🇷 한국 -->
+        <div class="carbon-grade-item">
+          <!-- 텍스트 -->
+          <div class="carbon-grade-text-wrapper">
+            <p class="carbon-grade-text-label">{{ _('result.korea_grade_comparison') }}</p>
+            <p class="carbon-grade-text-value"
+              style="color: {% if korea_diff >= 0 %}#00d282{% else %}{% if korea_diff_abs > 0.5 %}#ef4444{% else %}#f9560e{% endif %}{% endif %}">
+              {{ korea_diff_abs }}g {% if korea_diff >= 0 %}{{ _('result.less_emission') }}{% else %}{{
+              _('result.more_emission') }}{% endif %} {{ _('result.emission_suffix') }}
+            </p>
+            <p class="carbon-grade-text-suffix">{{ _('result.emission_status_suffix') }}</p>
+          </div>
+          <!-- 등급 아이콘 -->
+          <div class="carbon-grade-icon-wrapper">
+            {% set grade_map = {'A+':1,'A':2,'B':3,'C':4,'D':5,'E':6,'F':7} %}
+            {% set g = grade_map.get(korea_carbon_emission_grade, korea_carbon_emission_grade) %}
+            <img class="carbon-grade-icon" alt="한국 탄소 배출 등급 아이콘"
+              src="{{ url_for('static', filename='img/carbon_calculate_emission/' + ( 'korea-A.svg' if g in [1,2] else ( 'korea-B.svg' if g in [3,4] else 'korea-C.svg' ) ) ) }}" />
+            <div class="carbon-grade-icon-text"
+              style="color: {% if g in [1,2] %}#00d282{% elif g in [3,4] %}#f9560e{% else %}#ef4444{% endif %};">{{
+              korea_carbon_emission_grade }}</div>
+          </div>
+          <img class="carbon-emission-info" alt="정보 아이콘"
+            src="{{ url_for('static', filename='img/carbon_calculate_emission/info-icon.svg') }}"
+            title="세계 평균 탄소 배출량: {{ '%.2f'|format(global_avg_carbon|float) }}g&#10;한국 평균 탄소 배출량: {{ '%.2f'|format(korea_avg_carbon|float) }}g" />
+        </div>
+      </div>
+
+      <!-- 탄소 배출량 환산 ===================================================-->
+      <div class="carbon-emission-equivalent">
+        <div class="equivalent-header">
+          <div class="equivalent-title">{{ _('equivalent.title') }}</div>
+          <div class="equivalent-basis">{{ _('chart.monthly_visitors_reference') }}</div>
+        </div>
+        <div class="equivalent-content">
+          <!-- 커피 -->
+          <div class="equivalent-content-item">
+            <img class="equivalent-content-item-image" alt="커피 이미지" src="{{ url_for('static', filename='img/webp/carbon_calculate_emission/eqv-coffee.webp') }}" />
+            <!-- <img class="equivalent-content-item-shadow" alt="" src="{{ url_for('static', filename='img/carbon_calculate_emission/equivalent-coffee-shadow.svg') }}" /> -->
+            <div class="equivalent-content-item-text-wrapper">
+              <div class="equivalent-content-item-title">{{ _('equivalent.coffee_title')|safe }}</div>
+              <div class="equivalent-content-item-formula">1잔 = 0.01 CO2</div>
+            </div>
+            <div class="equivalent-content-item-value-box">
+              <p>
+                <span id="coffee-value" class="equivalent-content-item-value"></span>
+                <span class="equivalent-content-item-unit">{{ _('equivalent.coffee_unit') }}</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- 전기차 -->
+          <div class="equivalent-content-item">
+            <img class="equivalent-content-item-image" alt="전기차 이미지" src="{{ url_for('static', filename='img/webp/carbon_calculate_emission/eqv-car.webp') }}" />
+            <!-- <img class="equivalent-content-item-shadow" alt="" src="{{ url_for('static', filename='img/carbon_calculate_emission/equivalent-car-shadow.svg') }}" /> -->
+            <div class="equivalent-content-item-text-wrapper">
+              <div class="equivalent-content-item-title">{{ _('equivalent.car_title')|safe }}</div>
+              <div class="equivalent-content-item-formula">2km = 0.16 CO2</div>
+            </div>
+            <div class="equivalent-content-item-value-box">
+              <p>
+                <span id="car-value" class="equivalent-content-item-value"></span>
+                <span class="equivalent-content-item-unit">{{ _('equivalent.car_unit') }}</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- 스마트폰 -->
+          <div class="equivalent-content-item">
+            <img class="equivalent-content-item-image" alt="스마트폰 이미지" src="{{ url_for('static', filename='img/webp/carbon_calculate_emission/eqv-phone.webp') }}" />
+            <!-- <img class="equivalent-content-item-shadow" alt="" src="{{ url_for('static', filename='img/carbon_calculate_emission/equivalent-phone-shadow.svg') }}" /> -->
+            <div class="equivalent-content-item-text-wrapper">
+              <div class="equivalent-content-item-title">{{ _('equivalent.phone_title')|safe }}</div>
+              <div class="equivalent-content-item-formula">{{ _('equivalent.phone_formula')|safe }}</div>
+            </div>
+            <div class="equivalent-content-item-value-box">
+              <p>
+                <span id="phone-value" class="equivalent-content-item-value"></span>
+                <span class="equivalent-content-item-unit">{{ _('equivalent.phone_unit') }}</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- 나무 -->
+          <div class="equivalent-content-item">
+            <img class="equivalent-content-item-image" alt="나무 이미지" src="{{ url_for('static', filename='img/webp/carbon_calculate_emission/eqv-tree.webp') }}" />
+            <!-- <img class="equivalent-content-item-shadow" alt="" src="{{ url_for('static', filename='img/carbon_calculate_emission/equivalent-tree-shadow.svg') }}" /> -->
+            <div class="equivalent-content-item-text-wrapper">
+              <div class="equivalent-content-item-title">{{ _('equivalent.tree_title')|safe }}</div>
+              <div class="equivalent-content-item-formula">{{ _('equivalent.tree_formula')|safe }}</div>
+            </div>
+            <div class="equivalent-content-item-value-box">
+              <p>
+                <span id="tree-value" class="equivalent-content-item-value"></span>
+                <span class="equivalent-content-item-unit">{{ _('equivalent.tree_unit') }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 탄소 배출량 추이 그래프 -->
+      <div class="carbon-emission-trend">
+        <div class="carbon-emission-trend-header">
+          <div class="carbon-emission-trend-title">{{ _('chart.emission_trend_title') }}</div>
+
+          <!-- <div class="carbon-emission-trend-filter">
+            <div class="carbon-emission-trend-filter-item carbon-emission-trend-filter-item-selected" data-filter="week">
+              <div class="filter-text">최근 일주일</div>
+            </div>
+            <div class="carbon-emission-trend-filter-item" data-filter="month">
+              <div class="filter-text">한 달 기준</div>
+            </div>
+            <div class="carbon-emission-trend-filter-item" data-filter="year">
+              <div class="filter-text">일년 기준</div>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="carbon-emission-trend-graph">
+          <canvas id="emissionTrendChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+    <script>
+      // 숫자에 쉼표를 추가하는 함수
+      function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
+      // 게이지 바늘 회전 함수 (백분율 기준)
+      function updateGaugeNeedleByPercentile(percentile) {
+        const needle = document.getElementById('speedometer-needle');
+        const indicatorLine = document.getElementById('gauge-indicator-line');
+        if (!needle || !indicatorLine) {
+          console.error('게이지 바늘 또는 표시선을 찾을 수 없습니다.');
+          return;
+        }
+
+        // 백분율(1~100)을 각도(10~170)로 변환
+        // 상위 1% -> 10도 근처, 상위 100% -> 170도 근처
+        const minAngle = 10;
+        const maxAngle = 170;
+        let angle = minAngle + ((percentile - 1) / 99) * (maxAngle - minAngle);
+
+        angle = Math.max(minAngle, Math.min(maxAngle, angle));
+
+        // SVG 초기 각도 오차 보정 (-11도)
+        const correctedAngle = angle - 11;
+        
+        console.log(`백분율: ${percentile}%, 계산된 회전 각도: ${angle}도`);
+
+        // 바늘 회전 설정
+        needle.style.transform = `rotate(${correctedAngle}deg)`;
+        needle.style.transformOrigin = '82% 69%';
+        needle.style.transition = 'transform 1s ease-in-out';
+
+        // 표시선 회전 설정 (별도 회전축 사용)
+        indicatorLine.style.transform = `rotate(${correctedAngle}deg)`;
+        indicatorLine.style.transformOrigin = '307% 267%';
+        console.log('바늘 회전 적용 완료');
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // 등급별 색상 정의
+        const gradeColors = {
+          'A': 'rgba(0, 210, 130, 1)',
+          'B': 'var(--bs-orange)',
+          'C': 'var(--bs-red)',
+          'D': 'var(--bs-red)',
+          'E': 'var(--bs-red)',
+          'F': 'var(--bs-red)'
+        };
+
+        // 등급에 따라 요소의 색상을 변경하는 함수
+        function setGradeColor(element, grade) {
+          if (gradeColors[grade]) {
+            element.style.color = gradeColors[grade];
+          }
+        }
+
+        // 현재 탄소 배출량 가져오기
+        const carbonEmission = parseFloat('{{ carbon_emission }}');
+
+        // 게이지 바늘 회전 업데이트 (백분율 기준)
+        const percentile = parseFloat('{{ emission_percentile | default(50) }}');
+        updateGaugeNeedleByPercentile(percentile);
+
+        // Emission Trend Chart
+        const emissionTrendData = JSON.parse('{{ emission_trend_data|safe }}');
+        const trendData = emissionTrendData.length > 0 ? emissionTrendData : [];
+        
+        const labels = trendData.map(item => item.date);
+        const data = trendData.map(item => item.carbonEmission);
+
+        // Ensure the last point is the current emission value
+        const today = new Date().toISOString().split('T')[0];
+        if (labels.length > 0 && labels[labels.length - 1] === today) {
+            data[data.length - 1] = parseFloat('{{ carbon_emission }}');
+        } else {
+            labels.push(today);
+            data.push(parseFloat('{{ carbon_emission }}'));
+        }
+
+        // If data was initially empty, create dummy past data
+        if (trendData.length === 0) {
+            const defaultLabels = Array.from({ length: 7 }, (_, i) => {
+                const date = new Date();
+                date.setDate(date.getDate() - (6 - i));
+                return date.toISOString().split('T')[0];
+            });
+            
+            const defaultData = defaultLabels.map(() => {
+                const n = (carbonEmission + (Math.random() * 0.1 - 0.05) * carbonEmission);
+                return Number(n.toFixed(2)); // 숫자형으로 유지
+            });
+            
+            labels.push(...defaultLabels);
+            data.push(...defaultData);
+        }
+
+        // 데이터 배열이 모두 숫자인지 보정 (문자열이면 숫자로 변환)
+        for (let i = 0; i < data.length; i++) {
+          const v = data[i];
+          if (typeof v !== 'number') {
+            const nv = Number(v);
+            data[i] = isNaN(nv) ? 0 : nv;
+          }
+        }
+
+
+        const emissionTrendChart = new Chart(document.getElementById('emissionTrendChart'), {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '탄소 배출량 (g CO₂/kWh)',
+                    data: data,
+                    borderColor: '#5a5c63',
+                    backgroundColor: function(context) {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+
+                        if (!chartArea) {
+                            // This case happens on initial chart load
+                            return null;
+                        }
+                        const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+                        gradient.addColorStop(0, 'rgba(244, 244, 245, 1)');
+                        gradient.addColorStop(1, 'rgba(55, 56, 60, 0.1)');
+                        return gradient;
+                    },
+                    tension: 0.4,
+                    fill: true,
+                    // 사용자가 요청한 점 스타일 적용
+                    pointRadius: 8,
+                    pointBackgroundColor: '#5a5c63',
+                    pointBorderColor: '#5a5c63',
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 10,
+                    pointHoverBackgroundColor: '#00b872',
+                    pointHoverBorderColor: '#00b872',
+                    pointHoverBorderWidth: 2,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    datalabels: {
+                        display: function(context) {
+                            return context.active;
+                        },
+                        align: 'top',
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        borderColor: 'rgba(0, 0, 0, 0.7)',
+                        borderRadius: 4,
+                        borderWidth: 1,
+                        color: 'white',
+                        font: {
+                            size: 10
+                        },
+                        padding: 4,
+                        formatter: function(value) {
+                            return value + 'g';
+                        }
+                    },
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    tooltip: {
+                        enabled: false, // disable native tooltip
+                        external: function(context) {
+                            const {chart, tooltip} = context;
+
+                            let el = document.getElementById('emission-tooltip');
+                            if (!el) {
+                                el = document.createElement('div');
+                                el.id = 'emission-tooltip';
+                                el.style.position = 'absolute';
+                                el.style.pointerEvents = 'none';
+                                el.style.zIndex = '1000';
+                                el.style.background = '#b2ffe2';
+                                el.style.color = '#000';
+                                el.style.border = '1px solid #7fe7c3';
+                                el.style.borderRadius = '6px';
+                                el.style.padding = '6px 8px';
+                                el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+                                el.style.font = '12px Roboto, sans-serif';
+                                el.style.whiteSpace = 'nowrap';
+                                el.style.transform = 'translate(-50%, -100%)'; // center horizontally, place above
+                                document.body.appendChild(el);
+                            }
+
+                            // Hide if no tooltip
+                            if (tooltip.opacity === 0) {
+                                el.style.opacity = '0';
+                                return;
+                            }
+
+                            // Set text (parsed.y 우선, 없으면 raw 사용)
+                            let val = undefined;
+                            if (tooltip.dataPoints && tooltip.dataPoints.length) {
+                                const dp = tooltip.dataPoints[0];
+                                if (dp && dp.parsed && typeof dp.parsed.y !== 'undefined') {
+                                    val = dp.parsed.y;
+                                } else if (typeof dp.raw !== 'undefined') {
+                                    val = dp.raw;
+                                }
+                            }
+                            const num = Number(val);
+                            const display = isNaN(num) ? '' : `${num.toFixed(2)} g CO₂/kWh`;
+                            el.textContent = display;
+
+                            // Position above the caret
+                            const canvasRect = chart.canvas.getBoundingClientRect();
+                            const left = canvasRect.left + window.scrollX + tooltip.caretX;
+                            const top = canvasRect.top + window.scrollY + tooltip.caretY - 8; // small gap
+
+                            el.style.left = left + 'px';
+                            // translateY(-100%) via transform ensures above the point
+                            el.style.top = top + 'px';
+                            el.style.opacity = '1';
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '배출량 (g CO₂/kWh)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: '날짜'
+                        }
+                    }
+                }
+            }
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 숫자에 쉼표를 추가하는 함수
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // 현재 탄소 배출량 및 연간 환산 수치 계산
+        const carbonEmission = parseFloat('{{ carbon_emission }}');
+
+        // 연간 탄소 배출량 환산 수치 계산
+        const coffeeValue = Math.round((carbonEmission / 1000 * 1000000 * 12 / 0.01));
+        const evValue = Math.round((carbonEmission / 1000 * 1000000 * 12 / 0.16 * 2));
+        const phoneValue = Math.round((carbonEmission / 1000 * 1000000 * 12 / 0.02 * 3));
+        const treeValue = Math.round((carbonEmission / 1000 * 1000000 * 12 / 0.02));
+
+        // 포맷팅된 숫자 적용
+        document.getElementById('coffee-value').textContent = formatNumber(coffeeValue);
+        document.getElementById('car-value').textContent = formatNumber(evValue);
+        document.getElementById('phone-value').textContent = formatNumber(phoneValue);
+        document.getElementById('tree-value').textContent = formatNumber(treeValue);
+      });
+    </script>
+    <script>
+      console.log('--- Backend Data ---');
+      console.log('view_data:', JSON.parse('{{ view_data | tojson | safe }}'));
+      // Subpages info from backend (already JSON-serializable)
+      const subpagesData = {{ subpages_data | tojson | safe }};
+      console.log('subpages_data:', subpagesData);
+      console.log('--- End of Backend Data ---');
+    </script>
+    <script>
+      // Carbon Emission Trend Filter functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const filterItems = document.querySelectorAll('.carbon-emission-trend-filter-item');
+
+        filterItems.forEach(item => {
+          item.addEventListener('click', function() {
+            // Remove selected class from all items
+            filterItems.forEach(filterItem => {
+              filterItem.classList.remove('carbon-emission-trend-filter-item-selected');
+            });
+
+            // Add selected class to clicked item
+            this.classList.add('carbon-emission-trend-filter-item-selected');
+
+            // Get filter value
+            const filterValue = this.getAttribute('data-filter');
+            console.log('Carbon emission trend filter selected:', filterValue);
+
+            // Here you can add logic to update the chart based on the selected filter
+            // For now, just log the selected filter
+          });
+        });
+      });
+    </script>
+    <script src="{{ url_for('static', filename='js/common/under-development-modal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/components/pdf-report.js') }}"></script>
+  </body>
+</html>

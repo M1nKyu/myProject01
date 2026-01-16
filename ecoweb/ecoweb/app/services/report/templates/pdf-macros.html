@@ -1,0 +1,218 @@
+<!-- ================================================================ -->
+<!-- PDF 보고서 매크로 시스템 정의 -->
+<!-- ================================================================ -->
+
+<!-- ================================================================ -->
+<!-- 헤더 컴포넌트 -->
+<!-- 웹사이트 URL, 제목, 부제목을 표시하는 보고서 상단 헤더 -->
+<!-- ================================================================ -->
+{% macro render_header(website_url='Ksa.or.kr', title='웹사이트 탄소 발자국 측정', subtitle='Measure Website Carbon Footprint') %}
+<div class="report-header">
+	<div class="report-header-text01">{{ title }}</div>
+	<div class="report-header-text02">{{ subtitle }}</div>
+	<div class="report-header-url">{{ website_url }}</div>
+	<div class="report-header-line"></div>
+</div>
+{% endmacro %}
+
+<!-- ================================================================ -->
+<!-- 수직선 컴포넌트 -->
+<!-- 본문 영역의 수직 구분선 (높이 460px) -->
+<!-- left: 491px, top: 100px 위치에서 시작 -->
+<!-- ================================================================ -->
+{% macro render_vertical_line_460() %}
+<div class="vertical-line-460"></div>
+{% endmacro %}
+
+<!-- ================================================================ -->
+<!-- 사이드바 컴포넌트 -->
+<!-- 보고서 목차를 표시하는 좌측 사이드바 -->
+<!-- 4개 섹션: 웹사이트 탄소 발자국 측정, 벤치마킹, 웹 표준 지속가능성 평가, 콘텐츠별 세부 분석 -->
+<!-- ================================================================ -->
+{% macro render_sidebar() %}
+<div class="report-sidebar">
+	<div class="report-sidebar-title">디지털 탄소 발자국</div>
+
+	<div class="report-sidebar-section01">
+		<div class="report-sidebar-section01-header">
+			<p class="p">01</p>
+			<p class="p">웹사이트 탄소 발자국 측정</p>
+		</div>
+		<div class="report-sidebar-section01-item">평가 개요 및 방법론</div>
+		<div class="report-sidebar-section01-item">측정 결과 상세 분석</div>
+		<div class="report-sidebar-section01-item">페이지별 탄소 배출 현황</div>
+		<div class="report-sidebar-section01-item">시간대별 탄소 배출 패턴 분석</div>
+	</div>
+
+	<div class="report-sidebar-section02">
+		<div class="report-sidebar-section02-header">
+			<p class="p">02</p>
+			<p class="p">벤치마킹 및 포지셔닝 분석</p>
+		</div>
+		<div class="report-sidebar-section02-item">동족 업계 대비 분석</div>
+		<div class="report-sidebar-section02-item">글로벌 표준 대비 위치</div>
+		<div class="report-sidebar-section02-item">경쟁사 대비 강약점</div>
+	</div>
+
+	<div class="report-sidebar-section03">
+		<div class="report-sidebar-section03-header">
+			<p class="p">03</p>
+			<p class="p">웹 표준 지속가능성 평가 검진</p>
+		</div>
+		<div class="report-sidebar-section03-item">4가지 항목 분석</div>
+		<div class="report-sidebar-section03-item">대표 페이지 분석</div>
+	</div>
+
+	<div class="report-sidebar-section04">
+		<div class="report-sidebar-section04-header">
+			<p class="p">04</p>
+			<p class="p">콘텐츠 별 세부 분석</p>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+<!-- ================================================================ -->
+<!-- 등급 원형 컴포넌트 -->
+<!-- 탄소 배출 등급을 원형으로 표시 (A~F 등급 또는 배출량 수치) -->
+<!-- circle_type: 'filled' (채워진 원) 또는 'outline' (테두리만 있는 원) -->
+<!-- grade_type: 'global' (글로벌 기준), 'domestic' (국내 기준), 기타 (월 배출 등급) -->
+<!-- ================================================================ -->
+{% macro render_grade_circle(grade, emission_value='', circle_type='filled', grade_type='global') %}
+{% if circle_type == 'outline' %}
+<div class="grade-{{ grade_type }}">
+	<div class="grade-circle02">
+		<b class="grade-circle02-text">{{ emission_value or grade }}</b>
+	</div>
+	<div class="content02-grade-title">
+		{%- if grade_type == 'global' -%}글로벌 기준
+		{%- elif grade_type == 'domestic' -%}국내 기준
+		{%- else -%}월 배출 등급
+		{%- endif -%}
+	</div>
+</div>
+{% else %}
+<div class="grade-{{ grade_type }}">
+	<div class="grade-circle01">
+		<b class="grade-circle01-text">{{ grade }}</b>
+	</div>
+	<div class="content02-grade-title">
+		{%- if grade_type == 'global' -%}글로벌 기준
+		{%- elif grade_type == 'domestic' -%}국내 기준
+		{%- else -%}월 배출 등급
+		{%- endif -%}
+	</div>
+</div>
+{% endif %}
+{% endmacro %}
+
+<!-- ================================================================ -->
+<!-- 차트 플레이스홀더 컴포넌트 -->
+<!-- 실제 차트 데이터를 넣기 전 임시로 표시하는 플레이스홀더 -->
+<!-- chart_type: 차트 종류 (bar, line, pie 등) -->
+<!-- width, height: 차트 크기 (px) -->
+<!-- ================================================================ -->
+{% macro render_chart_placeholder(chart_type='bar', width=280, height=120, title='', description='') %}
+<div class="chart-container" style="width: {{ width }}px; height: {{ height }}px;">
+	{% if title %}
+	<div class="chart-title">{{ title }}</div>
+	{% endif %}
+	<div class="chart-content" style="background-color: #d9d9d9; width: 100%; height: {{ height - (title and 20 or 0) }}px; position: relative;">
+		<div class="chart-type-indicator" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 10px; color: #666;">
+			{{ chart_type.upper() }} CHART
+		</div>
+	</div>
+	{% if description %}
+	<div class="chart-description" style="font-size: 6px; color: #878a93; margin-top: 4px;">{{ description }}</div>
+	{% endif %}
+</div>
+{% endmacro %}
+
+<!-- ================================================================ -->
+<!-- 데이터 테이블 컴포넌트 -->
+<!-- 헤더와 행 데이터를 받아 HTML 테이블을 생성 -->
+<!-- headers: 테이블 헤더 리스트 -->
+<!-- rows: 테이블 행 데이터 리스트 (각 행은 셀 리스트) -->
+<!-- ================================================================ -->
+{% macro render_data_table(headers, rows, table_class='data-table', cell_width='auto') %}
+<table class="{{ table_class }}" style="width: 100%; border-collapse: collapse;">
+	{% if headers %}
+	<thead>
+		<tr>
+			{% for header in headers %}
+			<th style="{% if cell_width != 'auto' %}width: {{ cell_width }};{% endif %}">{{ header }}</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	{% endif %}
+	<tbody>
+		{% for row in rows %}
+		<tr>
+			{% for cell in row %}
+			<td style="{% if cell_width != 'auto' %}width: {{ cell_width }};{% endif %}">{{ cell }}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endmacro %}
+
+<!-- ================================================================ -->
+<!-- 메트릭 박스 컴포넌트 -->
+<!-- 주요 지표를 박스 형태로 표시 (값, 단위, 레이블) -->
+<!-- highlight: true일 경우 강조 색상 적용 -->
+<!-- ================================================================ -->
+{% macro render_metric_box(value, unit='', label='', box_class='metric-box', highlight=false) %}
+<div class="{% if highlight %}metric-box-highlight{% else %}{{ box_class }}{% endif %}">
+	<div class="metric-value" style="{% if highlight %}color: #ff6b6b;{% endif %}">{{ value }}{% if unit %}<span class="metric-unit">{{ unit }}</span>{% endif %}</div>
+	{% if label %}
+	<div class="metric-label">{{ label }}</div>
+	{% endif %}
+</div>
+{% endmacro %}
+
+<!-- ================================================================ -->
+<!-- 개선 사항 리스트 컴포넌트 -->
+<!-- 개선 항목들을 리스트 형태로 표시 -->
+<!-- items: 문자열 또는 딕셔너리 리스트 (title, reduction, effect 키 포함 가능) -->
+<!-- list_type: 'ul' (순서 없음) 또는 'ol' (순서 있음) -->
+<!-- ================================================================ -->
+{% macro render_improvement_list(items, list_type='ul', item_class='improvement-item') %}
+<{{ list_type }} class="improvement-list">
+	{% for item in items %}
+	<li class="{{ item_class }}">
+		{% if item is mapping %}
+			<span class="improvement-title">{{ item.title }}</span>
+			{% if item.reduction %}<span class="improvement-reduction">({{ item.reduction }}% 절감)</span>{% endif %}
+			{% if item.effect %}<span class="improvement-effect">→ {{ item.effect }}</span>{% endif %}
+		{% else %}
+			{{ item }}
+		{% endif %}
+	</li>
+	{% endfor %}
+</{{ list_type }}>
+{% endmacro %}
+
+<!-- ================================================================ -->
+<!-- 배출량 세부 분류 컴포넌트 -->
+<!-- 카테고리별 배출량을 세부적으로 표시 -->
+<!-- breakdown_data: 카테고리별 데이터 딕셔너리 (value, unit, details 키 포함) -->
+<!-- show_details: true일 경우 세부 항목까지 표시 -->
+<!-- ================================================================ -->
+{% macro render_emission_breakdown(breakdown_data, show_details=true) %}
+<div class="emission-breakdown">
+	{% for category, data in breakdown_data.items() %}
+	<div class="emission-category">
+		<div class="category-name">{{ category }}</div>
+		<div class="category-value">{{ data.value }}{{ data.unit or 'g' }}</div>
+		{% if show_details and data.details %}
+		<div class="category-details">
+			{% for detail in data.details %}
+			<div class="detail-item">{{ detail.name }}: {{ detail.value }}{{ detail.unit or 'g' }}</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+	</div>
+	{% endfor %}
+</div>
+{% endmacro %}

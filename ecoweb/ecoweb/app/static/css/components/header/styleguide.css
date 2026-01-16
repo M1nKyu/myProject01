@@ -1,0 +1,31 @@
+:root {
+    --title-large-font-family: "Roboto", Helvetica;
+    --title-large-font-weight: 600;
+    --title-large-font-size: 22px;
+    --title-large-letter-spacing: 0px;
+    --title-large-line-height: 28px;
+    --title-large-font-style: normal;
+    --paragraph-medium-font-family: "Roboto", Helvetica;
+    --paragraph-medium-font-weight: 400;
+    --paragraph-medium-font-size: 16px;
+    --paragraph-medium-letter-spacing: 0px;
+    --paragraph-medium-line-height: 24px;
+    --paragraph-medium-font-style: normal;
+    --body-medium-font-family: "Roboto", Helvetica;
+    --body-medium-font-weight: 400;
+    --body-medium-font-size: 16px;
+    --body-medium-letter-spacing: 0px;
+    --body-medium-line-height: 24px;
+    --body-medium-font-style: normal;
+    --cate: -1.8583999872207642px -1.7319999933242798px 12px -8px
+      rgba(0, 0, 0, 0.1), -11.150400161743164px -10.392000198364258px 48px -12px
+      rgba(0, 0, 0, 0.15);
+    --atomic-cool-neutral-20: rgba(41, 42, 45, 1);
+    --atomic-cool-neutral-40: rgba(90, 92, 99, 1);
+    --atomic-cool-neutral-100: var(--atomic-common-100);
+    --atomic-cool-neutral-90: rgba(194, 196, 200, 1);
+    --atomic-common-100: rgba(255, 255, 255, 1);
+    --atomic-cool-neutral-60: rgba(135, 138, 147, 1);
+    --atomic-cool-neutral-30: rgba(70, 71, 76, 1);
+    --atomic-cool-neutral-25: rgba(55, 56, 60, 1);
+  }

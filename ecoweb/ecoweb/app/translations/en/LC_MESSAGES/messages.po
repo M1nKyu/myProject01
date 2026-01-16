@@ -1,0 +1,945 @@
+# English translations for ECO-WEB
+# Copyright (C) 2025
+msgid ""
+msgstr ""
+"Project-Id-Version: ECO-WEB 1.0\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Header Navigation
+msgid "nav.service_intro"
+msgstr "About Service"
+
+msgid "nav.carbon_analysis"
+msgstr "Carbon Analysis"
+
+msgid "nav.carbon_ranking"
+msgstr "Carbon Ranking"
+
+msgid "nav.corporate_service"
+msgstr "Enterprise Service"
+
+# User Menu
+msgid "user.login"
+msgstr "Login"
+
+msgid "user.logout"
+msgstr "Logout"
+
+msgid "user.signup"
+msgstr "Sign Up"
+
+msgid "user.greeting"
+msgstr ""
+
+# Homepage
+msgid "home.main_title"
+msgstr "Discover Your Website's\nCarbon Footprint"
+
+msgid "home.main_subtitle"
+msgstr "Analyze your website's carbon emissions\nand get eco-friendly improvement guidelines"
+
+msgid "home.url_placeholder"
+msgstr "Enter website URL"
+
+msgid "home.analyze_button"
+msgstr "Start Analysis"
+
+msgid "home.recent_searches"
+msgstr "Recent Searches"
+
+# Carbon Analysis
+msgid "analysis.carbon_emission"
+msgstr "Carbon Emission"
+
+msgid "analysis.page_size"
+msgstr "Page Size"
+
+msgid "analysis.grade"
+msgstr "Grade"
+
+msgid "analysis.percentile"
+msgstr "Percentile"
+
+msgid "analysis.korea_average"
+msgstr "Korea Average"
+
+msgid "analysis.global_average"
+msgstr "Global Average"
+
+msgid "analysis.comparison"
+msgstr "Comparison"
+
+msgid "analysis.higher_than"
+msgstr "Higher"
+
+msgid "analysis.lower_than"
+msgstr "Lower"
+
+# Optimization
+msgid "optimization.code_title"
+msgstr "Code Optimization"
+
+msgid "optimization.image_title"
+msgstr "Image Optimization"
+
+msgid "optimization.font_title"
+msgstr "Font Optimization"
+
+# PDF Report
+msgid "pdf.generate_button"
+msgstr "Generate PDF Report"
+
+msgid "pdf.download_button"
+msgstr "Download"
+
+# Loading Messages
+msgid "loading.analyzing"
+msgstr "Analyzing..."
+
+msgid "loading.please_wait"
+msgstr "Please wait"
+
+msgid "loading.processing"
+msgstr "Processing"
+
+# Error Messages
+msgid "error.invalid_url"
+msgstr "Invalid URL"
+
+msgid "error.analysis_failed"
+msgstr "Analysis failed"
+
+msgid "error.network_error"
+msgstr "Network error occurred"
+
+msgid "error.server_error"
+msgstr "Server error occurred"
+
+# Common
+msgid "common.submit"
+msgstr "Submit"
+
+msgid "common.cancel"
+msgstr "Cancel"
+
+msgid "common.confirm"
+msgstr "Confirm"
+
+msgid "common.close"
+msgstr "Close"
+
+msgid "common.save"
+msgstr "Save"
+
+msgid "common.delete"
+msgstr "Delete"
+
+msgid "common.edit"
+msgstr "Edit"
+
+msgid "common.view_more"
+msgstr "View More"
+
+msgid "common.loading"
+msgstr "Loading..."
+
+# Loading Page
+msgid "loading.page_title"
+msgstr "Analyzing... - eCarbon"
+
+msgid "loading.analyzing_url"
+msgstr "is being analyzed!"
+
+msgid "loading.analyzing_main_page"
+msgstr "Analyzing main page"
+
+msgid "loading.analyzing_subpages"
+msgstr "Analyzing subpages"
+
+msgid "loading.optimizing_images"
+msgstr "Optimizing images"
+
+msgid "loading.analysis_complete"
+msgstr "Analysis Complete!"
+
+msgid "loading.view_results"
+msgstr "View Results"
+
+msgid "loading.go_home"
+msgstr "Go Home"
+
+msgid "loading.queued_message"
+msgstr "High server load. Waiting in queue (Position: %(position)s)"
+
+msgid "loading.in_progress"
+msgstr "Analysis in progress..."
+
+msgid "loading.cancelled_title"
+msgstr "Analysis Cancelled"
+
+msgid "loading.cancelled_message"
+msgstr "The analysis was cancelled by the user."
+
+msgid "loading.failed_title"
+msgstr "Analysis Failed"
+
+msgid "loading.failed_message"
+msgstr "An error occurred during website analysis."
+
+msgid "loading.new_analysis"
+msgstr "Start New Analysis"
+
+msgid "loading.check_site"
+msgstr "Check Site Directly"
+
+msgid "loading.try_different_url"
+msgstr "Try Different URL"
+
+msgid "loading.access_error_title"
+msgstr "Cannot Access Site"
+
+msgid "loading.access_error_message"
+msgstr "Unable to connect to the website."
+
+msgid "loading.access_error_suggestion"
+msgstr "Please check the URL or verify that the site is working properly."
+
+msgid "loading.failure_suggestion"
+msgstr "Please check the URL and try again."
+
+msgid "loading.check_site_status"
+msgstr "Please verify that the site is working properly"
+
+msgid "loading.enter_different_url"
+msgstr "Enter Different URL"
+
+msgid "loading.check_site_directly"
+msgstr "Check Site Directly"
+
+msgid "loading.view_results_button"
+msgstr "View Results"
+
+msgid "loading.measurement_in_progress"
+msgstr "Measuring, please wait."
+
+# Home Page - Hero Section
+msgid "home.hero_title"
+msgstr "Discover Your Website's<br>Carbon Footprint"
+
+msgid "home.hero_subtitle_line1"
+msgstr "Analyze your website's carbon emissions"
+
+msgid "home.hero_subtitle_line2"
+msgstr "and get eco-friendly improvement guidelines"
+
+# Home Page - Info Cards
+msgid "home.card_measurement_title"
+msgstr "Digital Carbon Footprint Measurement"
+
+msgid "home.card_measurement_desc1"
+msgstr "Measure and manage "
+
+msgid "home.card_measurement_desc2"
+msgstr "digital carbon emissions from your website"
+
+msgid "home.card_code_title"
+msgstr "Code Optimization"
+
+msgid "home.card_code_desc1"
+msgstr "Optimize your website's code to "
+
+msgid "home.card_code_desc2"
+msgstr "reduce server load and energy consumption"
+
+msgid "home.card_code_desc3"
+msgstr "Let's build a faster and more efficient web together"
+
+msgid "home.card_design_title"
+msgstr "Sustainable Design"
+
+msgid "home.card_design_desc1"
+msgstr "Reduce your carbon footprint with "
+
+msgid "home.card_design_desc2"
+msgstr "energy-efficient sustainable design"
+
+msgid "home.card_design_desc3"
+msgstr "Design and sustainability go hand in hand"
+
+msgid "home.card_hosting_title"
+msgstr "Eco-Friendly Hosting"
+
+msgid "home.card_hosting_desc1"
+msgstr "Switch to eco-friendly hosting "
+
+msgid "home.card_hosting_desc2"
+msgstr "powered by renewable energy"
+
+msgid "home.card_hosting_desc3"
+msgstr "Small changes can be the beginning of"
+
+msgid "home.card_hosting_desc4"
+msgstr "a cleaner web environment"
+
+# Home Page - Eco Website Section
+msgid "home.eco_website_title"
+msgstr "Eco-Friendly Websites"
+
+msgid "home.eco_view_all"
+msgstr "Show More Sites"
+
+msgid "home.eco_view_less"
+msgstr "Show Less"
+
+# Home Page - Membership Section
+msgid "home.membership_heading1"
+msgstr "For a Sustainable Web"
+
+msgid "home.membership_heading2"
+msgstr "Unlimited Customized Analysis and Improvement Guides"
+
+msgid "home.membership_heading3_line1"
+msgstr "Exclusive to members:"
+
+msgid "home.membership_heading3_line2"
+msgstr "Advanced reports, comparison features, and improvement simulations"
+
+msgid "home.membership_button"
+msgstr "Explore Membership"
+
+# Home Page - Footer
+msgid "footer.logo"
+msgstr "eCarbon"
+
+msgid "footer.intro"
+msgstr "Digital Carbon Footprint Measurement Service"
+
+msgid "footer.section_service"
+msgstr "Service"
+
+msgid "footer.ecarbon_intro"
+msgstr "About eCarbon"
+
+msgid "footer.membership_intro"
+msgstr "Membership"
+
+msgid "footer.contact"
+msgstr "Contact Us"
+
+msgid "footer.announcement"
+msgstr "Announcements"
+
+msgid "footer.events"
+msgstr "Events"
+
+msgid "footer.faq"
+msgstr "FAQ"
+
+msgid "footer.company_intro"
+msgstr "About Us"
+
+msgid "footer.recruitment"
+msgstr "Careers"
+
+msgid "footer.partners"
+msgstr "Partners"
+
+msgid "footer.terms"
+msgstr "Terms of Service"
+
+msgid "footer.privacy"
+msgstr "Privacy Policy"
+
+msgid "footer.instagram_link"
+msgstr "Instagram"
+
+msgid "footer.youtube_link"
+msgstr "YouTube Channel"
+
+msgid "footer.contact_email"
+msgstr "contact@example.com"
+
+msgid "footer.copyright"
+msgstr "© Designbase All rights reserved."
+
+msgid "footer.copy_success"
+msgstr "Copied!"
+
+msgid "footer.copy_manual"
+msgstr "Please copy the contact@example.com address manually."
+
+# Sidebar
+msgid "sidebar.site_address"
+msgstr "Site Address"
+
+msgid "sidebar.integrated_analysis"
+msgstr "Integrated Analysis"
+
+msgid "sidebar.page_analysis"
+msgstr "Page Analysis"
+
+msgid "sidebar.image_optimization"
+msgstr "Image Optimization"
+
+msgid "sidebar.code_analysis"
+msgstr "Code Analysis"
+
+msgid "sidebar.sustainability_guidelines"
+msgstr "Sustainability Guidelines"
+
+msgid "sidebar.get_badge"
+msgstr "Get Badge"
+
+msgid "sidebar.settings"
+msgstr "Settings"
+
+msgid "sidebar.my_account"
+msgstr "My Account"
+
+msgid "sidebar.analysis_required"
+msgstr "Please complete website analysis first."
+
+# User Bar
+msgid "userbar.carbon_analysis"
+msgstr "Carbon Emissions Analysis"
+
+msgid "userbar.greeting"
+msgstr "Hello, %(username)s"
+
+msgid "userbar.user"
+msgstr "User"
+
+msgid "userbar.comparison_text"
+msgstr "has "
+
+msgid "userbar.save_pdf"
+msgstr "Save as PDF"
+
+msgid "userbar.compare_previous"
+msgstr "Compare with Previous Analysis"
+
+# Result Page
+msgid "result.page_title"
+msgstr "Carbon Emission Analysis Results - eCarbon"
+
+msgid "result.current_emission"
+msgstr "Current Carbon Emissions"
+
+msgid "result.emission_percentile_description"
+msgstr "Your emissions are in the top %(percentile)s%% of all analyzed sites."
+
+msgid "result.global_grade_comparison"
+msgstr "Compared to global standards"
+
+msgid "result.korea_grade_comparison"
+msgstr "Compared to South Korea standards"
+
+msgid "result.less_emission"
+msgstr "less"
+
+msgid "result.more_emission"
+msgstr "more"
+
+msgid "result.emission_suffix"
+msgstr "emissions"
+
+msgid "result.emission_status_suffix"
+msgstr ""
+
+msgid "result.global_avg_tooltip"
+msgstr "Global average carbon emissions: %(value)sg"
+
+msgid "result.korea_avg_tooltip"
+msgstr "South Korea average carbon emissions: %(value)sg"
+
+# Equivalent
+msgid "equivalent.title"
+msgstr "Annual Carbon Emission Equivalents"
+
+msgid "equivalent.coffee_title"
+msgstr "Coffee<br />Consumption"
+
+msgid "equivalent.coffee_unit"
+msgstr "cups"
+
+msgid "equivalent.car_title"
+msgstr "Electric Car<br />Mileage"
+
+msgid "equivalent.car_unit"
+msgstr "km"
+
+msgid "equivalent.phone_title"
+msgstr "Smartphone<br />Charging"
+
+msgid "equivalent.phone_formula"
+msgstr "3 charges<br />= 0.02 CO2"
+
+msgid "equivalent.phone_unit"
+msgstr "times"
+
+msgid "equivalent.tree_title"
+msgstr "Tree<br />Absorption"
+
+msgid "equivalent.tree_formula"
+msgstr "1 tree<br />= 0.02kg CO2/year"
+
+msgid "equivalent.tree_unit"
+msgstr "trees"
+
+# Chart
+msgid "chart.emission_trend_title"
+msgstr "Carbon Emission Trends"
+
+msgid "chart.monthly_visitors_reference"
+msgstr "Based on 1,000,000 monthly visitors"
+
+msgid "chart.emission_label"
+msgstr "Carbon Emissions (g CO₂/kWh)"
+
+msgid "chart.y_axis_label"
+msgstr "Emissions (g CO₂/kWh)"
+
+msgid "chart.x_axis_label"
+msgstr "Date"
+
+# Detailed Analysis Page
+msgid "detailed.page_title"
+msgstr "Detailed Analysis Results - eCarbon"
+
+msgid "detailed.emission_breakdown_title"
+msgstr "Emission Breakdown"
+
+msgid "detailed.device_title"
+msgstr "Personal Device"
+
+msgid "detailed.home_network_title"
+msgstr "Home Network"
+
+msgid "detailed.home_network_label"
+msgstr "WiFi"
+
+msgid "detailed.external_network_title"
+msgstr "External Network"
+
+msgid "detailed.external_network_label"
+msgstr "Carrier"
+
+msgid "detailed.sea_cable_title"
+msgstr "Submarine Cable"
+
+msgid "detailed.server_title"
+msgstr "Enterprise Server"
+
+msgid "detailed.server_label"
+msgstr "Cloud"
+
+msgid "detailed.content_emission_title"
+msgstr "Carbon Emissions by Content Type"
+
+msgid "detailed.content_count_title"
+msgstr "Content Count"
+
+msgid "detailed.subpage_analysis_title"
+msgstr "Subpage Analysis"
+
+msgid "detailed.total_pages"
+msgstr "Total Pages"
+
+msgid "detailed.avg_co2_per_page"
+msgstr "Average CO2/Page"
+
+msgid "detailed.subpage_co2"
+msgstr "Subpage CO2"
+
+msgid "detailed.emission_level_low"
+msgstr "Low (<0.8g)"
+
+msgid "detailed.emission_level_medium"
+msgstr "Medium (0.8-1.1g)"
+
+msgid "detailed.emission_level_high"
+msgstr "High (>1.1g)"
+
+msgid "detailed.page_emission_list"
+msgstr "Emissions by Page"
+
+msgid "detailed.no_subpages"
+msgstr "No subpages found."
+
+# Image Optimization Page
+msgid "imgopt.page_title"
+msgstr "Image Optimization Results - eCarbon"
+
+msgid "imgopt.main_title"
+msgstr "Image Optimization"
+
+msgid "imgopt.expected_size_title"
+msgstr "Expected Image Size vs. Pre-optimization"
+
+msgid "imgopt.already_optimized_label"
+msgstr "Already Optimized"
+
+msgid "imgopt.reduction_percent"
+msgstr "% reduction"
+
+msgid "imgopt.expected_reduction"
+msgstr "Expected Reduction"
+
+msgid "imgopt.co2_per_visit"
+msgstr "g CO2/visit"
+
+msgid "imgopt.current_image_size"
+msgstr "Current Image Size"
+
+msgid "imgopt.optimized_image_size"
+msgstr "Optimized Image Size"
+
+msgid "imgopt.captured_website_image"
+msgstr "Captured Website Image"
+
+msgid "imgopt.image_load_error"
+msgstr "Unable to load website image."
+
+msgid "imgopt.high_emission_area"
+msgstr "High Carbon Emission Area"
+
+msgid "imgopt.current_label"
+msgstr "Current"
+
+msgid "imgopt.optimized_label"
+msgstr "Optimized"
+
+msgid "imgopt.image_size"
+msgstr "Image Size"
+
+msgid "imgopt.analysis_title"
+msgstr "Image Optimization Analysis"
+
+msgid "imgopt.total_image_capacity"
+msgstr "Total Image Capacity"
+
+msgid "imgopt.total_image_resource_description"
+msgstr "Total image resource size"
+
+msgid "imgopt.possible_optimization"
+msgstr "Possible Image Optimization"
+
+msgid "imgopt.webp_conversion_benefit"
+msgstr "Savings possible by converting to WebP format"
+
+msgid "imgopt.format_conversion_list"
+msgstr "Recommended Images for Format Conversion"
+
+msgid "imgopt.total_bytes_count"
+msgstr "Total %(bytes)s bytes, (%(count)s files)"
+
+msgid "imgopt.category_icon"
+msgstr "Icon"
+
+msgid "imgopt.category_logo"
+msgstr "Logo"
+
+msgid "imgopt.category_other"
+msgstr "Other"
+
+msgid "imgopt.converted_image_list"
+msgstr "Converted Image List"
+
+msgid "imgopt.download_images_zip"
+msgstr "Download Image Files (.zip)"
+
+msgid "imgopt.download_error"
+msgstr "An error occurred while downloading the file."
+
+msgid "imgopt.webp_label"
+msgstr "Webp"
+
+# Sustainability Analysis Page
+msgid "sustain.page_title"
+msgstr "Sustainability Analysis Results - eCarbon"
+
+msgid "sustain.main_title"
+msgstr "W3C Sustainability Guidelines Analysis"
+
+msgid "sustain.category_ux"
+msgstr "UX"
+
+msgid "sustain.category_bm"
+msgstr "BM"
+
+msgid "sustain.category_hosting"
+msgstr "Hosting"
+
+msgid "sustain.category_web_design"
+msgstr "Web Design"
+
+msgid "sustain.overall_score"
+msgstr "Overall Score"
+
+msgid "sustain.evaluation_results"
+msgstr "Sustainability Guidelines Evaluation Results"
+
+msgid "sustain.header_guideline_id"
+msgstr "Guideline ID"
+
+msgid "sustain.header_title"
+msgstr "Title"
+
+msgid "sustain.header_difficulty"
+msgstr "Difficulty"
+
+msgid "sustain.header_importance"
+msgstr "Importance"
+
+msgid "sustain.header_compliance"
+msgstr "Compliance"
+
+msgid "sustain.header_detail"
+msgstr "Details"
+
+msgid "sustain.view_more"
+msgstr "View More"
+
+msgid "sustain.no_guidelines"
+msgstr "No guideline information"
+
+msgid "sustain.chart_label"
+msgstr "Scores by Category"
+
+# Sustainability Modal
+msgid "sustain_modal.title_default"
+msgstr "Guideline Details"
+
+msgid "sustain_modal.subtitle"
+msgstr "W3C Sustainability Guidelines"
+
+msgid "sustain_modal.guideline_id"
+msgstr "Guideline ID:"
+
+msgid "sustain_modal.area"
+msgstr "Area:"
+
+msgid "sustain_modal.compliance"
+msgstr "Compliance:"
+
+msgid "sustain_modal.compliant"
+msgstr "✓ Compliant"
+
+msgid "sustain_modal.non_compliant"
+msgstr "✗ Non-compliant"
+
+msgid "sustain_modal.difficulty"
+msgstr "Implementation Difficulty:"
+
+msgid "sustain_modal.impact"
+msgstr "Environmental Impact:"
+
+msgid "sustain_modal.description"
+msgstr "Description:"
+
+msgid "sustain_modal.no_description"
+msgstr "No description available."
+
+msgid "sustain_modal.intent"
+msgstr "Intent:"
+
+msgid "sustain_modal.no_intent"
+msgstr "No intent information available."
+
+msgid "sustain_modal.benefits"
+msgstr "Benefits:"
+
+msgid "sustain_modal.no_benefits"
+msgstr "No benefits information available."
+
+# Under Development Modal
+msgid "modal.under_development_title"
+msgstr "🚧 Page Under Development 🚧"
+
+msgid "modal.under_development_message"
+msgstr "We apologize for any inconvenience."
+
+# Login Page
+msgid "login.page_title"
+msgstr "Login - eCarbon"
+
+msgid "login.title_line1"
+msgstr "Sustainable Web,"
+
+msgid "login.title_line2"
+msgstr "Together with eCarbon"
+
+msgid "login.id_placeholder"
+msgstr "Please enter your ID"
+
+msgid "login.password_placeholder"
+msgstr "Please enter your password"
+
+msgid "login.save_id"
+msgstr "Save ID"
+
+msgid "login.find_credentials"
+msgstr "Find ID/Password"
+
+msgid "login.login_button"
+msgstr "Login"
+
+msgid "login.google_login"
+msgstr "Sign in with Google"
+
+msgid "login.not_member"
+msgstr "Not a member yet?"
+
+msgid "login.signup_link"
+msgstr "Sign Up"
+
+# Code Analysis Page
+msgid "code.page_title"
+msgstr "Code Analysis Results - eCarbon"
+
+msgid "code.main_title"
+msgstr "Detailed Code Analysis"
+
+msgid "code.total_resource_title"
+msgstr "Total Resource Capacity (100%%)"
+
+msgid "code.total_resource_description"
+msgstr "Total size of resources that make up the page."
+
+msgid "code.third_party_script"
+msgstr "Third-party Scripts"
+
+msgid "code.third_party_description"
+msgstr "Capacity that can be wasted due to external scripts."
+
+msgid "code.used_javascript"
+msgstr "Used JavaScript"
+
+msgid "code.used_javascript_description"
+msgstr "JavaScript capacity actually being used on the page."
+
+msgid "code.unused_javascript"
+msgstr "Unused JavaScript"
+
+msgid "code.unused_javascript_description"
+msgstr "JavaScript capacity loaded but not used."
+
+msgid "code.reducible"
+msgstr "Reducible"
+
+msgid "code.total_javascript"
+msgstr "Total JavaScript"
+
+msgid "code.total_javascript_description"
+msgstr "Total capacity of all JavaScript resources on the page."
+
+msgid "code.unused_css"
+msgstr "Unused CSS"
+
+msgid "code.unused_css_description"
+msgstr "Capacity that can be optimized due to unused CSS rules"
+
+msgid "code.other_resources"
+msgstr "Other Resources"
+
+msgid "code.file_explorer_title"
+msgstr "Code File Explorer"
+
+msgid "code.sort_by_name"
+msgstr "Sort by Name"
+
+msgid "code.compliance_rate"
+msgstr "Guideline Compliance Rate:"
+
+msgid "code.no_data"
+msgstr "No code analysis data available."
+
+msgid "code.font_optimization_title"
+msgstr "Font Optimization"
+
+msgid "code.font_grade_very_good"
+msgstr "'Excellent' grade"
+
+msgid "code.font_grade_good"
+msgstr "'Good' grade"
+
+msgid "code.font_grade_needs_improvement"
+msgstr "'Needs Improvement' grade"
+
+msgid "code.font_grade_urgent"
+msgstr "'Urgent Improvement Needed' grade"
+
+msgid "code.font_grade_text"
+msgstr "Carbon emissions from fonts are at"
+
+msgid "code.font_grade_suffix"
+msgstr "level"
+
+msgid "code.total_file_size"
+msgstr "Total File Size"
+
+msgid "code.total_co2_emission"
+msgstr "Total CO2 Emissions"
+
+msgid "code.discovered_fonts_title"
+msgstr "Discovered Fonts"
+
+msgid "code.no_font_data"
+msgstr "Unable to find downloaded font file information."
+
+msgid "code.font_optimization_plan"
+msgstr "Font Optimization Plan"
+
+msgid "code.before_optimization"
+msgstr "Before Optimization"
+
+msgid "code.optimization_method"
+msgstr "Optimization Method"
+
+msgid "code.file_size_reduction"
+msgstr "File Size Reduction"
+
+msgid "code.co2_reduction"
+msgstr "CO2 Reduction"
+
+msgid "code.reduction_percent_100"
+msgstr "100.0%% reduction"
+
+msgid "code.reduction_percent_75"
+msgstr "75.0%% reduction"
+
+msgid "code.reduction_percent_70"
+msgstr "70.0%% reduction"
+
+msgid "code.reduction_percent_50"
+msgstr "50.0%% reduction"
+
+msgid "code.reduction_percent_45"
+msgstr "45.0%% reduction"
+
+msgid "code.system_font"
+msgstr "Change to System Font"
+
+msgid "code.subset_font"
+msgstr "Change to Subset Font"
+
+msgid "code.variable_font"
+msgstr "Change to Variable Font"
+
+msgid "code.woff2_font"
+msgstr "Change to WOFF2 Font"
+
+msgid "code.woff_font"
+msgstr "Change to WOFF Font"
+
+msgid "userbar.below_avg"
+msgstr "lower emissions than average sites"
+
+msgid "userbar.above_avg"
+msgstr "higher emissions than average sites"
+
+msgid "imgopt.reduction_text"
+msgstr "reduction"

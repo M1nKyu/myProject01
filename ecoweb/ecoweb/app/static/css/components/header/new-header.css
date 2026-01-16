@@ -1,0 +1,253 @@
+.header {
+    z-index: 100000;
+    margin: 0;
+    line-height: normal;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    backdrop-filter: blur(20px);
+    background-color: rgba(244, 244, 245, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-sizing: border-box;
+    overflow: visible; /* 드롭다운이 헤더 밖으로 보이도록 수정 */
+    text-align: left;
+    color: #292a2d;
+    font-family: Roboto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 27px;
+}
+
+/* 헤더 로고 ===================================================== */
+.header-logo {
+    width: 81px;
+    height: 28px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #292a2d;
+    text-align: left;
+    display: inline-block;
+}
+
+/* 헤더 네비게이션 ===================================================== */
+.header-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 491px;
+    height: 44px;
+    box-shadow: -1.8583999872207642px -1.7319999933242798px 12px -8px rgba(0, 0, 0, 0.1), 2.146451950073242px 2.000459909439087px 9.24px rgba(255, 255, 255, 0.13) inset, 1.2172520160675049px 1.1344599723815918px 4.62px rgba(255, 255, 255, 0.13) inset;
+    backdrop-filter: blur(15.16px);
+    border-radius: 40px;
+    background-color: #dbdcdf;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4px 5px;
+    mix-blend-mode: normal;
+    color: #5a5c63;
+    text-align: left;
+}
+.nav-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 160px;
+    height: 36px;
+    border-radius: 40px;
+
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #5a5c63;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(90, 92, 99, 0.1);
+}
+.nav-active {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 160px;
+    height: 36px;
+    border-radius: 40px;
+
+    background-color: #46474c;
+
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+.nav--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 헤더 우측 컨트롤 그룹 ===================================================== */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 헤더 로그인 ===================================================== */
+.header-login {
+    position: absolute;
+    width: 110px;
+    height: 36px;
+    top: 18px;
+    left: 1782px;
+    backdrop-filter: blur(20px);
+    border-radius: 8px;
+    background-color: #46474c;
+    border: 1px solid #37383c;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    font-family: Roboto;
+}
+
+.header-login-text {
+    position: relative;
+    top: 6px;
+    width: 100%;
+}
+
+/* 헤더 다크모드 ===================================================== */
+.header-darkmode {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.header-darkmode-icon {
+    overflow: hidden;
+}
+
+/* 헤더 로그인 버튼 (비로그인 상태) ===================================================== */
+.header-login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    height: 36px;
+    backdrop-filter: blur(20px);
+    border-radius: 8px;
+    background-color: #46474c;
+    border: 1px solid #37383c;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    font-family: Roboto;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.header-login-button:hover {
+    background-color: #5a5b60;
+}
+
+/* 헤더 사용자 (로그인 상태) ===================================================== */
+.header-user-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.header-user-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    height: 36px;
+    backdrop-filter: blur(20px);
+    border-radius: 8px;
+    background-color: #46474c;
+    border: 1px solid #37383c;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    font-family: Roboto;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.header-user-button:hover {
+    background-color: #5a5b60;
+}
+
+/* User Dropdown Menu ===================================================== */
+.header-user-dropdown {
+    display: none;
+    position: absolute;
+    top: 54px; /* header-user-icon height + some margin */
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 8px 0;
+    z-index: 99999;
+}
+
+.header-user-dropdown.show {
+    display: block;
+}
+
+.header-dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.header-dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+.header-dropdown-divider {
+    height: 1px;
+    margin: 8px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+.header-dropdown-header {
+    padding: 10px 16px;
+}
+
+.header-user-name {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.header-user-institution {
+    font-size: 12px;
+    color: #666;
+}

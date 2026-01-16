@@ -1,0 +1,158 @@
+<!--보고서 37-->
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" />
+  	<style>{{ css_content }}</style>
+</head>
+<body>
+	{% from 'pdf-macros.html' import render_header, render_sidebar, render_vertical_line_460 %}
+
+	<div class="div">
+		{{ render_header(website_url=website_url, title='웹사이트 탄소 발자국 측정', subtitle='Measure Website Carbon Footprint') }}
+		{{ render_sidebar() }}
+		{{ render_vertical_line_460() }}
+
+		<!-- 컨텐츠 -->
+			<!-- 01. 지속가능성 평가 방법 -->
+			<div class="content01">
+				<b class="common-subtitle">지속가능성 평가 방법</b>
+				<div class="common-text">본 탄소 배출량 측정은 ISO/IEC 21031:2024 국제 표준에 따라 수행되었습니다. 이 표준은 2024년에 제정된 최신 디지털 서비스 탄소 측정 규격으로, GHG Protocol의 Scope 2(전력 소비)와 Scope 3(디지털 서비스 간접 배출) 영역을 포괄합니다. 특히 본 평가에서는 SWDM(Sustainable Web Design Model) 방식을 적용하여, 데이터 전송량, 에너지 집약도, 탄소 집약도, 그리고 사용자 트래픽을 종합적으로 고려한 과학적 측정을 실시했습니다. 이는 단순한 페이지 크기 측정을 넘어, 실제 사용자 행동 패턴과 서버 인프라의 에너지 효율성까지 반영한 포괄적 접근법입니다.</div>
+				<div class="content01-img01">
+					{{ svg.iso_logo|safe }}
+				</div>
+				<div class="content01-img02">
+					<img src="data:image/png;base64,{{ svg.wholegrain_digital }}" alt="Wholegrain Digital">
+				</div>
+			</div>
+
+			<!-- 02. 측정 결과 상세 분석 -->
+			<div class="content02">
+				<div class="common-subtitle">측정 결과 상세 분석</div>
+
+				<div class="common-text">
+					<p class="p">분석 대상: 페이지 탄소 배출 등급 A등급(글로벌 기준) 및 B등급 웹사이트</p>
+					<p class="p">측정 기간: 2025년 6월 ~ 2025년 8월 (3개월간)</p>
+					<p class="p">총 방문자 수: 월 1,652,432명 (추정)</p>
+					<p class="p">탄소 배출 규모: 월 528kg, 연간 환산 시 6,336kg (6.34톤)</p>
+    			</div>
+
+				<div class="content02-grade">
+					<!--글로벌 기준-->
+					<div class="grade-global">
+						<div class="grade-circle01">
+							<b class="grade-circle01-text">A</b>
+						</div>
+						<div class="content02-grade-title">글로벌 기준</div>
+					</div>
+					<!--국내 기준-->
+					<div class="grade-domestic">
+						<div class="grade-circle01">
+							<b class="grade-circle01-text">B</b>
+						</div>
+						<div class="content02-grade-title">국내 기준</div>
+					</div>
+					<!--월 배출 등급-->
+					<div class="grade-month">
+						<div class="grade-circle02">
+							<b class="grade-circle02-text">528</b>
+						</div>
+						<div class="content02-grade-title">월 배출 등급</div>
+					</div>
+				</div>
+
+				<div class="content02-info">
+					<p class="p">* 글로벌 웹 빅 데이터 HTTP Archive 를 기준으로 평가한 결과 A등급으로 선정되셨으며, </p>
+					<p class="p">국내 2만여개의 공공웹사이트와 비교한 결과 B등급으로 선정되셨습니다.</p>
+			  	</div>
+
+			</div>
+
+			<!-- 03. 페이지별 탄소 배출 현황 -->	
+			<div class="content03">
+				<b class="common-subtitle">페이지별 탄소 배출 현황</b>
+				<div class="common-text">
+					<p class="p">측정 결과, 웹사이트 내 페이지 간 탄소 배출량에 현저한 편차가 확인되었습니다.</p>
+					<p class="p">메인페이지는 1.11g CO₂/페이지로 가장 높은 배출량을 기록했으며, 이는 월 627,600회 방문과 결합하여 총 696.6kg의 탄소를 배출하고 있습니다. 이는 대용량 이미지, 복잡한 JavaScript, 과도한 서드파티 스크립트 등이 복합적으로 작용한 결과로 분석됩니다. 특히 메인페이지가 전체 트래픽의 38%를 차지하면서도 전체 탄소 배출의 52%를 차지한다는 점은 시급한 개선이 필요함을 시사합니다. 반면 문의하기 페이지는 0.46g CO₂/페이지로 가장 우수한 성능을 보였습니다. 이는 간소한 폼 구조와 최적화된 스크립트 사용의 결과로, 다른 페이지의 벤치마크 모델이 될 수 있습니다. 자료실(0.99g)과 서비스소개(0.81g) 페이지는 각각 PDF 뷰어, 파일 업로드 기능과 동영상 콘텐츠로 인해 높은 배출량을 보이고 있어, 기능 최적화와 미디어 압축이 필요한 상황입니다.</p>
+				</div>
+				<div class="content03-table">
+				<table class="emission-table">
+					<thead>
+						<tr>
+							<th>페이지명</th>
+							<th>CO2/페이지</th>
+							<th>월간 총 배출량</th>
+							<th>주요 문제점</th>
+							<th>개선 우선순위</th>
+							<th>예상 절감</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+
+
+			<!-- 04. 개선 우선순위 및 예상 효과 -->
+			<div class="content04">
+				<b class="common-subtitle">개선 우선순위 및 예상 효과</b>
+				<div class="common-text">
+					<p class="p">현재 상태에서 즉시 적용 가능한 개선 조치들의 예상 효과는 다음과 같습니다.</p>
+				  	<ul class="kg-35">
+					  <li class="kg">메인페이지 (긴급): 40% 절감 가능 → 월 278.6kg 감축</li>
+					  <li class="kg">자료실 (높음): 35% 절감 가능 → 월 53.2kg 감축</li>
+					  <li class="kg">서비스소개 (중간): 35% 절감 가능 → 월 63.6kg 감축</li>
+					  <li class="kg">공지사항 (낮음): 29% 절감 가능 → 월 23.2kg 감축</li>
+					  <li class="kg">회원가입 (낮음): 31% 절감 가능 → 월 9.0kg 감축</li>
+					</ul>
+					<p class="p">이러한 개선 조치를 통해 연간 약 5.13톤의 CO₂ 감축이 가능하며, 이는 소나무 780그루가 1년간 흡수하는 탄소량에 해당합니다. 또한 전력 비용 측면에서도 연간 약 xxx만원의 절감 효과가 예상됩니다.</p>
+			  </div>
+			</div>
+
+  	</div>
+</body>
+</html>

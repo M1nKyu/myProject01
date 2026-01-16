@@ -1,0 +1,132 @@
+<!--보고서 39-->
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" />
+  	<style>{{ css_content }}</style>
+</head>
+<body>
+	{% from 'pdf-macros.html' import render_header, render_sidebar, render_vertical_line_460 %}
+
+	<div class="div">
+		{{ render_header(website_url=website_url, title='웹사이트 탄소 발자국 측정', subtitle='Measure Website Carbon Footprint') }}
+		{{ render_sidebar() }}
+		{{ render_vertical_line_460() }}
+
+		<!-- 컨텐츠 -->
+		<!-- 01. 웹 지속가능성 가이드라인(WSG) 1.0 =========================================== -->
+		<div class="content01">
+			<div class="common-subtitle">Web Sustainability Guidelines (WSG)</div>
+			<div class="common-text" style="margin-bottom: 18px">
+				<a class="content-link" href="https://w3c.github.io/sustyweb/" target="_blank">웹 지속가능성 가이드라인(WSG) 1.0</a>은 사람과 지구를 최우선으로 생각하는 디지털 제품과 서비스를 설계하고 구현하는 방법을 설명합니다. 이 가이드라인은 측정 가능하고 증거 기반 연구를 기반으로 한 모범 사례로, 최종 사용자, 웹 작업자, 이해관계자, 도구 개발자, 교육자, 정책 입안자를 대상으로 합니다. 이 가이드라인은 <a class="content-link" href="https://www.sustainablewebmanifesto.com/" target="_blank">지속가능 웹 선언문(SGS)</a> 과 <a class="content-link" href="https://www.globalreporting.org/standards/" target="_blank">GRI 표준</a>을 준수하여 조직이 디지털 제품과 서비스를 더 광범위한 지속가능성 보고 이니셔티브에 통합할 수 있도록 지원합니다.
+			</div>
+			<div class="common-text">
+				디지털 산업은 전 세계 배출량의 2~5%를 차지하는데, 이는 항공 산업보다 많은 양입니다. 인터넷이 하나의 국가라면 오염 유발 상위 5대 기업 중 하나일 것입니다. 이 가이드라인은 데이터 전송 최소화, 이미지 최적화, 친환경 호스팅 사용 등 웹 개발 및 디자인의 환경 영향을 줄이기 위한 모범 사례와 권장 사항을 제공합니다.
+				WSG의 구조는 93개의 가이드라인과 232개의 성공 기준을 갖춘 WCAG 에서 영감을 받았습니다 . 각 가이드라인은 그 영향력, 구현에 필요한 노력, 그리고 구체적인 이점에 대한 정보와 함께 증거와 사례를 바탕으로 뒷받침됩니다. WSG는 사용자 경험 디자인, 웹 개발, 호스팅, 인프라 및 시스템, 그리고 비즈니스 전략 및 제품 관리의 네 가지 주요 범주로 구성됩니다.
+			</div>
+		</div>
+
+		<!-- 02. 배출량 속도계 / 등급 ================================================== -->
+		<div class="content02">
+			<!-- 속도계 -->
+			<div class="content02-speedmeter">
+				<div class="content02-speedmeter-img01">{{ svg.report03_speedmeter_bg|safe }}</div>
+				<div class="content02-speedmeter-needle">{{ svg.report03_speedmeter_needle|safe }}</div>
+				<b class="content02-speedmeter-value">1.11g</b>
+				<div class="content02-speedmeter-co2-per-page">CO2 per page</div>
+			</div>
+
+			<!-- 등급 및 조치사항 컨테이너 -->
+			<div class="content02-right">
+				<!-- 등급 및 상위 위치 -->
+				<div class="content02-grade">
+					<div class="parent">
+						<div class="div15">전체 웹사이트 중</div>
+						<div class="div16">71%</div>
+						<div class="div17">상위</div>
+					</div>
+					<div class="group-item"></div>
+					<b class="f">F</b>
+				</div>
+
+				<!-- 조치 사항 -->
+				<div class="content02-action">
+					<div class="group-inner"></div>
+					<div class="group-div">
+						<div class="material-symbolsemergency-hom-parent">
+							<div class="material-symbolsemergency-hom-icon">{{ svg.report03_emergency|safe }}</div>
+							<div class="div18">긴급 조치 필요</div>
+						</div>
+						<div class="div19">즉시 최적화 작업을 시작하세요</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 03~08. 6개 지표 영역 (2열 3행) =========================================== -->
+		<div class="content03">
+			<!-- 1행 1열: 세계 평균 대비 -->
+			<div class="content03-item">
+				<div class="content03-subtitle">세계 평균 대비</div>
+				<div class="content03-value" style="color: #ef4444;">+0.82g</div>
+				<div class="content03-text01" style="color: #ef4444;">279% 초과</div>
+				<div class="content03-text02">세계 평균 | 0.29g CO2/page</div>
+			</div>
+
+			<!-- 1행 2열: 국내 평균 대비 -->
+			<div class="content03-item">
+				<div class="content03-subtitle">국내 평균 대비</div>
+				<div class="content03-value" style="color: #ff7638;">+0.55g</div>
+				<div class="content03-text01" style="color: #ff7638;">198% 초과</div>
+				<div class="content03-text02">국내 평균 | 0.56g CO2/page</div>
+			</div>
+
+			<!-- 2행 1열: 연간 총 배출량 -->
+			<div class="content03-item">
+				<div class="content03-subtitle">연간 총 배출량</div>
+				<div class="content03-value">13.31t</div>
+				<div class="content03-text01" style="color: #ef4444;">전년 대비 +35.2%</div>
+				<div class="content03-text02">월간 1.11t 배출</div>
+			</div>
+
+			<!-- 2행 2열: 개선 가능률 -->
+			<div class="content03-item">
+				<div class="content03-subtitle">개선 가능률</div>
+				<div class="content03-value" style="color: #00b872;">-38.7%</div>
+				<div class="content03-text01" style="color: #00b872;">연간 5.15t 절감 가능</div>
+				<div class="content03-text02">
+					<span>최적화 시 </span>
+					<span style="color: #00b872;">'C 등급'</span>
+					<span> 달성 가능</span>
+				</div>
+			</div>
+
+			<!-- 3행 1열: 월간 방문자 -->
+			<div class="content03-item">
+				<div class="content03-subtitle">월간 방문자</div>
+				<div class="content03-value">1.2M</div>
+				<div class="content03-text01">방문자 0.92g CO2</div>
+				<div class="content03-text02">평균 체류 시간 | 3m 24s</div>
+			</div>
+
+			<!-- 3행 2열: 환경 영향 -->
+			<div class="content03-item">
+				<div class="content03-subtitle">환경 영향</div>
+				<div class="content03-value">666,000</div>
+				<div class="content03-text01">나무 흡수량 필요</div>
+				<div class="content03-text02">축구장 95개 편적의 숲</div>
+			</div>
+		</div>
+
+		<div class="horizontal-line01"></div>
+		<div class="horizontal-line02"></div>
+		<div class="horizontal-line03"></div>
+		<div class="horizontal-line04"></div>
+		<div class="horizontal-line05"></div>
+
+  	</div>
+</body>
+</html>

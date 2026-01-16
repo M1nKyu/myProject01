@@ -1,0 +1,291 @@
+/* footer   =================================================== */
+.footer {
+    position: relative;
+    margin-top: 200px;
+    display: grid !important;
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+    grid-auto-rows: minmax(min-content, auto);
+    align-content: start;
+    gap: 24px;
+
+    width: 1850px;
+    height: 400px;
+    padding: 28px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    border: 1px solid #dbdcdf;
+    background-color: rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+
+    text-align: left;
+    font-size: 14px;
+    color: #70737c;
+}
+
+/* footer-brand-area =================================================== */
+.footer-brand-area {
+    position: relative;
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo {
+    position: relative;
+    font-size: 56px;
+    line-height: 64px;
+    font-weight: 600;
+}
+
+.footer-intro {
+    position: relative;
+    font-size: 18px;
+    line-height: 24px;
+    color: #37383c;
+    display: flex;
+    align-items: center;
+    width: 268px;
+}
+
+/* footer-sns-area =================================================== */
+.footer-sns-area {
+    position: relative;
+    grid-column: 1 / span 12;
+    grid-row: 3;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin-top: 135px;
+}
+
+/* sns =================================================== */
+.footer-sns-instagram {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    height: 80px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #dbdcdf;
+    box-sizing: border-box;
+    font-size: 24px;
+    color: #37383c;
+    cursor: pointer;
+    text-decoration: none;
+    display: grid;
+    padding: 16px;
+}
+.footer-sns-youtube {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    height: 80px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #dbdcdf;
+    box-sizing: border-box;
+    font-size: 24px;
+    color: #37383c;
+    cursor: pointer;
+    text-decoration: none;
+    display: grid;
+    padding: 16px; 
+}
+.footer-sns-contact {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    height: 80px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #dbdcdf;
+    box-sizing: border-box;
+    font-size: 24px;
+    color: #37383c;
+    cursor: pointer;
+    display: grid;
+    padding: 16px;
+}
+
+.footer-sns-text {
+    position: absolute;
+    top: 14px;
+    left: 13px;
+    line-height: 32px;
+    font-weight: 600;
+}
+.footer-sns-mail {
+    position: absolute;
+    top: 46.8px;
+    left: 13px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #878a93;
+}
+.footer-sns-icon {
+    position: absolute;
+    top: calc(50% - 12.02px);
+    left: 554.33px;
+    width: 24px;
+    height: 24px;
+}
+
+/* footer-sections-area =================================================== */
+.footer-sections-area {
+    position: relative;
+    grid-column: 5 / span 8;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+/* section =================================================== */
+.footer-section-01 {
+    position: relative;
+    width: 302px;
+    height: 103.8px;
+    flex-shrink: 0;
+}
+.footer-section-02 {
+    position: relative;
+    width: 302px;
+    height: 103.8px;
+    flex-shrink: 0;
+}
+.footer-section-03 {
+    position: relative;
+    width: 302px;
+    height: 103.8px;
+    flex-shrink: 0;
+}
+.footer-section-04 {
+    position: relative;
+    width: 302px;
+    height: 103.8px;
+    flex-shrink: 0;
+}
+.footer-section-heading {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #5a5c63;
+    display: flex;
+    align-items: center;
+    width: 59.2px;
+    height: 21px;
+    cursor: pointer;
+}
+.footer-section-link-01 {
+    position: absolute;
+    width: 100%;
+    top: 29px;
+    right: 0px;
+    left: 0px;
+    height: 25px;
+}
+
+.footer-section-link-02 {
+    position: absolute;
+    width: 100%;
+    top: 54px;
+    right: 0px;
+    left: 0px;
+    height: 25px;
+}
+.footer-section-link-03 {
+    position: absolute;
+    width: 100%;
+    top: 78.75px;
+    right: 0px;
+    left: 0px;
+    height: 25px;
+}
+
+.footer-section-link-text {
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+/* legal-info =================================================== */
+.legal-info {
+    position: relative;
+    width: 100%;
+    max-width: 1856px;
+    margin: 30px auto;
+    padding-inline: 16px;
+    box-sizing: border-box;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid #dbdcdf;
+    text-align: left;
+    font-size: 12px;
+    color: #70737c;
+}
+
+.legal-info-copyright {
+    position: static;
+    top: 25px;
+    left: 0px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    width: 178px;
+    height: 12px;
+}
+
+.legal-info-links {
+position: static;
+    display: flex;
+    align-items: center;
+    gap: 12px 16px;
+    flex-wrap: nowrap;
+    width: 250.3px;
+    height: 21.6px;
+}
+
+.legal-info-link-01 {
+    position: static;
+    width: 99.3px;
+    height: 12px;
+}
+
+.legal-info-link-02 {
+    position: static;
+    width: 48px;
+    height: 12px;
+}
+
+.legal-info-link-03 {
+    position: static;
+    width: 48px;
+    height: 12px;
+}
+
+.legal-info-link-text-01 {
+    position: static;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    width: 99.5px;
+    height: 12px;
+}
+
+.legal-info-link-text-02 {
+    position: static;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    width: 48.2px;
+    height: 12px;
+}

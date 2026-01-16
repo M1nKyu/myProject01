@@ -1,0 +1,89 @@
+<!-- 페이지 로딩 화면 인라인 스타일 (FOUC 방지) -->
+<style>
+    /* 페이지 로딩 중 body의 다른 내용 숨기기 */
+    body:not(.page-loaded) > *:not(#page-loader) {
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    body.page-loaded > *:not(#page-loader) {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: opacity 0.3s ease-in !important;
+    }
+    
+    /* body 자체의 visibility도 제어 */
+    body:not(.page-loaded) {
+        overflow: hidden !important;
+    }
+
+    /* 로딩 화면 크리티컬 스타일 */
+    #page-loader {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: #ffffff !important;
+        z-index: 999999 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+</style>
+
+<!-- 페이지 로딩 화면 컴포넌트 -->
+<div id="page-loader" class="page-loader">
+    <div class="page-loader__content">
+        <div class="page-loader__logo">eCarbon</div>
+        <div class="page-loader__spinner"></div>
+        <div class="page-loader__text">{{ _('common.loading') if _('common.loading') != 'common.loading' else '로딩 중...' }}</div>
+    </div>
+</div>
+
+<!-- 로딩 화면 CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/common/page-loader.css') }}" />
+
+<!-- 로딩 화면 제거 스크립트 -->
+<script>
+    // DOM이 준비되면 즉시 실행 (문서 파싱 완료 시점)
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            hidePageLoader();
+        });
+    } else {
+        // 이미 파싱 완료된 경우 즉시 실행
+        hidePageLoader();
+    }
+
+    // 모든 리소스 로딩 완료 시 확실하게 제거
+    window.addEventListener('load', function() {
+        hidePageLoader();
+    });
+
+    // 로딩 화면 제거 함수
+    function hidePageLoader() {
+        const loader = document.getElementById('page-loader');
+        if (loader) {
+            // body에 page-loaded 클래스 추가하여 다른 요소들 표시
+            document.body.classList.add('page-loaded');
+
+            // 페이드아웃 애니메이션 적용
+            loader.classList.add('fade-out');
+
+            // 애니메이션 완료 후 DOM에서 완전히 제거
+            setTimeout(function() {
+                if (loader.parentNode) {
+                    loader.parentNode.removeChild(loader);
+                }
+            }, 500); // CSS transition 시간과 일치
+        }
+    }
+
+    // 페이지 로딩이 너무 오래 걸릴 경우 강제로 제거 (10초)
+    setTimeout(function() {
+        hidePageLoader();
+    }, 10000);
+</script>

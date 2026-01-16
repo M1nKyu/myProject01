@@ -1,0 +1,150 @@
+# ECO-WEB Translation Template
+# Copyright (C) 2025
+# This file is distributed under the same license as the ECO-WEB project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ECO-WEB 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-18 10:00+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Header Navigation
+msgid "nav.service_intro"
+msgstr ""
+
+msgid "nav.carbon_analysis"
+msgstr ""
+
+msgid "nav.carbon_ranking"
+msgstr ""
+
+msgid "nav.corporate_service"
+msgstr ""
+
+# User Menu
+msgid "user.login"
+msgstr ""
+
+msgid "user.logout"
+msgstr ""
+
+msgid "user.signup"
+msgstr ""
+
+msgid "user.greeting"
+msgstr ""
+
+# Homepage
+msgid "home.main_title"
+msgstr ""
+
+msgid "home.main_subtitle"
+msgstr ""
+
+msgid "home.url_placeholder"
+msgstr ""
+
+msgid "home.analyze_button"
+msgstr ""
+
+msgid "home.recent_searches"
+msgstr ""
+
+# Carbon Analysis
+msgid "analysis.carbon_emission"
+msgstr ""
+
+msgid "analysis.page_size"
+msgstr ""
+
+msgid "analysis.grade"
+msgstr ""
+
+msgid "analysis.percentile"
+msgstr ""
+
+msgid "analysis.korea_average"
+msgstr ""
+
+msgid "analysis.global_average"
+msgstr ""
+
+msgid "analysis.comparison"
+msgstr ""
+
+msgid "analysis.higher_than"
+msgstr ""
+
+msgid "analysis.lower_than"
+msgstr ""
+
+# Optimization
+msgid "optimization.code_title"
+msgstr ""
+
+msgid "optimization.image_title"
+msgstr ""
+
+msgid "optimization.font_title"
+msgstr ""
+
+# PDF Report
+msgid "pdf.generate_button"
+msgstr ""
+
+msgid "pdf.download_button"
+msgstr ""
+
+# Loading Messages
+msgid "loading.analyzing"
+msgstr ""
+
+msgid "loading.please_wait"
+msgstr ""
+
+msgid "loading.processing"
+msgstr ""
+
+# Error Messages
+msgid "error.invalid_url"
+msgstr ""
+
+msgid "error.analysis_failed"
+msgstr ""
+
+msgid "error.network_error"
+msgstr ""
+
+msgid "error.server_error"
+msgstr ""
+
+# Common
+msgid "common.submit"
+msgstr ""
+
+msgid "common.cancel"
+msgstr ""
+
+msgid "common.confirm"
+msgstr ""
+
+msgid "common.close"
+msgstr ""
+
+msgid "common.save"
+msgstr ""
+
+msgid "common.delete"
+msgstr ""
+
+msgid "common.edit"
+msgstr ""
+
+msgid "common.view_more"
+msgstr ""

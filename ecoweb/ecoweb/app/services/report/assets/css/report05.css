@@ -1,0 +1,108 @@
+/* content01 =================================== */
+.content01 {
+    position: absolute;
+    top: 100px;
+    left: 180px;
+    width: 628px;
+}
+
+/* content02 - 표 =================================== */
+.table-container {
+    position: absolute;
+    top: 214px;
+    left: 180px;
+    width: 620px;
+    font-size: 7.2px;
+    color: #46474c;
+}
+
+.table-header {
+    position: relative;
+    display: flex;
+    background-color: #dbdcdf;
+    border-radius: 6.4px;
+    padding: 8px 12.8px;
+    margin-bottom: 0;
+}
+
+.table-row {
+    position: relative;
+    display: flex;
+    padding: 8px 12.8px;
+    border-bottom: 1px dashed #dbdcdf;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-cell {
+    position: relative;
+    display: inline-block;
+    line-height: 14.4px;
+    vertical-align: top;
+}
+
+.table-cell:nth-child(1) {
+    width: 70.4px;
+}
+
+.table-cell:nth-child(2) {
+    width: 144px;
+}
+
+.table-cell:nth-child(3) {
+    width: 65.6px;
+}
+
+.table-cell:nth-child(4) {
+    width: 54.4px;
+}
+
+.table-cell:nth-child(5) {
+    width: 54.4px;
+}
+
+.table-cell:nth-child(6) {
+    width: 64px;
+}
+
+.table-cell:nth-child(7) {
+    width: 146px;
+}
+
+.table-header .table-cell {
+    font-weight: 600;
+}
+
+/* 난이도 색상 */
+.table-easy {
+    color: #00b872;
+}
+
+.table-medium {
+    color: #ff7638;
+}
+
+.table-hard {
+    color: #ef4444;
+}
+
+/* 중요도 색상 */
+.table-high {
+    color: #ef4444;
+}
+
+/* 준수 여부 색상 */
+.table-pass {
+    color: #00b872;
+}
+
+.table-partial {
+    color: #ff7638;
+}
+
+.table-fail {
+    color: #ef4444;
+}
+

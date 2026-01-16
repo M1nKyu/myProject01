@@ -1,0 +1,28 @@
+.report-number {
+    position: absolute;
+    top: 516px;
+    left: 50px;
+    line-height: 16px;
+}
+.standard {
+    position: absolute;
+    top: 536px;
+    left: 50px;
+    line-height: 16px;
+}
+.copyright {
+    position: absolute;
+    top: 536px;
+    left: 631px;
+    line-height: 16px;
+    text-align: right;
+}
+.logo {
+    position: absolute;
+    top: 245.82px;
+    left: 50px;
+    font-size: 33.6px;
+    line-height: 57.6px;
+    font-weight: 600;
+    color: #00cc7e;
+}

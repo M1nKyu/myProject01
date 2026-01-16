@@ -1,0 +1,77 @@
+# 개발 환경 설정
+# dev.yml과 prod.yml은 구조적으로 동일하며, 성능 설정과 서버 설정만 다릅니다.
+
+services:
+  web:
+    build: .
+    # DEV: 개발 환경용 간단한 Gunicorn 명령어
+    command: ["gunicorn", "-b", "0.0.0.0", "--timeout", "120", "--chdir", "/app", "ecoweb.run:app"]
+    ports:
+      - "5000:5000"  # DEV: 포트 노출 (개발용)
+    volumes:
+      - ./ecoweb/app/static:/app/ecoweb/app/static
+      - ./ecoweb/var:/app/var
+    entrypoint: ["/bin/bash", "/app/scripts/docker/entrypoint.sh"]
+    deploy:
+      resources:
+        limits:
+          memory: 4G  # DEV: 개발 환경 메모리 제한
+        reservations:
+          memory: 2G
+    environment:
+      - PYTHONPATH=/app
+      - FLASK_ENV=development  # DEV: development 환경
+      - MONGODB_URI=${MONGODB_URI:-mongodb+srv://USERNAME:PASSWORD@HOST/?retryWrites=true&w=majority}
+    command: ["celery", "-A", "celery_worker.celery", "worker", "-l", "info", "--concurrency=${CELERY_WORKER_CONCURRENCY:-2}"]
+    deploy:
+      resources:
+        limits:
+          memory: ${CELERY_WORKER_MEMORY_LIMIT:-1G}  # DEV: 개발 환경 메모리 제한
+      replicas: ${CELERY_WORKER_REPLICAS:-1}
+    volumes:
+      - ./ecoweb/app/static:/app/ecoweb/app/static
+      - ./ecoweb/var:/app/var
+    environment:
+      - PYTHONPATH=/app
+      - FLASK_ENV=development  # DEV: development 환경
+      - MONGODB_URI=${MONGODB_URI:-mongodb+srv://USERNAME:PASSWORD@HOST/?retryWrites=true&w=majority}
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - ecoweb-network
+    deploy:
+      resources:
+        limits:
+          memory: 1G  # DEV: 개발 환경 메모리 제한
+    command: 
+      - serve
+    healthcheck:
+      # Ollama CLI를 사용하여 healthcheck (ollama list는 서버가 준비되면 정상 동작)
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"  # DEV: 포트 노출 (개발용)
+    volumes:
+      - redis_data:/data
+    networks:
+      - ecoweb-network
+    restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  ecoweb-network:
+    driver: bridge
+
+volumes:
+  ollama_data:
+  redis_data:

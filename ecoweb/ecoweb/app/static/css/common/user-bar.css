@@ -1,0 +1,171 @@
+.user-bar {
+    /* 레이아웃 */
+    position: absolute;
+    top: 97px;
+    left: 340px;
+    z-index: 1;
+    
+    /* 디자인 */
+    width: 1540px;
+
+    background-color: #f4f4f5;
+    font-family: Roboto;
+}
+
+/* 최상단 제목 영역 */
+.userbar-title {
+    position: relative;
+    display: block;
+    align-items: center;
+    gap: 8px;
+}
+
+.userbar-title-icon {
+    position: relative;
+    display: inline-block;
+    margin-right: 11px;
+    width: 20px;
+    height: 20px;
+}
+
+.userbar-title-text {
+    position: relative;
+    display: inline-block;
+    color: #70737c;
+    font-size: 16px;
+    line-height: 24px;
+    white-space: nowrap;
+    text-align: left;
+}
+
+/* 사용자 정보 */
+.userbar-user-name {
+    position: relative;
+    display: block;
+
+    margin-top: 12px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #292a2d;
+    text-align: left;
+}
+
+/* 사이트 정보 */
+.userbar-site-info {
+    position: relative;
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: top;
+
+    width: 1020px;
+    height: 60px;
+    background-color: #46474c;
+    transform: rotate(-0.01deg);
+    border-radius: 12px;
+    padding: 0 16px;
+    box-sizing: border-box;
+
+    /* 내부 요소 수직 중앙 정렬을 위한 line-height */
+    line-height: 60px;
+}
+
+.userbar-site-info-url {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 25px;
+    background-color: #70737c;
+    border-radius: 6px;
+    border: 1px solid #878a93;
+    max-width: 200px;
+    overflow: hidden;
+
+    /* inline-block의 line-height 영향 제거 */
+    line-height: normal;
+}
+
+.userbar-site-info-url-text {
+    width: 100%;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #f4f4f5;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.userbar-site-info-emission-status {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 12px;
+    white-space: nowrap;
+    line-height: normal;
+}
+.userbar-site-info-emission-status-text {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #fff;
+    line-height: 18px;
+}
+.userbar-site-info-emission-status-value {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #00d282;
+}
+
+/* 액션 버튼 */
+.userbar-actions {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 11px;
+
+    height: 60px;
+
+}
+
+.userbar-compare,
+.userbar-pdf {
+    position: relative;
+    display: inline-flex;
+    width: 239px;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #dbdcdf;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0 29px 0 29px;
+    box-sizing: border-box;
+}
+.userbar-pdf {
+    margin-left: 20px;
+}
+
+.userbar-actions-text {
+    font-size: 18px;
+    line-height: 24px;
+    color: #5a5c63;
+    text-align: left;
+}
+
+/* Desktop: hide short text, show full text by default */
+.userbar-actions-text .text-short {
+    display: none;
+}
+
+.userbar-actions-text .text-full {
+    display: inline;
+}

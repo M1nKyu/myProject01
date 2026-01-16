@@ -1,0 +1,768 @@
+/* 설문조사 Fragment CSS */
+
+/* 라디오/체크박스를 화면에서 보이지 않게만 하고, 클릭은 가능하도록 처리 */
+.options label input[type="radio"],
+.options label input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    display: block !important; /* inline 스타일(display:none)을 무효화 */
+}
+
+/* 설문 콘텐츠 기본 좌측 정렬 */
+.question {
+    text-align: left !important;
+    position: relative;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 슬라이드 애니메이션 */
+.question.slide-out-left {
+    animation: slideOutLeft 0.3s ease forwards;
+}
+
+.question.slide-out-right {
+    animation: slideOutRight 0.3s ease forwards;
+}
+
+.question.slide-in-left {
+    animation: slideInLeft 0.3s ease forwards;
+}
+
+.question.slide-in-right {
+    animation: slideInRight 0.3s ease forwards;
+}
+
+@keyframes slideOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 감사 인사 슬라이드(#question-6)는 중앙 정렬 */
+#survey-section #question-6 { text-align: center !important; }
+
+/* 감사 슬라이드(#question-6) 수직 간격 규칙 */
+#survey-section #question-6 img[alt="설문 완료"] {
+    margin: 0 auto 28px !important; /* 이미지 하단 → 제목 28px */
+}
+#survey-section #question-6 .thanks-title {
+    margin-bottom: 28px !important; /* 제목 하단 → 설명1 28px */
+}
+#survey-section #question-6 .thanks-desc-1 {
+    margin-bottom: 50px !important; /* 설명1 하단 → 설명2 80px */
+}
+#survey-section #question-6 .thanks-desc-2 {
+    margin-bottom: 0px !important; /* 설명2 하단 → opt-in 블록 110px */
+}
+#survey-section #question-6 #thanks-optin-block {
+    margin: 0 auto !important; /* opt-in 블록 자체 상단 간격은 0 (위에서 110px 제공) */
+}
+#survey-section #question-6 #final-cta {
+    margin-top: 0 !important; /* opt-in 바로 아래에 CTA가 붙도록 */
+}
+
+/* 하단 푸터: 설문 건너뛰기 버튼 영역 */
+#survey-section .survey-footer {
+    margin-top: 24px;
+    padding-top: 12px;
+    display: flex;
+    justify-content: center;
+}
+#survey-section .survey-footer .survey-btn-secondary {
+    background: transparent;
+    border: none;
+    color: #70737c;
+    font-size: 24px;
+    line-height: 20px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#survey-section .survey-footer .survey-btn-secondary:hover {
+    color: #37383c;
+}
+
+/* 진행 막대 컨테이너 */
+.progress-bars {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+}
+
+/* 하단 액션 영역 (이전/다음/완료 버튼) */
+#survey-section .survey-actions {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+#survey-section .survey-btn {
+    height: 56px;
+    padding: 0 28px;
+    border-radius: 12px;
+    background-color: #00b872; /* Green accent to match theme */
+    border: 1px solid #00b872;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: Roboto, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+#survey-section .survey-btn:hover {
+    background-color: #00a06a;
+    border-color: #00a06a;
+}
+#survey-section .survey-btn:disabled,
+#survey-section .survey-btn[disabled],
+#survey-section .survey-btn[aria-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+#survey-section .survey-btn.hidden { display: none !important; }
+
+#survey-section .survey-btn-secondary {
+    height: 56px;
+    padding: 0 20px;
+    border-radius: 12px;
+    background: transparent;
+    border: 1px solid #c2c4c8;
+    color: #37383c;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#survey-section .survey-btn-secondary:hover {
+    border-color: #00b872;
+    color: #00b872;
+}
+
+/* 설문 번호 라벨 */
+.survey-step-label {
+    margin-bottom: 12px;
+    display: block; 
+    text-align: left;
+}
+.survey-step-label span {
+    font-size: 32px;
+    line-height: 60px;
+    font-weight: 600;
+    font-family: Pretendard, Roboto, sans-serif;
+    color: #00b872;
+    text-align: left;
+    display: inline-block; /* 단순 텍스트 (❶/❷/❸) */
+}
+
+/* 진행 막대 기본(회색) */
+.progress-bar {
+    flex: 0 0 85px; /* 고정 너비 85px */
+    width: 85px;
+    height: 4px;
+    background-color: #dbdcdf;
+    border-radius: 4px;
+}
+
+/* 진행 막대 활성(초록) */
+.progress-bar.active {
+    background-color: #00b872;
+}
+
+/* 설문조사 컨테이너 - 뷰포트 여백을 일정하게 유지하며 중앙 정렬 */
+.survey-container {
+    --survey-gap-inline: clamp(12px, 3.5vw, 32px);
+    --survey-gap-block: -82px;
+
+    /* 레이아웃 */
+    position: fixed;
+    top: -5%;
+    left: 50%;
+    z-index: 1000;
+    overflow: hidden;          
+    overflow-y: auto;  
+    
+    /* 스타일 */
+    transform: translateX(-50%);
+    width: min(1300px, calc(100vw - (2 * var(--survey-gap-inline))));
+    height: 110%;
+    max-height: 1050px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    box-sizing: border-box;
+
+    scrollbar-width: none;
+}
+
+
+/* 질문 제목 스타일 */
+.question h4 {
+    margin: 0;
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 600;
+    font-family: Roboto;
+    color: #292a2d;
+    text-align: left !important;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* 마지막 감사 슬라이드(#question-6) 제목은 중앙 정렬 및 작은 마진 */
+#survey-section #question-6 h4 {
+    text-align: center !important;
+    margin-bottom: 12px;
+}
+
+/* 4단계 질문 제목 스타일 */
+#survey-section #question-4 h4 {
+    margin-top: 12px;
+}
+
+/* 6단계 감사 인사 페이지 스타일 */
+#survey-section #question-6 img[alt="설문 완료"] {
+    width: auto;
+    max-width: 240px;
+    height: auto;
+    margin: 0;
+    display: block;
+}
+
+#survey-section #question-6 .thanks-title {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    font-family: Roboto;
+    color: #292a2d;
+    margin-bottom: 12px;
+}
+
+#survey-section #question-6 .thanks-desc-1 {
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+    font-family: Roboto;
+    color: #5a5c63;
+}
+
+/* 이메일 입력 블록 */
+#survey-section #email-input-block {
+    margin: 16px auto;
+    max-width: 500px;
+}
+
+#survey-section #email-input-block label {
+    display: block;
+    font-size: 16px;
+    color: #70737c;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+#survey-section #email-input-block input[type="email"] {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #c2c4c8;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 16px;
+}
+
+/* 업데이트 수신 동의 블록 */
+#survey-section #thanks-optin-block {
+    margin: 16px auto;
+    max-width: 500px;
+    text-align: left;
+}
+
+#survey-section #thanks-optin-block label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+#survey-section #thanks-optin-block input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+#survey-section #thanks-optin-block > div {
+    color: #878a93;
+    font-size: 11px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* 설문 완료 버튼 */
+#survey-section #survey-finish {
+    margin: 24px auto 0;
+    width: 500px;
+    display: block;
+}
+
+/* 선택지 옵션 컨테이너 - 2열 그리드 */
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* 선택지 옵션 스타일 */
+.options label {
+    /* 레이아웃 */
+    position: relative;
+    display: flex;
+    padding: 32px 44px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 90px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid #878a93;
+    box-sizing: border-box;
+
+    text-align: left;
+    font-size: 24px;
+    color: #46474c;
+    font-family: Roboto;
+    cursor: pointer;
+}
+
+/* Hover 시 영역 배경/윤곽선 강조 (선택 상태와 동일 계열) */
+.options label:hover {
+    background-color: rgba(218, 242, 233, 0.4);
+    border: 1px solid #00b872;
+    color: #37383c;
+}
+
+/* 체크 아이콘(img.option-check)은 완전히 숨김: 의도치 않은 이중 표시 방지 */
+.options label .option-check { display: none !important; }
+
+/* 선택 시 라벨 우측에 체크 아이콘 표시 (최신 브라우저: :has) */
+.options label::after {
+    content: '';
+    display: none;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background: url('/static/img/common/survey-check-icon.svg') no-repeat center / contain;
+}
+.options label:has(input[type="radio"]:checked)::after,
+.options label:has(input[type="checkbox"]:checked)::after { display: block; }
+
+/* 선택 상태: 최신 브라우저 우선 (:has 사용) */
+.options label:has(input[type="radio"]:checked),
+.options label:has(input[type="checkbox"]:checked) {
+    border-radius: 20px;
+    background-color: rgba(218, 242, 233, 0.4);
+    border: 1px solid #00b872;
+    box-sizing: border-box;
+    color: #37383c;
+}
+
+/* 기타 입력 영역을 카드처럼 표시 */
+.option-input-block {
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid #878a93;
+    box-sizing: border-box;
+    height: 100px; /* 옵션 라벨(.options label)과 동일 높이 */
+    display: flex;
+    align-items: center;
+    padding: 32px 44px;
+}
+.option-input-block:hover,
+.option-input-block:focus-within {
+    background-color: rgba(218, 242, 233, 0.4);
+    border: 1px solid #00b872;
+}
+.option-input-block input[type="text"] {
+    width: 100%;
+    height: 44px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 24px;
+    color: #37383c;
+}
+
+
+/* 선택 시 텍스트 컬러 보정 */
+.options label input[type="radio"]:checked ~ .option-content .option-text,
+.options label input[type="checkbox"]:checked ~ .option-content .option-text {
+    color: #37383c;
+}
+
+/* 마지막 슬라이드 CTA 버튼 스타일 */
+.frame-parent {
+    width: 100%;
+    position: relative;
+    border-radius: 12px;
+    background-color: #daf2e9;
+    border: 1px solid #81ebc2;
+    box-sizing: border-box;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 19px 73px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #006b42;
+    font-family: Roboto;
+    cursor: pointer;
+}
+.frame-parent[disabled],
+.frame-parent[aria-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.options label .option-text {
+    position: relative;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.options label .option-check {
+    width: 36px;
+    position: relative;
+    max-height: 100%;
+}
+
+/* 선택된 상태 */
+.options label input[type="radio"]:checked ~ .option-content .option-check,
+.options label input[type="checkbox"]:checked ~ .option-content .option-check {
+    opacity: 1;
+}
+
+/* ============================================
+   반응형 디자인 (Responsive Design)
+   ============================================ */
+
+/* 태블릿 (768px ~ 1024px) */
+@media (max-width: 1024px) {
+    .survey-container {
+        width: min(90vw, 800px);
+        padding: 32px;
+        top: 0;
+        height: 100vh;
+        max-height: none;
+    }
+
+    .question h4 {
+        font-size: 32px;
+        line-height: 48px;
+        margin-bottom: 16px;
+    }
+
+    .options label {
+        height: 80px;
+        padding: 24px 32px;
+        font-size: 20px;
+    }
+
+    #survey-section #question-6 .thanks-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    #survey-section #question-6 .thanks-desc-1 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    #survey-section #survey-finish {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    #survey-section #email-input-block,
+    #survey-section #thanks-optin-block {
+        max-width: 400px;
+    }
+}
+
+/* 모바일 (최대 767px) */
+@media (max-width: 767px) {
+    .survey-container {
+        width: 100%;
+        height: 98%;
+        max-height: none;
+        padding: 20px 16px;
+        top: 0;
+        border-radius: 15px;
+        --survey-gap-inline: 0;
+        --survey-gap-block: 0;
+    }
+
+    /* 설문 번호 및 진행 막대 */
+    .survey-step-label span {
+        font-size: 24px;
+        line-height: 40px;
+    }
+
+    .progress-bars {
+        gap: 6px;
+        margin-bottom: 24px;
+    }
+
+    .progress-bar {
+        flex: 0 0 50px;
+        width: 50px;
+        height: 3px;
+    }
+
+    /* 질문 제목 */
+    .question h4 {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 16px;
+    }
+
+    /* 옵션 그리드 - 1열로 변경 */
+    .options {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    /* 옵션 라벨 크기 조정 */
+    .options label {
+        height: auto;
+        min-height: 60px;
+        padding: 16px 20px;
+        font-size: 18px;
+    }
+
+    .options label .option-text {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    /* 체크 아이콘 크기 조정 */
+    .options label::after {
+        width: 28px;
+        height: 28px;
+        right: 12px;
+    }
+
+    /* 4단계 질문 제목 */
+    #survey-section #question-4 h4 {
+        margin-top: 0;
+    }
+
+    /* 6단계 감사 인사 페이지 */
+    #survey-section #question-6 img[alt="설문 완료"] {
+        max-width: 180px;
+    }
+
+    #survey-section #question-6 .thanks-title {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 16px;
+    }
+
+    #survey-section #question-6 .thanks-desc-1 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    /* 이메일 입력 블록 */
+    #survey-section #email-input-block {
+        margin: 12px auto;
+        max-width: 100%;
+    }
+
+    #survey-section #email-input-block label {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    #survey-section #email-input-block input[type="email"] {
+        height: 40px;
+        font-size: 14px;
+        padding: 8px 12px;
+        width: 93%;
+    }
+
+    /* 업데이트 수신 동의 블록 */
+    #survey-section #thanks-optin-block {
+        margin: 12px auto;
+        max-width: 100%;
+    }
+
+    #survey-section #thanks-optin-block input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    #survey-section #thanks-optin-block label {
+        font-size: 14px;
+    }
+
+    #survey-section #thanks-optin-block > div {
+        font-size: 10px;
+    }
+
+    /* 설문 완료 버튼 */
+    #survey-section #survey-finish {
+        width: 100%;
+        height: 48px;
+        font-size: 16px;
+        margin: 16px auto 0;
+    }
+
+    /* 액션 버튼 */
+    #survey-section .survey-actions {
+        margin-top: 16px;
+    }
+
+    #survey-section .survey-btn,
+    #survey-section .survey-btn-secondary {
+        height: 48px;
+        padding: 0 20px;
+        font-size: 16px;
+    }
+
+    /* 건너뛰기 버튼 */
+    #survey-section .survey-footer {
+        margin-top: 16px;
+    }
+
+    #survey-section .survey-footer .survey-btn-secondary {
+        font-size: 14px;
+    }
+}
+
+/* 작은 모바일 (최대 480px) */
+@media (max-width: 480px) {
+    .survey-container {
+        padding: 16px 12px;
+    }
+
+    .question h4 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .options label {
+        padding: 14px 16px;
+        font-size: 16px;
+    }
+
+    .options label .option-text {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    #survey-section #question-6 .thanks-title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    #survey-section #question-6 .thanks-desc-1 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    #survey-section #email-input-block label,
+    #survey-section #thanks-optin-block label {
+        font-size: 13px;
+    }
+
+    #survey-section .survey-btn {
+        font-size: 14px;
+    }
+}
+
+/* 가로 모드 모바일 최적화 */
+@media (max-width: 767px) and (orientation: landscape) {
+    .survey-container {
+        padding: 12px;
+        overflow-y: auto;
+    }
+
+    .question h4 {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 12px;
+    }
+
+    .options {
+        gap: 8px;
+    }
+
+    .options label {
+        min-height: 50px;
+        padding: 12px 16px;
+    }
+
+    #survey-section #question-6 img[alt="설문 완료"] {
+        max-width: 120px;
+    }
+
+    #survey-section #question-6 .thanks-title {
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 8px;
+    }
+
+    #survey-section #question-6 .thanks-desc-1 {
+        font-size: 16px;
+        line-height: 22px;
+    }
+}

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEP4QKW5CR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JEP4QKW5CR');
+    </script>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	{% if meta %}
+      <title>{{ meta.title }}</title>
+    {% else %}
+      <title>{{ _('sustain.page_title') }}</title>
+    {% endif %}
+
+  	<!-- Open Graph / Social Media Meta Tags -->
+    {% include 'includes/meta/meta-tags.html' %}
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    {% include 'includes/meta/structured-data.html' %}
+
+  	<link rel="stylesheet"  href="{{ url_for('static', filename='css/pages/sustainability_analysis/sustainability_analysis.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/sustainability_analysis/responsive-sustain.css') }}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common/global.css') }}" />
+
+    <!-- i18n JavaScript Library -->
+    <script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+    <script>
+        const i18n = new I18n('{{ get_locale() }}');
+    </script>
+</head>
+<body data-task-id="{{ task_id }}">
+    <!-- 페이지 로딩 화면 -->
+    {% include 'includes/page-loader.html' %}
+
+    <!-- Hidden input for task_id (fallback for older scripts) -->
+    <input type="hidden" id="task-id" name="task_id" value="{{ task_id }}">
+
+    <script>
+        // Inject stats from backend as JSON for easy console inspection
+        window.__STATS__ = {{ stats | tojson | safe }};
+        console.log('[sustainability_analysis] stats:', window.__STATS__);
+        if (window.__STATS__) {
+            console.log('[sustainability_analysis] overall_score:', window.__STATS__.overall_score);
+            console.log('[sustainability_analysis] categories:', window.__STATS__.categories);
+            console.log('[sustainability_analysis] radar labels/data:', window.__STATS__.radar_chart_labels, window.__STATS__.radar_chart_data);
+        }
+        // Inject guidelines and log
+        window.__GUIDELINES__ = {{ guidelines | tojson | safe }};
+        try {
+            const gl = window.__GUIDELINES__ || [];
+            console.log('[sustainability_analysis] guidelines length:', Array.isArray(gl) ? gl.length : '(not array)');
+            if (Array.isArray(gl) && gl.length) {
+                console.log('[sustainability_analysis] first guideline sample:', {
+                    id: gl[0].id,
+                    title: gl[0].title,
+                    effort_display: gl[0].effort_display,
+                    impact_display: gl[0].impact_display,
+                    compliance_status: gl[0].compliance_status
+                });
+                // Log compliance summary and sample
+                const compliantCount = gl.filter(g => g && g.compliance_status === true).length;
+                const nonCompliantCount = gl.filter(g => g && g.compliance_status === false).length;
+                console.log('[sustainability_analysis] compliance summary:', {
+                    total: gl.length,
+                    compliant: compliantCount,
+                    non_compliant: nonCompliantCount
+                });
+                console.log('[sustainability_analysis] compliance statuses sample:', gl.slice(0, 5).map(g => ({ id: g.id, compliance_status: g.compliance_status })));
+            }
+        } catch (e) {
+            console.warn('[sustainability_analysis] guidelines log error:', e);
+        }
+
+        // Helper function to find guideline by ID
+        window.getGuidelineById = function(id) {
+            const guidelines = window.__GUIDELINES__ || [];
+            return guidelines.find(g => g && g.id === id);
+        };
+        // Log current URL if available
+        console.log('[sustainability_analysis] url:', {{ url | default('') | tojson }});
+    </script>
+</head>
+<body>
+    {% include 'includes/new-header.html' %}
+    {% include 'includes/sidebar.html' %}
+    <div class="guide-wrapper">
+  	<div class="guide">
+        {% include 'includes/user-bar.html' %}
+
+        <div class="guide-title">{{ _('sustain.main_title') }}</div>
+
+        <!--01. Spider Chart ========================================================-->
+        <div class="guide-section01">
+            <div class="chart-container">
+                <!-- Labels positioned relative to chart container -->
+                <div class="section01-ux">{{ _('sustain.category_ux') }}</div>
+                <div class="section01-bm">{{ _('sustain.category_bm') }}</div>
+                <div class="section01-hosting">{{ _('sustain.category_hosting') }}</div>
+                <div class="section01-web-design">{{ _('sustain.category_web_design') }}</div>
+
+                <!-- Chart coordinate grids -->
+                <div class="child37"></div> <!--가장 안쪽-->
+                <div class="child38"></div>
+                <div class="child39"></div> <!-- 가장 바깥쪽 -->
+
+                <!-- Chart canvas -->
+                <canvas id="newUiRadarChart" class="child40"></canvas>
+            </div>
+        </div>
+
+        <!--02. 종합 점수 ========================================================-->
+        <div class="guide-section02">
+            <!-- Title area with circle and text -->
+            <div class="section02-title-area">
+                <div class="section02-title-circle">
+                    <div class="ellipse-div"></div>
+                    <div class="child8"></div>
+                </div>
+                <div class="section02-title-text">{{ _('sustain.overall_score') }}</div>
+            </div>
+
+            <!-- Image taking full width below title -->
+            <img class="section02-image" alt="종합 점수 평가 목표 그래픽" src="{{ url_for('static', filename='img/sustainability_analysis/guide-target.svg') }}">
+
+            <!-- Score display at bottom -->
+            <div class="section02-score">
+                <span class="span">
+                    <span>{{ stats.overall_score.split('/') [0] }}</span>
+                </span>
+                <span class="span1">
+                    <span class="span"> </span>
+                    <span>/ {{ stats.overall_score.split('/') [1] }}</span>
+                </span>
+            </div>
+        </div>
+
+        <!--03. 영역별 점수 ========================================================-->
+        <div class="guide-section03">
+
+            <!-- 01. UX -->
+            <div class="section03-ux">
+                <!-- 점수 -->
+                <div class="section03-ux-score">
+                    <span class="span3">
+                        <span class="span">{{ stats.categories[0].score.split('/') [0] }}</span>
+                    </span>
+                    <span class="span5">
+                        <span class="span3"> </span>
+                        <span class="span7">/ {{ stats.categories[0].score.split('/') [1] }}</span>
+                    </span>
+                </div>
+                <!-- 타이틀 -->
+                <div class="section03-ux-title">
+                    <div class="child4"></div>
+                    <div class="child9"></div>
+                    <div class="ux1">{{ _('sustain.category_ux') }}</div>
+                </div>
+
+            </div>
+
+            
+            <!-- 02. Hosting -->
+            <div class="section03-hosting">
+                <!-- 점수 -->
+                <div class="section03-hosting-score">
+                    <span class="span3">
+                        <span class="span">{{ stats.categories[1].score.split('/') [0] }}</span>
+                    </span>
+                    <span class="span5">
+                        <span class="span3"> </span>
+                        <span class="span7">/ {{ stats.categories[1].score.split('/') [1] }}</span>
+                    </span>
+                </div>
+                <!-- 타이틀 -->
+                <div class="section03-hosting-title">
+                    <div class="child6"></div>
+                    <div class="child11"></div>
+                    <div class="hosting1">{{ _('sustain.category_hosting') }}</div>
+                </div>
+            </div>
+
+            <!-- 03. Web Design -->
+            <div class="section03-web-design">
+                <!-- 점수 -->
+                <div class="section03-web-design-score">
+                    <span class="span3">
+                        <span class="span">{{ stats.categories[2].score.split('/') [0] }}</span>
+                    </span>
+                    <span class="span5">
+                        <span class="span3"> </span>
+                        <span class="span7">/ {{ stats.categories[2].score.split('/') [1] }}</span>
+                    </span>
+                </div>
+                <!-- 타이틀 -->
+                <div class="section03-web-design-title">
+                    <div class="child5"></div>
+                    <div class="child10"></div>
+                    <div class="web-design1">{{ _('sustain.category_web_design') }}</div>
+                </div>
+            </div>
+
+
+            <!-- 04. BM -->
+            <div class="section03-bm">
+                <!-- 점수 -->
+                <div class="section03-bm-score">
+                    <span class="span3">
+                        <span class="span">{{ stats.categories[3].score.split('/') [0] }}</span>
+                    </span>
+                    <span class="span5">
+                        <span class="span3"> </span>
+                        <span class="span7">/ {{ stats.categories[3].score.split('/') [1] }}</span>
+                    </span>
+                </div>
+                <!-- 타이틀 -->
+                <div class="section03-bm-title">
+                    <div class="child7"></div>
+                    <div class="child12"></div>
+                    <div class="bm1">{{ _('sustain.category_bm') }}</div>
+                </div>
+            </div>
+        </div>
+
+        <!--04. 가이드라인 평가 결과 ========================================================-->
+        <div class="guide-section04">
+
+            <!-- 제목 -->
+            <div class="section04-title">{{ _('sustain.evaluation_results') }}</div>
+
+            <!-- 영역별 필터 -->
+            <!-- <div class="section04-filter">
+                <div class="section04-filter-item section04-filter-item-selected" data-filter="all">
+                    <div class="filter-text">All</div>
+                    <div class="filter-count">92</div>
+                </div>
+                <div class="section04-filter-item" data-filter="ux">
+                    <div class="filter-text">UX</div>
+                </div>
+                <div class="section04-filter-item" data-filter="hosting">
+                    <div class="filter-text">Hosting</div>
+                </div>
+                <div class="section04-filter-item" data-filter="web-design">
+                    <div class="filter-text">Web Design</div>
+                </div>
+                <div class="section04-filter-item" data-filter="bm">
+                    <div class="filter-text">BM</div>
+                </div>
+            </div> -->
+
+            <!-- 검색바 -->
+            <!-- <div class="section04-search">
+                <img class="section04-search-icon" alt="검색 아이콘" src="{{ url_for('static', filename='img/sustainability_analysis/guide-search.svg') }}">
+                <input type="text" class="section04-search-input" placeholder="가이드라인 검색...">
+            </div> -->
+            
+            <!-- 컨텐츠 -->
+            <div class="section04-content">
+                <div class="content-header-area">
+
+                    <div class="content-header-id-text">{{ _('sustain.header_guideline_id') }}</div>
+                    <img class="content-header-id-arrow" alt="가이드라인 ID 정렬" src="{{ url_for('static', filename='img/sustainability_analysis/guide-arrow-down.svg') }}">
+
+                    <div class="content-header-title-text">{{ _('sustain.header_title') }}</div>
+                    <img class="content-header-title-arrow" alt="제목 정렬" src="{{ url_for('static', filename='img/sustainability_analysis/guide-arrow-down.svg') }}">
+
+                    <div class="content-header-level-text">{{ _('sustain.header_difficulty') }}</div>
+                    <img class="content-header-level-arrow" alt="난이도 정렬" src="{{ url_for('static', filename='img/sustainability_analysis/guide-arrow-down.svg') }}">
+
+                    <div class="content-header-importance-text">{{ _('sustain.header_importance') }}</div>
+                    <img class="content-header-importance-arrow" alt="중요도 정렬" src="{{ url_for('static', filename='img/sustainability_analysis/guide-arrow-down.svg') }}">
+
+                    <div class="content-header-compliance-text">{{ _('sustain.header_compliance') }}</div>
+                    <img class="content-header-compliance-arrow" alt="준수여부 정렬" src="{{ url_for('static', filename='img/sustainability_analysis/guide-arrow-down.svg') }}">
+
+                    <div class="content-header-detail-text">{{ _('sustain.header_detail') }}</div>
+                    <img class="content-header-detail-arrow" alt="상세보기 정렬" src="{{ url_for('static', filename='img/sustainability_analysis/guide-arrow-down.svg') }}">
+
+                    <img class="content-header-line" alt="" src="{{ url_for('static', filename='img/sustainability_analysis/guide-line-01.svg') }}">
+                </div>
+                
+                <!-- 가이드라인 리스트 -->
+                <div class="section04-content-list">
+                    {% for guideline in guidelines %}
+                    <div class="section04-content-item">
+                        
+                        <!-- ID -->
+                        <div class="ux-1-wrapper">
+                            <div class="all">{{ guideline.id }}</div>
+                        </div>
+                        
+                        <!-- 제목 -->
+                        <div class="div35" title="{{ guideline.title }}">{{ guideline.title | truncate(27) }}</div>
+                        
+                        <!-- 난이도 -->
+                        <div class="tablerstar-filled-parent" title="Effort: {{ guideline.effort_display }}">
+                            <img class="tablerstar-filled-icon" alt="난이도 별점" src="{{ url_for('static', filename='img/sustainability_analysis/guide-star-filled.svg') }}">
+                            <img class="tablerstar-filled-icon1" alt="난이도 별점" src="{{ url_for('static', filename='img/sustainability_analysis/guide-star-filled.svg') }}">
+                            <img class="tablerstar-icon" alt="난이도 별점" src="{{ url_for('static', filename='img/sustainability_analysis/guide-star.svg') }}">
+                        </div>
+
+                        <!-- 중요도 -->
+                        <div class="tablerstar-filled-group" title="Impact: {{ guideline.impact_display }}">
+                            <img class="tablerstar-filled-icon" alt="중요도 별점" src="{{ url_for('static', filename='img/sustainability_analysis/guide-star-filled.svg') }}">
+                            <img class="tablerstar-filled-icon1" alt="중요도 별점" src="{{ url_for('static', filename='img/sustainability_analysis/guide-star-filled.svg') }}">
+                            <img class="tablerstar-icon" alt="중요도 별점" src="{{ url_for('static', filename='img/sustainability_analysis/guide-star.svg') }}">
+                        </div>
+
+                        <!-- 준수여부 -->
+                        <img class="compliance-dot" alt="{{ '준수함' if guideline.compliance_status else '미준수' }}"
+                                src="{{ url_for('static', filename='img/sustainability_analysis/guide-dot-green.svg') if guideline.compliance_status else url_for('static', filename='img/sustainability_analysis/guide-dot-red.svg') }}">
+
+                        <!-- 상세보기 -->
+                        <div class="div36">
+                            <div class="all" onclick="showGuidelineDetail('{{ guideline.id }}'); console.log('더보기 clicked!');" style="cursor: pointer;">{{ _('sustain.view_more') }}</div>
+                        </div>
+
+                        <!-- 구분선 -->
+                        <img class="group-item" alt="" src="{{ url_for('static', filename='img/sustainability_analysis/guide-line-01.svg') }}">
+                    </div>
+                    {% else %}
+                    <div class="frame-parent">
+                            <div class="ux-1-wrapper">
+                                <div class="all">-</div>
+                            </div>
+                            <div class="div35">{{ _('sustain.no_guidelines') }}</div>
+                            <div class="div36">
+                                <div class="all">{{ _('sustain.view_more') }}</div>
+                            </div>
+                            <img class="group-item" alt="" src="{{ url_for('static', filename='img/sustainability_analysis/guide-line-01.svg') }}">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for guideline details -->
+        {% include 'pages/analysis/sustainability-more.html' %}
+
+        <!--05. 탄소배출량 추이 ========================================================-->
+        <!-- <div class="guide-section05">
+            <div class="child16"></div>
+            <div class="div14">탄소 배출량 추이</div>
+            <div class="child17"></div>
+            
+            <div class="frame-div">
+                <div class="parent">
+                    <div class="all">최근 일주일</div>
+                    <img class="vector-icon1" alt="" src="Vector.svg">
+                </div>
+            </div>
+
+            <div class="div16">한 달 기준</div>
+            <div class="div17">일년 기준</div>
+            <img class="group-icon" alt="" src="Group 11447.svg">
+            
+            <div class="div18">0</div>
+            <div class="div19">07.14.월</div>
+            <div class="div20">07.15.화</div>
+            <div class="div21">07.16.수</div>
+            <div class="div22">07.17.목</div>
+            <div class="div23">07.18.금</div>
+            <div class="div24">07.19.토</div>
+            <div class="wrapper">
+                <div class="div25">07.20.일</div>
+            </div>
+            <div class="div26">11</div>
+            <div class="div27">23</div>
+            <div class="div28">34</div>
+            <div class="div29">45</div>
+            <div class="div30">57</div>
+            <div class="div31">68</div>
+            <div class="div32">80</div>
+            <div class="div33">92</div>
+            <img class="child18" alt="" src="Vector 5.svg">
+            
+            <img class="child19" alt="" src="Vector 6.svg">
+            
+            <img class="child20" alt="" src="Vector 7.svg">
+            
+            <img class="child21" alt="" src="Vector 8.svg">
+            
+            <img class="child22" alt="" src="Vector 9.svg">
+            
+            <img class="child23" alt="" src="Vector 10.svg">
+            
+            <img class="child24" alt="" src="Vector 11.svg">
+            
+            <img class="child25" alt="" src="Vector 12.svg">
+            
+            <img class="child26" alt="" src="Vector 13.svg">
+            
+            <img class="child27" alt="" src="Vector 15.svg">
+            
+            <img class="bxup-arrow-icon" alt="" src="bx:up-arrow.png">
+            
+            <img class="bxsup-arrow-icon" alt="" src="bxs:up-arrow.png">
+            
+            <img class="child28" alt="" src="Vector 14.svg">
+            
+            <div class="child29"></div>
+            <div class="child30"></div>
+            <div class="child31"></div>
+            <div class="child32"></div>
+            <div class="child33"></div>
+            <div class="child34"></div>
+            <div class="child35"></div>
+            <img class="child36" alt="" src="Vector 16.svg">
+            
+            <div class="container">
+                <div class="all">52점</div>
+            </div>
+        </div> -->
+        
+
+  	</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const radarCanvasId = 'newUiRadarChart';
+            const el = document.getElementById(radarCanvasId);
+            try {
+                const labels = {{ stats.radar_chart_labels | tojson | safe }};
+                const data = {{ stats.radar_chart_data | tojson | safe }};
+                // Resize canvas to match the outer rotated square (.child37: 260x260)
+                const outer = document.querySelector('.child37');
+                if (el && outer) {
+                    const size = Math.min(outer.offsetWidth || 260, outer.offsetHeight || 260) || 260;
+                    // Set CSS size
+                    el.style.width = size + 'px';
+                    el.style.height = size + 'px';
+                    // Set pixel size for crisp drawing
+                    el.width = size;
+                    el.height = size;
+                }
+                if (el && !Chart.getChart(radarCanvasId) && Array.isArray(labels) && Array.isArray(data)) {
+                    new Chart(el.getContext('2d'), {
+                        type: 'radar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                data: data,
+                                label: i18n.t('sustain.chart_label'),
+                                fill: true,
+                                backgroundColor: 'rgba(23, 229, 151, 0.6)',
+                                borderColor: 'rgba(0, 210, 130, 1)',
+                                pointBackgroundColor: 'rgba(0, 210, 130, 1)',
+                                pointBorderColor: '#fff',
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: 'rgba(0, 210, 130, 1)'
+                            }]
+                        },
+                        options: {
+                            responsive: false,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: { display: false },
+                                tooltip: { enabled: false }
+                            },
+                            elements: {
+                                line: { borderWidth: 3 },
+                                point: { radius: 0, hoverRadius: 0 }
+                            },
+                            scales: {
+                                r: {
+                                    angleLines: { display: false },
+                                    grid: { display: false },
+                                    pointLabels: { display: false },
+                                    suggestedMin: 0,
+                                    ticks: { display: false }
+                                }
+                            }
+                        }
+                    });
+                }
+            } catch (e) {
+                console.error('Radar chart init error:', e);
+            }
+        });
+    </script>
+    <script>
+		var container1 = document.getElementById("container1");
+		if(container1) {
+				container1.addEventListener("click", function (e) {
+						// Add your code here
+				});
+		}
+
+		// Filter functionality
+		document.addEventListener('DOMContentLoaded', function() {
+			const filterItems = document.querySelectorAll('.section04-filter-item');
+
+			filterItems.forEach(item => {
+				item.addEventListener('click', function() {
+					// Remove selected class from all items
+					filterItems.forEach(filterItem => {
+						filterItem.classList.remove('section04-filter-item-selected');
+					});
+
+					// Add selected class to clicked item
+					this.classList.add('section04-filter-item-selected');
+
+					// Get filter value
+					const filterValue = this.getAttribute('data-filter');
+					console.log('Filter selected:', filterValue);
+
+					// Here you can add logic to filter the guidelines list
+					// For now, just log the selected filter
+				});
+			});
+		});
+
+		// Guideline detail modal functionality
+		function showGuidelineDetail(guidelineId) {
+			console.log('showGuidelineDetail called with ID:', guidelineId);
+
+			// Find guideline by ID
+			const guideline = window.getGuidelineById ? window.getGuidelineById(guidelineId) : null;
+			console.log('Found guideline:', guideline);
+
+			if (!guideline) {
+				console.error('Guideline not found for ID:', guidelineId);
+				return;
+			}
+
+			// Try multiple ways to access the modal function
+			if (typeof window.openGuidelineModal === 'function') {
+				window.openGuidelineModal(guideline);
+			} else if (typeof openModal === 'function') {
+				openModal(guideline);
+			} else {
+				console.warn('Modal function not available, trying direct approach');
+				// Fallback: try to open modal directly
+				const modal = document.getElementById('guidelineModal');
+				if (modal) {
+					// Populate basic data
+					const titleEl = document.getElementById('modalTitle');
+					const idEl = document.getElementById('modalId');
+					const fullTitleEl = document.getElementById('modalFullTitle');
+					const categoryEl = document.getElementById('modalCategory');
+
+					if (titleEl) titleEl.textContent = guideline.title || '가이드라인 상세정보';
+					if (idEl) idEl.textContent = guideline.id || '-';
+					if (fullTitleEl) fullTitleEl.textContent = guideline.title || '-';
+					if (categoryEl) categoryEl.textContent = guideline.category || '-';
+
+					modal.classList.add('show');
+					document.body.style.overflow = 'hidden';
+				} else {
+					console.error('Modal element not found');
+				}
+			}
+		}
+    </script>
+</body>
+</html>

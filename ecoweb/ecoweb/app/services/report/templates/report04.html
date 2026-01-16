@@ -1,0 +1,103 @@
+<!--보고서 40-->
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" />
+  	<style>{{ css_content }}</style>
+</head>
+<body>
+
+	{% from 'pdf-macros.html' import render_header, render_sidebar %}
+
+	<div class="div">
+		{{ render_header(website_url=website_url, title='W3C 가이드라인 평가', subtitle='Web Sustainability Guidelines (WSG) 1.0 Compliance') }}
+		{{ render_sidebar() }}
+
+		<!-- 컨텐츠 -->
+		<!-- content01 ======================================================== -->
+		<div class="content01">
+			<div class="common-subtitle">종합 평가</div>
+			<div class="common-text">
+				<p class="p">www.busan.go.kr/의 디지털 플랫폼은 현재 주요 국제 지속가능성 표준 및 규제에 대해 평균 62%의 준수율을 보이고 있습니다. </p>
+				<p class="p">특히 W3C Web Sustainability Guidelines에서는 60.9%로 기본 요구사항은 충족하나, 향후 강화될 EU 규제와 국내 K-Taxonomy 기준을 고려할 때 추가적인 준비가 필요합니다</p>
+		  	</div>
+		</div>
+
+		<!-- content02 ======================================================== -->
+		<div class="content02">
+			<!-- 제목 -->
+			<div class="report04-subtitle">전체 준수율</div>
+
+			<!-- 그래프 -->
+			<div class="content02-circle-gray">
+				<svg class="content02-donut-chart" viewBox="-25 -25 195.6 195.6">
+					<circle class="content02-donut-fill" cx="72.8" cy="72.8" r="72.8"
+						stroke-dasharray="279.5 457.4"
+						stroke-dashoffset="0" />
+				</svg>
+				<div class="content02-circle-white"></div>
+			</div>
+			<div class="content02-circle-percentage">60.9%</div>
+
+			<!-- 값 -->
+			<div class="content02-compliance-ratio">
+				<span>56</span>
+				<span class="span">/92</span>
+			</div>
+			<div class="content02-compliance-percentage">전체 준수율 | 60.9%</div>
+		</div>
+
+
+		<!-- content03 ======================================================== -->
+		<div class="content03">
+			<!-- 1행 1열: UX Design -->
+			<div class="content03-item">
+				<div class="report04-subtitle">UX Design</div>
+				<div class="content03-ratio" style="color: #00b872;">
+					<span>18</span>
+					<span class="content03-ratio-span">/25</span>
+				</div>
+				<div class="content03-percentage">준수율 | 72%</div>
+			</div>
+
+			<!-- 1행 2열: Web Development -->
+			<div class="content03-item">
+				<div class="report04-subtitle">Web Development</div>
+				<div class="content03-ratio" style="color: #ff7638;">
+					<span>15</span>
+					<span class="content03-ratio-span">/30</span>
+				</div>
+				<div class="content03-percentage">준수율 | 50%</div>
+			</div>
+
+			<!-- 2행 1열: Infrastructure -->
+			<div class="content03-item">
+				<div class="report04-subtitle">Infrastructure</div>
+				<div class="content03-ratio" style="color: #ef4444;">
+					<span>10</span>
+					<span class="content03-ratio-span">/22</span>
+				</div>
+				<div class="content03-percentage">준수율 | 45%</div>
+			</div>
+
+			<!-- 2행 2열: Business Strategy -->
+			<div class="content03-item">
+				<div class="report04-subtitle">Business Strategy</div>
+				<div class="content03-ratio" style="color: #ff7638;">
+					<span>13</span>
+					<span class="content03-ratio-span">/15</span>
+				</div>
+				<div class="content03-percentage">준수율 | 87%</div>
+			</div>
+		</div>
+
+		<div class="vertical-line01"></div>
+		<div class="horizontal-line01"></div>
+		<div class="horizontal-line02"></div>
+
+  	</div>
+</body>
+</html>

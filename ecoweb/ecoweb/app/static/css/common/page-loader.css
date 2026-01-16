@@ -1,0 +1,103 @@
+/* 페이지 로딩 화면 스타일 */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    opacity: 1;
+    visibility: visible;
+}
+
+.page-loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.page-loader__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.page-loader__logo {
+    font-size: 48px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d282 0%, #00b872 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.page-loader__spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(0, 210, 130, 0.2);
+    border-top-color: #00d282;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.page-loader__text {
+    font-size: 16px;
+    color: #5a5c63;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* 애니메이션 정의 */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .page-loader__logo {
+        font-size: 36px;
+    }
+
+    .page-loader__spinner {
+        width: 40px;
+        height: 40px;
+        border-width: 3px;
+    }
+
+    .page-loader__text {
+        font-size: 14px;
+    }
+}
+
+/* 다크모드 대비 (향후 확장성) */
+body.dark-theme .page-loader {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+body.dark-theme .page-loader__text {
+    color: #e0e0e0;
+}

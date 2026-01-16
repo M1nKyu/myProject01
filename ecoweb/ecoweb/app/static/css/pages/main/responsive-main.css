@@ -1,0 +1,827 @@
+/* ================= 반응형 레이아웃 (1600px 이하) ===================== */
+@media (max-width: 1600px) {
+  /* main-container: 전체 너비 사용, 패딩 추가 */
+  .main-container {
+    width: 100% !important;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* hero-section: 중앙 정렬, 여백 조정 */
+  .hero-section {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 120px !important;
+    margin-bottom: 60px !important;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .hero-section-title {
+    height: auto !important;
+    margin-bottom: 20px;
+  }
+
+  .hero-section-title-text {
+    font-size: clamp(32px, 5vw, 56px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero-section-subtitle-text {
+    font-size: clamp(16px, 2.5vw, 22px) !important;
+    line-height: 1.4 !important;
+  }
+
+  /* url-input-container: 너비 조정 */
+  .url-input-container {
+    width: 100% !important;
+    max-width: 846px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .url-input-container .url-input {
+    font-size: clamp(14px, 2vw, 18px) !important;
+  }
+
+  /* recent-searches-row: 너비 조정 */
+  .recent-searches-row {
+    width: 100% !important;
+    max-width: 846px;
+    margin: 10px auto 40px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+
+  .recent-searches__header {
+    width: 100% !important;
+    margin-bottom: 12px;
+  }
+
+  .recent-searches__list {
+    width: 90% !important;
+  }
+
+  /* info-cards-container: 중앙 정렬, 여백 조정 */
+  .info-cards-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 80px !important;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .info-cards-track {
+    gap: 16px !important;
+  }
+
+  .info-card {
+    flex: 0 0 calc((100% - 2 * 16px) / 3) !important;
+    max-width: calc((100% - 2 * 16px) / 3) !important;
+    height: auto !important;
+    min-height: 400px;
+  }
+
+  /* eco-website: 중앙 정렬 */
+  .eco-website {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 80px !important;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .eco-website-list {
+    grid-template-columns: repeat(3, minmax(250px, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  /* membership-info: 중앙 정렬 */
+  .membership-info {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 80px !important;
+    padding: 40px 20px !important;
+    box-sizing: border-box !important;
+    height: auto !important;
+    min-height: 400px !important;
+    overflow: visible !important;
+  }
+
+  /* footer: 너비 조정 */
+  .footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 120px !important;
+    padding: 24px 20px !important;
+    height: auto !important;
+  }
+
+  .footer-sns-area {
+    margin-top: 24px !important;
+  }
+
+  /* footer-sns 내부 요소 반응형 조정 */
+  .footer-sns-text {
+    position: absolute !important;
+    top: 14px !important;
+    left: 13px !important;
+    font-size: clamp(16px, 2.5vw, 24px) !important;
+    line-height: 1.3 !important;
+  }
+
+  .footer-sns-mail {
+    position: absolute !important;
+    top: 46px !important;
+    left: 13px !important;
+    font-size: clamp(11px, 1.5vw, 14px) !important;
+    line-height: 1.4 !important;
+    word-break: break-all;
+    max-width: calc(100% - 50px);
+  }
+
+  .footer-sns-icon {
+    position: absolute !important;
+    top: 50% !important;
+    right: 16px !important;
+    left: auto !important;
+    transform: translateY(-50%) !important;
+    width: clamp(20px, 3vw, 24px) !important;
+    height: clamp(20px, 3vw, 24px) !important;
+  }
+}
+
+/* 태블릿 크기 (1200px 이하) */
+@media (max-width: 1200px) {
+  .main-container {
+    padding: 16px;
+  }
+
+  .hero-section {
+    margin-top: 100px !important;
+    margin-bottom: 50px !important;
+  }
+
+  .hero-section-title-text {
+    font-size: clamp(28px, 4.5vw, 48px) !important;
+  }
+
+  .url-input-container {
+    max-width: 95%;
+    padding: 0 16px;
+  }
+
+  .recent-searches-row {
+    max-width: 95%;
+    padding: 0 16px;
+  }
+
+  .info-cards-container {
+    margin-top: 60px !important;
+    padding: 0 16px;
+  }
+
+  .info-cards-track {
+    gap: 12px !important;
+  }
+
+  .info-card {
+    flex: 0 0 calc((100% - 12px) / 2) !important;
+    max-width: calc((100% - 12px) / 2) !important;
+    min-height: 450px;
+  }
+
+  .eco-website {
+    margin-top: 60px !important;
+    padding: 0 16px;
+  }
+
+  .eco-website-list {
+    grid-template-columns: repeat(2, minmax(200px, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .membership-info {
+    margin-top: 60px !important;
+    padding: 40px 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 380px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  .footer {
+    margin-top: 100px !important;
+    padding: 20px 16px !important;
+  }
+
+  .footer-sections-area {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(2, auto) !important;
+    gap: 16px !important;
+  }
+
+  .footer-section-01 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .footer-section-02 {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .footer-section-03 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .footer-section-04 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .footer-section-01,
+  .footer-section-02,
+  .footer-section-03,
+  .footer-section-04 {
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  /* footer-sns 내부 요소 반응형 조정 (1200px 이하) */
+  .footer-sns-text {
+    position: absolute !important;
+    top: 14px !important;
+    left: 13px !important;
+    font-size: clamp(14px, 1.8vw, 22px) !important;
+    line-height: 1.3 !important;
+  }
+
+  .footer-sns-mail {
+    position: absolute !important;
+    top: 46px !important;
+    left: 13px !important;
+    font-size: clamp(11px, 1.8vw, 13px) !important;
+    line-height: 1.4 !important;
+    word-break: break-all;
+    max-width: calc(100% - 50px);
+  }
+}
+
+/* 태블릿 크기 (768px ~ 1200px) */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .footer-sns-mail {
+    font-size: clamp(11px, 0.5vw, 14px) !important;
+    line-height: 1.4 !important;
+  }
+
+  .footer-sns-icon {
+    position: absolute !important;
+    top: 50% !important;
+    right: 16px !important;
+    left: auto !important;
+    transform: translateY(-50%) !important;
+    width: clamp(20px, 3vw, 24px) !important;
+    height: clamp(20px, 3vw, 24px) !important;
+  }
+}
+
+/* 모바일 크기 (768px 이하) */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 12px;
+  }
+
+  .hero-section {
+    margin-top: 80px !important;
+    margin-bottom: 40px !important;
+    padding: 0 12px;
+  }
+
+  .hero-section-title {
+    margin-bottom: 16px;
+  }
+
+  .hero-section-title-text {
+    font-size: clamp(24px, 6vw, 40px) !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero-section-subtitle-text {
+    font-size: clamp(14px, 3vw, 20px) !important;
+    line-height: 1.3 !important;
+  }
+
+  .url-input-container {
+    width: 100% !important;
+    height: 60px !important;
+    padding: 0 16px;
+    border-radius: 30px;
+  }
+
+  .url-input-container .url-input {
+    font-size: 14px !important;
+    padding-left: 40px;
+  }
+
+  .measure-btn {
+    left: 8px;
+  }
+
+  .url-input-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .recent-searches-row {
+    margin: 8px auto 32px;
+    padding: 0 12px;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px;
+  }
+
+  .recent-searches__header {
+    font-size: 14px !important;
+    margin-bottom: 0;
+  }
+
+  .recent-searches__list {
+    width: 100% !important;
+    height: auto !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .recent-searches__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .info-cards-container {
+    margin-top: 40px !important;
+    padding: 0 12px;
+  }
+
+  .info-cards-track {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 12px;
+    gap: 12px !important;
+    scrollbar-width: none;
+  }
+
+  .info-cards-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .info-card {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    min-height: 400px;
+    scroll-snap-align: start;
+  }
+
+  .info-card-title {
+    font-size: clamp(20px, 5vw, 28px) !important;
+    top: 60px !important;
+    left: 24px !important;
+  }
+
+  .info-card-icon-background {
+    top: 24px !important;
+    left: 24px !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .info-card-icon-01,
+  .info-card-icon-02 {
+    top: 28px !important;
+    left: 28px !important;
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .info-card-icon-03 {
+    top: 27px !important;
+    left: 27px !important;
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .info-card-description {
+    top: 140px !important;
+    left: 24px !important;
+    font-size: clamp(14px, 3vw, 16px) !important;
+    line-height: 1.5 !important;
+  }
+
+  .info-card-buttons {
+    margin-top: 16px !important;
+    justify-content: center !important;
+  }
+
+  .info-card-button-previous,
+  .info-card-button-next {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 28px !important;
+  }
+
+  .eco-website {
+    margin-top: 40px !important;
+    padding: 0 12px;
+  }
+
+  .eco-website-title {
+    font-size: clamp(20px, 5vw, 28px) !important;
+    margin-bottom: 16px;
+  }
+
+  .eco-website-list {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .eco-website-card {
+    min-height: 200px !important;
+  }
+
+  .eco-website-button {
+    width: 100% !important;
+    margin: 24px auto 60px !important;
+  }
+
+  .membership-info {
+    margin-top: 40px !important;
+    padding: 40px 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 350px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  
+  .membership-info-heading-3 {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .membership-info-heading-3-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .membership-info-heading-1 {
+    font-size: clamp(16px, 3vw, 20px) !important;
+  }
+
+  .membership-info-heading-2 {
+    font-size: clamp(20px, 5vw, 32px) !important;
+    margin: 0;
+  }
+
+  .membership-info-heading-3-text {
+    font-size: clamp(12px, 2.5vw, 16px) !important;
+    margin: 16px 0 !important;
+  }
+
+  .membership-info-button {
+    margin-top: 24px !important;
+    padding: 12px 24px !important;
+  }
+
+  .membership-info-button-text {
+    font-size: clamp(14px, 2.5vw, 16px) !important;
+  }
+
+  .footer {
+    margin-top: 80px !important;
+    padding: 20px 12px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .footer-brand-area {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  .footer-sections-area {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .footer-section-01,
+  .footer-section-02,
+  .footer-section-03,
+  .footer-section-04 {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  .footer-sns-area {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-top: 0 !important;
+  }
+
+  .footer-sns-instagram,
+  .footer-sns-youtube,
+  .footer-sns-contact {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 80px;
+    position: relative !important;
+  }
+
+  .footer-sns-text {
+    position: absolute !important;
+    top: 14px !important;
+    left: 13px !important;
+    font-size: clamp(14px, 3vw, 20px) !important;
+    line-height: 1.3 !important;
+  }
+
+  .footer-sns-mail {
+    position: absolute !important;
+    top: 46px !important;
+    left: 13px !important;
+    font-size: clamp(10px, 2vw, 13px) !important;
+    line-height: 1.4 !important;
+    word-break: break-all;
+    max-width: calc(100% - 50px);
+  }
+
+  .footer-sns-icon {
+    position: absolute !important;
+    top: 50% !important;
+    right: 12px !important;
+    left: auto !important;
+    transform: translateY(-50%) !important;
+    width: clamp(18px, 3.5vw, 22px) !important;
+    height: clamp(18px, 3.5vw, 22px) !important;
+  }
+
+  .footer-logo {
+    font-size: clamp(32px, 8vw, 48px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .footer-intro {
+    font-size: clamp(14px, 3vw, 16px) !important;
+    width: 100% !important;
+  }
+
+  .legal-info {
+    padding: 16px 12px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px;
+  }
+
+  .legal-info-links {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* 작은 모바일 크기 (556px 이하) */
+@media (max-width: 556px) {
+  .main-container {
+    padding: 8px;
+  }
+
+  .hero-section {
+    margin-top: 130px !important;
+    margin-bottom: 30px !important;
+    padding: 0 8px;
+  }
+
+  .hero-section-title-text {
+    font-size: clamp(20px, 7vw, 32px) !important;
+  }
+
+  .hero-section-subtitle-text {
+    font-size: clamp(12px, 3.5vw, 18px) !important;
+  }
+
+  .url-input-container {
+    height: 56px !important;
+    padding: 0 12px;
+    border-radius: 28px;
+  }
+
+  .url-input-container .url-input {
+    font-size: 13px !important;
+    padding-left: 36px;
+  }
+
+  .url-input-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .recent-searches-row {
+    margin: 6px auto 24px;
+    padding: 0 8px;
+  }
+
+  .recent-searches__header {
+    font-size: 13px !important;
+  }
+
+  .info-cards-container {
+    margin-top: 30px !important;
+    padding: 0 8px;
+  }
+
+  .info-card {
+    min-height: 350px;
+  }
+
+  .info-card-title {
+    font-size: clamp(18px, 6vw, 24px) !important;
+    top: 50px !important;
+    left: 16px !important;
+  }
+
+  .info-card-icon-background {
+    top: 16px !important;
+    left: 16px !important;
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .info-card-icon-01,
+  .info-card-icon-02 {
+    top: 20px !important;
+    left: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .info-card-icon-03 {
+    top: 19px !important;
+    left: 19px !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .info-card-description {
+    top: 120px !important;
+    left: 16px !important;
+    font-size: clamp(12px, 3.5vw, 14px) !important;
+  }
+
+  .info-card-buttons {
+    margin-top: 12px !important;
+  }
+
+  .info-card-button-previous,
+  .info-card-button-next {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 24px !important;
+  }
+
+  .eco-website {
+    margin-top: 30px !important;
+    padding: 0 8px;
+  }
+
+  .eco-website-title {
+    font-size: clamp(18px, 6vw, 24px) !important;
+  }
+
+  .eco-website-card {
+    min-height: 180px !important;
+    padding: 12px !important;
+  }
+  .membership-info {
+    margin-top: 30px !important;
+    padding: 30px 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 320px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  .membership-info-heading-3 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0;
+    box-sizing: border-box !important;
+  }
+  
+  .membership-info-heading-3-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .membership-info-heading-1 {
+    font-size: clamp(14px, 4vw, 18px) !important;
+  }
+
+  .membership-info-heading-2 {
+    font-size: clamp(15px, 4vw, 28px) !important;
+  }
+
+  .membership-info-heading-3-text {
+    font-size: clamp(11px, 3vw, 14px) !important;
+  }
+
+  .membership-info-button {
+    padding: 10px 20px !important;
+  }
+
+  .footer {
+    margin-top: 60px !important;
+    padding: 16px 8px !important;
+    gap: 16px !important;
+  }
+
+  .footer-sections-area {
+    gap: 16px !important;
+  }
+
+  .footer-sns-area {
+    gap: 10px !important;
+  }
+
+  .footer-logo {
+    font-size: clamp(28px, 9vw, 40px) !important;
+  }
+
+  .footer-intro {
+    font-size: clamp(12px, 3.5vw, 14px) !important;
+  }
+
+  .legal-info {
+    padding: 12px 8px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* top_bg 반응형 조정 */
+@media (max-width: 1600px) {
+  .main-container {
+    overflow-x: hidden !important;
+  }
+  
+  .top_bg {
+    width: 100% !important;
+    max-width: 100vw !important;
+    top: -120px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    overflow-x: hidden !important;
+  }
+  
+  .top_bg {
+    width: 100% !important;
+    max-width: 100vw !important;
+    top: -80px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+@media (max-width: 556px) {
+  .main-container {
+    overflow-x: hidden !important;
+  }
+  
+  .top_bg {
+    width: 100% !important;
+    max-width: 100vw !important;
+    top: 30px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+

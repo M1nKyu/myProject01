@@ -1,0 +1,777 @@
+/* Responsive overrides for Code Analysis page (non-destructive)
+   Goal: shrink from center and prevent leftward push on narrow viewports.
+*/
+
+:root {
+  --code-container-max: 1200px;
+  --code-gap-lg: 24px;
+  --code-gap-md: 16px;
+  --code-gap-sm: 10px;
+  --code-canvas-max: 1920px; /* match design canvas to center absolute children */
+}
+
+/* Center the whole page canvas so absolutely positioned children stay centered */
+.code {
+  max-width: var(--code-canvas-max);
+  width: min(var(--code-canvas-max), 100%);
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; /* keep as anchor for absolute children */
+}
+
+/* (removed) global hide for Section06 progress bars; now controlled per breakpoint */
+
+/* ================= Tablet/Desktop narrowing (<=1399px): reflow major sections ================= */
+@media (max-width: 1399px) {
+  /* Allow natural overflow to avoid clipping when reflowing absolute layouts */
+  .code { 
+    overflow: visible !important; 
+    height: auto !important;
+    padding: 20px; /* 최상위 부모에 일관된 패딩 */
+  }
+  /* Headings flow in normal document order */
+  .div1,
+  .div2 {
+    position: static !important;
+    margin: 16px 12px 8px 12px;
+  }
+
+  /* Generic section cards: release absolute layout, make fluid, stack with gaps */
+  .code-section01,
+  .code-section02,
+  .code-section03,
+  .code-section-04,
+  .code-section05,
+  .code-section06 {
+    position: static !important;
+    width: 100% !important;
+    max-width: var(--code-container-max);
+    height: auto !important;
+    margin: 0 auto 16px auto !important;
+    padding: 16px 14px 18px 14px; /* add safe inner padding */
+    box-sizing: border-box;
+    overflow: visible !important;
+  }
+
+  /* code-section01: ensure top placement with 20px side spacing */
+  .code-section01 {
+    /* keep it first in visual flow and remove any previous offsets */
+    margin-top: 0 !important;
+    /* 20px left/right inner spacing */
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Section01 totals: stack elements vertically */
+  .section01-total-title,
+  .section01-total-description,
+  .section01-total-co2-wrapper,
+  .section01-total-bar-container,
+  .section01-total-guide {
+    position: static !important;
+    margin-bottom: 10px;
+  }
+  .section01-total-bar-container { width: 100% !important; max-width: 100% !important; }
+  .section01-total-guide { flex-wrap: wrap; }
+  .child13 { display: none !important; } /* decorative divider line */
+
+  /* Section01 detail rows: make each row a fluid block */
+  .code-section01-graph-content,
+  .inner1,
+  .inner2,
+  .inner3,
+  .inner4,
+  .inner5,
+  .parent {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin-bottom: 12px;
+  }
+  /* Parent becomes 2-col grid: (col1) texts stack, (col2) CO2 badge; row2 = bars full-width */
+  .code-section01-graph-content .parent {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto auto; /* row1: title+badge, row2: description, row3: bars */
+    column-gap: var(--code-gap-md);
+    row-gap: 8px;
+    align-items: center;
+  }
+  /* Row1 Col1: title + description stacked in same cell */
+  .code-section01-graph-content .div13 {
+    grid-column: 1; grid-row: 1;
+    margin: 0;
+  }
+  .code-section01-graph-content .javascript {
+    grid-column: 1; grid-row: 2; /* move to its own second row */
+    margin: 2px 0 0 0;
+    display: block;
+  }
+  /* Place "절감 가능" badge (.div20) to the right of the description on the same row */
+  .code-section01-graph-content .div20 {
+    grid-column: 2; grid-row: 2;
+    justify-self: end;
+    align-self: center;
+    position: static !important;
+    margin: 0;
+  }
+  /* Row1 Col2: CO2 badge */
+  .code-section01-graph-content .g-co2-container {
+    grid-column: 2; grid-row: 1;
+    justify-self: end;
+    align-self: start;
+  }
+  /* Row2: base bar and percentage bar spanning both columns */
+  .code-section01-graph-content .group-child21 {
+    grid-column: 1 / -1; grid-row: 3; /* now third row */
+    width: 100% !important;
+  }
+  .code-section01-graph-content .group-child22,
+  .code-section01-graph-content .group-child24,
+  .code-section01-graph-content .group-child26,
+  .code-section01-graph-content .group-child28,
+  .code-section01-graph-content .group-child30 {
+    grid-column: 1 / -1; grid-row: 3; /* now third row */
+    max-width: 100% !important;
+  }
+  /* Base bar stretches full width */
+  .group-child21 { width: 100% !important; left: 0 !important; }
+  /* Percentage fills keep width set inline (%) and just become block-level */
+  .group-child22,
+  .group-child24,
+  .group-child26,
+  .group-child28,
+  .group-child30 { left: 0 !important; max-width: 100% !important; }
+
+  .g-co2-container { position: static !important; margin-top: 6px; }
+
+  /* Explicitly release absolute positioning (responsive only) */
+  .code-section01-graph-content .group-child21,
+  .code-section01-graph-content .group-child22,
+  .code-section01-graph-content .group-child24,
+  .code-section01-graph-content .group-child26,
+  .code-section01-graph-content .group-child28,
+  .code-section01-graph-content .group-child30,
+  .code-section01-graph-content .g-co2-container,
+  .code-section01-graph-content .javascript {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+  .javascript { position: static !important; margin: 2px 0 6px; }
+
+  /* Section02 (파일 탐색기) */
+  .code-section02 #file-explorer-container,
+  .code-section02 .group-parent7,
+  .code-section02 .div18,
+  .code-section02 .inner6 {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0;
+  }
+  .code-section02 .group-parent7 { max-height: 50vh; }
+
+  /* Section02 gauges: keep bars inside container while shrinking */
+  .code-section02 .css-parent { width: 100% !important; }
+  .code-section02 .group-child32 { /* gauge base */
+    left: 165px !important;
+    width: calc(100% - 185px) !important; /* 20px right padding safety */
+    max-width: calc(100% - 185px) !important;
+  }
+  .code-section02 .group-child41 { /* gauge fill; JS sets inline width */
+    left: 165px !important;
+    max-width: calc(100% - 185px) !important; /* cap inline width to container */
+  }
+  /* Force gauge-fill to follow percentage variable so ratio holds on shrink */
+  .code-section02 .gauge-fill { width: calc((100% - 185px) * (var(--gauge-pct, 0) / 100)) !important; }
+
+  /* Section03 (폰트 등급): two-column grid (texts left, icon right) */
+  .code-section03 {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: var(--code-gap-md);
+    align-items: start; /* texts align to top */
+    padding-bottom: 0 !important; /* remove bottom gap so icon can visually sit on bottom */
+    padding-inline: 20px; /* left/right 20px spacing */
+    box-sizing: border-box;
+  }
+  .code-section03 .div4,
+  .code-section03 .div3,
+  .code-section03 .div5,
+  .code-section03 .mask-group-icon {
+    position: static !important;
+    margin: 6px 0;
+  }
+  .code-section03 .div4 { grid-column: 1; grid-row: 1; }
+  .code-section03 .div3 { grid-column: 1; grid-row: 2; }
+  .code-section03 .div5 { grid-column: 1; grid-row: 3; }
+  .code-section03 .mask-group-icon {
+    grid-column: 2; grid-row: 1 / span 3;
+    display: block;
+    max-width: min(40vw, 320px);
+    width: auto;
+    height: auto;
+    margin: 0;
+    justify-self: end;
+    align-self: end; /* stick to the bottom within its grid area */
+  }
+
+  /* Section04 (총 파일/CO2 카드) */
+  .code-section-04 .inner,
+  .code-section-04 .rectangle-div,
+  .code-section-04 .mb,
+  .code-section-04 .g-co2,
+  .code-section-04 .div10,
+  .code-section-04 .co21 {
+    position: static !important;
+    margin: 6px 0;
+    text-align: center;
+  }
+  .code-section-04 { display: grid; grid-template-columns: 1fr; justify-items: center; }
+
+  /* Section05 (발견된 폰트 리스트) */
+  .code-section05 .child1,
+  .code-section05 .div6,
+  .code-section05 .child2,
+  .code-section05 .child3,
+  .code-section05 .image-icon,
+  .code-section05 .child4,
+  .code-section05 .all-parent,
+  .code-section05 .div8,
+  .code-section05 .div9,
+  .code-section05 .group-parent {
+    position: static !important;
+    margin: 6px 0;
+  }
+  .code-section05 .group-parent { max-height: 50vh; }
+
+  /* Section06 (최적화 방안 표) */
+  .code-section06 .child6,
+  .code-section06 .div15,
+  .code-section06 .child14,
+  .code-section06 .group,
+  .code-section06 .inner7,
+  .code-section06 .vector-parent,
+  .code-section06 .vector-group,
+  .code-section06 .vector-parent1,
+  .code-section06 .vector-parent2,
+  .code-section06 .vector-parent3 {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 8px 0;
+  }
+  .code-section06 .group-child31,
+  .code-section06 .group-child76 { display: none !important; }
+
+  /* ================= Section04: two-column responsive card layout ================= */
+  .code-section04 {
+    position: static !important;
+    /* 20px side spacing */
+    /* width: calc(100% - 40px) !important; */
+    max-width: calc(var(--code-container-max) - 40px);
+    margin: 0 auto 16px auto !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--code-gap-md);
+  }
+
+  .code-section04 .section04-total-byte,
+  .code-section04 .section04-total-emission {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 12px;
+    background-color: #fff;
+    min-height: 160px;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .code-section04 .mb,
+  .code-section04 .g-co2,
+  .code-section04 .div10,
+  .code-section04 .co21,
+  .code-section04 .p {
+    position: static !important;
+    margin: 0;
+    text-align: left;
+  }
+
+  .code-section04 .mb,
+  .code-section04 .g-co2 {
+    font-size: clamp(24px, 4vw, 48px);
+    line-height: 1.15;
+  }
+
+  .code-section04 .div10,
+  .code-section04 .co21 {
+    margin-top: 50px;
+    color: #70737c;
+    line-height: 24px;
+  }
+
+  /* ================= Section05 (발견된 폰트) responsive ================= */
+  .code-section05 {
+    /* enforce 20px side spacing */
+    padding-inline: 20px !important;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr; /* title, sorting, search, list */
+    row-gap: var(--code-gap-md);
+  }
+
+  /* Remove absolute positioning from new elements */
+  .code-section05 .section05-title,
+  .code-section05 .section05-sorting-bar,
+  .code-section05 .section05-sorting-bar-selected,
+  .code-section05 .section05-search-bar,
+  .code-section05 .section05-search-bar-icon,
+  .code-section05 .group-parent,
+  .code-section05 .group-container,
+  .code-section05 .notosans-regular,
+  .code-section05 .group-child,
+  .code-section05 .kb-wrapper,
+  .code-section05 .group-item,
+  .code-section05 .notosans-regular-parent,
+  .code-section05 .group-inner,
+  .code-section05 .all-parent,
+  .code-section05 .div8,
+  .code-section05 .div9 {
+    position: static !important;
+  }
+
+  /* Title */
+  .code-section05 .section05-title {
+    margin: 0;
+    font-size: 18px; /* slightly smaller on narrower view */
+    line-height: 1.4;
+  }
+
+  /* Sorting bar becomes a simple flex row */
+  .code-section05 .section05-sorting-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* equally divided */
+    align-items: center;
+    gap: 8px;
+    background-color: #c2c4c8; /* restore color */
+    border-radius: 8px;
+    width: 100% !important;
+    height: 40px;
+    padding: 3px; /* inner padding to show selected pill */
+    box-sizing: border-box;
+  }
+  .code-section05 .section05-sorting-bar-selected {
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .code-section05 .all-parent { gap: 8px; justify-content: center; }
+  .code-section05 .div8,
+  .code-section05 .div9 {
+    color: #70737c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  /* Search bar simplified */
+  .code-section05 .section05-search-bar {
+    display: flex;
+    align-items: center;
+    width: 100% !important;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #dbdcdf;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+  .code-section05 .section05-search-bar-icon { width: 20px; height: 20px; }
+
+  /* List area fills remaining space and scrolls as needed */
+  .code-section05 .group-parent {
+    width: 100% !important;
+    max-height: 50vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Each font item container - relative positioning for children */
+  .code-section05 .group-container {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 60px;
+    position: relative !important;
+    box-sizing: border-box;
+  }
+
+  /* Parent wrapper - relative positioning for absolute child (group-item) */
+  .code-section05 .notosans-regular-parent {
+    position: relative !important; /* group-item의 absolute 기준점 */
+    width: 100% !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 8px 12px;
+    align-items: start;
+    box-sizing: border-box;
+  }
+
+  /* Font name - first row, left column */
+  .code-section05 .notosans-regular {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    grid-column: 1;
+    grid-row: 1;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* KB badge - first row, right column */
+  .code-section05 .kb-wrapper {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+  }
+
+  /* Progress bar background - second row, spans both columns */
+  .code-section05 .group-child {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Progress bar fill - ABSOLUTE positioned, NOT in grid flow
+     Parent (notosans-regular-parent) is relative, so this is positioned relative to it */
+  .code-section05 .group-item {
+    position: absolute !important;
+    /* Calculate position: after row 1 (폰트명 + gap) */
+    top: calc(1.5em + 8px) !important; /* 폰트명 높이 + gap */
+    left: 0 !important;
+    /* width는 HTML 인라인 스타일에서 비율로 유지됨 */
+    max-width: 100% !important;
+    height: 20px !important;
+    z-index: 1; /* group-child 위에 표시 */
+  }
+
+  /* Separator line - outside of parent, in group-container */
+  .code-section05 .group-inner {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    margin-top: 8px;
+  }
+
+  /* ================= Section06 (폰트 최적화 방안) responsive ================= */
+  .code-section06 {
+    position: static !important;
+    width: 100% !important;
+    max-width: var(--code-container-max);
+    margin: 0 auto 16px auto !important;
+    padding-inline: 20px !important; /* keep 20px side gap */
+    padding-top: 16px;
+    padding-bottom: 16px;
+    box-sizing: border-box;
+    overflow: visible !important; /* ensure inner dropdowns/badges aren't clipped */
+  }
+  .code-section06 * { box-sizing: border-box; }
+
+  /* Release absolute positioning and stack elements */
+  .code-section06 .section06-title,
+  .code-section06 .child14,
+  .code-section06 .section06-before,
+  .code-section06 .before-heading,
+  .code-section06 .before-mb,
+  .code-section06 .before-co2,
+  .code-section06 .group,
+  .code-section06 .div16,
+  .code-section06 .div17,
+  .code-section06 .co22,
+  .code-section06 .group-child31,
+  .code-section06 .vector-parent,
+  .code-section06 .vector-group,
+  .code-section06 .vector-parent1,
+  .code-section06 .vector-parent2,
+  .code-section06 .vector-parent3,
+  .code-section06 .group-child76,
+  .code-section06 .mb-parent1,
+  .code-section06 .mb3,
+  .code-section06 .div24,
+  .code-section06 .g-co2-wrapper5,
+  .code-section06 .woff,
+  .code-section06 .woff2-parent,
+  .code-section06 .material-symbolsinfo-outline-icon,
+  .code-section06 .code-section06-bar-100,
+  .code-section06 .code-section06-bar-75,
+  .code-section06 .code-section06-bar-70,
+  .code-section06 .code-section06-bar-50,
+  .code-section06 .code-section06-bar-45 {
+    position: static !important;
+  }
+
+  /* Title */
+  .code-section06 .section06-title { margin-bottom: 12px; }
+
+  /* Before banner: keep dark background, layout items inline */
+  .code-section06 .section06-before {
+    border-radius: 8px;
+    background-color: #46474c;
+    color: #fff;
+    padding: 10px 12px;
+    width: 100% !important;  /* override base 1494px */
+    max-width: 100% !important;
+    display: grid;
+    /* Make three equal columns to match header widths */
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 12px;
+    /* scale text proportionally on tablet widths, smaller to avoid wrapping */
+    font-size: clamp(12px, 0.9vw, 15px);
+    white-space: nowrap; /* prevent line breaks inside banner */
+  }
+  .code-section06 .before-heading {
+    margin: 0; font-size: 1em; white-space: nowrap;
+    grid-column: 1; justify-self: start;
+  }
+  .code-section06 .before-mb {
+    font-weight: 600; font-size: 1.05em; line-height: 1.2; white-space: nowrap;
+    grid-column: 2; justify-self: start;
+  }
+  .code-section06 .before-co2 {
+    border-radius: 20px;
+    background-color: #dbdcdf;
+    border: 1px solid #c2c4c8;
+    color: #46474c;
+    padding: 0.25em 0.8em;
+    line-height: 1.3;
+    font-weight: 600;
+    font-size: 0.9em;
+    white-space: nowrap;
+    grid-column: 3; justify-self: start;
+  }
+
+  /* Header row (labels + separator line) */
+  .code-section06 .group {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); /* match data columns */
+    gap: 12px;
+    align-items: center;
+    color: #878a93;
+    margin-bottom: 8px;
+  }
+  .code-section06 .group-child31 { width: 100%; height: 1px; opacity: 0.4; }
+
+  /* Each recommendation row container */
+  .code-section06 .vector-parent,
+  .code-section06 .vector-group,
+  .code-section06 .vector-parent1,
+  .code-section06 .vector-parent2,
+  .code-section06 .vector-parent3 {
+    display: grid;
+    grid-template-rows: auto auto; /* line, content */
+    row-gap: 8px;
+    margin-bottom: 12px;
+  }
+  .code-section06 .group-child76 { width: 100%; height: 1px; }
+
+  /* Content block inside each row */
+  .code-section06 .mb-parent1 {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); /* column1, column2, column3 */
+    grid-template-rows: auto auto auto; /* title/values stacked + progress bar */
+    column-gap: 12px;
+    row-gap: 6px;
+    align-items: center;
+    /* allow children to shrink inside grid without overflowing */
+    min-width: 0;
+    width: 100% !important; /* override base fixed width */
+  }
+  /* Prevent overflow from long labels or values */
+  .code-section06 .woff,
+  .code-section06 .mb3,
+  .code-section06 .div24,
+  .code-section06 .g-co2-wrapper5 {
+    min-width: 0;
+    white-space: nowrap; /* do not wrap; rely on font scaling */
+    overflow-wrap: normal;
+    word-break: keep-all;
+    font-size: clamp(12px, 0.95vw, 15px);
+  }
+  .code-section06 img {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Column 1: 방법 텍스트 */
+  .code-section06 .woff2-parent {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    grid-column: 1; grid-row: 1 / span 2;
+  }
+  /* Column 2: 파일 크기 절감 값들 (위/아래로 쌓기) */
+  .code-section06 .mb3 { grid-column: 2; grid-row: 1; }
+  .code-section06 .div24 { grid-column: 2; grid-row: 2; }
+  /* Column 3: CO2 절감 값 (배지) */
+  .code-section06 .g-co2-wrapper5 { grid-column: 3; grid-row: 1 / span 2; }
+  .code-section06 .material-symbolsinfo-outline-icon { width: 18px; height: 18px; }
+  /* Allow badges to wrap and not overflow */
+  .code-section06 .g-co2-wrapper5,
+  .code-section06 .before-co2 {
+    max-width: 70%;
+    display: flex;
+    flex-wrap: nowrap; /* no wrapping in badges */
+  }
+
+  /* Progress bars scale full width of right column */
+  .code-section06 .code-section06-bar-100,
+  .code-section06 .code-section06-bar-75,
+  .code-section06 .code-section06-bar-70,
+  .code-section06 .code-section06-bar-50,
+  .code-section06 .code-section06-bar-45 {
+    /* Hide all progress bars on responsive widths (<=1399px) */
+    display: none !important;
+  }
+
+/* Removed duplicate nested @media (max-width: 1399px) block to fix lint */
+}
+
+/* ================= Mobile tuning (<=600px): font sizes, spacing ================= */
+@media (max-width: 748px) {
+  .code { 
+    padding: 20px; /* 최상위 부모에 일관된 패딩 */
+  }
+  .div1, .div2 { margin-top: 10px; font-size: 22px; line-height: 1.25; }
+
+  .section01-total-title { font-size: 18px; }
+  .section01-total-description { font-size: 14px; }
+  .section01-total-co2-wrapper { font-size: 14px; }
+  .section01-total-bar-container { height: 32px; }
+  .section01-total-guide { font-size: 12px; gap: 10px; }
+
+  .div3 { font-size: 28px !important; line-height: 1.2; }
+  .div4, .div5 { font-size: 18px !important; }
+
+  .code-section-04 .mb,
+  .code-section-04 .g-co2 { font-size: 36px; line-height: 1.1; }
+
+  .user-bar { max-width: var(--code-container-max); margin-inline: auto; padding-inline: 12px; }
+
+  /* Section04 collapses to single column on small screens */
+  .code-section04 {
+    grid-template-columns: 1fr;
+    /* width: calc(100% - 40px) !important; */
+  }
+
+  /* Mobile-specific tightening for Section02 gauges */
+  .code-section02 .group-child32 {
+    left: 150px !important;
+    width: calc(100% - 170px) !important;
+    max-width: calc(100% - 170px) !important;
+  }
+  .code-section02 .group-child41 {
+    left: 150px !important;
+    max-width: calc(100% - 170px) !important;
+  }
+  .code-section02 .gauge-fill { width: calc((100% - 170px) * (var(--gauge-pct, 0) / 100)) !important; }
+
+  /* Section01 graph content: 2열에서 1열로 변경 */
+  .code-section01-graph-content {
+    grid-template-columns: 1fr !important; /* 2열에서 1열로 변경 */
+    grid-template-rows: auto !important; /* 고정 높이 제거 */
+    gap: 20px !important; /* 간격 조정 */
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 각 inner 요소들의 그리드 위치 재설정 */
+  .code-section01-graph-content .inner1,
+  .code-section01-graph-content .inner2,
+  .code-section01-graph-content .inner3,
+  .code-section01-graph-content .inner4,
+  .code-section01-graph-content .inner5 {
+    grid-column: 1 !important; /* 모두 첫 번째 열에 배치 */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 각 요소의 그리드 행 위치를 명시적으로 설정하여 겹침 방지 */
+  .code-section01-graph-content .inner1 {
+    grid-row: 1 !important;
+  }
+  .code-section01-graph-content .inner2 {
+    grid-row: 2 !important;
+  }
+  .code-section01-graph-content .inner3 {
+    grid-row: 3 !important;
+  }
+  .code-section01-graph-content .inner4 {
+    grid-row: 4 !important;
+  }
+  .code-section01-graph-content .inner5 {
+    grid-row: 5 !important;
+  }
+
+  /* parent 컨테이너도 전체 너비 사용 */
+  .code-section01-graph-content .parent {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Section06 Before banner: stack neatly on small screens */
+  .code-section06 .section06-before {
+    /* 모바일에서도 3등분 고정 정렬 */
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    column-gap: 8px;
+    row-gap: 0;
+    padding: 10px 12px;
+    font-size: clamp(11px, 3.2vw, 13px); /* 더 작게 스케일링 */
+  }
+  .code-section06 .before-heading { font-size: 1em; }
+  .code-section06 .before-mb { font-size: 1em; line-height: 1.2; }
+  .code-section06 .before-co2 {
+    justify-self: start;
+    align-self: center;
+    padding: 2px 10px;
+    font-size: 0.95em;
+    line-height: 1.2;
+  }
+  /* Hide Section06 progress bars on mobile */
+  .code-section06 .code-section06-bar-100,
+  .code-section06 .code-section06-bar-75,
+  .code-section06 .code-section06-bar-70,
+  .code-section06 .code-section06-bar-50,
+  .code-section06 .code-section06-bar-45 {
+    display: none !important;
+  }
+}

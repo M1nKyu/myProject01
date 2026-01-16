@@ -1,0 +1,1248 @@
+/* section02 콘텐츠별 배출량 막대그래프 =============================================================*/
+.content-emission {
+    position: absolute;
+    top: 280px;
+    left: 1380px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 500px;
+    height: 400px;
+}
+.content-emission-title {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #292a2d;
+}
+.content-emission-content {
+    position: absolute;
+    width: 450px;
+    height: 300px;
+    top: 100px;
+    left: 25px;
+}
+.content-emission-content .child11,
+.content-emission-content .child12,
+.content-emission-content .child13,
+.content-emission-content .child14,
+.content-emission-content .child15,
+.content-emission-content .child16,
+.content-emission-content .child17,
+.content-emission-content .child18 {
+    position: absolute;
+    top: auto !important;   /* neutralize global top */
+    bottom: 0 !important;   /* align to bottom of content box */
+    width: 40px !important; /* keep bar width consistent */
+}
+
+.content-emission-content .child11 { left: 10px !important; }
+.content-emission-content .child12 { left: 65px !important; }
+.content-emission-content .child13 { left: 120px !important; }
+.content-emission-content .child14 { left: 175px !important; }
+.content-emission-content .child15 { left: 230px !important; }
+.content-emission-content .child16 { left: 285px !important; }
+.content-emission-content .child17 { left: 340px !important; }
+.content-emission-content .child18 { left: 395px !important; }
+
+/* Labels under each bar (will overflow below by ~5px) */
+.content-emission-content .images,
+.content-emission-content .fonts,
+.content-emission-content .java-script,
+.content-emission-content .html,
+.content-emission-content .css,
+.content-emission-content .media,
+.content-emission-content .third-party,
+.content-emission-content .other {
+    position: absolute;
+    top: 305px !important; /* slightly below 300px height to show under bars */
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    width: 60px !important; /* give labels a bit more width for two-line items */
+}
+
+.content-emission-content .images { left: 2px !important; }
+.content-emission-content .fonts { left: 57px !important; }
+.content-emission-content .java-script { left: 112px !important; }
+.content-emission-content .html { left: 167px !important; }
+.content-emission-content .css { left: 222px !important; }
+.content-emission-content .media { left: 277px !important; }
+.content-emission-content .third-party { left: 332px !important; }
+.content-emission-content .other { left: 387px !important; }
+
+.content-emission-content { position: absolute; }
+
+.child11 {
+    position: absolute;
+    top: 577px;
+    left: 1465px;
+    border-radius: 4px;
+    background-color: #878a93;
+    width: 40px;
+    height: 100px;
+}
+.child12 {
+    position: absolute;
+    top: 577px;
+    left: 1523px;
+    border-radius: 4px;
+    background-color: #878a93;
+    width: 40px;
+    height: 100px;
+}
+.child13 {
+    position: absolute;
+    top: 637px;
+    left: 1581px;
+    border-radius: 4px;
+    background-color: #c2c4c8;
+    width: 40px;
+    height: 40px;
+}
+.child14 {
+    position: absolute;
+    top: 637px;
+    left: 1639px;
+    border-radius: 4px;
+    background-color: #c2c4c8;
+    width: 40px;
+    height: 40px;
+}
+.child15 {
+    position: absolute;
+    top: 673px;
+    left: 1697px;
+    border-radius: 4px;
+    background-color: #c2c4c8;
+    width: 40px;
+    height: 4px;
+}
+.child16 {
+    position: absolute;
+    top: 577px;
+    left: 1755px;
+    border-radius: 4px;
+    background-color: #878a93;
+    width: 40px;
+    height: 100px;
+}
+.child17 {
+    position: absolute;
+    top: 447px;
+    left: 1407px;
+    border-radius: 4px;
+    background-color: #5a5c63;
+    width: 40px;
+    height: 230px;
+}
+.child18 {
+    position: absolute;
+    top: 673px;
+    left: 1813px;
+    border-radius: 4px;
+    background-color: #c2c4c8;
+    width: 40px;
+    height: 4px;
+}
+.images {
+    position: absolute;
+    top: 685px;
+    left: 1404px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+.fonts {
+    position: absolute;
+    top: 685px;
+    left: 1467px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+.java {
+    margin: 0;
+}
+.java-script {
+    position: absolute;
+    top: 685px;
+    left: 1525px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+.html {
+    position: absolute;
+    top: 685px;
+    left: 1582px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+.css {
+    position: absolute;
+    top: 685px;
+    left: 1646px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+.media {
+    position: absolute;
+    top: 685px;
+    left: 1698px;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+.third-party {
+position: absolute;
+top: 685px;
+left: 1757px;
+font-size: 14px;
+line-height: 16px;
+text-align: center;
+}
+.other {
+position: absolute;
+top: 685px;
+left: 1816px;
+font-size: 14px;
+line-height: 16px;
+text-align: center;
+}
+
+/* =============================================
+Universal two-row grid: bars top, labels bottom
+Ensures 8 columns x 2 rows at all widths
+============================================= */
+.content-emission-content {
+position: relative !important;
+display: grid !important;
+grid-template-rows: minmax(180px, 1fr) auto !important; /* bar area + labels */
+align-items: end;
+justify-items: center;
+overflow: hidden; /* prevent spill above */
+ --bar-max-w: 40px;
+}
+
+/* Row containers each use the same 8-column grid */
+.content-emission-content .content-graph-bar,
+.content-emission-content .content-graph-label {
+display: grid;
+grid-template-columns: repeat(8, 1fr);
+gap: 6px 8px;
+width: 100%;
+justify-items: center; /* 각 그리드 셀의 내용을 중앙 정렬 */
+}
+
+.content-emission-content .content-graph-bar { grid-row: 1; align-items: end; }
+.content-emission-content .content-graph-label { grid-row: 2; }
+
+/* Neutralize absolute positioning of inner items */
+.content-emission-content .content-graph-bar > div,
+.content-emission-content .content-graph-label > div {
+position: static !important;
+top: auto !important;
+left: auto !important;
+right: auto !important;
+bottom: auto !important;
+transform: none !important;
+}
+
+/* Bars: width and column assignment */
+.content-emission-content .content-graph-bar > div {
+width: 100% !important;
+max-width: var(--bar-max-w); /* keep bar thickness reasonable */
+}
+.content-emission-content .content-graph-bar .child11 { grid-column: 1; }
+.content-emission-content .content-graph-bar .child12 { grid-column: 2; }
+.content-emission-content .content-graph-bar .child13 { grid-column: 3; }
+.content-emission-content .content-graph-bar .child14 { grid-column: 4; }
+.content-emission-content .content-graph-bar .child15 { grid-column: 5; }
+.content-emission-content .content-graph-bar .child16 { grid-column: 6; }
+.content-emission-content .content-graph-bar .child17 { grid-column: 7; }
+.content-emission-content .content-graph-bar .child18 { grid-column: 8; }
+
+/* Labels: font sizing and column assignment */
+.content-emission-content .content-graph-label > div {
+text-align: center;
+font-size: 12px;
+line-height: 14px;
+width: 100% !important;            /* match bar width */
+max-width: var(--bar-max-w) !important; /* override old 60px !important */
+}
+.content-emission-content .content-graph-label .images { grid-column: 1; }
+.content-emission-content .content-graph-label .fonts { grid-column: 2; }
+.content-emission-content .content-graph-label .java-script { grid-column: 3; }
+.content-emission-content .content-graph-label .html { grid-column: 4; }
+.content-emission-content .content-graph-label .css { grid-column: 5; }
+.content-emission-content .content-graph-label .media { grid-column: 6; }
+.content-emission-content .content-graph-label .third-party { grid-column: 7; }
+.content-emission-content .content-graph-label .other { grid-column: 8; }
+
+
+/* detail-section02 기본 설정 */
+.detail-section02 {
+    position: relative;
+    overflow: visible; /* 차트 호버 시 잘리지 않도록 */
+}
+
+/* 콘텐츠 수 원형 ================================================================================*/
+.child1 {
+    position: absolute;
+    top: 720px;
+    left: 1380px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 500px;                 /* 호버 시 확대를 고려하여 크기 증가 (350px * 1.08 = 378px + 패딩 40px + 여유 142px) */
+    height: 460px;                /* 호버 시 확대를 고려하여 크기 증가 (350px * 1.08 = 378px + 패딩 40px + 여유 42px) */
+    display: flex;                /* center contents */
+    align-items: center;          /* vertical center */
+    justify-content: center;      /* horizontal center */
+    flex-direction: column;       /* 세로 방향 배치 */
+    overflow: visible;            /* 호버 시 확대되는 부분이 잘리지 않도록 */
+    box-sizing: border-box;
+}
+
+/* Chart.js 파이차트 컨테이너 */
+.content-count-chart-container {
+    position: relative;
+    width: 100%;
+    height: 370px; /* 제목 영역 제외 */
+    max-width: 520px;          /* child1 내부에 맞게 조정 (560px - 40px padding) */
+    max-height: 420px;          /* child1 내부에 맞게 조정 (460px - 40px padding) */
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;          /* 호버 시 확대된 부분이 잘리지 않도록 */
+    padding: 30px;              /* 호버 시 확대를 위한 여유 공간 증가 (350px * 1.08 = 378px, 378px - 350px = 28px, 양쪽 14px씩 + 추가 여유) */
+    box-sizing: border-box;
+}
+
+#contentCountPieChart {
+    width: 350px !important;
+    height: 350px !important;
+    max-width: 350px !important;
+    max-height: 350px !important;
+    overflow: visible !important;
+}
+
+/* 모바일에서 차트를 반응형으로 */
+@media (max-width: 768px) {
+  #contentCountPieChart {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important; /* 정사각형 비율 유지 */
+  }
+
+  .content-count-chart-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+  }
+}
+.div6 {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #292a2d;
+}
+/* 배출량 상세비율 =============================================================*/
+.detail-section01-road {
+    position: absolute;
+    top: 550px;
+    left: 437px;
+    width: 844px;
+    height: 412px;
+}
+.detail-section01-title {
+    position: absolute;
+    top: 279px;
+    left: 359px;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+    color: #292a2d;
+}
+/* 개인디바이스 */
+.detail-section01-device {
+    position: absolute;
+    top: 408px;
+    left: 394px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, #daf2e9, #fff);
+    border: 2px dashed #c2c4c8;
+    box-sizing: border-box;
+    width: 240px;
+    height: 240px;
+}
+.detail-section01-device-title {
+    position: absolute;
+    top: 660px;
+    left: 450px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #5a5c63;
+    text-align: center;
+}
+.detail-section01-device-icon {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    width: 220px;
+    height: 172px;
+    object-fit: cover;
+}
+/* 홈네트워크 */
+.detail-section01-home-network {
+    position: absolute;
+    top: 408px;
+    left: 695px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, #daf2e9, #fff);
+    border: 2px dashed #c2c4c8;
+    box-sizing: border-box;
+    width: 240px;
+    height: 240px;
+}
+.detail-section01-home-network-title {
+    position: absolute;
+    top: 660px;
+    left: 761px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #5a5c63;
+    text-align: center;
+}
+.detail-section01-home-network-label {
+    position: absolute;
+    top: 690px;
+    left: 781px;
+    line-height: 24px;
+    color: #878a93;
+    text-align: center;
+}
+.detail-section01-home-network-icon {
+    position: absolute;
+    top: 34px;
+    left: 9px;
+    width: 222px;
+    height: 172px;
+    object-fit: cover;
+}
+
+/* 외부네트워크 */
+.detail-section01-external-network {
+    position: absolute;
+    top: 408px;
+    left: 995px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, #daf2e9, #fff);
+    border: 2px dashed #c2c4c8;
+    box-sizing: border-box;
+    width: 240px;
+    height: 240px;
+}
+.detail-section01-external-network-title {
+    position: absolute;
+    top: 660px;
+    left: 1051px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #5a5c63;
+    text-align: center;
+}
+.detail-section01-external-network-label {
+    position: absolute;
+    top: 690px;
+    left: 1090px;
+    line-height: 24px;
+    color: #878a93;
+    text-align: center;
+}
+.detail-section01-external-network-icon {
+    position: absolute;
+    top: 37px;
+    left: 14px;
+    width: 212px;
+    height: 165px;
+    object-fit: cover;
+}
+
+/* 해저 케이블 */
+.detail-section01-sea {
+    position: absolute;
+    top: 789px;
+    left: 885px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, #daf2e9, #fff);
+    border: 2px dashed #c2c4c8;
+    box-sizing: border-box;
+    width: 240px;
+    height: 240px;
+}
+.detail-section01-sea-title {
+    position: absolute;
+    top: 1041px;
+    left: 951px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #5a5c63;
+    text-align: center;
+}
+.detail-section01-sea-icon {
+    position: absolute;
+    top: 32px;
+    left: 7px;
+    width: 225px;
+    height: 175px;
+    object-fit: cover;
+}
+
+/* 기업 서버 */
+.detail-section01-server {
+    position: absolute;
+    top: 789px;
+    left: 514px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, #daf2e9, #fff);
+    border: 2px dashed #c2c4c8;
+    box-sizing: border-box;
+    width: 240px;
+    height: 240px;
+}
+.detail-section01-server-title {
+    position: absolute;
+    top: 1041px;
+    left: 590px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #5a5c63;
+    text-align: center;
+}
+.detail-section01-server-label {
+    position: absolute;
+    top: 1071px;
+    left: 600px;
+    line-height: 24px;
+    color: #878a93;
+    text-align: center;
+}
+.detail-section01-server-icon {
+    position: absolute;
+    top: 23px;
+    left: -14px;
+    width: 271px;
+    height: 210px;
+    object-fit: cover;
+}
+
+/* 공통 */
+.group-icon {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.vector-parent {
+    position: absolute;
+    height: 45%;
+    width: 65%;
+    top: -19%;
+    left: 64%;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+}
+.g14 {
+    position: absolute;
+    top: 64px;
+    left: 62px;
+    line-height: 32px;
+    font-weight: 600;
+}
+/*=====================================================================================*/
+.div2 {
+    position: absolute;
+    top: 1215px;
+    left: 359px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #292a2d;
+}
+.section03-subpage-count {
+    position: absolute;
+    top: 1267px;
+    left: 340px;
+    border-radius: 12px;
+    background: linear-gradient(107.93deg, rgba(255, 255, 255, 0.2), rgba(176, 235, 212, 0.2)), #fff;
+    width: 500px;
+    height: 240px;
+}
+.mask-group-icon {
+    position: absolute;
+    top: -18px;
+    left: 177px;
+    width: 356px;
+    height: 258px;
+    object-fit: cover;
+}
+.div3 {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    font-size: 100px;
+    line-height: 64px;
+    color: #292a2d;
+}
+.section03-subpage-avg-emission {
+    position: absolute;
+    top: 1527px;
+    left: 340px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 240px;
+    height: 240px;
+}
+.section03-subpage-total-emission {
+    position: absolute;
+    top: 1527px;
+    left: 600px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 240px;
+    height: 240px;
+}
+.g {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 56px;
+    line-height: 64px;
+    color: #292a2d;
+}
+.co2 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    line-height: 24px;
+}
+.co21 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    line-height: 24px;
+}
+.g1 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 56px;
+    line-height: 64px;
+    color: #292a2d;
+}
+.section03-subpage-list {
+    position: absolute;
+    top: 1267px;
+    left: 860px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 1020px;
+    height: 500px;
+}
+.all {
+    position: relative;
+    line-height: 24px;
+}
+.div11 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    line-height: 24px;
+}
+.g-parent {
+    position: absolute;
+    top: 1219px;
+    left: 1548px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 16px;
+    color: #878a93;
+}
+
+/* 서브페이지 리스트 컨테이너 - 행으로 나열 */
+.subpage-list {
+    position: absolute;
+    top: 106px;
+    left: 28px;
+    width: 970px;
+    height: 353px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    font-size: 16px;
+    color: #292a2d;
+    scrollbar-width: none;
+}
+
+/* 서브페이지 항목 */
+.subpage-item {
+    position: relative;
+    width: 100%;
+    min-height: 48px;
+    flex-shrink: 0;
+}
+
+/* 서브페이지 콘텐츠 */
+.subpage-content {
+    position: relative;
+    width: 100%;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+}
+
+/* URL 텍스트 - 고정 너비 */
+.subpage-url {
+    flex: 0 0 200px;
+    line-height: 24px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #292a2d;
+}
+
+/* 진행바 컨테이너 - 가장 긴 부분 */
+.subpage-bar {
+    position: relative;
+    flex: 1 1 auto;
+    height: 20px;
+    min-width: 0;
+    margin: 0 12px;
+}
+
+/* 진행바 배경 */
+.subpage-bar-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #f4f4f5;
+    border: 1px solid #c2c4c8;
+    box-sizing: border-box;
+}
+
+/* 진행바 채우기 */
+.subpage-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #5a5c63;
+    transition: width 0.3s ease;
+    min-width: 0;
+}
+
+/* 배출량 배지 컨테이너 - 작은 너비 */
+.subpage-emission-badge {
+    flex: 0 0 80px;
+    border-radius: 20px;
+    background-color: #f4f4f5;
+    border: 1px solid #c2c4c8;
+    box-sizing: border-box;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 배출량 값 */
+.subpage-emission-value {
+    line-height: 24px;
+    text-align: center;
+    color: #292a2d;
+    font-size: 16px;
+}
+
+/* 구분선 - 행 전체에 걸쳐 표시 */
+.subpage-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #dbdcdf;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.vp-hidden {
+    display: none;
+}
+
+.subpage-list-title{
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #292a2d;
+    text-align: left;
+    display: inline-block;
+}
+/*=====================================================================*/
+.detailed_analysis {
+    width: 100%;
+    position: relative;
+    background-color: #f4f4f5;
+    height: auto; /* 반응형에서 자동 높이 */
+    min-height: 1937px; /* 데스크톱에서 최소 높이 보장 */
+    overflow: visible; /* 컨텐츠가 잘리지 않도록 */
+    text-align: left;
+    font-size: 18px;
+    color: #70737c;
+    font-family: Roboto;
+}
+body {
+    background-color: #f4f4f5;
+}
+
+/* =============================
+   Desktop-only spacing tweaks
+   (no impact to responsive/mobile)
+   ============================= */
+@media (min-width: 1025px) {
+  /* Bring section03 closer to section02 on wide screens */
+  .div2 { /* section03 title */
+    top: 800px; /* was 1215px */
+  }
+  .g-parent { /* legend row */
+    top: 808px; /* was 1219px */
+  }
+  .section03-subpage-count,
+  .section03-subpage-list { /* first row blocks */
+    top: 850px; /* was 1267px */
+  }
+  .section03-subpage-avg-emission,
+  .section03-subpage-total-emission { /* second row small cards */
+    top: 1110px; /* was 1527px */
+  }
+}
+
+@media (max-width: 1600px) {
+  .detailed_analysis {
+    padding-bottom: 32px;             /* give breathing room at bottom */
+  }
+}
+
+@media (max-width: 768px) {
+  .detailed_analysis {
+    padding-bottom: 48px;             /* extra space for stacked layout */
+  }
+}
+
+/* ========================= Responsive: detail-section03 ========================= */
+@media (max-width: 1600px) {
+  /* Make section03 a grid container */
+  .detail-section03 {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* 2 cols row for the two metric cards */
+    grid-auto-rows: auto !important;
+    gap: 20px !important; /* unified spacing */
+  }
+
+  /* Title flows in normal document order */
+  .detail-section03 .div2 {
+    position: static !important;
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;           /* ensure title appears above count */
+    margin-top: 16px !important;
+  }
+
+  /* Row/column placement */
+  /* row2: title */
+  .detail-section03 .div2 { grid-row: 2 !important; }
+  /* row3: count spans full width */
+  .detail-section03 .section03-subpage-count { grid-column: 1 / -1 !important; grid-row: 3 !important; }
+  /* row4: avg left, total right */
+  .detail-section03 .section03-subpage-avg-emission { grid-column: 1 / 2 !important; grid-row: 4 !important; }
+  .detail-section03 .section03-subpage-total-emission { grid-column: 2 / 3 !important; grid-row: 4 !important; }
+  /* row5: legend row (top-right), row6: list */
+  .detail-section03 .g-parent {
+    position: static !important;           /* participate in grid */
+    grid-column: 1 / -1 !important;        /* span full row */
+    grid-row: 5 !important;                /* row above the list */
+    justify-self: end !important;          /* stick to right edge */
+    align-self: end !important;            /* stick to bottom of the row (closer to list) */
+    margin: 8px 20px 0 0 !important;       /* push slightly downward, remove bottom gap */
+    z-index: 2;
+  }
+  .detail-section03 .section03-subpage-list { grid-column: 1 / -1 !important; grid-row: 6 !important; position: relative !important; }
+
+  /* Ensure the four cards participate in grid (neutralize absolute) */
+  .detail-section03 .section03-subpage-count,
+  .detail-section03 .section03-subpage-avg-emission,
+  .detail-section03 .section03-subpage-total-emission,
+  .detail-section03 .section03-subpage-list {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Neutralize absolute positioning inside section03 only */
+  .detail-section03 .child,
+  .detail-section03 .item,
+  .detail-section03 .inner,
+  .detail-section03 .child2,
+  .detail-section03 .child3,
+  .detail-section03 .child4,
+  .detail-section03 .child5,
+  .detail-section03 .sorting-bar,
+  .detail-section03 .search-bar,
+  .detail-section03 .mask-group-icon,
+  .detail-section03 .div3,
+  .detail-section03 .g,
+  .detail-section03 .g1,
+  .detail-section03 .co2,
+  .detail-section03 .co21,
+  .detail-section03 .div4,
+  .detail-section03 .all-parent,
+  .detail-section03 .div8,
+  .detail-section03 .div9,
+  .detail-section03 .div10,
+  .detail-section03 .div11,
+  .detail-section03 .vector-icon,
+  .detail-section03 .group-parent {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+
+  /* Card sizing/spacing */
+  .detail-section03 .section03-subpage-count .child {
+    width: 100% !important;
+    height: 260px !important;
+  }
+  .detail-section03 .section03-subpage-avg-emission .item,
+  .detail-section03 .section03-subpage-total-emission .inner {
+    width: 100% !important;
+    height: 220px !important;
+  }
+  .detail-section03 .section03-subpage-list .child2 {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 360px !important;
+  }
+
+  /* Adjust big numbers/titles inside cards */
+  .detail-section03 .div3 { font-size: 64px !important; line-height: 72px !important; margin: 16px 0 !important; }
+  .detail-section03 .g,
+  .detail-section03 .g1 { font-size: 40px !important; line-height: 48px !important; margin: 16px 0 !important; }
+  .detail-section03 .co2,
+  .detail-section03 .co21 { margin-bottom: 8px !important; }
+
+  /* Search/filter row within list card */
+  .detail-section03 .section03-subpage-list .child3,
+  .detail-section03 .section03-subpage-list .child4,
+  .detail-section03 .section03-subpage-list .child5,
+  .detail-section03 .section03-subpage-list .vector-icon,
+  .detail-section03 .section03-subpage-list .all-parent,
+  .detail-section03 .section03-subpage-list .div8,
+  .detail-section03 .section03-subpage-list .div9,
+  .detail-section03 .section03-subpage-list .div10,
+  .detail-section03 .section03-subpage-list .div11 {
+    margin: 8px 0 !important;
+  }
+
+  /* List area scroller */
+  .detail-section03 .subpage-list {
+    width: 100% !important;
+    max-height: 380px !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  /* 레거시 호환성 */
+  .detail-section03 .group-parent {
+    width: 100% !important;
+    max-height: 380px !important;
+    overflow-y: auto !important;
+  }
+
+  /* Layout for subpage list card contents */
+  .detail-section03 .section03-subpage-list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    padding: 20px !important; /* inner padding for list card */
+    box-sizing: border-box !important;
+  }
+  .detail-section03 .section03-subpage-list .subpage-list-title {
+    position: static !important;
+    grid-column: 1 / -1 !important;
+    margin: 0 0 4px 0 !important;
+  }
+  .detail-section03 .section03-subpage-list .sorting-bar {
+    grid-column: 1 / 2 !important;
+    width: 100% !important;
+  }
+  .detail-section03 .section03-subpage-list .search-bar {
+    grid-column: 2 / 3 !important;
+    justify-self: end !important;
+    width: 100% !important;
+    max-width: 370px !important; /* keep reasonable size */
+    display: flex !important;
+    align-items: center !important;
+    height: 40px !important; /* align with sorting bar height */
+    box-sizing: border-box !important;
+  }
+  .detail-section03 .section03-subpage-list .search-bar .vector-icon {
+    margin-left: clamp(8px, 1.6vw, 16px) !important; /* left inset spacing */
+    display: block !important;
+  }
+  .detail-section03 .section03-subpage-list .subpage-list {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* 레거시 호환성 */
+  .detail-section03 .section03-subpage-list .group-parent {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Count card: 2-col grid
+     - col1: number (row1) + label (row2)
+     - col2: icon spans rows 1-2, bottom-right aligned
+  */
+  .detail-section03 .section03-subpage-count {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    grid-template-rows: auto auto !important;
+    align-items: start !important;
+    gap: 8px 12px !important;
+    padding: 20px !important;
+    padding-right: 0 !important; /* stick to right edge */
+    padding-bottom: 0 !important; /* stick to bottom edge */
+    box-sizing: border-box !important;
+  }
+  .detail-section03 .section03-subpage-count .div3 {
+    grid-column: 1 / 2 !important;
+    grid-row: 2 / 2 !important;
+  }
+  .detail-section03 .section03-subpage-count .div11 {
+    grid-column: 1 / 3 !important;
+    grid-row: 1 / 3 !important;
+  }
+  .detail-section03 .section03-subpage-count .mask-group-icon {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 / 3 !important; /* span 2 rows */
+    justify-self: end !important; /* right */
+    align-self: end !important;   /* bottom */
+    margin: 0 !important;
+    width: auto !important;
+    max-width: 88% !important; /* larger image */
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+
+  /* Avg/Total cards: label on top, big number below */
+  .detail-section03 .section03-subpage-avg-emission,
+  .detail-section03 .section03-subpage-total-emission {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+  }
+  /* Ensure they sit side-by-side in one row (2 columns) at <=1200px */
+  .detail-section03 .section03-subpage-avg-emission { grid-column: 1 / 2 !important; }
+  .detail-section03 .section03-subpage-total-emission { grid-column: 2 / 3 !important; }
+  .detail-section03 .section03-subpage-avg-emission .co2 { order: 1; }
+  .detail-section03 .section03-subpage-avg-emission .g { order: 2; }
+  .detail-section03 .section03-subpage-total-emission .co21 { order: 1; }
+  .detail-section03 .section03-subpage-total-emission .g1 { order: 2; }
+
+  /* Sorting bar: simple inline layout */
+  .detail-section03 .section03-subpage-list .sorting-bar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 0 clamp(6px, 1.2vw, 12px) !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    overflow: hidden !important; /* prevent growing vertically */
+    box-sizing: border-box !important;
+  }
+  .detail-section03 .section03-subpage-list .sorting-bar > * {
+    flex: 1 1 0 !important; /* use width evenly */
+    min-width: 0 !important; /* allow shrink */
+    white-space: nowrap !important; /* keep on one line */
+    text-align: center !important;
+  }
+  .detail-section03 .section03-subpage-list .child5 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    height: clamp(24px, 3.6vw, 32px) !important; /* smaller than 40px */
+    align-self: center !important; /* center within 40px bar */
+    padding: 0 clamp(6px, 1.2vw, 12px) !important;
+    box-sizing: border-box !important;
+  }
+  .detail-section03 .section03-subpage-list .all-parent {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: clamp(6px, 1.2vw, 10px) !important;
+    position: static !important;
+  }
+  /* Ensure each label cell fills height and centers content */
+  .detail-section03 .section03-subpage-list .div8,
+  .detail-section03 .section03-subpage-list .div9,
+  .detail-section03 .section03-subpage-list .div10 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    padding: 0 clamp(6px, 1.2vw, 12px) !important;
+    box-sizing: border-box !important;
+  }
+  .detail-section03 .section03-subpage-list .all,
+  .detail-section03 .section03-subpage-list .div7,
+  .detail-section03 .section03-subpage-list .div8,
+  .detail-section03 .section03-subpage-list .div9,
+  .detail-section03 .section03-subpage-list .div10 {
+    font-size: clamp(9px, 1.4vw, 14px) !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* Keep two columns on very small screens as well */
+@media (max-width: 768px) {
+  .detail-section03 {
+    gap: 16px !important; /* slightly tighter gap if needed */
+  }
+  .detail-section03 .section03-subpage-avg-emission { grid-column: 1 / 2 !important; }
+  .detail-section03 .section03-subpage-total-emission { grid-column: 2 / 3 !important; }
+}
+
+/* ========================= Responsive: detail-section01 (Canvas-Style) ========================= */
+/* Wrapper anchored at the original global origin: top:279px; left:340px. */
+.detail-section01 {
+  position: relative; /* ensure local stacking context */
+  box-sizing: border-box;
+}
+.detail-section01-wrapper {
+  position: absolute;
+  top: 279px;
+  left: 340px;
+  width: 941px;   /* computed from rightmost element (1281) - origin (340) */
+  height: 830px;  /* covers down to the lowest label */
+}
+.detail-section01-scale {
+  position: absolute;
+  width: 941px;
+  height: 830px;
+  left: 50%;
+  transform-origin: top center;
+  display: inline-block; /* ensure transform scaling behaves predictably */
+  will-change: transform;
+  transform: translateX(-50%) scale(var(--s)); /* center align and scale, default --s:1 from wrapper */
+}
+
+/* Rebase absolute children positions relative to the wrapper origin */
+.detail-section01-scale .detail-section01-title {
+  position: absolute !important; top: 0px !important; left: 19px !important;
+}
+.detail-section01-scale .detail-section01-road {
+  position: absolute !important; top: 271px !important; left: 97px !important;
+  width: 844px !important;
+  height: 412px !important;
+}
+/* Circles */
+.detail-section01-scale .detail-section01-device { position: absolute !important; top: 129px !important; left: 54px !important; }
+.detail-section01-scale .detail-section01-home-network { position: absolute !important; top: 129px !important; left: 355px !important; }
+.detail-section01-scale .detail-section01-external-network { position: absolute !important; top: 129px !important; left: 655px !important; }
+.detail-section01-scale .detail-section01-sea { position: absolute !important; top: 510px !important; left: 545px !important; }
+.detail-section01-scale .detail-section01-server { position: absolute !important; top: 510px !important; left: 174px !important; }
+
+/* Circle titles/labels */
+.detail-section01-scale .detail-section01-device-title { position: absolute !important; top: 381px !important; left: 110px !important; }
+.detail-section01-scale .detail-section01-home-network-title { position: absolute !important; top: 381px !important; left: 421px !important; }
+.detail-section01-scale .detail-section01-home-network-label { position: absolute !important; top: 411px !important; left: 441px !important; }
+.detail-section01-scale .detail-section01-external-network-title { position: absolute !important; top: 381px !important; left: 711px !important; }
+.detail-section01-scale .detail-section01-external-network-label { position: absolute !important; top: 411px !important; left: 750px !important; }
+.detail-section01-scale .detail-section01-sea-title { position: absolute !important; top: 762px !important; left: 611px !important; }
+.detail-section01-scale .detail-section01-server-title { position: absolute !important; top: 762px !important; left: 250px !important; }
+.detail-section01-scale .detail-section01-server-label { position: absolute !important; top: 792px !important; left: 260px !important; }
+
+/* Cloud vector info: keep original absolute positioning inside each circle */
+.detail-section01-scale .vector-parent {
+  position: absolute !important;
+  top: -19% !important;
+  left: 64% !important;
+  transform: none !important;
+}
+
+/* NOTE: Icons inside each circle remain unchanged; they are already positioned
+   relative to their circle containers, which are now correctly rebased. */
+
+/* Scale down on narrower screens. Keep the canvas fixed-size and scale it.
+   Also convert wrapper to flow in normal layout, centered with margins. */
+.detail-section01-wrapper { --s: 1; }
+.detail-section01-scale {
+  transform-origin: top left;
+}
+
+@media (max-width: 1600px) {
+  .detail-section01-wrapper {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 16px auto 0 !important;
+    /* use container width (after 20px padding each side) */
+    width: 100% !important;
+    max-width: 941px !important; /* cap at original canvas width */
+    /* scale factor derived from container width */
+    --s: clamp(0.5, calc(100% / 941), 1);
+  }
+}

@@ -1,0 +1,204 @@
+/* Report01 페이지 전용 스타일 ============================= */
+
+/* content01 ===================================== */
+.content01 {
+    position: absolute;
+    top: 100px;
+    left: 180px;
+    width: 280px;
+    height: 234px;
+}
+.content01-text {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+}
+.content01-img01 {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 9px;
+    margin-top: 20px;
+    vertical-align: top;
+}
+.content01-img01 svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.content01-img02 {
+    position: relative;
+    display: inline-block;
+    width: 156px;
+    height: 40px;
+    vertical-align: top;
+    margin-top: 20px;
+}
+.content01-img02 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* content02 ===================================== */
+.content02 {
+    position: absolute;
+    top: 334px;
+    left: 180px;
+    width: 280px;
+}
+.content02-info {
+    position: relative;
+    display: block;
+    width: 345px;
+    font-size: 6px !important;
+    font-family: Roboto;
+    color: #878a93;
+    transform: scale(0.75); /* 6px가 안 먹히면 강제로 축소 */
+    transform-origin: left top;
+}
+.content02-grade {
+    position: relative;
+    display: block;
+    margin-top: 29px;
+    margin-bottom: 10px;
+    width: 260px;
+    height: 97px;
+}
+.content02-grade-title {
+    position: absolute;
+    top: 77px;
+    left: 17.28px;
+    font-family: Roboto;
+    font-size: 8.64px;
+    line-height: 17.28px;
+    color: #5a5c63;
+    text-align: left;
+    display: inline-block;
+}
+.grade-circle01 {
+    border-radius: 50%;
+    background-color: #00cc7e;
+    width: 76.8px;
+    height: 76.8px;
+}
+.grade-circle01-text {
+    position: absolute;
+    top: 19.2px;
+    left: 22.08px;
+    font-size: 46.08px;
+    line-height: 38.4px;
+    color: #f4f4f5;
+}
+.grade-circle02 {
+    border-radius: 50%;
+    border: 1px solid #00cc7e;
+    box-sizing: border-box;
+    height: 76.8px;
+    width: 76.8px;
+}
+.grade-circle02-text {
+    position: absolute;
+    top: 19.2px;
+    left: 11px;
+    font-size: 32.64px;
+    line-height: 38.4px;
+    display: inline-block;
+    font-family: Roboto;
+    color: #00b872;
+    text-align: center;
+}
+.grade-global { /* 글로벌 */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.grade-domestic { /* 국내 */
+    position: absolute;
+    top: 0px;
+    left: 91.2px;
+}
+.grade-month { /* 월 배출 등급 */
+    position: absolute;
+    top: 0px;
+    left: 182.4px;
+}
+
+/* content03 ===================================== */
+.content03 {
+    position: absolute;
+    top: 100px;
+    left: 522px;
+    width: 280px;
+}
+.content03-table {
+    position: relative;
+    margin-top: 12px;
+    display: block;
+    width: 279px;
+}
+
+.emission-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 5px;
+    font-family: Roboto;
+}
+
+.emission-table thead th {
+    background-color: #00cc7e;
+    color: white;
+    padding: 4px 2px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #dbdcdf;
+}
+
+.emission-table tbody td {
+    padding: 4px 2px;
+    text-align: center;
+    border: 1px solid #dbdcdf;
+    background-color: white;
+    color: #37383c;
+    min-height: 15px;
+}
+
+.emission-table tbody td:first-child {
+    background-color: #f1f1f1;
+    color: #000000;
+}
+
+.emission-table tbody tr:hover {
+    opacity: 0.95;
+}
+
+/* content04 ===================================== */
+.content04 {
+    position: absolute;
+    top: 390px;
+    left: 522px;
+    width: 280px;
+}
+.kg-35 {
+    margin: 0;
+    padding-left: 11px;
+}
+/* line ============================== */
+.child {
+    position: absolute;
+    top: 80px;
+    left: calc(50% - 248px);
+    width: 628px;
+    height: 0px;
+    object-fit: contain;
+}
+.item {
+    position: absolute;
+    top: 100px;
+    left: 491px;
+    max-width: 100%;
+    overflow: hidden;
+    height: 460px;
+}
+

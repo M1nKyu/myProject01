@@ -1,0 +1,91 @@
+<!-- 동적 메타 태그 시스템 (meta 변수가 전달된 경우) -->
+{% if meta %}
+  <!-- Canonical URL (SEO 중복 콘텐츠 방지) -->
+  <link rel="canonical" href="{{ meta.canonical }}">
+
+  <!-- 다국어 SEO (hreflang) -->
+  {% if meta.hreflang %}
+    {% for lang, lang_url in meta.hreflang.items() %}
+      <link rel="alternate" hreflang="{{ lang }}" href="{{ lang_url }}">
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ meta.canonical }}">
+  {% endif %}
+
+  <!-- 일반 SEO Meta Tags -->
+  <meta name="description" content="{{ meta.description }}">
+  <meta name="keywords" content="{{ meta.keywords|join(', ') }}">
+  <meta name="author" content="eCarbon">
+  <meta name="robots" content="{{ meta.robots }}">
+
+  <!-- Open Graph / Facebook / KakaoTalk -->
+  <meta property="og:type" content="{{ meta.og_type }}">
+  <meta property="og:title" content="{{ meta.og_title }}">
+  <meta property="og:description" content="{{ meta.og_description }}">
+  <meta property="og:image" content="{{ meta.og_image }}">
+  <meta property="og:url" content="{{ meta.og_url }}">
+  <meta property="og:site_name" content="{{ meta.og_site_name }}">
+  <meta property="og:locale" content="{{ meta.og_locale }}">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="{{ meta.twitter_card }}">
+  <meta name="twitter:title" content="{{ meta.og_title }}">
+  <meta name="twitter:description" content="{{ meta.og_description }}">
+  <meta name="twitter:image" content="{{ meta.og_image }}">
+  <meta name="twitter:site" content="{{ meta.twitter_site }}">
+
+  <!-- KakaoTalk -->
+  <meta property="kakao:title" content="{{ meta.og_title }}">
+  <meta property="kakao:description" content="{{ meta.og_description }}">
+  <meta property="kakao:image" content="{{ meta.og_image }}">
+
+  <!-- WhatsApp -->
+  <meta property="whatsapp:title" content="{{ meta.og_title }}">
+  <meta property="whatsapp:description" content="{{ meta.og_description }}">
+  <meta property="whatsapp:image" content="{{ meta.og_image }}">
+
+{% else %}
+  <!-- 기본 메타 태그 (하위 호환성) -->
+  <!-- Open Graph / Facebook / KakaoTalk -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="eCarbon - 웹사이트 탄소배출량 분석 서비스">
+  <meta property="og:description" content="디지털 지속가능성을 위한 AI 기반 디지털 탄소 측정 플랫폼">
+  <meta property="og:image" content="{{ url_for('static', filename='img/webp/og/ecarbon-og-image.webp', _external=True) }}">
+  <meta property="og:url" content="{{ request.url }}">
+  <meta property="og:site_name" content="eCarbon">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="eCarbon - 웹사이트 탄소배출량 분석 서비스">
+  <meta name="twitter:description" content="디지털 지속가능성을 위한 AI 기반 디지털 탄소 측정 플랫폼">
+  <meta name="twitter:image" content="{{ url_for('static', filename='img/webp/og/ecarbon-og-image.webp', _external=True) }}">
+  <meta name="twitter:site" content="@eCarbon">
+
+  <!-- 일반 SEO Meta Tags -->
+  <meta name="description" content="디지털 지속가능성을 위한 AI 기반 디지털 탄소 측정 플랫폼">
+  <meta name="keywords" content="탄소배출량, 웹사이트 분석, 친환경, 최적화, eCarbon, 지속가능성, AI, 디지털탄소">
+  <meta name="author" content="eCarbon">
+
+  <!-- KakaoTalk -->
+  <meta property="kakao:title" content="eCarbon - 웹사이트 탄소배출량 분석 서비스">
+  <meta property="kakao:description" content="디지털 지속가능성을 위한 AI 기반 디지털 탄소 측정 플랫폼">
+  <meta property="kakao:image" content="{{ url_for('static', filename='img/webp/og/ecarbon-og-image.webp', _external=True) }}">
+
+  <!-- WhatsApp -->
+  <meta property="whatsapp:title" content="eCarbon - 웹사이트 탄소배출량 분석 서비스">
+  <meta property="whatsapp:description" content="디지털 지속가능성을 위한 AI 기반 디지털 탄소 측정 플랫폼">
+  <meta property="whatsapp:image" content="{{ url_for('static', filename='img/webp/og/ecarbon-og-image.webp', _external=True) }}">
+{% endif %}
+
+<!-- 추가 메타 태그들 (공통) -->
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Favicon (공통) - 임시로 비활성화 (파일 없음) -->
+<!-- 
+<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/favicon/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon/favicon-16x16.png') }}">
+-->

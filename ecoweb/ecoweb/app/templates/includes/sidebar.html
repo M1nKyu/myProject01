@@ -1,0 +1,155 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/common/sidebar.css') }}" />
+<!-- Responsive overrides for common components -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/common/responsive-common.css') }}" />
+
+<div class="sidebar">
+
+    <!-- 사이드바 토글 -->
+    <div class="sidebar-toggle">
+      <span class="sidebar-toggle-icon">‹</span>
+    </div>
+
+    <!-- 사이드바 잠금 -->
+    <!-- <div class="sidebar-lock-container" data-dev-link>
+      <div class="sidebar-lock-content">
+        <div class="sidebar-lock-text">더 자세한 탄소 배출량을<br />알고싶으신가요?</div>
+        <div class="sidebar-lock-icon-wrapper">
+          <img class="sidebar-lock-icon" alt="잠금 아이콘" src="{{ url_for('static', filename='img/sidebar/sidebar-lock.svg') }}" />
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const sidebarLock = document.querySelector('.sidebar-lock-container');
+        if (sidebarLock) {
+          sidebarLock.addEventListener('click', function() {
+            fetch('/log-click', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                element_id: 'sidebar-lock-container',
+                page_url: window.location.pathname
+              })
+            })
+            .then(response => response.json())
+            .then(data => {
+              if(data.status === 'success') {
+                console.log('Click event logged successfully.');
+              } else {
+                console.error('Failed to log click event:', data.message);
+              }
+            })
+            .catch(error => {
+              console.error('Error logging click event:', error);
+            });
+          });
+        }
+      });
+    </script> -->
+
+    <div class="sidebar-top">
+      <!-- 사이드바 섹션 1 -->
+      <div class="sidebar-section-01">
+        <img class="sidebar-section-01-icon-web" alt="웹사이트 아이콘" src="{{ url_for('static', filename='img/sidebar/sidebar-web.svg') }}" />
+        <div class="sidebar-section-01-url">{{ url | default(_('sidebar.site_address')) }}</div>
+      </div>
+
+      <!-- 사이드바 섹션 2 -->
+      <div class="sidebar-section-02">
+        <!-- Nav 01: Integrated Analysis -->
+        <a href="{{ url_for('main.carbon_calculate_emission_router') }}" class="sidebar-item analysis{% if request.endpoint in ['main.carbon_calculate_emission', 'main.carbon_calculate_emission_router'] %} active{% endif %}">
+          <img class="sidebar-item-icon" alt="통합 분석 아이콘" src="{{ url_for('static', filename='img/sidebar/sidebar-speedmeter.svg') }}" />
+          <div class="sidebar-item-title">{{ _('sidebar.integrated_analysis') }}</div>
+          <span class="sidebar-item-arrow">›</span>
+        </a>
+
+        <!-- Nav 02: Page Analysis -->
+        <a href="{{ url_for('main.detailed_analysis') }}" class="sidebar-item analysis{% if request.endpoint == 'main.detailed_analysis' %} active{% endif %}">
+          <img class="sidebar-item-icon" alt="페이지 분석 아이콘" src="{{ url_for('static', filename='img/sidebar/sidebar-page.svg') }}" />
+          <div class="sidebar-item-title">{{ _('sidebar.page_analysis') }}</div>
+          <span class="sidebar-item-arrow">›</span>
+        </a>
+
+        <!-- Nav 03: Image Optimization -->
+        <a href="{{ url_for('optimization.img_optimization', task_id=task_id) if task_id else '#' }}" class="sidebar-item analysis{% if request.endpoint == 'optimization.img_optimization' %} active{% endif %}" {% if not task_id %}onclick="alert('{{ _('sidebar.analysis_required') }}'); return false;"{% endif %}>
+          <img class="sidebar-item-icon" alt="이미지 최적화 아이콘" src="{{ url_for('static', filename='img/sidebar/sidebar-image.svg') }}" />
+          <div class="sidebar-item-title">{{ _('sidebar.image_optimization') }}</div>
+          <span class="sidebar-item-arrow">›</span>
+        </a>
+
+        <!-- Nav 04: Code Analysis -->
+        <a href="{{ url_for('optimization.code_analysis', task_id=task_id) if task_id else '#' }}" class="sidebar-item analysis{% if request.endpoint == 'optimization.code_analysis' %} active{% endif %}" {% if not task_id %}onclick="alert('{{ _('sidebar.analysis_required') }}'); return false;"{% endif %}>
+          <img class="sidebar-item-icon" alt="코드 분석 아이콘" src="{{ url_for('static', filename='img/sidebar/sidebar-code.svg') }}" />
+          <div class="sidebar-item-title">{{ _('sidebar.code_analysis') }}</div>
+          <span class="sidebar-item-arrow">›</span>
+        </a>
+
+        <!-- Nav 05: Sustainability Guidelines -->
+        <a href="{{ url_for('main.guidelines_page') }}" class="sidebar-item analysis{% if request.endpoint == 'main.guidelines_page' %} active{% endif %}">
+          <img class="sidebar-item-icon" alt="지속가능성 가이드라인 아이콘" src="{{ url_for('static', filename='img/sidebar/sidebar-guide.svg') }}" />
+          <div class="sidebar-item-title">{{ _('sidebar.sustainability_guidelines') }}</div>
+          <span class="sidebar-item-arrow">›</span>
+        </a>
+
+        <!-- Nav 06: Get Badge -->
+        <a href="{{ url_for('main.badge') }}" class="sidebar-item analysis{% if request.endpoint == 'main.badge' %} active{% endif %}">
+          <img class="sidebar-item-icon" alt="배지 받기 아이콘" src="{{ url_for('static', filename='img/sidebar/sidebar-badge.svg') }}" />
+          <div class="sidebar-item-title">{{ _('sidebar.get_badge') }}</div>
+          <span class="sidebar-item-arrow">›</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="sidebar-bottom">
+      <!-- 사이드바 섹션 3 -->
+      <div class="sidebar-section-03">
+        <!-- Settings 01 -->
+        <a href="#" class="sidebar-item setting" data-dev-link>
+          <img class="sidebar-item-icon" alt="설정 아이콘" src="{{ url_for('static', filename='img/sidebar/sidebar-setting.svg') }}" />
+          <div class="sidebar-item-title">{{ _('sidebar.settings') }}</div>
+          <span class="sidebar-item-arrow">›</span>
+        </a>
+
+        <!-- My Account -->
+        <a href="#" class="sidebar-item setting" data-dev-link>
+          <img class="sidebar-item-icon" alt="내 계정 아이콘" src="{{ url_for('static', filename='img/sidebar/sidebar-user.svg') }}" />
+          <div class="sidebar-item-title">{{ _('sidebar.my_account') }}</div>
+          <span class="sidebar-item-arrow">›</span>
+        </a>
+
+      </div>
+    </div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.querySelector('.sidebar');
+    const toggle = document.querySelector('.sidebar-toggle');
+    const toggleIcon = document.querySelector('.sidebar-toggle-icon');
+
+    if (!sidebar || !toggle) return;
+
+    function updateIcon() {
+      if (!toggleIcon) return;
+      if (sidebar.classList.contains('collapsed')) {
+        toggleIcon.textContent = '›';
+        toggle.classList.add('collapsed');
+      } else {
+        toggleIcon.textContent = '‹';
+        toggle.classList.remove('collapsed');
+      }
+    }
+
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      sidebar.classList.toggle('collapsed');
+      updateIcon();
+    });
+
+    // initialize icon on load
+    updateIcon();
+  });
+</script>

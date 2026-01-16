@@ -1,0 +1,888 @@
+.div1 {
+    position: absolute;
+    top: 279px;
+    left: 359px;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+}
+
+/* section01 ======================================================================*/
+.img-op-section01 {
+    position: absolute;
+    top: 335px;
+    left: 340px;
+    width: 1020px;
+    height: 580px;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+/* reduction percent */
+.img-op-section01-reduction-percent {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+.reduction-percent-title {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    color: #878a93;
+}
+.reduction-percent-value {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: 600;
+    vertical-align: top;
+}
+.reduction-percent-value.optimized-message {
+    font-size: 36px;
+    line-height: 44px;
+    color: #00b872;
+}
+.reduction-percent-icon {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    object-fit: contain;
+    vertical-align: middle;
+}
+/* reduction weight */
+.reduction-weight-title {
+    position: absolute;
+    top: 77px;
+    right: 43px;
+    line-height: 24px;
+    color: #878a93;
+}
+.reduction-weight-value {
+    position: absolute;
+    top: 109px;
+    right: 35px;
+    border-radius: 8px;
+    background-color: #dbdcdf;
+    width: 205px;
+    height: 44px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 0px;
+    box-sizing: border-box;
+    font-size: 24px;
+    color: #5a5c63;
+}
+.reduction-weight-value-text {
+    position: relative;
+    line-height: 32px;
+    font-weight: 600;
+}
+/* graph */
+.graph-background {
+    position: absolute;
+    top: 204px;
+    left: 35px;
+    width: 950px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.graph-horizontal-line {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background-color: #e5e7eb;
+}
+
+.graph-line {
+    position: absolute;
+    top: 239px;
+    left: 185px;
+    width: 651px;
+    height: 181px;
+    background: linear-gradient(to top right, transparent 49.5%, #5A5C63 49.5%, #5A5C63 50.5%, transparent 50.5%);
+}
+
+.graph-line-flat {
+    position: absolute;
+    top: 239px;
+    left: 185px;
+    width: 651px;
+    height: 3px;
+    background-color: #00b872;
+}
+
+.graph-text-01 {
+    position: absolute;
+    bottom: -28px;
+    left: 83px;
+    line-height: 24px;
+    color: #878a93;
+    text-align: center;
+}
+.graph-text-02 {
+    position: absolute;
+    bottom: -28px;
+    right: 68px;
+    line-height: 24px;
+    color: #37383c;
+    text-align: center;
+}
+.graph-vertical-line-00 {
+    position: absolute;
+    top: 239px;
+    left: 35px;
+    background-color: #5A5C63;
+    width: 150px;
+    height: 3px;
+}
+.graph-vertical-line-01 {
+    position: absolute;
+    top: 249px;
+    left: 181px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #c2c4c8;
+    width: 8px;
+    height: 255px;
+}
+.graph-point {
+    position: absolute;
+    top: 233px;
+    left: 179px;
+    border-radius: 50%;
+    background-color: #81ebc2;
+    width: 12px;
+    height: 12px;
+}
+.graph-vertical-line-02 {
+    position: absolute;
+    /* graph-line 우측 끝 높이에 맞춤: graph-line top(239px) + height(181px) = 420px */
+    /* graph-line 우측 끝 left: 185px + 651px = 836px */
+    /* graph-vertical-line-02의 width가 8px이므로 left: 836px - 8px = 828px */
+    top: 429px;
+    left: 828px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #5a5c63;
+    width: 8px;
+    height: 74px;
+}
+.graph-vertical-line-optimized {
+    position: absolute;
+    top: 249px;
+    right: 180px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #00b872;
+    width: 8px;
+    height: 255px;
+}
+.graph-point-optimized {
+    position: absolute;
+    top: 233px;
+    right: 176px;
+    border-radius: 50%;
+    background-color: #00b872;
+    width: 12px;
+    height: 12px;
+}
+.img-op-section01-circle {
+    position: absolute;
+    /* graph-line 우측 끝 높이에 맞춤: graph-line top(239px) + height(181px) = 420px */
+    /* graph-line 우측 끝 left: 185px + 651px = 836px */
+    /* 원의 중심을 graph-line 우측 끝 하단에 맞춤: top: 420px - 6px = 414px, left: 836px - 6px = 830px */
+    top: 414px;
+    left: 826px;
+    border-radius: 50%;
+    background-color: #81ebc2;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.img-op-section01-circle:hover {
+    background-color: #00d282;
+    width: 80px;
+    height: 80px;
+    /* 원의 중심점을 유지하기 위한 위치 조정 */
+    /* 기본 중심: (830 + 6, 414 + 6) = (836, 420) */
+    /* 호버 중심: (836, 420) 유지, 크기 80px이므로 top: 420 - 40 = 380, left: 836 - 40 = 796 */
+    top: 380px;
+    left: 796px;
+}
+.img-op-section01-circle.optimized {
+    background-color: #00b872;
+}
+.img-op-section01-circle.optimized:hover {
+    background-color: #00b872;
+}
+.img-op-section01-circle-text {
+    position: relative;
+    line-height: 24px;
+    font-weight: 600;
+    color: #f4f4f5;
+    text-align: center;
+    opacity: 0;
+    font-size: 24px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.img-op-section01-circle:hover .img-op-section01-circle-text {
+    opacity: 1;
+}
+.img-op-section01-circle.optimized .img-op-section01-circle-text {
+    font-size: 48px;
+}
+
+/* section02======================================================================*/
+.img-op-section02 {
+    position: absolute;
+    top: 335px;
+    left: 1380px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 500px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.child9 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.div9 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    line-height: 24px;
+    color: #70737c;
+}
+
+/* 이미지 컨테이너 (크롭된 뷰 + 호버 오버레이) */
+.img-op-section02-img-container {
+    position: absolute;
+    top: 21px;
+    left: 20px;
+    width: 460px;
+    height: 240px;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    /* 이미지 비율 유지 (460px / 240px ≈ 1.92:1) */
+    aspect-ratio: 460 / 240;
+}
+
+.img-op-section02-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: rgba(217, 217, 217, 0.5);
+    /* 전체 이미지의 상단만 보이도록 설정 */
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.3s ease;
+}
+
+/* 호버 시 이미지 살짝 확대 효과 */
+.img-op-section02-img-container:hover .img-op-section02-img {
+    transform: scale(1.05);
+}
+
+/* 호버 오버레이 (기본 숨김) */
+.img-op-section02-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* 호버 시 오버레이 표시 */
+.img-op-section02-img-container:hover .img-op-section02-hover-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 1;
+}
+
+/* 전체보기 텍스트 (중앙) */
+.img-op-section02-fullview-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.img-op-section02-fullview-text svg {
+    width: 32px;
+    height: 32px;
+}
+
+/* 전체 이미지 모달 */
+.full-image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 100000;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    overflow: hidden;
+}
+
+.full-image-modal-content {
+    position: relative;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 60px 20px 20px 20px;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+.full-image-modal-close {
+    position: fixed;
+    top: 20px;
+    right: calc(2.5% + 20px);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    border-radius: 50%;
+    z-index: 100001;
+}
+.full-image-modal-close:hover {
+    opacity: 0.7;
+}
+#fullImageView {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+#fullImageView:hover {
+    transform: scale(1.02);
+}
+
+/* 전체화면 모드일 때 이미지 스타일 */
+.full-image-modal-content:fullscreen #fullImageView,
+.full-image-modal-content:-webkit-full-screen #fullImageView,
+.full-image-modal-content:-moz-full-screen #fullImageView,
+.full-image-modal-content:-ms-fullscreen #fullImageView {
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: none;
+}
+/* section03======================================================================*/
+.img-op-section03 {
+    position: absolute;
+    top: 675px;
+    left: 1380px;
+}
+.section03-item {
+    position: relative;
+    display: inline-block;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 240px;
+    height: 240px;
+}
+.section03-item.current {
+    margin-right: 20px;
+}
+.section03-value {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 50px;
+    line-height: 64px;
+}
+.section03-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    line-height: 24px;
+    color: #70737c;
+}
+.p {
+    margin: 0;
+}
+
+/* section04======================================================================*/
+.img-op-section04 {
+    position: absolute;
+    top: 935px;
+    left: 340px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 1540px;
+    height: 300px;
+    overflow: hidden; /* 내부 요소가 박스를 벗어나지 못하도록 */
+}
+.section04-title {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+/* 이미지 총 용량 영역 */
+.section04-total-image {
+    position: relative;
+    display: inline-block;
+    margin-right: 160px;
+    margin-left: 190px;
+
+}
+.section04-total-image .section04-image-icon {
+    position: relative;
+    display: inline-block;
+    top: 50px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+.section04-total-image .section04-text-wrapper {
+    position: relative;
+    display: inline-block;
+
+    bottom: 20px;
+    left: 60px;
+}
+
+/* 가능한 이미지 최적화 영역 */
+.section04-possible-optimization {
+    position: relative;
+    display: inline-block;
+}
+.section04-possible-optimization .section04-image-icon {
+    position: relative;
+    display: inline-block;
+    top: 40px;
+    left: 20px;
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+}
+.section04-possible-optimization .section04-text-wrapper {
+    position: relative;
+    display: inline-block;
+
+    bottom: 20px;
+    left: 60px;
+}
+.section04-possible-optimization .section04-text-value {
+    font-weight: 600;
+}
+
+/* 공통 텍스트 스타일 */
+.section04-text-wrapper {
+    position: relative;
+}
+.section04-text-title {
+    position: relative;
+    display: block;
+    margin-bottom: 4px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #878a93;
+}
+.section04-text-value {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 56px;
+    line-height: 64px;
+    color: #5a5c63;
+}
+.section04-text-description {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    line-height: 24px;
+    color: #878a93;
+}
+
+/* section05 ======================================================================*/
+.img-op-section05 {
+    position: absolute;
+    top: 1347px;
+    left: 340px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 500px;
+    height: 812px;
+}
+.div15 {
+    position: absolute;
+    top: -50px;
+    left: 20px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+.bytes-38 {
+    position: absolute;
+    top: -50px;
+    right: 0px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #878a93;
+    text-align: right;
+    display: inline-block;
+    /* width: 200px; */
+}
+.rectangle-parent {
+    width: 221px;
+    height: 280px;
+    position: relative; /* 자식 요소의 absolute 포지셔닝을 위해 relative로 변경 */
+}
+/* section06======================================================================*/
+.img-op-section06 {
+    position: absolute;
+    top: 1347px;
+    left: 860px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 1020px;
+    height: 812px;
+}
+.div16 {
+    position: absolute;
+    top: -50px;
+    left: 20px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+.bytes-39 {
+    position: absolute;
+    top: -50px;
+    left: 200px; /* section06 제목 우측에 배치 */
+    font-size: 16px;
+    line-height: 24px;
+    color: #878a93;
+    text-align: right;
+    display: inline-block;
+    /* width: 200px; */
+}
+.div55 {
+    position: absolute;
+    top: -50px;
+    right: 0px;
+    border-radius: 6px;
+    background-color: #dbdcdf;
+    border: 1px solid #c2c4c8;
+    box-sizing: border-box;
+    height: 34px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 12px;
+    font-size: 16px;
+    color: #46474c;
+}
+.icround-download-parent2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+}
+.icround-download-icon5 {
+    width: 22px;
+    position: relative;
+    max-height: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.div56 {
+    position: relative;
+    line-height: 24px;
+}
+
+.group-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 980px;
+    height: 762px;
+    overflow-y: auto;
+    color: #878a93;
+    scrollbar-width: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 20px;
+    justify-content: flex-start;
+}
+
+
+.group-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 8px;
+    background-color: #d9d9d9;
+    width: 221px;
+    height: 221px;
+    overflow: hidden;
+}
+.group-child img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.div17 {
+    position: absolute;
+    top: 225px;
+    left: 10px;
+    line-height: 24px;
+    width: 95%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bytes {
+    position: absolute;
+    top: 255px;
+    left: 10px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #292a2d;
+}
+.div19 {
+    position: relative;
+    line-height: 20px;
+}
+.div18 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 6px;
+    background-color: #dbdcdf;
+    border: 1px solid #c2c4c8;
+    box-sizing: border-box;
+    height: 28px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 12px;
+    font-size: 11px;
+    color: #46474c;
+}
+
+.group-parent {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 462px;
+    height: 762px;
+    overflow-y: auto;
+    font-size: 16px;
+    color: #878a93;
+    scrollbar-width: none;
+
+    /* Flexbox layout */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 20px; /* row-gap column-gap */
+    justify-content: flex-start;
+}
+.carboncarbon-for-aem-icon {
+    position: absolute;
+    top: 97px;
+    left: 340px;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+.div35 {
+    position: absolute;
+    top: 485px;
+    left: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    z-index: 10;
+    color: #292a2d;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2px 6px;
+    border-radius: 4px;
+    width: 95%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bytes6 {
+    position: absolute;
+    top: 510px;
+    left: 10px;
+    text-decoration: line-through;
+    line-height: 24px;
+    z-index: 10;
+    color: #5a5c63;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.div36 {
+    position: absolute;
+    top: 510px;
+    left: 121px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #5a5c63;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.bytes7 {
+    position: absolute;
+    top: 540px;
+    left: 10px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    color: #00b872;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.group-child4 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 8px;
+    background-color: #d9d9d9;
+    width: 480px;
+    height: 480px; /* 정사각형으로 변경 */
+    overflow: hidden;
+}
+.group-child4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.icround-download-icon {
+    flex: 1;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.icround-download-parent {
+    width: 56px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+}
+.div37 {
+    position: absolute;
+    top: 440px; /* 정사각형 이미지(480px) + 약간의 여유 */
+    left: 390px;
+    border-radius: 6px;
+    background-color: #dbdcdf;
+    border: 1px solid #c2c4c8;
+    box-sizing: border-box;
+    height: 28px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 12px;
+    font-size: 14px;
+    color: #46474c;
+}
+.parent {
+    width: 480px;
+    height: 568px; /* 정사각형 이미지(480px) + 텍스트 영역(약 88px) */
+    position: relative;
+}
+.group {
+    position: absolute;
+    top: 428px;
+    left: 0px;
+    width: 480px;
+    height: 388px;
+}
+/*=============================================================================*/
+.img-op {
+    width: 100%;
+    position: relative;
+    background-color: #f4f4f5;
+    height: 2292px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 18px;
+    color: #292a2d;
+    font-family: Roboto;
+}
+
+

@@ -1,0 +1,147 @@
+<div class="header header--flex">
+
+    <!-- 로고 =======================----------------------------------- -->
+    <a href="{{ url_for('main.home') }}" class="header-logo-link">
+        <div class="header-logo">eCarbon</div>
+    </a>
+
+    <!-- 네비게이션바 =======================----------------------------------- -->
+    <div class="header-nav">
+        <!--서비스 소개-->
+        <a href="{{ url_for('main.about') }}" class="nav-item">
+            {% if request.endpoint == 'main.about' %}
+            <div class="nav-active">{{ _('nav.service_intro') }}</div>
+            {% else %}
+            <div class="nav-text">{{ _('nav.service_intro') }}</div>
+            {% endif %}
+        </a>
+
+        <!--탄소 배출량 분석-->
+        <a href="{{ url_for('main.home') }}" class="nav-item">
+            {% if request.endpoint in ['main.carbon_calculate_emission', 'main.detailed_analysis', 'optimization.img_optimization', 'membership.plans', 'optimization.code_analysis', 'main.guidelines_page'] %}
+            <div class="nav-active">{{ _('nav.carbon_analysis') }}</div>
+            {% else %}
+            <div class="nav-text">{{ _('nav.carbon_analysis') }}</div>
+            {% endif %}
+        </a>
+
+        <!--탄소 배출 랭킹-->
+        <a href="#" class="nav-item nav--disabled" data-dev-link>
+            <div class="nav-text">{{ _('nav.carbon_ranking') }}</div>
+        </a>
+    </div>
+
+    <!-- 우측 컨트롤 그룹 =======================----------------------------------- -->
+    <div class="header-controls">
+        <!-- 언어 선택기 =======================----------------------------------- -->
+    <div class="header-language-selector" id="languageSelector">
+        <div class="header-language-current">
+            <img class="header-language-flag" src="{{ url_for('static', filename='img/flag/' + current_language.flag_code + '.svg') }}" alt="{{ current_language.name }} 국기" title="{{ current_language.name }}" />
+        </div>
+        <div class="header-language-dropdown">
+            {% for lang_code, lang_info in supported_languages.items() %}
+            <a href="{{ url_for('language.set_language', lang_code=lang_code) }}"
+               class="header-language-option {% if lang_code == current_language.code %}active{% endif %}"
+               title="{{ lang_info.name }}">
+                <img class="header-language-option-flag" src="{{ url_for('static', filename='img/flag/' + lang_info.flag_code + '.svg') }}" alt="{{ lang_info.name }} 국기" />
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+        <!-- 다크모드 =======================----------------------------------- -->
+        <div class="header-darkmode" data-dev-link>
+            <img class="header-darkmode-icon" alt="다크모드 전환 아이콘" src="{{ url_for('static', filename='img/header/header-darkmode-01.svg') }}">
+        </div>
+
+        {% if session.get('user_id') %}
+        <!-- 로그인 상태 =======================----------------------------------- -->
+        <div class="header-user-container">
+            <div class="header-user-button">
+                {{ session.get('username') }}
+            </div>
+            <div class="header-user-dropdown">
+                <div class="header-dropdown-header">
+                    <div class="header-user-name">{{ session.get('username') }} {{ _('user.greeting') }}</div>
+                    {% if session.get('institution') %}
+                    <div class="header-user-institution">{{ session.get('institution') }}</div>
+                    {% endif %}
+                </div>
+                <div class="header-dropdown-divider"></div>
+                <a href="{{ url_for('auth.logout') }}" class="header-dropdown-item">
+                    <span class="header-dropdown-text">{{ _('user.logout') }}</span>
+                </a>
+            </div>
+        </div>
+        {% else %}
+        <!-- 비로그인 상태 =======================----------------------------------- -->
+        <a href="{{ url_for('auth.login') }}" class="header-login-button">
+            {{ _('user.login') }}
+        </a>
+        {% endif %}
+    </div>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/header/new-header.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/header/responsive-header.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/header/language-selector.css') }}" />
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme Toggle
+            const themeToggle = document.querySelector('.header-darkmode');
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('dark-theme');
+                });
+            }
+
+            // Language Selector Toggle
+            const languageSelector = document.getElementById('languageSelector');
+            if (languageSelector) {
+                const currentLang = languageSelector.querySelector('.header-language-current');
+
+                currentLang.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    languageSelector.classList.toggle('open');
+                });
+
+                // 외부 클릭 시 드롭다운 닫기
+                document.addEventListener('click', function(event) {
+                    if (!languageSelector.contains(event.target)) {
+                        languageSelector.classList.remove('open');
+                    }
+                });
+
+                // 언어 선택 시 드롭다운 닫기
+                const languageOptions = languageSelector.querySelectorAll('.header-language-option');
+                languageOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        languageSelector.classList.remove('open');
+                    });
+                });
+            }
+
+            // User Dropdown Toggle (로그인 상태에만 작동)
+            const userContainer = document.querySelector('.header-user-container');
+            const userDropdown = document.querySelector('.header-user-dropdown');
+
+            if (userContainer && userDropdown) {
+                const userButton = userContainer.querySelector('.header-user-button');
+
+                if (userButton) {
+                    userButton.addEventListener('click', function (event) {
+                        event.stopPropagation();
+                        userDropdown.classList.toggle('show');
+                    });
+
+                    document.addEventListener('click', function (event) {
+                        if (!userContainer.contains(event.target)) {
+                            userDropdown.classList.remove('show');
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</div>

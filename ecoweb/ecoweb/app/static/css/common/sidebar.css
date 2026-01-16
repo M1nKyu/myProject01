@@ -1,0 +1,377 @@
+/* sidebar ==================================================================*/
+.sidebar {
+  /* 레이아웃 */
+  position: absolute;
+  top: 82px;
+  left: 0;
+  z-index: 10000;
+
+  /* 사이즈 */
+  --sidebar-width: 300px;
+  --sidebar-collapsed-width: 70px;
+  width: var(--sidebar-width);
+  height: 927px;
+
+  /* 기타 */
+  isolation: isolate;
+  pointer-events: auto;
+
+  /* 폰트 */
+  font-family: Roboto;
+
+  /* 애니메이션 */
+  transition: width 0.3s ease;
+  overflow: visible;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+/* sidebar toggle ========================================================== */
+.sidebar-toggle {
+  /* 레이아웃 */
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 50px;
+  top: calc(927px / 2 - 25px);
+  left: 100%;
+
+  /* 스타일 */
+  background-color: #ffffff;
+  border-radius: 0px 8px 8px 0px;
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.15);
+
+  /* 기타 */
+  cursor: pointer;
+  z-index: 10001;
+  transition: left 0.3s ease;
+}
+
+.sidebar-toggle-icon {
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1;
+  color: #878a93;
+  transition: transform 0.3s ease;
+}
+
+/* sidebar item */
+.sidebar-item {
+  /* 레이아웃 */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 274px;
+  margin-bottom: 8px;
+  padding: 18px 10px;
+
+  /* 사이즈 */
+  height: 60px;
+  box-sizing: border-box;
+
+  /* 기타 */
+  cursor: pointer;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: width 0.3s ease, padding 0.3s ease, justify-content 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-item {
+  width: 50px;
+  height: 50px;
+  padding: 13px;
+  justify-content: center;
+}
+
+.sidebar-item.analysis {
+  color: inherit;
+  background-color: transparent;
+}
+.sidebar-item.setting {
+  color: inherit;
+  background-color: transparent;
+}
+
+.sidebar-item.analysis:hover:not(.active),
+.sidebar-item.setting:hover:not(.active) {
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-item.analysis:hover:not(.active) .sidebar-item-arrow,
+.sidebar-item.setting:hover:not(.active) .sidebar-item-arrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.sidebar-item.active {
+  color: #fff;
+  background-color: #46474c;
+}
+
+.sidebar-item.active .sidebar-item-icon {
+  filter: brightness(0) invert(1);
+}
+
+.sidebar-item.active .sidebar-item-title {
+  color: #fff;
+}
+
+.sidebar-item.active .sidebar-item-arrow {
+  color: #fff;
+  opacity: 1;
+}
+
+/* sidebar top, bottom ==================================================== */
+.sidebar-top {
+  position: relative;
+  width: 300px;
+  height: 695px;
+  margin-bottom: 12px;
+
+  border-radius: 0px 12px 12px 0px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-top {
+  width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-bottom {
+  position: relative;
+  width: 300px;
+  height: 220px;
+
+  border-radius: 0px 12px 12px 0px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-bottom {
+  width: var(--sidebar-collapsed-width);
+}
+
+/* section01 (url) =================================================== */
+.sidebar-section-01 {
+  /* 레이아웃 */
+  position: absolute;
+  width: 274px;
+  height: 74px;
+  top: 13px;
+  left: 13px;
+  z-index: 1;
+
+  /* 테두리 */
+  border-radius: 12px;
+  border: 1px solid #dbdcdf;
+  transition: opacity 0.3s ease, width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.collapsed .sidebar-section-01 {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border: none;
+}
+
+.sidebar-section-01-icon-web {
+  /* 레이아웃 */
+  position: absolute;
+  top: 13px;
+  left: 18px;
+
+  /* 모델 */
+  width: 20px;
+  height: 20px;
+}
+.sidebar-section-01-url {
+  /* 레이아웃 */
+  position: absolute;
+  width: 208px;
+  top: 12px;
+  left: 50px;
+  overflow: hidden;
+
+  /* 텍스트 */
+  font-size: 16px;
+  line-height: 24px;
+  font-family: Roboto;
+  color: #292a2d;
+  text-overflow: ellipsis;
+}
+
+/* section02 ====================================================== */
+.sidebar-section-02 {
+  /* 레이아웃 */
+  position: absolute;
+  top: 97px;
+  left: 13px;
+  transition: top 0.3s ease, left 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-section-02 {
+  top: 13px;
+  left: 10px;
+}
+
+.sidebar-item {
+  /* 레이아웃 */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 274px;
+  margin-bottom: 8px;
+  padding: 18px 10px;
+
+  /* 사이즈 */
+  height: 60px;
+  box-sizing: border-box;
+
+  /* 기타 */
+  cursor: pointer;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+}
+
+.sidebar-item-icon {
+  /* 레이아웃 */
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-item-title {
+  /* 레이아웃 */
+  flex: 1;
+  margin-left: 8px;
+  margin-right: 8px;
+  z-index: 2;
+
+  /* 텍스트 */
+  font-size: 18px;
+  line-height: 24px;
+  color: #878a93;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-item-title {
+  opacity: 0;
+  width: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.sidebar-item-arrow {
+  /* 레이아웃 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+
+  /* 텍스트 스타일 */
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1;
+  color: #878a93;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-item-arrow {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+.sidebar-item:hover:not(.active) {
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-item:hover:not(.active) .sidebar-item-arrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* section03 ================================================================== */
+.sidebar-section-03 {
+  /* 레이아웃 */
+  position: relative;
+  padding: 13px;
+  transition: padding 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-section-03 {
+  padding: 13px 10px;
+}
+
+
+/* sidebar lock ============================================================= */
+.sidebar-lock-container {
+  position: absolute;
+  width: 274px;
+  height: 264px;
+  top: 165px;
+  left: 13px;
+  background-color: #f4f4f5cc;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: #c2c4c8;
+  backdrop-filter: blur(2px) brightness(100%);
+  z-index: 1;
+  -webkit-backdrop-filter: blur(2px) brightness(100%);
+  cursor: pointer;
+}
+
+.sidebar-lock-content {
+  position: relative;
+  width: 142px;
+  height: 87px;
+  top: 66px;
+  left: 64px;
+  align-items: center;
+}
+
+.sidebar-lock-text {
+  position: absolute;
+  width: 140px;
+  top: 45px;
+  left: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: Roboto;
+  color: #292a2d;
+  text-align: center;
+  display: inline-block;
+  height: 41.6px;
+}
+
+.sidebar-lock-icon-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  top: 0;
+  left: 58px;
+}
+
+.sidebar-lock-icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}

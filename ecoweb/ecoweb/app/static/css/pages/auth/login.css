@@ -1,0 +1,671 @@
+body {
+    background: #f4f4f5;
+}
+
+.login {
+    width: 100%;
+    position: relative;
+    background-color: #f4f4f5;
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-align: left;
+    font-size: 16px;
+    color: #c2c4c8;
+    font-family: Roboto;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-flash-container {
+    width: 410px;
+    margin: 0 auto 24px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.login-flash-message {
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: relative;
+    animation: fadeIn 0.5s;
+}
+.login-flash-message.success {
+    background: #e8f5e9;
+    color: #388e3c;
+    border: 1px solid #a5d6a7;
+}
+.login-flash-message.error {
+    background: #ffebee;
+    color: #d32f2f;
+    border: 1px solid #ffcdd2;
+}
+.login-flash-message.info {
+    background: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #90caf9;
+}
+.login-flash-icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+.login-flash-text {
+    flex: 1;
+}
+.login-flash-close {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 0 4px;
+    line-height: 1;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-form {
+    position: absolute;
+    width: 410px;
+    left: 429px;
+    top: 475px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: none;
+    gap: 0;
+}
+
+.login-id-input {
+    position: static;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-pw-input {
+    position: static;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-form-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.login-save-check {
+    position: static;
+    flex: 1;
+    margin-right: 10px;
+}
+.div5 {
+    position: static;
+    flex: 1;
+    text-align: right;
+    margin-left: 10px;
+}
+
+.login-button {
+    position: static;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.login-signup-move {
+    position: static;
+    width: 224px;
+    height: 24px;
+    align-self: center;
+}
+.parent {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2px;
+}
+
+/* 로고 ======================================================================= */
+.ecarbon-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(244, 244, 245, 0.6);
+    width: 1920px;
+    height: 80px;
+    overflow: hidden;
+    font-size: 22px;
+    color: #292a2d;
+}
+.ecarbon2 {
+    position: absolute;
+    top: calc(50% - 14px);
+    left: 27px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+/* 타이틀 ======================================================================= */
+.ecarbon {
+    position: absolute;
+    top: 195px;
+    left: 429px;
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 600;
+    color: #292a2d;
+}
+.p {
+    margin: 0;
+}
+
+/* 타이틀 이미지 ======================================================================= */
+.rectangle-icon {
+    position: absolute;
+    top: 99px;
+    left: 974px;
+    border-radius: 24px;
+    width: 626px;
+    height: 890px;
+    object-fit: cover;
+}
+
+/* 아이디 입력 ======================================================================= */
+.login-id-input {
+    border-radius: 12px;
+    background-color: #fff;
+    border: 1px solid #c2c4c8;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    position: static;
+}
+.login-id-input-content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 18px 0 0 22px;
+}
+.login-id-input-field {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: inherit;
+    color: #292a2d;
+    z-index: 2;
+    padding: 18px 0 0 54px;
+    box-sizing: border-box;
+}
+
+.login-id-input-icon {
+    height: 24px;
+    width: 24.5px;
+}
+.login-id-input-text {
+    line-height: 24px;
+    font-size: 16px;
+    font-family: Roboto;
+    color: #c2c4c8;
+}
+
+/* 비밀번호 입력 ======================================================================= */
+.login-pw-input {
+    border-radius: 12px;
+    background-color: #fff;
+    border: 1px solid #c2c4c8;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    position: static;
+}
+.login-pw-input-content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 18px 0 0 22px;
+}
+.login-pw-input-field {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: inherit;
+    color: #292a2d;
+    z-index: 2;
+    padding: 18px 54px 0 54px;
+    box-sizing: border-box;
+}
+
+.login-pw-input-icon {
+    height: 24px;
+    width: 24.5px;
+}
+.login-pw-input-text {
+    position: relative;
+    line-height: 24px;
+}
+.login-pw-input-eye {
+    width: 24.5px;
+    position: absolute;
+    height: 24px;
+    right: 18px;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 3;
+}
+.login-pw-eye-icon {
+    height: 24px;
+    width: 24.5px;
+}
+
+/* 아이디 저장 여부 체크 ======================================================================= */
+.login-save-check {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    color: #979b97;
+    position: static;
+}
+.login-save-check-box {
+    width: 22.5px;
+    border-radius: 6px;
+    background-color: #c2c4c8;
+    border: 1px solid #c2c4c8;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.icon-parent {
+    width: 16.3px;
+    position: relative;
+    height: 16px;
+}
+.icon {
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* 체크박스 체크된 상태 */
+.login-save-check-box.checked {
+    background-color: #46474c;
+    border-color: #46474c;
+}
+
+.login-save-check-box.checked .icon {
+    opacity: 1;
+}
+
+.div2 {
+    position: relative;
+    line-height: 24px;
+}
+
+/* 아이디/비밀번호 찾기 ======================================================================= */
+.div5 {
+    line-height: 24px;
+    color: #979b97;
+    text-align: right;
+    position: static;
+}
+
+/* 로그인 버튼 ======================================================================= */
+.login-button {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: block;
+    height: 60.1px;
+    font-size: 18px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
+}
+.login-button-child {
+    border-radius: 16px;
+    background-color: #c2c4c8;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+.div8 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 24px;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* 구글 로그인 ======================================================================= */
+.group-parent {
+    width: 100%;
+    position: relative;
+    border-radius: 16px;
+    background-color: #f4f4f5;
+    border: 1px solid #c2c4c8;
+    box-sizing: border-box;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 28px;
+    gap: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: #5a5c63;
+    font-family: Roboto;
+    margin-bottom: 100px;
+}
+.frame-child {
+    width: 24px;
+    position: relative;
+    height: 24px;
+}
+.div {
+    position: relative;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+/* 회원가입 이동 ======================================================================= */
+.login-signup-move {
+    width: 250px;
+    height: 24px;
+    align-self: center;
+    position: static;
+}
+
+.div7 {
+    position: relative;
+    text-decoration: underline;
+    line-height: 24px;
+    color: #292a2d;
+}
+
+/* ======================================================================= 
+   반응형 디자인 (Responsive Design)
+   ======================================================================= */
+
+/* 태블릿 (768px ~ 1199px) */
+@media screen and (max-width: 1199px) {
+    .login {
+        padding: 0 20px;
+    }
+    
+    /* 로고 */
+    .ecarbon-wrapper {
+        width: 100%;
+        position: fixed;
+        z-index: 1000;
+    }
+    
+    /* 메인 이미지 숨김 */
+    .rectangle-icon {
+        display: none;
+    }
+    
+    /* 타이틀 중앙 정렬 */
+    .ecarbon {
+        position: static;
+        text-align: center;
+        margin: 120px auto 60px auto;
+        font-size: 32px;
+        line-height: 48px;
+    }
+    
+    /* 로그인 폼 중앙 정렬 */
+    .login-form {
+        position: static;
+        width: 100%;
+        max-width: 410px;
+        margin: 0 auto;
+        left: auto;
+        top: auto;
+    }
+    
+    /* 플래시 메시지 */
+    .login-flash-container {
+        width: 100%;
+        max-width: 410px;
+        margin: 0 auto 24px auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+}
+
+/* 모바일 (767px 이하) */
+@media screen and (max-width: 767px) {
+    .login {
+        padding: 0 16px;
+    }
+    
+    /* 로고 */
+    .ecarbon-wrapper {
+        height: 60px;
+    }
+    
+    .ecarbon2 {
+        font-size: 18px;
+        left: 16px;
+    }
+    
+    /* 타이틀 */
+    .ecarbon {
+        margin: 100px auto 40px auto;
+        font-size: 28px;
+        line-height: 40px;
+        padding: 0 16px;
+    }
+    
+    /* 로그인 폼 */
+    .login-form {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+    }
+    
+    /* 입력 필드 */
+    .login-id-input,
+    .login-pw-input {
+        height: 56px;
+        margin-bottom: 16px;
+    }
+    
+    .login-id-input-content,
+    .login-pw-input-content {
+        padding: 16px 0 0 18px;
+    }
+    
+    .login-id-input-field,
+    .login-pw-input-field {
+        padding: 16px 0 0 48px;
+        font-size: 16px;
+    }
+    
+    /* 입력 필드 텍스트 동적 크기 조절 */
+    .login-id-input-text,
+    .login-pw-input-text {
+        font-size: clamp(13px, 2vw, 16px) !important; /* 최소 13px, 최대 16px로 동적 조절 */
+    }
+    
+    /* 폼 행 */
+    .login-form-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+    
+    .login-save-check {
+        margin-right: 0;
+    }
+    
+    .div5 {
+        text-align: left;
+        margin-left: 0;
+    }
+    
+    /* 버튼 */
+    .login-button {
+        height: 56px;
+        margin-bottom: 16px;
+        font-size: 16px;
+    }
+    
+    .group-parent {
+        height: 56px;
+        margin-bottom: 60px;
+        font-size: 16px;
+        padding: 16px 20px;
+    }
+    
+    /* 회원가입 링크 */
+    .login-signup-move {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .parent {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    
+    /* 플래시 메시지 */
+    .login-flash-container {
+        padding: 0;
+    }
+    
+    .login-flash-message {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+/* 작은 모바일 (480px 이하) */
+@media screen and (max-width: 480px) {
+    .login {
+        padding: 0 12px;
+    }
+    
+    .ecarbon {
+        font-size: 24px;
+        line-height: 36px;
+        margin: 80px auto 32px auto;
+        padding: 0 12px;
+    }
+    
+    .login-id-input-content,
+    .login-pw-input-content {
+        padding: 14px 0 0 16px;
+    }
+    
+    .login-id-input-field,
+    .login-pw-input-field {
+        padding: 14px 0 0 44px;
+        font-size: 15px;
+    }
+    
+    /* 입력 필드 텍스트 동적 크기 조절 (작은 모바일) */
+    .login-id-input-text,
+    .login-pw-input-text {
+        font-size: clamp(13px, 2.5vw, 15px) !important; /* 최소 13px, 최대 15px로 동적 조절 */
+    }
+    
+    .login-button,
+    .group-parent {
+        height: 52px;
+        font-size: 15px;
+    }
+    
+    .group-parent {
+        padding: 14px 16px;
+    }
+}
+
+/* 가로 모드 모바일 */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .ecarbon {
+        margin: 80px auto 24px auto;
+        font-size: 24px;
+        line-height: 32px;
+    }
+    
+    .login-form {
+        gap: 0;
+    }
+    
+    .login-id-input,
+    .login-pw-input {
+        margin-bottom: 12px;
+    }
+    
+    .login-form-row {
+        margin-bottom: 20px;
+    }
+    
+    .login-button {
+        margin-bottom: 12px;
+    }
+    
+    .group-parent {
+        margin-bottom: 40px;
+    }
+}

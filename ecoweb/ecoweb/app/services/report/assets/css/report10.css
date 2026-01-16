@@ -1,0 +1,36 @@
+.content {
+    position: absolute;
+    top: 100px;
+    left: 180px;
+    width: 621px;
+}
+.guide {
+    position: relative;
+    height: 135px;
+    margin-bottom: 12px;
+}
+.guide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    background-color: #d9d9d9;
+    width: 216px;
+    height: 135px;
+}
+.guide-description {
+    position: absolute;
+    top: 0;
+    left: 240px;
+    font-size: 9px;
+    line-height: 16px;
+    color: #5a5c63;
+}
+.guide-description-title {
+    font-weight: 700;
+    margin: 0;
+}
+.guide-description-text {
+    position: relative;
+    display: block;
+}

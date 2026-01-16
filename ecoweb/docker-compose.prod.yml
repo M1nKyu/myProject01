@@ -1,0 +1,153 @@
+# 공인 IP 주소: 0.0.0.0
+# 포트: 80 (HTTP), 443 (HTTPS)
+# 프로덕션 환경 설정
+
+services:
+  web:
+    build: .
+    # PROD: Dockerfile CMD 사용 (최적화된 Gunicorn 설정)
+    # 명시적으로 command를 지정하여 entrypoint.sh가 제대로 실행되도록 함
+    command: ["gunicorn", "--chdir", "ecoweb", "--bind", "0.0.0.0", "--worker-class", "gthread", "--workers", "3", "--threads", "4", "--timeout", "300", "--max-requests", "1000", "--max-requests-jitter", "50", "--log-level", "info", "--access-logfile", "-", "--error-logfile", "-", "run:app"]
+    expose:
+      - "5000"
+    volumes:
+      - ./ecoweb/app/static:/app/ecoweb/app/static
+      - ./ecoweb/var:/app/var
+    entrypoint: ["/bin/bash", "/app/scripts/docker/entrypoint.sh"]
+    deploy:
+      resources:
+        limits:
+          memory: 6G  # PROD: 높은 메모리 제한
+    environment:
+      - PYTHONPATH=/app
+      - FLASK_ENV=production  # PROD: production 환경
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - SESSION_COOKIE_SECURE=True  # PROD: HTTPS에서만 쿠키 전송
+      # Limit img optimization workload per request to avoid long runtimes
+      - IMG_OPT_MAX=20  # 8GB 서버 최적화: 메모리 사용량 감소
+      - OAUTHLIB_INSECURE_TRANSPORT=1
+    env_file:
+      - .env.prod
+    depends_on:
+      redis:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+    networks:
+      - ecoweb-network
+    restart: always
+    dns:
+      - 0.0.0.0
+
+  worker:
+    build: .
+    working_dir: /app
+    entrypoint: ["/bin/bash", "/app/scripts/docker/entrypoint.sh"]
+    command: ["celery", "-A", "celery_worker.celery", "worker", "-l", "info", "--concurrency=${CELERY_WORKER_CONCURRENCY:-8}"]
+    deploy:
+      resources:
+        limits:
+          memory: ${CELERY_WORKER_MEMORY_LIMIT:-3G}  # PROD: 높은 메모리 제한
+      replicas: ${CELERY_WORKER_REPLICAS:-1}
+    volumes:
+      - ./ecoweb/static:/app/ecoweb/static
+      - ./ecoweb/var:/app/var
+    environment:
+      - PYTHONPATH=/app
+      - FLASK_ENV=production  # PROD: production 환경
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - SESSION_COOKIE_SECURE=True  # PROD: HTTPS에서만 쿠키 전송
+      - CELERY_WORKER_CONCURRENCY=${CELERY_WORKER_CONCURRENCY:-8}  # PROD: 높은 동시성
+    env_file:
+      - .env.prod
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - ecoweb-network
+    restart: always
+    dns:
+      - 0.0.0.0
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      # PROD: SSL 인증서 경로 (환경 변수로 설정 가능하도록 개선 필요)
+      - ${NGINX_SSL_PATH:-./nginx/ssl}:/etc/nginx/ssl
+      - ./ecoweb/app/static:/app/ecoweb/app/static
+      - ./ecoweb/var:/app/var
+    ports:
+      - "80:80"   # PROD: HTTP 포트 노출
+      - "443:443" # PROD: HTTPS 포트 노출
+    depends_on:
+      - web
+    networks:
+      - ecoweb-network
+    restart: always
+    
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - ecoweb-network
+    deploy:
+      resources:
+        limits:
+          memory: 2G  # PROD: Ollama 메모리 증가 (orca-mini 모델 사용)
+    command: 
+      - serve
+    dns:
+      - 0.0.0.0
+    healthcheck:
+      # Ollama CLI를 사용하여 healthcheck (ollama list는 서버가 준비되면 정상 동작)
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  redis:
+    image: redis:alpine
+    # PROD: Redis 비밀번호 설정 (환경 변수 REDIS_PASSWORD가 설정된 경우에만 적용)
+    # 주의: 환경 변수가 설정되지 않으면 비밀번호 없이 실행됨
+    command: >
+      sh -c "
+      if [ -n \"$$REDIS_PASSWORD\" ]; then
+        redis-server --appendonly yes --appendfsync everysec --requirepass \"$$REDIS_PASSWORD\"
+      else
+        redis-server --appendonly yes --appendfsync everysec
+      fi
+      "
+    env_file:
+      - .env.prod
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-}
+    volumes:
+      - redis_data:/data
+    networks:
+      - ecoweb-network
+    restart: always
+    healthcheck:
+      test: >
+        sh -c "
+        if [ -n \"$$REDIS_PASSWORD\" ]; then
+          redis-cli -a \"$$REDIS_PASSWORD\" ping
+        else
+          redis-cli ping
+        fi
+        "
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  ecoweb-network:
+    driver: bridge
+
+volumes:
+  redis_data:
+  ollama_data:

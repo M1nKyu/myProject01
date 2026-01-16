@@ -1,0 +1,412 @@
+.about {
+    width: 100%;
+    position: relative;
+    background-color: #f5f5f5;
+    height: 4800px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    font-family: Roboto;
+}
+
+/* 상단 ============================================================= */
+/* 상단 배경 */
+.about-top-bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(180deg, #f5f5f5, #d9d9d9);
+    width: 1920px;
+    height: 1200px;
+}
+
+/* 탄소 배출 진단 버튼 */
+.about-top-button {
+    position: relative;
+    line-height: 32px;
+    font-weight: 600;
+}
+.about-top-button-text {
+    position: absolute;
+    top: 475px;
+    left: calc(50% - 179px);
+    border-radius: 12px;
+    background-color: #daf2e9;
+    border: 1px solid #81ebc2;
+    box-sizing: border-box;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 60px;
+    font-size: 24px;
+    color: #006b42;
+}
+
+/* 타이틀 */
+.about-top-title {
+    position: absolute;
+    top: 207px;
+    left: calc(50% - 388px);
+    font-size: 56px;
+    line-height: 64px;
+    font-weight: 600;
+}
+
+/* 설명 */
+.about-top-text {
+    position: absolute;
+    top: 303px;
+    left: calc(50% - 342.78px);
+    font-size: 20px;
+    line-height: 28px;
+    color: #464a4d;
+}
+p {
+    margin: 0;
+}
+
+/* 아래 화살표 버튼 */
+.about-top-arrow-down {
+    position: absolute;
+    top: 980px;
+    left: 935px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+/* section 02 ============================================================= */
+
+/* */
+.ellipse-div {
+    position: absolute;
+    top: 1400px;
+    left: 320px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    width: 50px;
+    height: 50px;
+}
+/* 설명 텍스트 */
+.about-section02-description-text {
+    width: 100%;
+}
+.about-section02-description {
+    position: absolute;
+    top: 1470px;
+    left: calc(50% - 640px);
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: 600;
+    color: #464a4d;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    width: 1280px;
+}
+
+/* 아이템 01 */
+.about-section02-item-01 {
+    position: absolute;
+    top: 1670px;
+    left: 320px;
+    border-radius: 40px;
+    background-color: #fff;
+    width: 628px;
+    height: 400px;
+}
+.about-section02-item-01-title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border-radius: 40px;
+    background-color: #2f2f2f;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    color: #fff;
+}
+.about-section-item-title-text {
+    position: relative;
+    line-height: 24px;
+    font-weight: 600;
+}
+.about-section02-item-01-description {
+    position: absolute;
+    top: 90px;
+    left: 30px;
+    font-size: 19px;
+    line-height: 28px;
+    font-weight: 500;
+    color: #4b4b4b;
+    text-align: left;
+    display: inline-block;
+    width: 559px;
+}
+.about-section02-item-01-number {
+    position: absolute;
+    top: 240px;
+    left: 30px;
+    font-size: 140px;
+    line-height: 140px;
+    font-weight: 600;
+}
+
+/* 아이템 02 */
+.about-section02-item-02 {
+    position: absolute;
+    top: 1670px;
+    left: 972px;
+    border-radius: 40px;
+    background-color: #fff;
+    width: 628px;
+    height: 400px;
+}
+.container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border-radius: 40px;
+    background-color: #2f2f2f;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    color: #fff;
+}
+.div4 {
+    position: absolute;
+    top: 90px;
+    left: 30px;
+    font-size: 19px;
+    line-height: 28px;
+    font-weight: 500;
+    color: #4b4b4b;
+    text-align: left;
+    display: inline-block;
+    width: 559px;
+}
+.div5 {
+    position: absolute;
+    top: 240px;
+    left: 30px;
+    font-size: 140px;
+    line-height: 140px;
+    font-weight: 600;
+}
+
+/* 아이템 03 */
+.about-section02-item-03 {
+    position: absolute;
+    top: 2090px;
+    left: 320px;
+    border-radius: 40px;
+    background-color: #fff;
+    width: 1280px;
+    height: 400px;
+}
+.ai-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border-radius: 40px;
+    background-color: #2f2f2f;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    color: #fff;
+}
+.ai-container {
+    position: absolute;
+    top: 90px;
+    left: 30px;
+    font-size: 19px;
+    line-height: 28px;
+    font-weight: 500;
+    color: #4b4b4b;
+    text-align: left;
+    display: inline-block;
+    width: 1165px;
+}
+.div7 {
+    position: absolute;
+    top: 240px;
+    left: 30px;
+    font-size: 140px;
+    line-height: 140px;
+    font-weight: 600;
+}
+
+/* 고객 추천 =============================================================*/
+.about-section03-title {
+    position: absolute;
+    top: 2690px;
+    left: calc(50% - 63px);
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    color: #17191a;
+}
+
+.about-section03-box-container {
+    position: absolute;
+    top: 2790px;
+    left: 40px;
+    height: 400px;
+    width: 1840px;
+    display: flex;
+    gap: 20px;
+}
+
+.about-section03-box {
+    border-radius: 20px;
+    background-color: #fff;
+    width: calc((100% - 40px) / 3);
+    height: 400px;
+    flex-shrink: 0;
+}
+
+/* 이메일 입력 =============================================================*/
+.about-section04 {
+    position: absolute;
+    top: 3390px;
+    left: calc(50% - 435px);
+    width: 846px;
+    height: 470px;
+    text-align: left;
+    color: #c2c4c8;
+}
+.about-section04-icon-email {
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 137px);
+    width: 275px;
+    height: 214px;
+    object-fit: cover;
+}
+.about-section04-email-input-container {
+    position: absolute;
+    top: 378px;
+    left: calc(50% - 423px);
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(24, 24, 24, 0.6);
+    box-sizing: border-box;
+    width: 846px;
+    height: 60px;
+    align-items: center;
+}
+.about-section04-email-input-text {
+    position: absolute;
+    top: 17px;
+    left: 300px;
+    line-height: 24px;
+}
+.about-section04-icon-arrow {
+    position: absolute;
+    top: 13px;
+    left: 790px;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    object-fit: contain;
+}
+.about-section04-title {
+    position: absolute;
+    top: 230px;
+    left: calc(50% - 323px);
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    color: #292a2d;
+    text-align: center;
+}
+.about-section04-header-01 {
+    position: absolute;
+    top: 322px;
+    left: calc(50% - 196px);
+    line-height: 24px;
+    color: #70737c;
+}
+
+.about-section04-header-02 {
+    position: absolute;
+    top: 450px;
+    left: calc(50% - 223px);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* 설문조사 =============================================================*/
+.about-section05 {
+    position: absolute;
+    top: 4060px;
+    left: calc(50% - 928px);
+    border-radius: 16px;
+    background-color: #393939;
+    width: 1856px;
+    height: 400px;
+    color: #fff;
+    align-items: center;
+}
+.about-section05-heading-01 {
+    position: absolute;
+    top: 56px;
+    left: calc(50% - 119.36px);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+.about-section05-heading-02 {
+    position: absolute;
+    top: 99px;
+    left: calc(50% - 296.36px);
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 600;
+}
+.about-section05-text {
+    position: absolute;
+    top: 171.8px;
+    left: calc(50% - 260.53px);
+    line-height: 30px;
+}
+.about-section05-text-bold {
+    margin: 0;
+    font-weight: 600;
+}
+.about-section05-link {
+    position: absolute;
+    top: 301px;
+    left: 778px;
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    background-color: #81ebc2;
+    width: 301px;
+    height: 52px;
+    overflow: hidden;
+    color: #393939;
+    align-items: center;
+    justify-content: center;
+}
+.about-section05-link-text {
+    position: absolute;
+    top: 14px;
+    left: 78px;
+    line-height: 24px;
+    font-weight: 600;
+}

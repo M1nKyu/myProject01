@@ -1,0 +1,1211 @@
+# Korean translations for ECO-WEB
+# Copyright (C) 2025
+msgid ""
+msgstr ""
+"Project-Id-Version: ECO-WEB 1.0\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Header Navigation
+msgid "nav.service_intro"
+msgstr "서비스 소개"
+
+msgid "nav.carbon_analysis"
+msgstr "탄소 배출량 분석"
+
+msgid "nav.carbon_ranking"
+msgstr "탄소 배출 랭킹"
+
+msgid "nav.corporate_service"
+msgstr "기업 서비스"
+
+# User Menu
+msgid "user.login"
+msgstr "로그인"
+
+msgid "user.logout"
+msgstr "로그아웃"
+
+msgid "user.signup"
+msgstr "회원가입"
+
+msgid "user.greeting"
+msgstr "님"
+
+# Homepage
+msgid "home.main_title"
+msgstr "보이지 않는 탄소,\n지금 확인해보세요"
+
+msgid "home.main_subtitle"
+msgstr "URL을 입력하여 웹사이트의 탄소 배출량을 분석하고\n친환경 개선 가이드를 받아보세요"
+
+msgid "home.url_placeholder"
+msgstr "웹사이트 주소를 입력해주세요"
+
+msgid "home.analyze_button"
+msgstr "분석 시작"
+
+msgid "home.recent_searches"
+msgstr "최근 검색한 URL"
+
+# Carbon Analysis
+msgid "analysis.carbon_emission"
+msgstr "탄소 배출량"
+
+msgid "analysis.page_size"
+msgstr "페이지 크기"
+
+msgid "analysis.grade"
+msgstr "등급"
+
+msgid "analysis.percentile"
+msgstr "백분위"
+
+msgid "analysis.korea_average"
+msgstr "한국 평균"
+
+msgid "analysis.global_average"
+msgstr "세계 평균"
+
+msgid "analysis.comparison"
+msgstr "비교"
+
+msgid "analysis.higher_than"
+msgstr "높습니다"
+
+msgid "analysis.lower_than"
+msgstr "낮습니다"
+
+# Optimization
+msgid "optimization.code_title"
+msgstr "코드 최적화"
+
+msgid "optimization.image_title"
+msgstr "이미지 최적화"
+
+msgid "optimization.font_title"
+msgstr "폰트 최적화"
+
+# PDF Report
+msgid "pdf.generate_button"
+msgstr "PDF 보고서 생성"
+
+msgid "pdf.download_button"
+msgstr "다운로드"
+
+# Loading Messages
+msgid "loading.analyzing"
+msgstr "분석 중입니다"
+
+msgid "loading.please_wait"
+msgstr "잠시만 기다려주세요"
+
+msgid "loading.processing"
+msgstr "처리 중"
+
+# Error Messages
+msgid "error.invalid_url"
+msgstr "유효하지 않은 URL입니다"
+
+msgid "error.analysis_failed"
+msgstr "분석에 실패했습니다"
+
+msgid "error.network_error"
+msgstr "네트워크 오류가 발생했습니다"
+
+msgid "error.server_error"
+msgstr "서버 오류가 발생했습니다"
+
+# Common
+msgid "common.submit"
+msgstr "제출"
+
+msgid "common.cancel"
+msgstr "취소"
+
+msgid "common.confirm"
+msgstr "확인"
+
+msgid "common.close"
+msgstr "닫기"
+
+msgid "common.save"
+msgstr "저장"
+
+msgid "common.delete"
+msgstr "삭제"
+
+msgid "common.edit"
+msgstr "수정"
+
+msgid "common.view_more"
+msgstr "더보기"
+
+msgid "common.loading"
+msgstr "로딩 중..."
+
+# Loading Page
+msgid "loading.page_title"
+msgstr "분석 중... - eCarbon"
+
+msgid "loading.analyzing_url"
+msgstr "을 분석하고 있어요!"
+
+msgid "loading.analyzing_main_page"
+msgstr "입력 페이지 분석 중"
+
+msgid "loading.analyzing_subpages"
+msgstr "하위 페이지 분석 중"
+
+msgid "loading.optimizing_images"
+msgstr "이미지 최적화 진행 중"
+
+msgid "loading.analysis_complete"
+msgstr "분석 완료!"
+
+msgid "loading.view_results"
+msgstr "결과 보기"
+
+msgid "loading.go_home"
+msgstr "홈으로 돌아가기"
+
+msgid "loading.queued_message"
+msgstr "서버 요청이 많아 대기 중입니다. (대기열: %(position)s번째)"
+
+msgid "loading.in_progress"
+msgstr "분석을 진행하고 있어요..."
+
+msgid "loading.cancelled_title"
+msgstr "분석이 취소되었습니다"
+
+msgid "loading.cancelled_message"
+msgstr "사용자에 의해 분석이 중단되었습니다."
+
+msgid "loading.failed_title"
+msgstr "분석에 실패했습니다"
+
+msgid "loading.failed_message"
+msgstr "웹사이트 분석 중 문제가 발생했습니다."
+
+msgid "loading.new_analysis"
+msgstr "새로운 분석 시작하기"
+
+msgid "loading.check_site"
+msgstr "사이트 직접 확인"
+
+msgid "loading.try_different_url"
+msgstr "다른 URL 입력하기"
+
+msgid "loading.access_error_title"
+msgstr "사이트에 접근할 수 없습니다"
+
+msgid "loading.access_error_message"
+msgstr "입력하신 웹사이트에 연결할 수 없습니다."
+
+msgid "loading.access_error_suggestion"
+msgstr "URL을 다시 확인하거나 해당 사이트가 정상 작동하는지 확인해 주세요."
+
+msgid "loading.failure_suggestion"
+msgstr "URL을 확인하고 다시 시도해 주세요."
+
+msgid "loading.check_site_status"
+msgstr "해당 사이트가 정상적으로 작동하는지 직접 확인해 보세요"
+
+msgid "loading.enter_different_url"
+msgstr "다른 URL 입력하기"
+
+msgid "loading.check_site_directly"
+msgstr "사이트 직접 확인"
+
+msgid "loading.view_results_button"
+msgstr "결과 보러가기"
+
+msgid "loading.measurement_in_progress"
+msgstr "측정 중, 잠시만 기다려주세요."
+
+# Home Page - Hero Section
+msgid "home.hero_title"
+msgstr "보이지 않는 탄소,<br>지금 확인해보세요"
+
+msgid "home.hero_subtitle_line1"
+msgstr "URL을 입력하여 웹사이트의 탄소 배출량을 분석하고"
+
+msgid "home.hero_subtitle_line2"
+msgstr "친환경 개선 가이드를 받아보세요"
+
+# Home Page - Info Cards
+msgid "home.card_measurement_title"
+msgstr "디지털 탄소배출량 측정"
+
+msgid "home.card_measurement_desc1"
+msgstr "웹사이트에서 발생하는 "
+
+msgid "home.card_measurement_desc2"
+msgstr "디지털 탄소배출량을 측정하고, 관리하세요"
+
+msgid "home.card_code_title"
+msgstr "코드 최적화"
+
+msgid "home.card_code_desc1"
+msgstr "웹사이트의 코드를 가볍게 최적화하여 "
+
+msgid "home.card_code_desc2"
+msgstr "서버 부담과 에너지 사용을 줄일 수 있습니다"
+
+msgid "home.card_code_desc3"
+msgstr "빠르고 효율적인 웹을 함께 만들어 보세요"
+
+msgid "home.card_design_title"
+msgstr "지속가능한 디자인"
+
+msgid "home.card_design_desc1"
+msgstr "에너지 효율을 생각한 지속가능한 "
+
+msgid "home.card_design_desc2"
+msgstr "디자인으로 탄소발자국을 줄여보세요"
+
+msgid "home.card_design_desc3"
+msgstr "디자인과 친환경은 함께할 수 있습니다"
+
+msgid "home.card_hosting_title"
+msgstr "친환경 호스팅"
+
+msgid "home.card_hosting_desc1"
+msgstr "재생 에너지를 사용하는 "
+
+msgid "home.card_hosting_desc2"
+msgstr "친환경 호스팅으로 전환해 보세요"
+
+msgid "home.card_hosting_desc3"
+msgstr "작은 변화가 더 깨끗한 웹 환경을 만드는"
+
+msgid "home.card_hosting_desc4"
+msgstr "시작이 될 수 있습니다"
+
+# Home Page - Eco Website Section
+msgid "home.eco_website_title"
+msgstr "친환경 웹사이트"
+
+msgid "home.eco_view_all"
+msgstr "사이트 더보기"
+
+msgid "home.eco_view_less"
+msgstr "사이트 최소화"
+
+# Home Page - Membership Section
+msgid "home.membership_heading1"
+msgstr "지속가능한 웹을 위한"
+
+msgid "home.membership_heading2"
+msgstr "맞춤형 분석과 개선 가이드를 무제한으로"
+
+msgid "home.membership_heading3_line1"
+msgstr "멤버십 회원에게만 제공되는"
+
+msgid "home.membership_heading3_line2"
+msgstr "고급 분석 리포트, 비교 기능, 개선 시뮬레이션을 활용해보세요."
+
+msgid "home.membership_button"
+msgstr "멤버십 보러가기"
+
+# Home Page - Footer
+msgid "footer.logo"
+msgstr "eCarbon"
+
+msgid "footer.intro"
+msgstr "디지털 탄소배출량 측정 서비스"
+
+msgid "footer.section_service"
+msgstr "서비스"
+
+msgid "footer.ecarbon_intro"
+msgstr "eCarbon 소개"
+
+msgid "footer.membership_intro"
+msgstr "멤버십 소개"
+
+msgid "footer.contact"
+msgstr "문의하기"
+
+msgid "footer.announcement"
+msgstr "공지사항"
+
+msgid "footer.events"
+msgstr "이벤트"
+
+msgid "footer.faq"
+msgstr "FAQ"
+
+msgid "footer.company_intro"
+msgstr "회사소개"
+
+msgid "footer.recruitment"
+msgstr "인재채용"
+
+msgid "footer.partners"
+msgstr "협력업체"
+
+msgid "footer.terms"
+msgstr "이용약관"
+
+msgid "footer.privacy"
+msgstr "개인정보 처리방침"
+
+msgid "footer.instagram_link"
+msgstr "인스타그램 계정 바로가기"
+
+msgid "footer.youtube_link"
+msgstr "유튜브 채널 바로가기"
+
+msgid "footer.contact_email"
+msgstr "contact@example.com"
+
+msgid "footer.copyright"
+msgstr "© Designbase All rights reserved."
+
+msgid "footer.copy_success"
+msgstr "복사 완료!"
+
+msgid "footer.copy_manual"
+msgstr "contact@example.com 주소를 수동으로 복사해주세요."
+
+# Sidebar
+msgid "sidebar.site_address"
+msgstr "사이트 주소"
+
+msgid "sidebar.integrated_analysis"
+msgstr "통합 분석"
+
+msgid "sidebar.page_analysis"
+msgstr "페이지 분석"
+
+msgid "sidebar.image_optimization"
+msgstr "이미지 최적화"
+
+msgid "sidebar.code_analysis"
+msgstr "코드 분석"
+
+msgid "sidebar.sustainability_guidelines"
+msgstr "지속가능성 가이드라인"
+
+msgid "sidebar.get_badge"
+msgstr "배지 받기"
+
+msgid "sidebar.settings"
+msgstr "설정"
+
+msgid "sidebar.my_account"
+msgstr "내 계정"
+
+msgid "sidebar.analysis_required"
+msgstr "먼저 웹사이트 분석을 완료해주세요."
+
+# User Bar
+msgid "userbar.carbon_analysis"
+msgstr "탄소배출량 분석"
+
+msgid "userbar.greeting"
+msgstr "안녕하세요, %(username)s님"
+
+msgid "userbar.user"
+msgstr "사용자"
+
+msgid "userbar.comparison_text"
+msgstr "은(는) 일반 사이트보다 탄소배출량이 "
+
+msgid "userbar.save_pdf"
+msgstr "PDF로 저장하기"
+
+msgid "userbar.compare_previous"
+msgstr "이전 분석과 비교하기"
+
+# Carbon Emission Result Page
+msgid "result.page_title"
+msgstr "탄소배출량 분석 결과 - eCarbon"
+
+msgid "result.current_emission"
+msgstr "현재 탄소 배출량"
+
+msgid "result.emission_percentile_description"
+msgstr "전체 분석 사이트 중 상위 %(percentile)s%% 수준의 배출량입니다."
+
+msgid "result.global_grade_comparison"
+msgstr "세계 기준 탄소 등급보다"
+
+msgid "result.korea_grade_comparison"
+msgstr "대한민국 기준 탄소 등급보다"
+
+msgid "result.less_emission"
+msgstr "더 적게"
+
+msgid "result.more_emission"
+msgstr "더 많이"
+
+msgid "result.emission_suffix"
+msgstr "배출"
+
+msgid "result.emission_status_suffix"
+msgstr "하고 있어요"
+
+msgid "result.global_avg_tooltip"
+msgstr "세계 평균 탄소 배출량: %(value)sg"
+
+msgid "result.korea_avg_tooltip"
+msgstr "한국 평균 탄소 배출량: %(value)sg"
+
+# Carbon Equivalent
+msgid "equivalent.title"
+msgstr "연간 탄소 배출량 환산"
+
+msgid "equivalent.coffee_title"
+msgstr "커피<br />소비량"
+
+msgid "equivalent.coffee_unit"
+msgstr "잔"
+
+msgid "equivalent.car_title"
+msgstr "전기차<br />주행거리"
+
+msgid "equivalent.car_unit"
+msgstr "km"
+
+msgid "equivalent.phone_title"
+msgstr "스마트폰<br />충전"
+
+msgid "equivalent.phone_formula"
+msgstr "3회 충전 <br />= 0.02 CO2"
+
+msgid "equivalent.phone_unit"
+msgstr "회"
+
+msgid "equivalent.tree_title"
+msgstr "나무<br />흡수량"
+
+msgid "equivalent.tree_formula"
+msgstr "1그루 <br />= 0.02kg CO2/년"
+
+msgid "equivalent.tree_unit"
+msgstr "그루"
+
+# Chart
+msgid "chart.emission_trend_title"
+msgstr "탄소 배출량 추이"
+
+msgid "chart.monthly_visitors_reference"
+msgstr "월 1,000,000명 방문 기준"
+
+msgid "chart.emission_label"
+msgstr "탄소 배출량 (g CO₂/kWh)"
+
+msgid "chart.y_axis_label"
+msgstr "배출량 (g CO₂/kWh)"
+
+msgid "chart.x_axis_label"
+msgstr "날짜"
+
+# Detailed Analysis Page
+msgid "detailed.page_title"
+msgstr "상세 분석 결과 - eCarbon"
+
+msgid "detailed.emission_breakdown_title"
+msgstr "배출량 상세비율"
+
+msgid "detailed.device_title"
+msgstr "개인 디바이스"
+
+msgid "detailed.home_network_title"
+msgstr "홈 네트워크"
+
+msgid "detailed.home_network_label"
+msgstr "와이파이"
+
+msgid "detailed.external_network_title"
+msgstr "외부 네트워크"
+
+msgid "detailed.external_network_label"
+msgstr "통신사"
+
+msgid "detailed.sea_cable_title"
+msgstr "해저 케이블"
+
+msgid "detailed.server_title"
+msgstr "기업 서버"
+
+msgid "detailed.server_label"
+msgstr "클라우드"
+
+msgid "detailed.content_emission_title"
+msgstr "콘텐츠별 탄소 배출량"
+
+msgid "detailed.content_count_title"
+msgstr "콘텐츠 수"
+
+msgid "detailed.subpage_analysis_title"
+msgstr "하위페이지 분석"
+
+msgid "detailed.total_pages"
+msgstr "총 페이지 수"
+
+msgid "detailed.avg_co2_per_page"
+msgstr "평균 CO2/페이지"
+
+msgid "detailed.subpage_co2"
+msgstr "하위페이지 CO2"
+
+msgid "detailed.emission_level_low"
+msgstr "낮음 (<0.8g)"
+
+msgid "detailed.emission_level_medium"
+msgstr "중간 (0.8-1.1g)"
+
+msgid "detailed.emission_level_high"
+msgstr "높음 (>1.1g)"
+
+msgid "detailed.page_emission_list"
+msgstr "페이지별 배출량"
+
+msgid "detailed.no_subpages"
+msgstr "하위 페이지를 찾을 수 없습니다."
+
+# Image Optimization Page
+msgid "imgopt.page_title"
+msgstr "이미지 최적화 결과 - eCarbon"
+
+msgid "imgopt.main_title"
+msgstr "이미지 최적화"
+
+msgid "imgopt.expected_size_title"
+msgstr "최적화 전 대비 예상 이미지 크기"
+
+msgid "imgopt.already_optimized_label"
+msgstr "이미 최적화됨"
+
+msgid "imgopt.reduction_percent"
+msgstr "% 감소"
+
+msgid "imgopt.expected_reduction"
+msgstr "예상 감소량"
+
+msgid "imgopt.co2_per_visit"
+msgstr "g CO2/방문"
+
+msgid "imgopt.current_image_size"
+msgstr "현재 이미지 크기"
+
+msgid "imgopt.optimized_image_size"
+msgstr "최적화 후 이미지 크기"
+
+msgid "imgopt.captured_website_image"
+msgstr "캡처된 웹사이트 이미지"
+
+msgid "imgopt.image_load_error"
+msgstr "웹사이트 이미지를 불러올 수 없습니다."
+
+msgid "imgopt.high_emission_area"
+msgstr "탄소 과다 배출 영역"
+
+msgid "imgopt.current_label"
+msgstr "현재"
+
+msgid "imgopt.optimized_label"
+msgstr "최적화 후"
+
+msgid "imgopt.image_size"
+msgstr "이미지 크기"
+
+msgid "imgopt.analysis_title"
+msgstr "이미지 최적화 분석"
+
+msgid "imgopt.total_image_capacity"
+msgstr "이미지 총 용량"
+
+msgid "imgopt.total_image_resource_description"
+msgstr "전체 이미지 리소스 크기"
+
+msgid "imgopt.possible_optimization"
+msgstr "가능한 이미지 최적화"
+
+msgid "imgopt.webp_conversion_benefit"
+msgstr "WebP 포맷 변환으로 절감 가능"
+
+msgid "imgopt.format_conversion_list"
+msgstr "형식 변환 권장 이미지 목록"
+
+msgid "imgopt.total_bytes_count"
+msgstr "총 %(bytes)s bytes, (%(count)s개)"
+
+msgid "imgopt.category_icon"
+msgstr "아이콘"
+
+msgid "imgopt.category_logo"
+msgstr "로고"
+
+msgid "imgopt.category_other"
+msgstr "기타"
+
+msgid "imgopt.converted_image_list"
+msgstr "변환된 이미지 목록"
+
+msgid "imgopt.download_images_zip"
+msgstr "이미지 파일 다운로드 (.zip)"
+
+msgid "imgopt.download_error"
+msgstr "파일 다운로드 중 오류가 발생했습니다."
+
+msgid "imgopt.webp_label"
+msgstr "Webp"
+
+# Sustainability Analysis Page
+msgid "sustain.page_title"
+msgstr "지속가능성 분석 결과 - eCarbon"
+
+msgid "sustain.main_title"
+msgstr "W3C 지속가능성 가이드라인 분석"
+
+msgid "sustain.category_ux"
+msgstr "UX"
+
+msgid "sustain.category_bm"
+msgstr "BM"
+
+msgid "sustain.category_hosting"
+msgstr "Hosting"
+
+msgid "sustain.category_web_design"
+msgstr "Web Design"
+
+msgid "sustain.overall_score"
+msgstr "종합 점수"
+
+msgid "sustain.evaluation_results"
+msgstr "지속가능성 가이드라인 평가 결과"
+
+msgid "sustain.header_guideline_id"
+msgstr "가이드라인 ID"
+
+msgid "sustain.header_title"
+msgstr "제목"
+
+msgid "sustain.header_difficulty"
+msgstr "난이도"
+
+msgid "sustain.header_importance"
+msgstr "중요도"
+
+msgid "sustain.header_compliance"
+msgstr "준수여부"
+
+msgid "sustain.header_detail"
+msgstr "상세보기"
+
+msgid "sustain.view_more"
+msgstr "더보기"
+
+msgid "sustain.no_guidelines"
+msgstr "가이드라인 정보 없음"
+
+msgid "sustain.chart_label"
+msgstr "카테고리별 점수"
+
+# Sustainability Modal
+msgid "sustain_modal.title_default"
+msgstr "가이드라인 상세정보"
+
+msgid "sustain_modal.subtitle"
+msgstr "W3C 지속가능성 가이드라인"
+
+msgid "sustain_modal.guideline_id"
+msgstr "가이드라인 ID:"
+
+msgid "sustain_modal.area"
+msgstr "영역:"
+
+msgid "sustain_modal.compliance"
+msgstr "준수여부:"
+
+msgid "sustain_modal.compliant"
+msgstr "✓ 준수"
+
+msgid "sustain_modal.non_compliant"
+msgstr "✗ 미준수"
+
+msgid "sustain_modal.difficulty"
+msgstr "구현 난이도:"
+
+msgid "sustain_modal.impact"
+msgstr "환경 영향도:"
+
+msgid "sustain_modal.description"
+msgstr "설명:"
+
+msgid "sustain_modal.no_description"
+msgstr "설명 정보가 없습니다."
+
+msgid "sustain_modal.intent"
+msgstr "의도 (Intent):"
+
+msgid "sustain_modal.no_intent"
+msgstr "의도 정보가 없습니다."
+
+msgid "sustain_modal.benefits"
+msgstr "혜택 (Benefits):"
+
+msgid "sustain_modal.no_benefits"
+msgstr "혜택 정보가 없습니다."
+
+# Under Development Modal
+msgid "modal.under_development_title"
+msgstr "🚧 개발 중인 페이지입니다. 🚧"
+
+msgid "modal.under_development_message"
+msgstr "이용에 불편을 드려 죄송합니다."
+
+# About Page
+msgid "about.page_title"
+msgstr "eCarbon - 웹사이트 탄소배출량 분석 서비스"
+
+msgid "about.hero_title"
+msgstr "당신의 웹사이트는 몇등급인가요?"
+
+msgid "about.hero_text_line1"
+msgstr "내 모든 탄소 배출 데이터를 편리하게 한곳에서 관리하세요!"
+
+msgid "about.hero_text_line2"
+msgstr "탄소 배출량 자동 진단, 절감 솔루션 제공, 그리고 웹 최적화까지, 지금 시작해보세요!"
+
+msgid "about.hero_text_line3"
+msgstr "환경 보호는 더 이상 어렵지 않습니다"
+
+msgid "about.hero_button"
+msgstr "지금 탄소 배출 진단하기"
+
+msgid "about.section02_description_line1"
+msgstr "내 모든 탄소 배출 데이터를 한눈에 확인하고, 환경 보호를 손쉽게 실천하세요"
+
+msgid "about.section02_description_line2"
+msgstr "한 곳에서 탄소 배출량을 스마트하게 관리하고, 최적화된 솔루션을 만나보세요"
+
+msgid "about.section02_description_line3"
+msgstr "Ecarbon은 당신의 모든 웹과 디지털 활동에서 발생하는 탄소 배출량을 측정하고, 이를 개선할 방법을 제안합니다"
+
+msgid "about.item01_title"
+msgstr "W3C 가이드라인 기반으로 가벼운 친환경 웹 구현"
+
+msgid "about.item01_description_line1"
+msgstr "w3c(www)에서 만든 가이드라인을 통해"
+
+msgid "about.item01_description_line2"
+msgstr "가벼워진 웹사이트로 검색엔진에 최적화되세요"
+
+msgid "about.item02_title"
+msgstr "클릭 한 번으로 웹사이트의 탄소 배출량 확인하기"
+
+msgid "about.item02_description_line1"
+msgstr "간단한 클릭으로 웹사이트가 얼마나 많은 탄소를 배출하는지 알아보세요"
+
+msgid "about.item02_description_line2"
+msgstr "데이터 분석을 통해 탄소 배출량을"
+
+msgid "about.item02_description_line3"
+msgstr "효율적으로 관리하고 친환경적인 웹 환경을 만들어보세요!"
+
+msgid "about.item03_title"
+msgstr "AI 기술로 웹사이트 성능 최적화"
+
+msgid "about.item03_description_line1"
+msgstr "AI 기술을 활용해 웹사이트 내 불필요한 요소를 진단하고 최적화할 수 있어요"
+
+msgid "about.item03_description_line2"
+msgstr "자동화된 시스템이 큰 이미지의 용량을 분석하고, 사용되지 않는 코드를 찾아내어 제거함으로써 웹사이트를 더욱 가볍고 효율적으로 만들어줍니다"
+
+msgid "about.item03_description_line3"
+msgstr "이를 통해 페이지 로딩 속도를 개선하고 사용자 경험을 향상시킬 뿐만 아니라, 친환경적인 디지털 환경을 구현할 수 있어요"
+
+msgid "about.section03_title"
+msgstr "고객 추천"
+
+msgid "about.section04_title_line1"
+msgstr "서비스가 정식 오픈하면 가장 먼저 알려드릴게요!"
+
+msgid "about.section04_title_line2"
+msgstr "이메일을 입력해주세요"
+
+msgid "about.section04_header01"
+msgstr "탄소 배출량을 감소시킬 다양한 기능을 곧 만나보세요"
+
+msgid "about.section04_email_placeholder"
+msgstr "이메일 주소를 입력해주세요"
+
+msgid "about.section04_header02"
+msgstr "귀하의 정보는 소중히 다뤄지며 알림 외 다른 목적으로 절대 사용되지 않습니다"
+
+msgid "about.section05_heading01"
+msgstr "더 나은 Ecarbon을 위한"
+
+msgid "about.section05_heading02"
+msgstr "여러분의 소중한 의견을 기다립니다!"
+
+msgid "about.section05_text_line1"
+msgstr "더 나은 서비스 개발을 위해 설문조사에 참여해주세요"
+
+msgid "about.section05_text_line2"
+msgstr "설문에 참여하신 분들 중 추첨을 통해 5분께 스타벅스 쿠폰을 드립니다!"
+
+msgid "about.section05_text_line3"
+msgstr "지금 바로 의견을 나누고 작은 감사의 선물도 받아보세요"
+
+msgid "about.section05_link_text"
+msgstr "설문조사 참여하기"
+
+# Login Page
+msgid "login.page_title"
+msgstr "로그인 - eCarbon"
+
+msgid "login.title_line1"
+msgstr "지속 가능한 웹,"
+
+msgid "login.title_line2"
+msgstr "eCarbon과 함께하세요"
+
+msgid "login.id_placeholder"
+msgstr "아이디을 입력해 주세요"
+
+msgid "login.password_placeholder"
+msgstr "비밀번호를 입력해 주세요"
+
+msgid "login.save_id"
+msgstr "아이디 저장"
+
+msgid "login.find_credentials"
+msgstr "아이디/비밀번호 찾기"
+
+msgid "login.login_button"
+msgstr "로그인"
+
+msgid "login.google_login"
+msgstr "구글로 로그인"
+
+msgid "login.not_member"
+msgstr "아직 회원이 아니신가요?"
+
+msgid "login.signup_link"
+msgstr "회원가입"
+
+# Membership Page
+msgid "membership.page_title"
+msgstr "멤버십 요금제 - eCarbon"
+
+msgid "membership.hero_line1"
+msgstr "페이지, 이미지, 코드까지 한 번에 진단하고"
+
+msgid "membership.hero_line2"
+msgstr "탄소를 30% 줄이세요!"
+
+msgid "membership.hero_subtitle"
+msgstr "숨겨진 그린 인사이트를 열어 더 빠른 웹과 더 가벼운 지구를 만들어보세요"
+
+msgid "membership.free_trial"
+msgstr "7일 무료 체험 시작하기"
+
+msgid "membership.no_card_required"
+msgstr "카드 정보 불필요"
+
+msgid "membership.monthly_plan"
+msgstr "월간 구독"
+
+msgid "membership.per_month"
+msgstr "/ 월"
+
+msgid "membership.annual_plan"
+msgstr "연간 구독"
+
+msgid "membership.per_year"
+msgstr "/ 년"
+
+msgid "membership.discount_label"
+msgstr "2개월 무료 (20% 할인)"
+
+msgid "membership.monthly_price"
+msgstr "월 39,000원"
+
+msgid "membership.recommended"
+msgstr "추천"
+
+msgid "membership.feature_page_analysis"
+msgstr "페이지 분석"
+
+msgid "membership.feature_image_analysis"
+msgstr "이미지 분석"
+
+msgid "membership.feature_code_analysis"
+msgstr "코드 분석"
+
+msgid "membership.feature_sustainability"
+msgstr "국제 지속가능성 가이드라인 평가"
+
+msgid "membership.feature_badge"
+msgstr "인증 배너 받기"
+
+msgid "membership.feature_report"
+msgstr "맞춤형 개선 리포트"
+
+msgid "membership.refund_guarantee"
+msgstr "100% 환불 보장"
+
+msgid "membership.refund_policy"
+msgstr "7일 무료 체험 + 30일 이내 환불 가능 ・ 취소 수수료 없음"
+
+msgid "membership.improvement_title"
+msgstr "내 사이트 예상 개선 효과"
+
+msgid "membership.current_free"
+msgstr "현재 (무료 버전)"
+
+msgid "membership.pro_expected"
+msgstr "PRO 버전 예상"
+
+msgid "membership.pro_only_title"
+msgstr "PRO에서만 가능한 심층 분석"
+
+msgid "membership.page_analysis_title"
+msgstr "페이지 분석"
+
+msgid "membership.page_analysis_desc_line1"
+msgstr "HTML, CSS 최적화로 페이지 용량을"
+
+msgid "membership.page_analysis_desc_line2"
+msgstr "줄이고 로딩 속도 개선"
+
+msgid "membership.reduction_25"
+msgstr "평균 25% 절감"
+
+msgid "membership.image_analysis_title"
+msgstr "이미지 분석"
+
+msgid "membership.image_analysis_desc_line1"
+msgstr "이미지 포맷, 크기, 압축을 최적화로"
+
+msgid "membership.image_analysis_desc_line2"
+msgstr "대역폭 절약"
+
+msgid "membership.reduction_40"
+msgstr "평균 40% 절감"
+
+msgid "membership.code_analysis_title"
+msgstr "코드 분석"
+
+msgid "membership.code_analysis_desc_line1"
+msgstr "JavaScript, CSS 번들 최적화로"
+
+msgid "membership.code_analysis_desc_line2"
+msgstr "실행 효율성 향상"
+
+msgid "membership.reduction_20"
+msgstr "평균 20% 절감"
+
+msgid "membership.sustainability_title"
+msgstr "국제 지속가능성 평가"
+
+msgid "membership.sustainability_desc"
+msgstr "글로벌 친환경 웹 표준 준수 여부 종합 평가"
+
+msgid "membership.grade_achievement"
+msgstr "A+ 등급 달성"
+
+msgid "membership.badge_title"
+msgstr "인증 배너 받기"
+
+msgid "membership.badge_desc"
+msgstr "사이트에 부착 가능한 공식 친환경 인증 배지"
+
+msgid "membership.brand_value"
+msgstr "브랜드 가치 상승"
+
+msgid "membership.report_title"
+msgstr "맞춤형 개선 리포트"
+
+msgid "membership.report_desc_line1"
+msgstr "우선순위별 구체적인"
+
+msgid "membership.report_desc_line2"
+msgstr "개선 방안과 예상 효과"
+
+msgid "membership.actionable_insights"
+msgstr "실행 가능한 인사이트"
+
+msgid "membership.testimonial_title"
+msgstr "이미 10개 기업이 탄소 절감에 성공했어요!"
+
+msgid "membership.testimonial01_text_line1"
+msgstr "Ecarbon PRO로 웹사이트 탄소 배출을 35% 줄였고,"
+
+msgid "membership.testimonial01_text_line2"
+msgstr "페이지 속도도 2배 빨라졌습니다. ESG 보고서에 활용하기 완벽해요"
+
+msgid "membership.testimonial01_name"
+msgstr "김민수"
+
+msgid "membership.testimonial01_company"
+msgstr "네이버 지속가능경영팀"
+
+msgid "membership.testimonial02_text_line1"
+msgstr "인증 배지를 달고 나서 브랜드 이미지가 확실히 개선됐어요."
+
+msgid "membership.testimonial02_text_line2"
+msgstr "고객들이 우리 회사의 환경 노력을 인정해주더라고요."
+
+msgid "membership.testimonial02_name"
+msgstr "이지은"
+
+msgid "membership.testimonial02_company"
+msgstr "쿠팡 마케팅팀"
+
+# Code Analysis Page
+msgid "code.page_title"
+msgstr "코드 분석 결과 - eCarbon"
+
+msgid "code.main_title"
+msgstr "코드 상세 분석"
+
+msgid "code.total_resource_title"
+msgstr "총 리소스 용량 (100%%)"
+
+msgid "code.total_resource_description"
+msgstr "페이지를 구성하는 전체 리소스의 크기입니다."
+
+msgid "code.third_party_script"
+msgstr "서드파트 스크립트"
+
+msgid "code.third_party_description"
+msgstr "외부 스크립트로 인해 낭비될 수 있는 용량입니다."
+
+msgid "code.used_javascript"
+msgstr "사용 중 JavaScript"
+
+msgid "code.used_javascript_description"
+msgstr "실제로 페이지에 사용되고 있는 JavaScript 용량입니다."
+
+msgid "code.unused_javascript"
+msgstr "미사용 JavaScript"
+
+msgid "code.unused_javascript_description"
+msgstr "로드되었지만 사용되지 않는 JavaScript 용량입니다."
+
+msgid "code.reducible"
+msgstr "절감 가능"
+
+msgid "code.total_javascript"
+msgstr "전체 JavaScript"
+
+msgid "code.total_javascript_description"
+msgstr "페이지 내 모든 JavaScript 리소스의 총 용량입니다."
+
+msgid "code.unused_css"
+msgstr "미사용 CSS"
+
+msgid "code.unused_css_description"
+msgstr "사용되지 않는 CSS 규칙으로 힌해 최적화 가능한 용량입니다"
+
+msgid "code.other_resources"
+msgstr "다른 리소스"
+
+msgid "code.file_explorer_title"
+msgstr "코드 파일 탐색기"
+
+msgid "code.sort_by_name"
+msgstr "이름순"
+
+msgid "code.compliance_rate"
+msgstr "가이드라인 준수율:"
+
+msgid "code.no_data"
+msgstr "코드 분석 데이터가 없습니다."
+
+msgid "code.font_optimization_title"
+msgstr "폰트 최적화"
+
+msgid "code.font_grade_very_good"
+msgstr "'매우 우수' 등급"
+
+msgid "code.font_grade_good"
+msgstr "'우수' 등급"
+
+msgid "code.font_grade_needs_improvement"
+msgstr "'개선 필요' 등급"
+
+msgid "code.font_grade_urgent"
+msgstr "'긴급 개선 필요' 등급"
+
+msgid "code.font_grade_text"
+msgstr "폰트에서 배출되는 탄소량이"
+
+msgid "code.font_grade_suffix"
+msgstr "이에요"
+
+msgid "code.total_file_size"
+msgstr "총 파일 크기"
+
+msgid "code.total_co2_emission"
+msgstr "총 CO2 배출량"
+
+msgid "code.discovered_fonts_title"
+msgstr "발견된 폰트"
+
+msgid "code.no_font_data"
+msgstr "다운로드된 폰트 파일 정보를 찾을 수 없습니다."
+
+msgid "code.font_optimization_plan"
+msgstr "폰트 최적화 방안"
+
+msgid "code.before_optimization"
+msgstr "최적화 전 원본"
+
+msgid "code.optimization_method"
+msgstr "최적화 방안"
+
+msgid "code.file_size_reduction"
+msgstr "파일 크기 절감"
+
+msgid "code.co2_reduction"
+msgstr "CO2 절감"
+
+msgid "code.reduction_percent_100"
+msgstr "100.0%% 감소"
+
+msgid "code.reduction_percent_75"
+msgstr "75.0%% 감소"
+
+msgid "code.reduction_percent_70"
+msgstr "70.0%% 감소"
+
+msgid "code.reduction_percent_50"
+msgstr "50.0%% 감소"
+
+msgid "code.reduction_percent_45"
+msgstr "45.0%% 감소"
+
+msgid "code.system_font"
+msgstr "시스템 폰트로 변경"
+
+msgid "code.subset_font"
+msgstr "서브셋 폰트로 변경"
+
+msgid "code.variable_font"
+msgstr "가변 폰트로 변경"
+
+msgid "code.woff2_font"
+msgstr "WOFF2 폰트로 변경"
+
+msgid "code.woff_font"
+msgstr "WOFF 폰트로 변경"
+
+msgid "userbar.below_avg"
+msgstr "낮습니다"
+
+msgid "userbar.above_avg"
+msgstr "높습니다"
+
+msgid "imgopt.reduction_text"
+msgstr "감소"

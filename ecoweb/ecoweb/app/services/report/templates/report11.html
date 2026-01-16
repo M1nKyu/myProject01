@@ -1,0 +1,180 @@
+<!--보고서 47-->
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" />
+  	<style>{{ css_content }}</style>
+  	
+  	
+  	
+</head>
+<body>
+	{% from 'pdf-macros.html' import render_header, render_sidebar %}
+
+	<div class="div">
+		<!-- 헤더 매크로 -->
+		{{ render_header(website_url=website_url, title='컨텐츠별 탄소 배출 분석', subtitle='Content Carbon Emission Analysis') }}
+
+		<!-- 사이드바 매크로 -->
+		{{ render_sidebar() }}
+
+		<!-- 컨텐츠 -->
+		<!-- 01. 상단 ================================================== -->
+		<div class="content01">
+			<!-- JavaScript 크기 -->
+			<div class="content01-item">
+				<div class="content01-item-title">JavaScript 크기</div>
+				<div class="content01-item-value">3.82MB</div>
+				<div class="content01-item-percentage">45.5%</div>
+			</div>
+
+			<!-- 미사용 JS CO2 -->
+			<div class="content01-item">
+				<div class="content01-item-title">미사용 JS CO2</div>
+				<div class="content01-item-value">0.255g</div>
+				<div class="content01-item-percentage">22.8%</div>
+			</div>
+
+			<!-- 미사용 CSS CO2 -->
+			<div class="content01-item">
+				<div class="content01-item-title">미사용 CSS CO2</div>
+				<div class="content01-item-value">0.005g</div>
+				<div class="content01-item-percentage">8.3%</div>
+			</div>
+
+			<!-- 절감 가능 CO2 -->
+			<div class="content01-item">
+				<div class="content01-item-title">절감 가능 CO2</div>
+				<div class="content01-item-value" style="color: #00b872;">0.43g</div>
+				<div class="content01-item-percentage" style="color: #00b872;">-38.7%</div>
+			</div>
+		</div>
+
+		<!-- 02. 리소스 별 용량 분포 =================================== -->
+		<div class="content02">
+			<div class="common-subtitle">리소스 별 용량 분포</div>
+			<div class="content02-distribution">
+				<canvas id="resourceDistributionChart"></canvas>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+		<script>
+			const ctx = document.getElementById('resourceDistributionChart');
+			new Chart(ctx, {
+				type: 'pie',
+				data: {
+					labels: ['JavaScript', 'Images', 'Fonts', 'CSS', 'HTML', 'Others'],
+					datasets: [{
+						data: [3.82, 2.15, 1.89, 1.04, 0.37, 0.52],
+						backgroundColor: [
+							'#ef4444',
+							'#ff7638',
+							'#17845f',
+							'#00b872',
+							'#878a93',
+							'#dbdcdf'
+						],
+						borderColor: '#ffffff',
+						borderWidth: 2
+					}]
+				},
+				options: {
+					devicePixelRatio: 3,
+					responsive: true,
+					maintainAspectRatio: false,
+					layout: {
+						padding: {
+							top: 5,
+							bottom: 5,
+							left: 5,
+							right: 5
+						}
+					},
+					plugins: {
+						legend: {
+							display: true,
+							position: 'right',
+							align: 'start',
+							labels: {
+								font: {
+									size: 6
+								},
+								color: '#5a5c63',
+								boxWidth: 8,
+								boxHeight: 8,
+								padding: 3,
+								usePointStyle: true,
+								pointStyle: 'circle'
+							}
+						},
+						tooltip: {
+							enabled: false
+						}
+					}
+				}
+			});
+		</script>
+		
+		<!-- 03. Co2 배출량 분석 ======================================= -->
+		<div class="content03">
+			<div class="common-subtitle">Co2 배출량 분석</div>
+
+			<!-- JavaScript -->
+			<div class="content03-item">
+				<div class="item-title">JavaScript</div>
+				<div class="bar">
+					<div class="bar-value">0.529g CO2</div>
+					<div class="bar-fill" style="width: 100%;"></div>
+				</div>
+			</div>
+
+			<!-- Images -->
+			<div class="content03-item">
+				<div class="item-title">Images</div>
+				<div class="bar">
+					<div class="bar-value">0.336g CO2</div>
+					<div class="bar-fill" style="width: 65%;"></div>
+				</div>
+			</div>
+
+			<!-- Fonts -->
+			<div class="content03-item">
+				<div class="item-title">Fonts</div>
+				<div class="bar">
+					<div class="bar-value">0.295g CO2</div>
+					<div class="bar-fill" style="width: 58%;"></div>
+				</div>
+			</div>
+
+			<!-- CSS -->
+			<div class="content03-item">
+				<div class="item-title">CSS</div>
+				<div class="bar">
+					<div class="bar-value">0.162g CO2</div>
+					<div class="bar-fill" style="width: 35%;"></div>
+				</div>	
+			</div>
+
+			<!-- HTML -->
+			<div class="content03-item">
+				<div class="item-title">HTML</div>
+				<div class="bar">
+					<div class="bar-value">0.58g CO2</div>
+					<div class="bar-fill" style="width: 13%;"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="vertical-line01"></div>
+		<div class="horizontal-line01"></div>
+		<div class="horizontal-line02"></div>
+		<div class="horizontal-line03"></div>
+		<div class="horizontal-line04"></div>
+
+  	</div>
+</body>
+</html>
