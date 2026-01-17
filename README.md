@@ -4,45 +4,8 @@
 
 AI 기반 웹사이트 디지털 탄소 측정 플랫폼으로, 공공기관 및 기업 웹사이트의 탄소 배출량을 분석하고 최적화 방안을 제안합니다. 웹사이트에서 URL 입력만으로 탄소 배출량, 개선 방향, W3C 웹 지속가능성 가이드라인 준수 여부를 직관적인 UI로 제공합니다.
 
+## 📁 프로젝트 아키텍처 및 디렉토리 구조
 
-### ✨ 핵심 특징
-- 🔍 **자동화된 분석**: URL 입력만으로 전체 분석 자동 수행
-- 📊 **상세한 리포트**: 고품질 PDF 리포트 자동 생성
-- 🌍 **다국어 지원**: 한국어, 영어, 일본어, 중국어 4개 언어 지원
-- 🚀 **고성능**: Celery 기반 비동기 처리로 동시 20개 작업 처리
-- 📱 **반응형 디자인**: 모바일, 태블릿, 데스크톱 완벽 지원
-
-
-
-## 🛠 기술 스택
-
-### Backend
-- **Python 3.8+**: Flask 웹 프레임워크
-- **MongoDB**: NoSQL 데이터베이스
-- **Redis**: 세션 관리 및 캐싱
-- **Celery**: 비동기 작업 처리
-- **Gunicorn**: WSGI HTTP 서버
-- **Playwright**: 웹사이트 캡처 및 PDF 생성
-
-### Frontend
-- **HTML5/CSS3**: 반응형 웹 디자인
-- **JavaScript (ES6+)**: 동적 UI 구현
-- **Chart.js**: 데이터 시각화
-- **Jinja2**: 템플릿 엔진
-
-### DevOps & Infrastructure
-- **Docker & Docker Compose**: 컨테이너화
-- **Nginx**: 리버스 프록시 및 정적 파일 서빙
-- **GitHub Actions**: CI/CD 파이프라인
-
-### Tools & Services
-- **Google Lighthouse**: 웹사이트 성능 분석
-- **Google OAuth 2.0**: 사용자 인증
-- **Google Analytics**: 사용자 행동 분석
-- **GeoIP**: IP 기반 언어 감지
-
-
-## 📁 프로젝트 구조
 
 ```
 ecoweb/
