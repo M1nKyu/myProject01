@@ -190,3 +190,68 @@ Selenium 기반 캡처 로직은 async로 선언되어 있었지만 내부가 �
 - ✅ **Lighthouse SEO 점수**: 100점 달성
 - ✅ **다국어 지원**: 4개 언어 (한국어, 영어, 일본어, 중국어)
 - ✅ **반응형 디자인**: 모든 디바이스 완벽 지원
+
+## 📸 스크린샷
+
+### 메인 페이지
+![메인 페이지 상단](github-assets/image/Main-top.jpg)
+![메인 페이지 하단](github-assets/image/Main-footer.png)
+![메인 페이지 모바일](github-assets/image/Main-responsive-phone.png)
+![메인 페이지 태블릿](github-assets/image/Main-responsive-tablet.png)
+
+### 통합 분석 페이지
+![탄소 배출량 계산 상단](github-assets/image/carbon-top.jpg)
+![탄소 배출량 계산 하단](github-assets/image/carbon-bottom.png)
+
+### 코드 분석 페이지
+![코드 분석 상단](github-assets/image/code-top.jpg)
+![코드 분석 중간](github-assets/image/code-middle.png)
+![코드 분석 하단](github-assets/image/code-bottom.jpg)
+
+### 이미지 최적화 페이지
+![이미지 최적화 상단](github-assets/image/Image-top.png)
+![이미지 캡처](github-assets/image/Image-Capture.png)
+![이미지 최적화 하단](github-assets/image/Image-bottom.png)
+
+### 지속가능성 가이드라인 페이지
+![지속가능성 분석 상단](github-assets/image/sustain-top.jpg)
+![지속가능성 모달](github-assets/image/sustain-modal.jpg)
+![지속가능성 분석 하단](github-assets/image/sustain-bottom.png)
+
+### 정밀 분석 페이지
+![상세 분석 상단](github-assets/image/detail-top.jpg)
+![상세 분석 하단](github-assets/image/detail-bottom.jpg)
+
+### 로딩 페이지
+![로딩 중](github-assets/image/loading-01.jpg)
+![로딩 완료](github-assets/image/loading-complete.jpg)
+
+### 로그인 페이지
+![로그인 페이지](github-assets/image/Login.png)
+
+### 설문조사
+![설문조사](github-assets/image/survey.png)
+
+### PDF 리포트
+![PDF 리포트 전체](github-assets/image/report-all.jpg)
+![PDF 리포트 생성 플로우](github-assets/image/report-flow.jpg)
+
+### 다국어 지원 시스템
+![다국어 지원](github-assets/image/i18n.jpg)
+![다국어 지원 플로우](github-assets/image/i18n-flow.jpg)
+
+### Celery 비동기 처리
+![Celery 도입 전](github-assets/image/celery-before.jpg)
+![Celery 도입 후](github-assets/image/celery-after.jpg)
+
+### 크롤링 아키텍처
+![크롤링 아키텍처](github-assets/image/crawling-architecture.jpg)
+
+### Figma 디자인
+![Figma 디자인](github-assets/image/figma.png)
+
+### 구버전 UI (Before)
+![구버전 상세 분석](github-assets/image/old-detail.png)
+![구버전 탄소 배출량](github-assets/image/old-emission.png)
+![구버전 가이드](github-assets/image/old-guide.png)
+![구버전 이미지 최적화](github-assets/image/old-image.png)
