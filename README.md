@@ -41,7 +41,6 @@ AI 기반 웹사이트 디지털 탄소 측정 플랫폼으로, 공공기관 및
 - **Google Analytics**: 사용자 행동 분석
 - **GeoIP**: IP 기반 언어 감지
 
----
 
 ## 📁 프로젝트 구조
 
@@ -77,7 +76,6 @@ ecoweb/
 └── requirements.txt             # Python 의존성
 ```
 
----
 
 ## 🎯 주요 기여 내용
 
@@ -198,7 +196,6 @@ ecoweb/
 - [`ecoweb/ecoweb/app/services/`](ecoweb/ecoweb/app/services/) - 서비스 레이어 구조
 - [`ecoweb/ecoweb/app/utils/`](ecoweb/ecoweb/app/utils/) - 유틸리티 함수
 
----
 
 ## 📊 주요 성과
 
@@ -213,7 +210,7 @@ ecoweb/
 - **총 커밋 수**: 654개
 - **개발 기간**: 2025년 3월 ~ 2026년 1월 (약 10개월)
 
----
+
 
 ## 🚀 시작하기
 
@@ -259,7 +256,7 @@ http://localhost:5000 (개발 환경)
 - `REDIS_HOST`, `REDIS_PORT`: Redis 설정
 - `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`: Google OAuth 인증 정보
 
----
+
 
 ## 📸 스크린샷
 
