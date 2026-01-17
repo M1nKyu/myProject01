@@ -11,11 +11,7 @@
 
 ## 📋 프로젝트 소개
 
-AI 기반 웹사이트 디지털 탄소 측정 플랫폼으로, 공공기관 및 기업 웹사이트의 탄소 배출량을 분석하고 최적화 방안을 제안합니다. 웹사이트에서 URL 입력만으로 탄소 배출량, 개선 방향, W3C 웹 지속가능성 가이드라인 준수 여부를 직관적인 UI로 제공합니다.
-
-**📹 영상**
-- [소개 영상](https://blog-minkyu.netlify.app/assets/ecarbon-new/%EC%86%8C%EA%B0%9C.mp4)
-- [시연 영상](https://blog-minkyu.netlify.app/assets/ecarbon-new/%EC%8B%9C%EC%97%B01.mp4)
+AI 기반 웹사이트 디지털 탄소 측정 플랫폼으로, 공공기관 및 기업 웹사이트의 탄소 배출량을 분석하고 최적화 방안을 제안합니다. 웹사이트에서 URL 입력만으로 탄소 배출량, 개선 방향, W3C 웹 지속가능성 가이드라인 준수 여부를 직관적인 UI로 제공합니다. ([소개 영상](https://blog-minkyu.netlify.app/assets/ecarbon-new/%EC%86%8C%EA%B0%9C.mp4) / [시연 영상](https://blog-minkyu.netlify.app/assets/ecarbon-new/%EC%8B%9C%EC%97%B01.mp4))
 
 - **기간**: 2025년 2월 ~ 2025년 12월 (11개월)
 - **인원**: 5인 (컴공 3, 미디어커뮤니케이션 1, 산업디자인 1)
