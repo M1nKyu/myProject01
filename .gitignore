@@ -76,3 +76,4 @@ htmlcov/
 *.tmp
 *.temp
 ~$*
+/ecoweb/logs_md
