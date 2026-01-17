@@ -286,10 +286,6 @@ Selenium 기반 캡처 로직은 async로 선언되어 있었지만 내부가 �
 ![Celery 도입 후](github-assets/image/celery-after.jpg)
 **Celery 도입 후**
 
-### 크롤링 아키텍처
-![크롤링 아키텍처](github-assets/image/crawling-architecture.jpg)
-**크롤링 아키텍처**
-
 ### Figma 협업 기록
 ![Figma 협업](github-assets/image/figma.png)
 **Figma 디자인**
