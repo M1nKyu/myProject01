@@ -2,11 +2,12 @@
   <img src="github-assets/image/ecarbon-logo-01.png" alt="eCarbon Logo" width="400">
 </div>
 
-# 🌱 eCarbon - 웹사이트 탄소 배출량 분석 플랫폼
 
 > **📌 레포지토리 안내**  
 > [원본 프로젝트](https://github.com/CarbonAra-CBA/ecoweb)는 private 팀 프로젝트로, 제3자가 접근할 수 없어 확인이 불가능합니다. 따라서 본인이 구현한 부분만 선별하여 복사하여 정리한 레포지토리입니다.  
 > 본 레포지토리에는 본인이 담당한 코드와 작업 내역만 포함되어 있으며, **총 871개 커밋 중 654개(약 75%)**를 담당했습니다.
+
+# eCarbon - 웹사이트 탄소 배출량 분석 플랫폼
 
 ## 📋 프로젝트 소개
 
