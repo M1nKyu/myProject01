@@ -200,11 +200,9 @@ Selenium 기반 캡처 로직은 async로 선언되어 있었지만 내부가 �
 ![메인 페이지 하단](github-assets/image/Main-footer.png)
 **메인 페이지 하단**
 
-![메인 페이지 모바일](github-assets/image/Main-responsive-phone.png)
-**메인 페이지 모바일**
 
-![메인 페이지 태블릿](github-assets/image/Main-responsive-tablet.png)
-**메인 페이지 태블릿**
+![메인 페이지 - 반응형](github-assets/image/Main-responsive-tablet.png)
+**메인 페이지 반응형**
 
 ### 통합 분석 페이지
 ![탄소 배출량 계산 상단](github-assets/image/carbon-top.jpg)
