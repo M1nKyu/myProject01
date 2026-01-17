@@ -60,7 +60,7 @@ ecoweb/
 
 ## 🎯 주요 기여 내용
 
-### 1. 플랫폼 웹사이트 UI/UX 개편 (137개 커밋)
+### 1. 플랫폼 웹사이트 UI/UX 개편
 - 전체 페이지의 UI/UX 전면 재설계 및 반응형 디자인 적용 (모바일, 태블릿, 데스크톱)
 - Figma 디자인을 HTML/CSS로 구현
 - 사이드바, 헤더, 메인 페이지 등 모든 컴포넌트 재구현
@@ -72,7 +72,7 @@ ecoweb/
 - [`ecoweb/ecoweb/app/static/js/`](ecoweb/ecoweb/app/static/js/) - JavaScript
 - [`ecoweb/ecoweb/app/blueprints/main.py`](ecoweb/ecoweb/app/blueprints/main.py) - 메인 페이지 라우팅
 
-### 2. 다국어 지원 시스템 (i18n) (17개 커밋)
+### 2. 다국어 지원 시스템 (i18n)
 - 한국어, 영어, 일본어, 중국어 4개 언어 지원
 - Flask-Babel 서버 사이드 렌더링 및 Custom i18n.js 클라이언트 사이드 번역
 - IP 기반 GeoIP 언어 자동 감지 기능 구현
@@ -84,7 +84,7 @@ ecoweb/
 - [`ecoweb/ecoweb/app/translations/`](ecoweb/ecoweb/app/translations/) - Flask-Babel 번역 파일
 - [`ecoweb/ecoweb/app/static/translations/`](ecoweb/ecoweb/app/static/translations/) - 클라이언트 사이드 번역 파일
 
-### 3. PDF 리포트 생성 시스템 (33개 커밋)
+### 3. PDF 리포트 생성 시스템
 - Playwright 기반 17페이지 PDF 리포트 생성 (커버, 목차, 13개 콘텐츠 페이지, 요약, 뒷표지)
 - Celery 배경 작업으로 비동기 PDF 생성
 - Chart.js 통합 및 인라인 SVG 지원으로 데이터 시각화
@@ -96,7 +96,7 @@ ecoweb/
 - [`ecoweb/ecoweb/app/services/playwright_pdf_generator.py`](ecoweb/ecoweb/app/services/playwright_pdf_generator.py) - Playwright PDF 생성기
 - [`ecoweb/ecoweb/app/services/pdf_report_generator.py`](ecoweb/ecoweb/app/services/pdf_report_generator.py) - PDF 리포트 생성 로직
 
-### 4. SEO 최적화 (4개 커밋)
+### 4. SEO 최적화
 - SSR 기반 SEO 최적화 시스템 구현
 - 동적 Sitemap.xml 및 Robots.txt 생성
 - Open Graph 메타 태그 및 Schema.org JSON-LD 구조화 데이터 추가
@@ -107,7 +107,7 @@ ecoweb/
 - [`ecoweb/ecoweb/app/utils/seo_helpers.py`](ecoweb/ecoweb/app/utils/seo_helpers.py) - SEO 헬퍼 함수
 - [`ecoweb/ecoweb/app/utils/structured_data.py`](ecoweb/ecoweb/app/utils/structured_data.py) - 구조화 데이터 생성
 
-### 5. 데이터 아키텍처 개선 (36개 커밋)
+### 5. 데이터 아키텍처 개선
 - 세션 기반에서 MongoDB 중심 영구 저장 방식으로 전환
 - task_id 기반 데이터 조회 시스템 구축
 - MongoDB 쿼리 최적화 (중복 쿼리 5회 → 2회 감소)
@@ -118,7 +118,7 @@ ecoweb/
 - [`ecoweb/ecoweb/app/async_database.py`](ecoweb/ecoweb/app/async_database.py) - 비동기 데이터베이스 작업
 - [`ecoweb/ecoweb/app/tasks.py`](ecoweb/ecoweb/app/tasks.py) - Celery 태스크 및 데이터 처리
 
-### 6. 웹사이트 캡처 기능 (14개 커밋)
+### 6. 웹사이트 캡처 기능
 - Selenium에서 Playwright async로 전환하여 안정성 및 성능 개선
 - 전체 페이지 스크린샷 및 호버 미리보기 모달 기능
 - 이미지 최적화 대상 영역을 빨간색으로 하이라이트하는 스마트 기능
@@ -128,7 +128,7 @@ ecoweb/
 - [`ecoweb/ecoweb/app/utils/async_website_capture.py`](ecoweb/ecoweb/app/utils/async_website_capture.py) - 비동기 웹사이트 캡처
 - [`ecoweb/ecoweb/app/utils/website_capture.py`](ecoweb/ecoweb/app/utils/website_capture.py) - 웹사이트 캡처 유틸리티
 
-### 7. 이미지 최적화 (64개 커밋)
+### 7. 이미지 최적화
 - PNG → WebP 변환 (11.07 MB → 6.74 MB, 39% 절감)
 - 이미지 캐싱 시스템 구현으로 중복 다운로드 방지
 - 이미지 최적화 페이지 UI 개선 및 Before/After 비교 기능
@@ -139,7 +139,7 @@ ecoweb/
 - [`ecoweb/ecoweb/app/Image_Classification/`](ecoweb/ecoweb/app/Image_Classification/) - 이미지 분류 모델
 - [`ecoweb/scripts/convert_static_images_to_webp.py`](ecoweb/scripts/convert_static_images_to_webp.py) - WebP 변환 스크립트
 
-### 8. 사용자 이벤트 로깅 시스템 (24개 커밋)
+### 8. 사용자 이벤트 로깅 시스템
 - 페이지 뷰 로깅 및 사용자 이벤트 추적 시스템 구현
 - 버튼 클릭, 링크 클릭, 폼 제출 등 상세 이벤트 추적
 - Google Analytics 통합으로 데이터 기반 의사결정 지원
@@ -149,7 +149,7 @@ ecoweb/
 - [`ecoweb/ecoweb/app/utils/logging_config.py`](ecoweb/ecoweb/app/utils/logging_config.py) - 로깅 설정
 - [`ecoweb/ecoweb/app/blueprints/main.py`](ecoweb/ecoweb/app/blueprints/main.py) - 페이지 뷰 로깅 통합
 
-### 9. 배포 및 인프라 설정 (23개 커밋)
+### 9. 배포 및 인프라 설정
 - Docker Compose 개발/프로덕션 환경 분리
 - Gunicorn 설정 최적화 및 Flask 개발 서버 교체
 - Nginx 리버스 프록시 설정 및 SSL 자동 갱신
@@ -163,7 +163,7 @@ ecoweb/
 - [`ecoweb/nginx/`](ecoweb/nginx/) - Nginx 설정 파일
 - [`ecoweb/celery_worker.py`](ecoweb/celery_worker.py) - Celery 워커 설정
 
-### 10. 코드 리팩토링 (133개 커밋)
+### 10. 코드 리팩토링
 - 프로젝트 디렉터리 구조 재구성 및 일관성 확보
 - 정적 파일 디렉터리 통합 및 레거시 코드 제거
 - 컴포넌트 기반 레이아웃 구조 도입
@@ -184,12 +184,3 @@ ecoweb/
 - ✅ **Lighthouse SEO 점수**: 100점 달성
 - ✅ **다국어 지원**: 4개 언어 (한국어, 영어, 일본어, 중국어)
 - ✅ **반응형 디자인**: 모든 디바이스 완벽 지원
-
-### 프로젝트 통계
-- **전체 커밋 수**: 871개
-- **본인 기여 커밋**: 654개 (약 75%)
-
-### PDF 리포트
-- 17페이지 상세 리포트
-- 데이터 시각화
-- 최적화 방안 제시
