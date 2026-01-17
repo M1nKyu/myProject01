@@ -58,7 +58,7 @@ ecoweb/
 ```
 
 
-## 🎯 주요 기여 내용
+## 🎯 구현 내용
 
 ### 1. 플랫폼 웹사이트 UI/UX 개편
 Figma를 사용하여 산업디자인학과 팀원의 디자인을 HTML+CSS 코드로 구현하여 각 페이지의 UI/UX를 재설계하고, 반응형 디자인을 적용하여 다양한 화면에서 최적화된 사용자 경험을 제공하도록 개선
@@ -120,18 +120,8 @@ docker-compose를 개발, 배포 두 버전으로 분리하여 개발 유연성�
 - [`ecoweb/nginx/`](ecoweb/nginx/) - Nginx 설정 파일
 - [`ecoweb/celery_worker.py`](ecoweb/celery_worker.py) - Celery 워커 설정
 
-### 8. Java 기반 탄소 배출량 자동 분석 시스템 구축
-별도 서버에서 24시간 동작하는 Java 기반 멀티스레드 탄소 배출량 자동 분석 시스템을 구축해 Lighthouse 기반 대규모 URL의 일간·월간 측정을 자동화하고, 동적 스레드 풀로 안정적인 병렬 처리를 구현
 
-### 9. SEO 최적화
-SSR 기반 SEO 최적화 시스템을 구현하여 검색 엔진 최적화를 달성하고, 동적 Sitemap.xml 및 Robots.txt 생성 기능을 추가하여 검색 엔진 크롤러가 사이트를 효율적으로 인덱싱할 수 있도록 하며, Open Graph 메타 태그 및 Schema.org JSON-LD 구조화 데이터를 추가하여 소셜 미디어 공유 최적화와 검색 결과 향상을 구현
-
-**관련 코드:**
-- [`ecoweb/ecoweb/app/blueprints/seo.py`](ecoweb/ecoweb/app/blueprints/seo.py) - SEO 라우팅 (Sitemap, Robots.txt)
-- [`ecoweb/ecoweb/app/utils/seo_helpers.py`](ecoweb/ecoweb/app/utils/seo_helpers.py) - SEO 헬퍼 함수
-- [`ecoweb/ecoweb/app/utils/structured_data.py`](ecoweb/ecoweb/app/utils/structured_data.py) - 구조화 데이터 생성
-
-### 10. 데이터 아키텍처 개선
+### 8. 데이터 아키텍처 개선
 세션 기반에서 MongoDB 중심 영구 저장 방식으로 전환하여 데이터 지속성을 확보하고, task_id 기반 데이터 조회 시스템을 구축하여 분석 결과를 효율적으로 관리하며, MongoDB 쿼리 최적화를 통해 중복 쿼리를 5회에서 2회로 감소시키고 인덱싱 최적화 및 데이터 정규화를 수행
 
 **관련 코드:**
@@ -139,7 +129,7 @@ SSR 기반 SEO 최적화 시스템을 구현하여 검색 엔진 최적화를 �
 - [`ecoweb/ecoweb/app/async_database.py`](ecoweb/ecoweb/app/async_database.py) - 비동기 데이터베이스 작업
 - [`ecoweb/ecoweb/app/tasks.py`](ecoweb/ecoweb/app/tasks.py) - Celery 태스크 및 데이터 처리
 
-### 11. 이미지 최적화
+### 9. 이미지 최적화
 PNG 이미지를 WebP 형식으로 변환하여 11.07 MB에서 6.74 MB로 39% 크기 절감을 달성하고, 이미지 캐싱 시스템을 구현하여 중복 다운로드를 방지하며, 이미지 최적화 페이지 UI를 개선하여 Before/After 비교 기능을 제공
 
 **관련 코드:**
@@ -148,7 +138,7 @@ PNG 이미지를 WebP 형식으로 변환하여 11.07 MB에서 6.74 MB로 39% �
 - [`ecoweb/ecoweb/app/Image_Classification/`](ecoweb/ecoweb/app/Image_Classification/) - 이미지 분류 모델
 - [`ecoweb/scripts/convert_static_images_to_webp.py`](ecoweb/scripts/convert_static_images_to_webp.py) - WebP 변환 스크립트
 
-### 12. 사용자 이벤트 로깅 시스템
+### 10. 사용자 이벤트 로깅 시스템
 페이지 뷰 로깅 및 사용자 이벤트 추적 시스템을 구현하여 사용자 행동을 분석하고, 버튼 클릭, 링크 클릭, 폼 제출 등 상세 이벤트를 추적하며, Google Analytics 통합을 통해 데이터 기반 의사결정을 지원
 
 **관련 코드:**
@@ -156,14 +146,40 @@ PNG 이미지를 WebP 형식으로 변환하여 11.07 MB에서 6.74 MB로 39% �
 - [`ecoweb/ecoweb/app/utils/logging_config.py`](ecoweb/ecoweb/app/utils/logging_config.py) - 로깅 설정
 - [`ecoweb/ecoweb/app/blueprints/main.py`](ecoweb/ecoweb/app/blueprints/main.py) - 페이지 뷰 로깅 통합
 
-### 13. 코드 리팩토링
-프로젝트 디렉터리 구조를 재구성하여 일관성을 확보하고, 정적 파일 디렉터리를 통합하여 레거시 코드를 제거하며, 컴포넌트 기반 레이아웃 구조를 도입하여 코드 가독성 및 유지보수성을 향상
+## 🔧 문제 해결
+
+### 1. Celery 비동기 처리 도입
+초기 시스템은 Flask 라우트에서 직접 웹사이트 분석을 실행하는 동기 처리 방식을 사용했습니다. 분석 작업이 서버를 완전히 블로킹하여 다른 사용자 요청도 처리할 수 없었고, 동시 접속 사용자가 많을 때 대기 시간이 심각하게 증가했습니다. 이를 해결하기 위해 Celery 기반 비동기 작업 처리 아키텍처를 도입하고, Redis를 메시지 브로커로 사용하여 작업 큐를 구성했습니다. 작업 상태를 실시간으로 조회하는 폴링 시스템을 구현하고, 로딩 페이지에서 진행 상황을 시각적으로 표시하도록 했습니다. 결과적으로 동시 처리 능력이 크게 향상되었고, 평균 응답 시간이 개선되었습니다.
+
+**관련 코드:**
+- [`ecoweb/ecoweb/app/tasks.py`](ecoweb/ecoweb/app/tasks.py) - Celery 태스크 정의
+- [`ecoweb/celery_worker.py`](ecoweb/celery_worker.py) - Celery 워커 설정
+- [`ecoweb/ecoweb/app/blueprints/main.py`](ecoweb/ecoweb/app/blueprints/main.py) - 비동기 작업 처리 로직
+
+### 2. 프로젝트 디렉토리 구조 최적화
+프로젝트 초기에는 심각한 구조적 비일관성 문제가 있었습니다. 템플릿 파일이 여러 디렉터리에 분산되어 있었고, 중복 파일이 존재했으며, 런타임 데이터와 정적 파일이 혼재되어 있어 파일을 찾기 어려웠고 유지보수가 어려웠습니다. 이를 해결하기 위해 디렉터리 구조 재정비, 레거시·중복 코드 제거, 정적 리소스 및 UI 구조 통합, 컴포넌트 기반 설계 도입을 통해 가독성과 재사용성, 유지보수성을 전반적으로 개선했습니다.
 
 **관련 코드:**
 - [`ecoweb/ecoweb/app/`](ecoweb/ecoweb/app/) - 전체 애플리케이션 구조
 - [`ecoweb/ecoweb/app/blueprints/`](ecoweb/ecoweb/app/blueprints/) - 블루프린트 구조
 - [`ecoweb/ecoweb/app/services/`](ecoweb/ecoweb/app/services/) - 서비스 레이어 구조
 - [`ecoweb/ecoweb/app/utils/`](ecoweb/ecoweb/app/utils/) - 유틸리티 함수
+
+### 3. 캡처 기능: Selenium → Playwright 전환
+Selenium 기반 캡처 로직은 async로 선언되어 있었지만 내부가 동기 블로킹 API로 구성되어 실제로는 동기 방식으로 동작하는 문제가 있었습니다. 이를 해결하기 위해 Playwright async API로 전환해 완전 비동기·논블로킹 구조를 구현함으로써 Worker 블로킹을 제거하고 동시 처리량을 크게 향상시켰습니다.
+
+**관련 코드:**
+- [`ecoweb/ecoweb/app/utils/async_website_capture.py`](ecoweb/ecoweb/app/utils/async_website_capture.py) - 비동기 웹사이트 캡처
+- [`ecoweb/ecoweb/app/services/capture/`](ecoweb/ecoweb/app/services/capture/) - 웹사이트 캡처 서비스
+
+
+### 4. SEO 최적화 구현
+기존 웹사이트는 검색 엔진 노출을 고려한 구조가 충분히 구현되지 않아, 웹사이트의 정보가 검색 엔진에 제대로 전달되지 않았고 그 결과 검색 결과에서 불리한 위치에 머무르는 문제가 있었습니다. 이를 해결하기 위해 검색 엔진이 웹페이지를 바로 이해할 수 있도록 구조를 개선하고, 페이지별로 고유한 정보를 제공하도록 최적화했습니다. 그 결과 Lighthouse SEO 평가에서 100점을 달성하여 웹사이트의 검색 노출도와 접근성을 크게 향상시켰습니다.
+
+**관련 코드:**
+- [`ecoweb/ecoweb/app/blueprints/seo.py`](ecoweb/ecoweb/app/blueprints/seo.py) - SEO 라우팅 (Sitemap, Robots.txt)
+- [`ecoweb/ecoweb/app/utils/seo_helpers.py`](ecoweb/ecoweb/app/utils/seo_helpers.py) - SEO 헬퍼 함수
+- [`ecoweb/ecoweb/app/utils/structured_data.py`](ecoweb/ecoweb/app/utils/structured_data.py) - 구조화 데이터 생성
 
 
 ## 📊 주요 성과
