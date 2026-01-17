@@ -1,0 +1,654 @@
+2026-01-16	ff7ee05a	On feature/minkyu: !!GitHub_Desktop<feature/minkyu>	 (refs/stash)		
+2026-01-16	de0a94b9	index on feature/minkyu: 354123e4 feat: Add page view logging and enhance event logging system			
+2025-11-19	284eae6b	Merge pull request #141 from CarbonAra-CBA/feature/minkyu	 (HEAD -> main	 origin/main	 origin/HEAD)
+2025-11-19	3.54E+09	feat: Add page view logging and enhance event logging system	 (origin/feature/minkyu	 feature/minkyu)	
+2025-11-19	16741bd7	Merge pull request #140 from CarbonAra-CBA/feature/minkyu			
+2025-11-19	363f33ee	feat: Implement user event logging system for analytics			
+2025-11-19	85f77902	style: Add hover effects to eco-website and membership-info buttons			
+2025-11-19	ddea66d1	feat: Add expand/collapse functionality to eco-website section			
+2025-11-19	bf8fec0c	fix: Ensure only 6 eco-website cards are displayed initially			
+2025-11-19	0a878ca4	feat: Implement eco-website "Show More" button functionality			
+2025-11-18	033d0f7a	Merge pull request #139 from CarbonAra-CBA/feature/minkyu			
+2025-11-18	fd899919	fix: Update GitHub Actions workflow script paths			
+2025-11-18	a32da0df	chore: Remove legacy template codes			
+2025-11-18	4ff4d965	feat: Add dynamic eco websites data loading from JSON			
+2025-11-18	89f30978	refactor: Major layout and responsive design improvements for main page			
+2025-11-17	caae7f70	feat: Improve captured image modal display with scrollable full-width vie			
+2025-11-17	dcee3b1c	feat: Improve image optimization page UI and fix translation issues			
+2025-11-17	cbdbcac6	feat: Display file extension instead of category in image optimization list			
+2025-11-17	266f3800	refactor: Remove image classification model and simplify WebP conversion logic			
+2025-11-17	26b30d15	feat: Add Lighthouse data fields and consolidate duplicate lighthouse.py files			
+2025-11-17	d3a1ad28	chore: Update responsive-code.css			
+2025-11-17	ec46d30c	refactor: Optimize MongoDB queries in tasks.py to reduce duplicate queries			
+2025-11-17	6efde318	feat: Implement real data for content count pie chart and improve loading screen			
+2025-11-16	ca9f7a0d	Merge pull request #137 from CarbonAra-CBA/feature/minkyu			
+2025-11-16	9a436ca6	fix: Resolve Redis authentication and sitemap endpoint errors			
+2025-11-16	6a827cee	Merge pull request #136 from CarbonAra-CBA/feature/minkyu			
+2025-11-16	aec835f9	feat: Implement IP-based GeoIP language auto-detection			
+2025-11-16	5e933c15	chore: Fix page-loader not hiding header on main page			
+2025-11-16	2837e31e	chore: Add PROJECT_GUIDE.md			
+2025-11-16	06c44dd6	refactor: Improve responsive design for img-op-section02 area			
+2025-11-16	42f74934	Remove unnecessary directory creation code			
+2025-11-16	ce3be90e	refactor: Simplify image directory structure by removing classification subdirectories			
+2025-11-16	6e8bb82c	refactor: Improve WebP conversion and image optimization page display			
+2025-11-16	f772cc58	feat: Improve image optimization logging and resource download message clarity			
+2025-11-15	1ab8a6fe	refactor: Optimize logging to show only completion/failure status for analysis tasks			
+2025-11-15	df170c20	refactor: Improve error handling and stability for MongoDB	 Lighthouse	 and website capture	
+2025-11-15	5da0efd9	refactor: Include image classification model file directly in repository			
+2025-11-13	fc9ab720	feat: Add script to convert image to webp			
+2025-11-13	711eab61	refactor: Replace png images to webp			
+2025-11-12	32f3685c	refactor: Consolidate new-ui-js into js and remove new-ui-css directory			
+2025-11-12	50a981c0	refactor: Replace external flag CDN with local flag images			
+2025-11-12	d7ba2e19	refactor: Update carbon_calculate_emission.css			
+2025-11-12	0a84baa7	feat: Add dynamic font-size for login input text labels on mobile			
+2025-11-12	c40db2dc	feat: Improve responsive design for carbon emission calculation page			
+2025-11-11	6e4d966c	Add: Implement center-aligned responsive layout for carbon emission page			
+2025-11-11	17654edc	refactor: Optimize carbon emission equivalent and trend sections with unified structure			
+2025-11-11	5a06c531	Refactor: Optimize carbon grade section with unified structure and grid layout			
+2025-11-10	1e815542	refactor: Improve password visibility toggle icon logic in login form			
+2025-11-10	a79c4240	refactor: Replace info-card navigation arrows with circular button design			
+2025-11-10	e2842efd	refactor: Improve responsive layout and UI components across multiple pages			
+2025-11-09	24134993	refactor: Improve detailed analysis page UI/UX and fix responsive layout issues			
+2025-11-09	58ee7ed5	refactor: Improve pie chart hover effects and fix overflow clipping issues			
+2025-11-09	b1d93dbe	refactor: Refactor subpage list layout and improve responsive design for detailed analysis page			
+2025-11-09	0c89c550	fix: Fix responsive layout issues for detailed analysis page			
+2025-11-09	11eddf03	feat: Fix image optimization graph display and improve circle indicator interaction			
+2025-11-09	c17678af	feat: Fix image optimization graph display and improve circle indicator interaction			
+2025-11-08	5724af37	fix: Use extensions.celery instead of shared_task for Celery tasks			
+2025-11-08	9.12E+53	Merge pull request #135 from CarbonAra-CBA/feature/minkyu			
+2025-11-08	5b6af182	feat: Update codes			
+2025-11-08	61d4d328	Merge pull request #134 from CarbonAra-CBA/feature/minkyu			
+2025-11-08	a11d53df	fix: Correct static files volume mount paths and add Redis password support for monitoring			
+2025-11-08	77da8103	Merge pull request #133 from CarbonAra-CBA/feature/minkyu			
+2025-11-08	e49b47f2	fix: Correct static files path in Docker volumes and Nginx configuration			
+2025-11-08	beddf8a8	Merge pull request #132 from CarbonAra-CBA/feature/minkyu			
+2025-11-08	ab6522e3	fix: Fix web container exit and Redis authentication errors			
+2025-11-08	11d3b371	Merge pull request #131 from CarbonAra-CBA/feature/minkyu			
+2025-11-08	41b1e1e9	fix: Fix Ollama healthcheck using ollama CLI instead of wget			
+2025-11-06	cd54ae41	fix: Filter out WebP images that are larger than original			
+2025-11-06	27061512	refactor: Consolidate static file directories and update template paths			
+2025-11-06	a9744bb8	Update .gitignore			
+2025-11-06	a84af946	refactor: Rename runtime data directories for better clarity			
+2025-11-06	99826b2b	fix: Resolve Celery worker module path issue and unify dev/prod environments			
+2025-11-06	5b4f3893	fix: Update image paths in CSS files from new-ui-img to img			
+2025-11-05	74a085e2	refactor: Restructure project directory for consistency and maintainability			
+2025-11-01	0ea58417	fix: Use locale-based conditional rendering for full view button tex			
+2025-11-01	f5d5bc09	feat: Enhance image capture with full-page screenshot and hover preview modal			
+2025-11-01	8952b1d0	chore: Fix sidebar overlap on sustainability analysis page at zoom-out levels			
+2025-11-01	08caf719	chore: fix PDF notification z-index			
+2025-11-01	99c21858	Update requirements.txt			
+2025-11-01	cb373344	feat: Add "Already Optimized" handling for negative image optimization cases			
+2025-10-30	f94436b6	feat: Add smart image highlighting for optimizable images only in capture			
+2025-10-30	8f5d969c	fix: Optimize Playwright capture to resolve timeout and missing image issues			
+2025-10-29	84e98c80	feat: Replace Selenium with Playwright async for website capture			
+2025-10-29	805c43fa	fix: Resolve Selenium-Playwright Chrome process conflict causing capture failures			
+2025-10-29	70eeb9b3	 fix: Reduce loading completion delay by accepting Celery SUCCESS state			
+2025-10-29	5bf6bee0	fix: Prevent double loading page redirect after task completion			
+2025-10-29	ccd10c4b	feat: Add async crawling and accessibility check	 prepare PDF parallelization		
+2025-10-29	93edb197	refactor: Improve concurrent processing capacity and response time			
+2025-10-29	bce1e86f	Merge pull request #130 from CarbonAra-CBA/feature/minkyu			
+2025-10-29	6d79a803	Update validators.py			
+2025-10-29	e27bc6fa	Merge pull request #129 from CarbonAra-CBA/feature/minkyu			
+2025-10-29	39e283bc	refactor: Refactor user-bar component with new class structure and responsive design			
+2025-10-28	965203a9	refactor: Redesign section04 layout			
+2025-10-28	a03899b5	refactor: Redesign section04 layout and optimize responsive behavior			
+2025-10-28	c582a3c8	refactor: Restructure section04 with component-based layout			
+2025-10-28	f0c20251	refactor: Simplify section03 layout with reusable components			
+2025-10-28	6ac19dd7	refactor: Replace graph SVG images with CSS-based rendering			
+2025-10-28	ece0c3b0	refactor: Improve reduction percent layout positioning			
+2025-10-27	fd0d2107	feat: Add responsive sidebar collapse behavior for mobile			
+2025-10-27	319ab570	feat: Implement collapsible sidebar with mini icon mode			
+2025-10-27	a11ee993	feat: Implement sidebar toggle functionality with text icons and smooth animations			
+2025-10-27	221ceab8	refactor: Replace sidebar highlight images with CSS active state and text arrows			
+2025-10-27	86da48f0	refactor: Simplify sidebar structure and replace arrow icons with text symbols			
+2025-10-27	17de5b35	feat: Enhance survey modal UX with auto-advance	 animations	 and responsive design	
+2025-10-27	bb4d82e8	feat: Add smooth slide animation to survey transitions			
+2025-10-27	97ae2fb3	refactor: Reduce survey modal auto-start delay from 10s to 3s			
+2025-10-27	fd1d5049	feat: Improve survey UX and optimize MongoDB data structure			
+2025-10-27	0ec831e2	feat: Implement comprehensive URL validation and security enhancement			
+2025-10-25	d745dfbc	refactor: Unify sidebar navigation structure with new component system			
+2025-10-23	d00944ee	feat: Add alt attributes to all images for SEO and accessibility			
+2025-10-23	460e9fdf	Merge pull request #128 from CarbonAra-CBA/feature/minkyu			
+2025-10-23	5ac72d91	chore: Update responsive-code.css			
+2025-10-23	149fcdfa	fix: Implement responsive layout for font list section (code_analysis)			
+2025-10-23	1c4a2dbc	Merge pull request #127 from CarbonAra-CBA/feature/minkyu			
+2025-10-23	60cf575b	ix: Change SERVER_NAME from IP to domain in production config			
+2025-10-23	9319e39f	Merge pull request #126 from CarbonAra-CBA/feature/minkyu			
+2025-10-23	0afbf1a0	refactor: Modify responsive-header.css			
+2025-10-22	172683f1	feat: Implement dynamic Sitemap.xml & Robots.txt generation for SEO			
+2025-10-22	53d4dfdf	feat: Implement comprehensive SSR-based SEO optimization system			
+2025-10-21	820d8cfa	refactor: Change language selector dropdown direction to left			
+2025-10-21	88a2206f	refactor: Redesign header layout and navigation system			
+2025-10-21	024c063e	refactor: Modify report-00-final-summary.httml	 css		
+2025-10-20	8dc979f5	fix: Ensure data readiness before navigating to results page	 (origin/refactor/data-rendering-optimization	 refactor/data-rendering-optimization)	
+2025-10-20	d8532aee	fix: Escape percentage signs in code analysis i18n strings			
+2025-10-20	dada911c	feat: Add page loader to main page			
+2025-10-20	3f66fb50	fix: Escape percentage signs in i18n translation strings			
+2025-10-19	966c3150	fix: Fix user-bar emission comparison i18n translation			
+2025-10-19	04ef3dc8	fix: Fix user-bar emission comparison i18n translation			
+2025-10-19	f133608d	feat: Redesign language selector to horizontal flag-based UI			
+2025-10-19	646fd978	 fix: Fix i18n formatting error and remove duplicate image optimization logi			
+2025-10-19	e10f492c	fix: Fix translation variable format and improve language selector UI			
+2025-10-18	0cab6c9b	feat: Add i18n support for login and code analysis pages			
+2025-10-18	ec7e8571	feat: Add internationalization for modals and prepare additional pages			
+2025-10-18	3188a49f	feat: Add i18n support to sustainability analysis page			
+2025-10-18	6577039c	feat: Add i18n support to image optimization page			
+2025-10-18	12188c3f	feat: Add i18n support to detailed analysis page			
+2025-10-18	fe246226	feat: Implement comprehensive i18n support for Korean	 English	 Japanese	 and Chinese
+2025-10-18	b5a2843e	feat: Implement comprehensive i18n system with 4 languages			
+2025-10-18	4cd52452	feat: Implement i18n (internationalization) system with 4 languages			
+2025-10-18	e14696ec	fix: Resolve data retrieval path for content emission chart			
+2025-10-18	6a310a65	fix: Resolve data retrieval path for emissions breakdown and content emission chart			
+2025-10-18	1fce5c8d	fix: Resolve user-bar and emissions data issues in analysis pages			
+2025-10-18	b46ca417	refactor: Complete session-to-DB migration for all analysis pages			
+2025-10-18	25e14b83	fix: Resolve timing issue causing result page redirection failure			
+2025-10-18	d811a7b5	refactor: Remove session dependencies and optimize MongoDB queries			
+2025-10-18	fe41c7fb	refactor: MongoDB Query Optimization with Projections			
+2025-10-18	5761e486	refactor: Remove unnecessary session storage	 adopt DB-centered architectur		
+2025-10-18	0c74ff14	refactor: Update page links and PDF generation to use task_id parameters			
+2025-10-18	0feb6c0d	refactor: Migrate PDF and optimization routes to DB-centered architecture			
+2025-10-18	208120	refactor: Migrate to DB-centered architecture by centralizing calculations			
+2025-10-18	3f1350fe	refactor: perf: Reduce intermediate MongoDB save frequency in background tasks			
+2025-10-18	d74ffc44	refactor: Remove duplicate fields from task_results MongoDB collection			
+2025-10-18	9294ed14	refactor: Standardize API key naming in EmissionCalculator			
+2025-10-18	3533603a	refactor: Adopt wholegraindigital.com carbon emission grading system			
+2025-10-17	f47b8239	feat: Add statistics-based reference constants to EmissionCalculator			
+2025-10-17	0c69c6c0	 feat: Implement EmissionCalculator with integrated carbon emission calculations			
+2025-10-17	20aae9ba	feat: Implement self-contained EmissionCalculator with integrated calculation logic			
+2025-10-17	59ce1b00	feat: Implement consolidated EmissionCalculator with direct calculation  logic			
+2025-10-16	9b288447	Merge branch 'feature/minkyu' into refactor/data-rendering-optimization			
+2025-10-16	f729b8d9	Merge pull request #125 from CarbonAra-CBA/feature/minkyu			
+2025-10-16	3b034ab9	feat: Add Google Analytics tracking to all user-facing pages			
+2025-10-16	63f9e26d	feat: Add session snapshot utility for development debugging			
+2025-10-16	da3ae845	feat: Move code analysis preprocessing to background task			
+2025-10-15	af1f673c	fix: Correct typo in PDF report back cove			
+2025-10-13	31b178a3	Merge pull request #124 from CarbonAra-CBA/feature/minkyu			
+2025-10-13	902aa258	feat: Improve report table of contents	 back cover	 and summary   pages	
+2025-10-13	0cfa7276	feat: Add resource distribution pie chart to report11			
+2025-10-13	d388d8c6	feat: Add data tables and charts to report pages 1 and 2			
+2025-10-13	be9f7475	feat: Add ISO and Wholegrain Digital logos to report page 1			
+2025-10-13	084e9ac1	feat: Add cover pages and index to PDF report structure			
+2025-10-13	61d5507c	feat: Add inline SVG support for PDF report images			
+2025-10-13	0ee3e6e9	refactor: Modify common.css			
+2025-10-13	e328d8bf	feat: Implement asynchronous PDF generation with Celery background tasks			
+2025-10-13	8b43033d	feat: Implement dynamic header content for PDF report pages			
+2025-10-13	81e89d50	refactor: Improve PDF report templates and add separator line components			
+2025-10-12	3c946eb0	chore: Add detailed comments to PDF report macro components			
+2025-10-12	011183c8	refactor: Improve PDF report templates with flexible layouts and reusable components			
+2025-10-11	a2adf3c5	refactor: Improve report template structure with relative positioning and component-based   layout			
+2025-10-10	e4132de5	refactor: Improve CSS layout structure and introduce common styles for PDF reports			
+2025-10-04	c81464db	refactor: Reorganize content structure in report02-13			
+2025-10-04	cb64418c	refactor: Modify pdf preview			
+2025-10-04	4e0c507f	refactor: Improve report html	 css		
+2025-10-02	9c6166ab	refactor: Remove hardcoded header/sidebar from report02-13 and implement macro system			
+2025-10-02	a9d81fec	feat: Implement macro-based PDF template system with component separation			
+2025-10-02	ec0eb6bc	feat: Implement separated page PDF generation system with Playwright			
+2025-09-29	d595c05c	feat: Enhance PDF report preview system and improve report01 layout			
+2025-09-29	f4e2f72f	chore: Move pdf-reports css files to static directory			
+2025-09-28	0684ae02	feat: Add PDF report generation with browser preview for development			
+2025-09-28	2c7b99c7	feat: Implement comprehensive task cancellation system			
+2025-09-28	606dbd73	feat: Enhance URL accessibility check with robust validation			
+2025-09-27	e1c993a4	feat: Add site accessibility pre-check and improve loading page error handling			
+2025-09-27	54722432	feat: Improve error messaging in loading page			
+2025-09-27	d12f5af1	Merge pull request #123 from CarbonAra-CBA/feature/minkyu			
+2025-09-27	52f42bdd	refactor: Improve code_analysis.css			
+2025-09-27	8adc882a	feat: Improve sustainability-more.html			
+2025-09-27	8a00b0d2	feat: Add responsive layout for code analysis graph content			
+2025-09-26	7717e73d	feat: Separate worker queue configuration by environment			
+2025-09-24	6599266f	Merge pull request #122 from CarbonAra-CBA/feature/minkyu			
+2025-09-24	127a0f6a	feat: Implement comprehensive system monitoring and lighthouse integration			
+2025-09-23	c348b59c	Merge pull request #121 from CarbonAra-CBA/feature/minkyu			
+2025-09-23	3da1e23e	refactor: Disable search bar	 filter bar		
+2025-09-23	57307f69	refactor: Standardize sorting bar component structure			
+2025-09-23	454651a6	refactor: Standardize sorting bar component structure			
+2025-09-23	682f5fae	Merge pull request #120 from CarbonAra-CBA/feature/minkyu			
+2025-09-23	b286a490	fix: Resolve code analysis page data visualization issues			
+2025-09-23	be5324d4	Merge pull request #119 from CarbonAra-CBA/feature/minkyu			
+2025-09-23	9c72d576	feat: Implement comprehensive Open Graph meta tags for social media sharing			
+2025-09-22	5e025f4b	feat: Implement responsive ui			
+2025-09-22	ad0f642f	Merge pull request #118 from CarbonAra-CBA/feature/minkyu			
+2025-09-22	a3e4efaf	feat: Optimize worker and memory settings for 8GB server			
+2025-09-21	01c8dbed	Merge pull request #117 from CarbonAra-CBA/feature/minkyu			
+2025-09-21	b14eb9fe	chore: Update .gitignore			
+2025-09-21	4f26a869	fix: Resolve carbon emission analysis routing issues			
+2025-09-21	50ad58f3	feat: Implement modal popup for guideline details with responsive layout			
+2025-09-20	804e1120	feat: Improve carbon-emission-trend-filter			
+2025-09-20	80831ce6	feat: Implement responsive design for sustainability analysis page			
+2025-09-20	d61867cd	refactor: Improve section04 content list positioning and scroll behavior			
+2025-09-20	7c6f76cf	refactor: Improve section04 search bar layout and functionality			
+2025-09-20	0c7554db	refactor: Improve section04 filter layout with evenly spaced selection tabs			
+2025-09-20	430880b7	refactor: Improve section03 category title layout positioning			
+2025-09-20	4b91c9c5	refactor: Improve guide-section02 layout with flexbox and full-width image			
+2025-09-19	67e104df	refactor: Convert guide-section01 layout to relative positioning			
+2025-09-18	85b8b7c3	fix: Correct ZIP_DEFLATED import usage in optimization.py			
+2025-09-18	b71ac311	feat: Add WebP download functionality to new-ui image optimization page			
+2025-09-18	e36078d2	feat: Add ellipsis for text overflow with different max widths for folders and files and show full name in tooltip on hover			
+2025-09-18	61721442	chore: Disable unused codes			
+2025-09-18	8f6f1dd1	feat: Implement functional footer social links and contact email copy			
+2025-09-17	7bfb696a	refactor: Fix double password hashing issue in user registration			
+2025-09-17	e77af0c0	refactor: Fix infinite loading issue for subpage analysis progress tracking			
+2025-09-15	1d648b29	refactor: Move legacy codes to legacy directory			
+2025-09-15	928546b3	Merge pull request #116 from CarbonAra-CBA/feature/minkyu			
+2025-09-15	89bef38a	feat: Set Google OAuth redirect to ecarbon.kr and update prod SERVER_NAME			
+2025-09-15	60594f1e	feat: Update default.conf for ecarbon.kr and www with correct SSL and ACME			
+2025-09-15	153874ff	Merge pull request #115 from CarbonAra-CBA/feature/minkyu			
+2025-09-15	00ca631e	chore: Update default.conf to reflect domain name change			
+2025-09-12	eee0b2f4	chore: Update css files			
+2025-09-12	c99d9b4f	chore: Update Ecarbon to eCarbon			
+2025-09-11	f60f1d3f	feat: Update login.css			
+2025-09-11	9a358303	feat: Fix double scrollbar on main page and responsive layout shift			
+2025-09-11	0e8f0af0	Merge pull request #114 from CarbonAra-CBA/feature/minkyu			
+2025-09-11	fa879d6f	refactor: Improve sidebar.css			
+2025-09-11	76ef4028	feat: Fix password eye position	 enhance remember ID checkbox UI	 and enable functionality	
+2025-09-11	15a6d416	Update login.css			
+2025-09-11	169ae826	Merge pull request #113 from CarbonAra-CBA/feature/minkyu			
+2025-09-11	8b6f833b	fix: Resolve Google OAuth2 production deployment errors			
+2025-09-11	a8ad68b1	Merge pull request #112 from CarbonAra-CBA/feature/minkyu			
+2025-09-11	11d79200	feat: Implement MongoDB-based survey system with newsletter subscription			
+2025-09-10	563163dc	feat: Add operational fields and update auth handling			
+2025-09-10	3850a4f9	feat: Add end-to-end Google OAuth 2.0 login			
+2025-09-10	c36b7f64	feat: Style primary/secondary actions and thank-you layout spacing			
+2025-09-10	872dae40	feat: Allow MEASUREMENT_COMPLETE to render result page			
+2025-09-09	088674b8	feat: Implement 7-step survey flow with conditional routes and final CTA			
+2025-09-08	71af70d1	Merge pull request #111 from CarbonAra-CBA/feature/minkyu			
+2025-09-08	73fcadbe	feat: Replace legacy login.html with new-ui/auth/login.html			
+2025-09-08	0783a133	Update .gitignore			
+2025-09-08	e7f48739	feat: Migrate PDF report generation from ReportLab to HTML/CSS with WeasyPrint			
+2025-09-07	2ae6b249	refactor: Update image source to static file			
+2025-09-07	226f0313	feat: Add PDF report download feature with Korean support			
+2025-09-07	dc82e7e1	chore: Improve requirements.txt readability with comments and chore: improve requirements.txt readability with comments and groupinggrouping			
+2025-09-07	b7c6a75e	feat: Add svg files			
+2025-09-07	71eadf39	chore: Remove unnecessary files			
+2025-09-03	f76f6588	Merge pull request #110 from CarbonAra-CBA/feature/minkyu			
+2025-09-03	a33d0993	feat: Responsive layout fixes for code analysis pages			
+2025-09-02	395cdfc3	Merge pull request #109 from CarbonAra-CBA/feature/minkyu			
+2025-09-02	ec9494e5	feat: Update optimization.py			
+2025-09-02	fd108615	feat: Improve responsive ui			
+2025-08-31	6c8ca88d	feat: Responsive UI for img_optimization			
+2025-08-30	877b4c0b	feat: Add responsive overrides with center-shrink behavior			
+2025-08-30	e4cd9941	feat: Responsive layout and gauge behavior overhaul			
+2025-08-29	c7f160cb	feat: Apply responsive to sections 03–06 and bust cache			
+2025-08-29	d605c4d5	refactor: Update css files			
+2025-08-29	7e0e4d80	feat: Comprehensive responsive updates for layout	 graph	 and tooltips	
+2025-08-26	12eef3a4	refactor: Center detailed-analysis shrink behavior with non-destructive overrides			
+2025-08-26	568e6d75	feat: Apply responsive UI to carbon_calculate_emission			
+2025-08-25	2855cea7	refactor: Improve user-bar	 header		
+2025-08-25	545db26b	refactor: Switch needle SVG and recalibrate rotation/position for mobile			
+2025-08-24	48cf6c3c	fix: Keep fixed width under 1200px	 prevent horizontal scroll	 ensure top-layer stacking	
+2025-08-24	33aa7aff	feat: Make carbon emission page responsive and integrate user-bar into canvas			
+2025-08-24	cf1a9c2f	refactor: Simplify template structure and adopt semantic class names for Carbon Emission page			
+2025-08-23	94403023	feat: Add responsive overrides for Carbon Calculate Emission page			
+2025-08-23	37440486	feat: Keep toggle at left edge when sidebar is collapsed			
+2025-08-23	abd6a4af	feat: Migrate emission grade to numeric scale and update UI logic			
+2025-08-23	e1f4c45e	Merge pull request #108 from CarbonAra-CBA/feature/minkyu			
+2025-08-23	f6bb4e12	feat: Improve eco-website hover interaction and arrow direction			
+2025-08-23	a415e9ee	feat: Improve mobile tap targets and mark dev-only links			
+2025-08-23	605db341	feat: Remove side padding	 center nav	 and fine-tune darkmode offset	
+2025-08-23	9d491a8e	fix: Make mobile footer auto-height grid and prevent overlap; reset SNS offsets			
+2025-08-23	c44840f4	feat: Align recent searches with URL input on mobile/tablet			
+2025-08-23	39704fd8	feat: Tighten hero spacing and refine mobile URL input/clip icon			
+2025-08-22	3238d837	feat: Make hero subtitle flow-responsive and refine emission calculation			
+2025-08-22	5922dc2b	feat: Improve eco-website layout and responsive background behavior			
+2025-08-22	daae9d1d	feat: Fix info-cards to show exactly 3 items and prevent shadow clipping			
+2025-08-22	f5cc520d	feat: Scope main page and migrate membership section to flow layout; consolidate responsive overrides			
+2025-08-22	20f7c2da	feat: Update code_analysis html	 css		
+2025-08-21	3027c0d7	refactor: switch NEXON Football Gothic to CDN and remove local font blocks			
+2025-08-21	25dcf95f	Merge pull request #107 from CarbonAra-CBA/feature/minkyu			
+2025-08-21	af93a45d	feat: Isolate website capture per task to prevent cross-request mixups			
+2025-08-21	9f731fbb	feat: Harden TLS and skip telemetry endpoints in DirectoryMaker			
+2025-08-21	b46796f2	Update main.css			
+2025-08-21	ef2b1bdf	Update carbon_calculate_emission.html			
+2025-08-21	7133c27a	Update main.html			
+2025-08-21	59107a87	Update main.py			
+2025-08-19	7c1b5e00	Merge pull request #106 from CarbonAra-CBA/feature/minkyu			
+2025-08-19	dbfa8a13	chore: Improve comment	 logging		
+2025-08-19	f4b6d5b2	fix: Fix URL ellipsis to show start and truncate end in user bar  Description (Korean)			
+2025-08-19	0b7f6d9f	fix: Output integer percentiles only and clamp to [1	 99]		
+2025-08-19	63570dea	Merge pull request #105 from CarbonAra-CBA/feature/minkyu			
+2025-08-19	76393c1d	fix: Modify class name and design			
+2025-08-19	c2932441	chore: Seperate style			
+2025-08-19	4aaa0b1d	fix: Correct bar chart length scaling for emission breakdown			
+2025-08-19	b6a3d672	fix: Align “Possible Image Optimization” with backend-calculated saved bytes			
+2025-08-19	f0504f90	Merge pull request #104 from CarbonAra-CBA/feature/minkyu			
+2025-08-19	2b5b83e4	chore: Move row-3			
+2025-08-19	873ca18b	Merge pull request #103 from CarbonAra-CBA/feature/minkyu			
+2025-08-19	0bfeea1d	refactor: Position Chart.js hover tooltip above points			
+2025-08-19	898de774	chore: Update img_optimization.css			
+2025-08-19	05f8787c	chore: Unify row spacing and align by icon; add left offset to row-3			
+2025-08-18	2f845880	Merge pull request #102 from CarbonAra-CBA/feature/minkyu			
+2025-08-18	5786daeb	fix: Truncate long URLs across UI and show full text on hover			
+2025-08-18	46348a06	feat: Lazy-load model	 refine WebP targets	 set threshold to 0.70	 and streamline logs
+2025-08-18	de23b60c	chore: Update img_optimization html	 css		
+2025-08-18	7f04213d	Merge pull request #101 from CarbonAra-CBA/feature/minkyu			
+2025-08-18	2f86a952	refactor: Update detailed_analysis.html			
+2025-08-18	655f0b0e	feat: Add home button to loading page			
+2025-08-18	c958dbfd	feat: Modify lighthouse flags			
+2025-08-18	3ea4a88b	Merge pull request #100 from CarbonAra-CBA/feature/minkyu			
+2025-08-18	fedfb7fb	refactor: Update sidebar			
+2025-08-18	9d16277c	feat: Update docker-compsoe.prod.yml			
+2025-08-18	b5ab5e18	refactor: Remove visibility: hidden			
+2025-08-18	24abb996	refactor: Disable @login_required to img_optimization route			
+2025-08-18	5cb7db80	feat: Update css	 html		
+2025-08-17	1b10b063	Merge pull request #99 from CarbonAra-CBA/feature/minkyu			
+2025-08-17	a6298448	feat: Improve subpage crawling	 URL normalization/validation	 wire subpage data to detailed analysis	 and add KB-based emission estimator
+2025-08-17	dc5d926c	feat: Redesign loading page layout and step icons with precise vertical spacing			
+2025-08-17	0abac118	Merge pull request #98 from CarbonAra-CBA/feature/minkyu			
+2025-08-17	e974f54c	feat: Split network emissions and show per-block clouds on hover			
+2025-08-17	54522651	refactor: Remove unused code			
+2025-08-17	a680434a	feat: Rework detailed analysis layout and hover behavior on detailed_analysis page			
+2025-08-17	6d815416	Merge pull request #97 from CarbonAra-CBA/feature/minkyu			
+2025-08-17	604f5082	feat: Add compliance status icons to guideline list			
+2025-08-17	926d87d6	feat: Apply emissions breakdown UI and interactions to template			
+2025-08-17	c2203d83	feat: integrate emissions breakdown into detailed analysis and render in UI			
+2025-08-17	0f36e60c	feat: Use backend emission_grade for UI; refine chart hover and highlight today			
+2025-08-16	36033f97	feat: Centered fixed header and responsive main layout refinements			
+2025-08-16	6ecdeeea	Merge pull request #96 from CarbonAra-CBA/feature/minkyu			
+2025-08-15	e404abf3	feat: Refine folder separator placement and explorer CSS			
+2025-08-15	251a45c1	feat: Rebuild stylesheet and add structured progress bar styles			
+2025-08-15	c2e5c012	refactor: Replace vague class names and remove inline styles			
+2025-08-15	ea2b905b	chore: Move style to css files			
+2025-08-15	9b176d89	feat: Truncate long subpage URLs with ellipsis and tooltip			
+2025-08-15	f2de7cc3	feat: Show subpage URL and dynamic subpage count			
+2025-08-15	1f677c45	refactor: Modify convert_to_webp()			
+2025-08-15	e60967d6	feat: Refactor UI structure and update metrics calculation			
+2025-08-15	65dd684b	chore: Add global	 korea svg files		
+2025-08-15	a6f999d9	refactor: Enable download_image_model.py to Dockerfile			
+2025-08-15	939aed7c	feat: Pass extra data to image optimization template and add console logs			
+2025-08-15	d259d252	feat: Use DB-sourced image list and convert only current-run files; fix SSL retry context			
+2025-08-14	16827b79	Merge pull request #95 from CarbonAra-CBA/feature/minkyu			
+2025-08-14	75a0496e	feat: Update tasks.py			
+2025-08-14	00bebb44	refactor: Update detailed_analysis.css			
+2025-08-14	6a5b18e5	feat: Update main.py			
+2025-08-14	fcf61ba9	feat: Stabilize img optimization and fix recommended list source			
+2025-08-14	82957718	refactor: Improve img-op-section02			
+2025-08-14	a7ffc08c	chore: Add comment to optimization.py			
+2025-08-14	706d401a	refactor: Disable WSG guideline loading block			
+2025-08-14	7b5de577	refactor: Disable code_optimization route			
+2025-08-14	1951117c	refactor: Improve code_analysis page html	 css		
+2025-08-14	79cdf194	fix: Restore directory structure building to working state			
+2025-08-14	9d7b31f6	fix: Improve content emission graph alignment and tooltip UX			
+2025-08-14	2aa6fb28	Merge pull request #94 from CarbonAra-CBA/feature/minkyu			
+2025-08-14	ed598bfc	feat: Update codes			
+2025-08-14	4ede617f	feat: Update main	py		
+2025-08-14	21b963f9	chore: Resize arrow icon			
+2025-08-14	659be736	refactor: Improve group-parent structure and behavior			
+2025-08-14	14ee6b06	feat: Include code_analysis and guidelines in active state			
+2025-08-13	e03c44a0	feat: Render spider chart polygon-only and align to container			
+2025-08-13	955b82db	chore: Update sustainability_analysis.css			
+2025-08-13	069856f7	chore: Remove unused cs			
+2025-08-13	3dd78611	feat: Connect backend to new UI and add resilient fallback			
+2025-08-12	2b3a9047	feat: Implement circular rotation for group icons			
+2025-08-12	5795196d	feat: Add hover effect to sidebar navigation items			
+2025-08-12	d28e5712	Merge from main			
+2025-08-12	86d38447	feat: Update detailed_analysis.html			
+2025-08-12	fd7d7ce4	feat: Improve side bar			
+2025-08-12	7d668151	chore: Remove scrollbar			
+2025-08-12	dc5d4a31	feat: Implement dynamic content-wise carbon emission bar chart and improve positioning			
+2025-08-12	0ccaca1b	refactor: Disable gov-analysis route			
+2025-08-12	e9cb194e	fix: Correct emission calculation unit in content type analysis			
+2025-08-12	68c8b1f1	fix: Correct emission calculation unit in content type analysis			
+2025-08-12	162e7773	chore: Update comment and Disable unused route			
+2025-08-12	e4a96923	Merge pull request #93 from CarbonAra-CBA/feature/new-ui			
+2025-08-11	17532f05	chore: Disable scrollbar	 (origin/feature/new-ui	 feature/new-ui)	
+2025-08-11	5976067a	refactor: Improve UI			
+2025-08-11	e7e89d7e	fix: Add session storage for Korea comparison data in carbon_calculate_emission			
+2025-08-11	bdf2e4bf	chore: Improve UI			
+2025-08-11	d360114e	feat: Improve UI			
+2025-08-11	fe8e0600	refactor: Apply new UI to guidelines page and organize div structure			
+2025-08-11	6731178e	chore: Update css files			
+2025-08-11	5735c536	refactor: Apply new UI to code_analysis page and organize div structure			
+2025-08-11	de075300	feat: Add new-ui to img_optimization page			
+2025-08-11	c3bd2516	Merge pull request #92 from CarbonAra-CBA/feature/new-ui			
+2025-08-11	3ecdfe20	feat: Apply data-dev-link to UI components			
+2025-08-11	b803c938	Merge pull request #91 from CarbonAra-CBA/feature/minkyu			
+2025-08-11	d22ab196	refactor: Replace modal with simple alert popup for under-development features			
+2025-08-11	f34e7dae	Merge pull request #90 from CarbonAra-CBA/feature/minkyu			
+2025-08-11	0a6e34eb	feat: Improve queue tasks codes			
+2025-08-11	2b41257f	feat: Improve loading.html			
+2025-08-11	b0bd6019	fix: Fix recent-searches			
+2025-08-11	83c6e184	feat: Update Dockerfile	 docker-compose files		
+2025-08-10	612db7ee	feat: Allow URL input without protocol prefix			
+2025-08-10	b2fe9861	Merge pull request #88 from CarbonAra-CBA/feature/new-ui			
+2025-08-10	9c7825dd	Merge pull request #89 from CarbonAra-CBA/feature/minkyu			
+2025-08-10	a634704a	feat: Modify main.py			
+2025-08-10	a75489af	feat: Update Dockerfile	 optimization.py		
+2025-08-10	cb65f788	feat: Implement user bar and fix detailed analysis page			
+2025-08-10	926dab34	feat: Enhance detailed analysis page with new SVG assets and improved layout			
+2025-08-10	6baaef76	feat: Modify membership-plans.html	 css		
+2025-08-10	592b4473	refactor: Organize membership page into semantic sections			
+2025-08-10	41d2b07a	feat: Add svg file and apply it to membership-plans.html			
+2025-08-10	e7ecd17f	chore: Modify carbon_calculate_emission.css			
+2025-08-10	9028a0b0	refactor: Move sidebar CSS inline and optimize styles			
+2025-08-10	9e5e4f19	Merge branch 'main' into feature/new-ui			
+2025-08-10	f151d5fb	feat: Add membership-plans css	 html		
+2025-08-10	67a38b82	Merge pull request #87 from CarbonAra-CBA/feature/minkyu			
+2025-08-10	d656a2a8	feat: Add new route ` membership/plans` in main.py to serve the membsership page			
+2025-08-10	a1bde554	Merge pull request #86 from CarbonAra-CBA/feature/new-ui			
+2025-08-10	2506ee57	feat: Add about page and enhance navigation with active markers			
+2025-08-09	b9a9cab9	Merge branch 'main' into feature/new-ui			
+2025-08-09	fcb7a299	feat: Add about page css	 html		
+2025-08-09	28ffb827	Merge pull request #85 from CarbonAra-CBA/feature/minkyu			
+2025-08-09	632dc2c7	feat: Add new route `/about` in main.py to serve the about page			
+2025-08-09	a470b23f	Merge pull request #84 from CarbonAra-CBA/feature/new-ui			
+2025-08-09	fbd8faeb	chore: Relocate global-icon			
+2025-08-09	4d15a7d9	feat(sidebar): Limit URL text to 3 lines with ellipsis			
+2025-08-09	664736b5	fix: Resolve blank page issue in carbon emission results			
+2025-08-09	810d7367	Merge pull request #83 from CarbonAra-CBA/feature/minkyu			
+2025-08-09	d5d2773b	feat: Add dynamic carbon emission comparison with Korean average			
+2025-08-09	c3bf5f95	feat: Update docker-compose files			
+2025-08-09	95ecdb64	feat: Implement Carbon Emission Grade Display and Improve Stability			
+2025-08-09	f04f6946	refactor: Disable subpage crawling			
+2025-08-09	154740cb	Feat: Implement Asynchronous Task Processing with Celery and Loading Page			
+2025-08-08	d5ebf545	feat: Apply color to entire emission comparison text line			
+2025-08-08	b9091766	fix: Remove duplicate emission comparison logic in carbon calculation			
+2025-08-08	a0e7fc5b	fix: Update annual emission calculation logic in carbon_calculate_emission.html			
+2025-08-08	ff48a45a	fix: Remove unused main.js reference			
+2025-08-08	7ce6e3bf	Merge pull request #82 from CarbonAra-CBA/feature/minkyu			
+2025-08-08	8136935d	feat: Add click event logging for sidebar lock container			
+2025-08-08	07f6b36f	feat: Update sidebar navigation links and disable development pages			
+2025-08-08	a97f154f	Merge pull request #81 from CarbonAra-CBA/feature/new-ui			
+2025-08-08	3522810	feat: Disable saving-site section and Modify css			
+2025-08-08	d8a3262d	chore: Relocate .iconamoon-arrow-up			
+2025-08-08	64d3e592	feat: Improve sidebar.css			
+2025-08-08	2e2bf96a	feat: Improve sidebar.css			
+2025-08-08	b61ad561	refactor: Separate sidebar component for reusability			
+2025-08-08	1ca37f07	refactor: Separate sidebar component for reusability			
+2025-08-08	5b1800a5	feat: Improve sidebar			
+2025-08-08	1d0b050d	feat: Add svg files			
+2025-08-07	dce3fcd6	chore: Move header.html to legacy directory			
+2025-08-07	53b9522b	feat: Add svg files			
+2025-08-06	4c2f2fe9	Merge pull request #80 from CarbonAra-CBA/feature/minkyu			
+2025-08-06	0a225608	chore: Update carbon_calculate_emission css	 html		
+2025-08-06	84e9a4a1	feat: Add click tracking for detailed carbon analysis section			
+2025-08-06	113502d1	feat: Implement enhanced traffic logging system			
+2025-08-06	ee6ceb47	feat: Remove login requirement for carbon emission measurement			
+2025-08-06	b79c9671	Merge pull request #79 from CarbonAra-CBA/feature/minkyu			
+2025-08-06	2e3a36c0	feat: Improve get_report_imagepath() function			
+2025-08-06	27f67260	Merge branch 'main' into feature/minkyu			
+2025-08-06	dc1b111d	Merge pull request #78 from CarbonAra-CBA/feature/new-ui			
+2025-08-06	0bbc515d	chore: Update global.css			
+2025-08-06	4c6971b2	chore: Modify info-card-icon-background color			
+2025-08-06	a619b048	feat: Add class name info-card-description-text			
+2025-08-06	6c25607f	feat: Apply data-dev-link in carbon_calculate_emission page			
+2025-08-06	41d5928a	chore: Update carbon_calculate_emission.html			
+2025-08-06	a85c46c4	chore: Improve main.html			
+2025-08-06	6f471477	feat: Add under-development-modal.js			
+2025-08-06	c5052f09	chore: Improve info-card.css			
+2025-08-06	64ca172f	chore: Change info card png files			
+2025-08-06	c7abcba4	feat: Add under-development modal			
+2025-08-06	4e37ead0	feat: Improve info-card css			
+2025-08-06	0ccd27a6	feat: Improve info-card section			
+2025-08-06	b23e8893	chore: Hide scrollbar-width in recent-searches__list			
+2025-08-06	cc467e55	feat: Add emission equivalent script			
+2025-08-05	b97aff20	chore: Add grade colors and Imrpove grade color logic			
+2025-08-05	75a8d671	feat: Improve carbon_calculate_emission.css			
+2025-08-05	c4221b1a	chore: Add font link			
+2025-08-05	ec7dab77	feat: Improve equivalent section			
+2025-08-05	11b2e814	feat: Replace global	 korea svg		
+2025-08-05	7f53b5c4	fix: Correct header dropdown menu visibility issue			
+2025-08-05	874a06db	chore: Add svg files			
+2025-08-05	e39c1ed1	feat: Update carbon_calculate_emission.html			
+2025-08-05	9bdb029c	chore: Add equivalent svg			
+2025-08-05	93d4e5c4	feat: Add active page indicator to navigation			
+2025-08-05	47fe3cc7	feat: Improve emission trend chart section			
+2025-08-05	9c622b6e	chore: Modify carbon_calculate_emission.css			
+2025-08-05	bb8a5893	feat: Improve url-inputform css and html			
+2025-08-05	5cdb7a70	chrore: Add saving-site-button			
+2025-08-05	5aab4d85	chore: Add speedmeter image files			
+2025-08-05	6788bf8a	feat: Improve saving site			
+2025-08-05	f3cb6deb	feat: Improve eco-website			
+2025-08-05	0d5354fa	feat: Add eco-website section			
+2025-08-04	f22d4503	refactor: Add hero-section			
+2025-08-04	8e81424a	feat: Add new header			
+2025-08-04	1e2c7eab	chore: Add svg files			
+2025-08-04	33846ea1	feat: Improve background.css			
+2025-08-04	29d9857b	feat: Add global.css			
+2025-08-04	225840f6	refactor: Improve info-card section			
+2025-08-04	21f45598	refactor: Improve recent-searches			
+2025-08-04	52372230	refactor: Improve info-card.css			
+2025-08-03	a6cf4e80	feat: Improve info card button			
+2025-08-03	519d994d	feat: Improve footer and legal info section			
+2025-08-03	3ea42054	feat: Improve main.html			
+2025-08-03	a48ed80b	chore: Rename home.css to main.css			
+2025-08-03	2e9a330b	feat: Improve membership info section			
+2025-08-02	7b3c8e44	refactor: Improve top background			
+2025-08-02	88088304	refactor: Improve info-card			
+2025-08-02	2ad9c7ff	refactor: Remove info-card css in home.css			
+2025-08-02	ab9d42f5	chore: Add image files			
+2025-08-01	0c29cc21	refactor: Reorganize background container and rename rectangle to top-background			
+2025-08-01	bd3db7b7	chore: Modify clip-path-group layout			
+2025-08-01	07abf7f6	feat: Add background elements svg	 add background.css		
+2025-08-01	05272ec2	chore: Add background elements svg files			
+2025-08-01	79bca38a	chore: Update header.css			
+2025-07-31	396a9033	feat: Add indicator line to carbon emission gauge			
+2025-07-31	96a35cbd	fix: Adjust gauge needle pivot for accurate rotation			
+2025-07-31	7f6d2a64	feat: implement speedometer-style needle animation for carbon emission gauge			
+2025-07-30	ceb94f37	chore: Change class name			
+2025-07-30	c8432497	feat: Add recent search URLs functionality			
+2025-07-29	02d46da2	Merge branch 'main' into feature/minkyu			
+2025-07-29	9adb73ad	Merge pull request #77 from CarbonAra-CBA/feature/new-ui			
+2025-07-29	aaec0985	feat: Add monthly stats loading in home route			
+2025-07-29	c478a78e	chore: Update carbon_calculate_emission css	 html code		
+2025-07-29	823e059a	chore: Update carbon_calculate_emission.css			
+2025-07-28	53411eae	chore: Update header			
+2025-07-28	d0d21cc0	refactor: Consolidate duplicate card sections with unified class names			
+2025-07-28	56967944	refactor: extract common header to separate template file			
+2025-07-27	0322f99b	chore: Update css path			
+2025-07-27	2048180e	chore: Relocate css files			
+2025-07-24	60d3664b	chore: relocate main page HTML and CSS files to a new directory			
+2025-07-24	4c89977b	feat: Add new ui of carbon_calculate_emission page			
+2025-07-24	9a7d3536	feat: Implement dynamic eco-site list with images			
+2025-07-24	2.25E+73	feat: Update main.html			
+2025-07-24	8654a4da	feat: Convert text elements to links and apply global styles			
+2025-07-23	15b8bb78	feat: Connect URL input form to backend			
+2025-07-22	f7ab9cd9	feat: Add new ui files			
+2025-07-17	9a31687d	fix: Rename incorrect session field name in session access			
+2025-07-17	7aed6119	feat: Improve request logging			
+2025-07-17	7861441c	feat: Add user email to session and enhance request logging			
+2025-07-17	91d3ddb2	feat: Implement global error handling with error page redirection			
+2025-07-17	46ae50ce	fix: Resolve 'Cannot use MongoClient after close' error			
+2025-07-17	b74dd8ff	Merge pull request #76 from CarbonAra-CBA/feature/minkyu			
+2025-07-17	6eb501c6	feat: Improve webstie capture code			
+2025-07-17	3cb8fc5b	fix: Prevent division by zero in img_optimization.html			
+2025-07-17	ee889bd4	refactor: Remove session recovery logic			
+2025-07-16	3f628c77	refactor: Remove debug logs and fix mobile redirection issues			
+2025-07-15	82d2fda4	Merge pull request #75 from CarbonAra-CBA/feature/minkyu			
+2025-07-15	e143a1d0	Improve Mobile Redirect Stability and UX			
+2025-07-15	609c4db9	chore: Optimize Lighthouse execution flags to reduce memory usage			
+2025-07-15	ff5f4f64	feat: Modify memory config to docker files			
+2025-07-14	77240979	Merge pull request #74 from CarbonAra-CBA/feature/minkyu			
+2025-07-14	554ddb3c	feat: Update logging_config.py			
+2025-07-14	c7c02cad	feat: Update main.py			
+2025-07-14	d53ad08d	feat: Update analysis_service.py			
+2025-07-14	f5b3096d	feat: Add number formatting for annual carbon emission equivalents			
+2025-07-14	735e2b7d	feat: Add number formatting for annual carbon emission equivalents			
+2025-07-14	349a115d	feat: Modify mongoDB collection name			
+2025-07-14	ec2e9d2d	feat: Update __init__.py			
+2025-07-14	61f10f51	feat: Improve font guide modal			
+2025-07-14	4158c8d2	chore: Modify collection name			
+2025-07-14	e5aea547	feat: Update website_capture.py			
+2025-07-14	d28a8160	refactor: Enhance WebP conversion logging and optimize performance			
+2025-07-14	82c9024b	feat: Improve logging system			
+2025-07-13	a4973494	feat: Add null check to code_analysis.html			
+2025-07-13	42f98cc0	Merge pull request #73 from CarbonAra-CBA/feature/minkyu			
+2025-07-13	78fc637f	fix: Fix JavaScript syntax error in img_optimization.html			
+2025-07-13	6526949a	Merge pull request #72 from CarbonAra-CBA/feature/minkyu			
+2025-07-13	70c80f9c	feat: Enhance mobile responsiveness for code analysis page			
+2025-07-13	6da4948e	feat: Improve mobile responsiveness for image optimization page			
+2025-07-13	f47ab795	feat: Improve main layout			
+2025-07-12	3976763a	feat: Implement responsive mobile sidebar navigation			
+2025-07-12	5a84aa9d	chore: Update .gitignore			
+2025-07-12	e467bf76	Merge pull request #71 from CarbonAra-CBA/feature/minkyu			
+2025-07-12	377443bb	chore: Minimize logging in main.py			
+2025-07-11	7a25c71f	Minimize logging in DirectoryMaker.py			
+2025-07-11	aabbfb91	fix: Handle SSL handshake errors			
+2025-07-11	85e73813	fix: Correct a wrong collection name			
+2025-07-11	3b59261b	chore: Update optimization.py and img_optimization.html			
+2025-07-11	3873f680	fix: Resolve 404 error for captured images in development environment			
+2025-07-11	7c8221de	fix: Resolve image path discrepancies			
+2025-07-10	080fdcf7	chore: Remove deploy.sh			
+2025-07-10	12b3f673	fix: Standardize image paths for Docker container and Nginx			
+2025-07-09	c21ade5b	Merge pull request #70 from CarbonAra-CBA/feature/minkyu			
+2025-07-09	cedefbdd	Merge branch 'main' into feature/minkyu			
+2025-07-09	79380246	feat: Add logging to auth.py			
+2025-07-09	65b487d8	Merge pull request #69 from CarbonAra-CBA/feature/minkyu			
+2025-07-09	e88ac10b	refactor: Update website_captures.py			
+2025-07-09	3eed954e	feat: Add Session-Flask and Redis			
+2025-07-08	ead5f081	Merge pull request #68 from CarbonAra-CBA/feature/minkyu			
+2025-07-08	15326735	feat: Implement comprehensive logging system			
+2025-07-08	117f8115	feat(auth): Enhance login system and improve security features			
+2025-07-08	453d7a6d	feat: Add GUIDE files			
+2025-07-08	6215f111	chore: Enhance Gunicorn config for better concurrency and logging			
+2025-07-08	7c956fd8	chore: Increase container memory limit from 4G to 6G for stability			
+2025-07-08	1.39E+13	fix: Initialize analysis_result variable to prevent UnboundLocalError			
+2025-07-08	e35071cb	fix: Update MongoDB collection names to resolve 500 errors			
+2025-07-07	1eaffd86	chore: Disable logs			
+2025-07-06	9fbae636	chore: Modify Nginx and docker settings			
+2025-07-03	2450a105	chore: Modify Nginx and docker settings			
+2025-06-30	038b6dff	refactor: Consolidate docker-compose configuration files			
+2025-06-30	4d2d9418	refactor: Modify Niginx	 Docker config to use port 3000		
+2025-06-30	137a77b6	chore: Add deployment-related files for production setup			
+2025-06-28	87c4f5ba	chore: Reduce gunicorn workers from 4 to 1			
+2025-06-28	e3214e29	refactor: Split docker-compose.yml into base	 dev	 and prod files	
+2025-06-28	8ff7604d	chore: Disable logs			
+2025-06-24	08ef88eb	refactor: Replace Flask dev server with Gunicorn for production			
+2025-06-12	eb7f65a7	Merge pull request #65 from CarbonAra-CBA/feature/minkyu			
+2025-06-12	8a9e17a6	refactor: Reorder sidebar menu items			
+2025-06-12	43d24c6b	Merge pull request #64 from CarbonAra-CBA/feature/minkyu			
+2025-06-12	fdb27c9c	fix: Update conditional logic for active sidebar menu			
+2025-06-12	aed485bd	Merge pull request #63 from CarbonAra-CBA/feature/minkyu			
+2025-06-12	cc9bc6be	chore: Remove unnecessary code from img_optimization.html			
+2025-06-12	69f413a2	refactor: Update lighthouse.py			
+2025-06-12	78c959b7	refactor: Move font and code optimization metrics to code_analysis.html			
+2025-06-12	7aad166d	refactor: Move font guidelines to code_analysis page			
+2025-06-12	baa8f3d9	Merge branch 'main' into feature/minkyu			
+2025-06-12	21731327	refactor: Refactor emission grade			
+2025-06-12	2d0993fc	feat: Add font guide			
+2025-06-11	d15ede68	feat: Add font optimization			
+2025-06-11	c717350b	Merge branch 'main' into feature/code-refactor	 (origin/feature/code-refactor	 feature/code-refactor)	
+2025-06-11	b02fe8bb	feat: Add font Guidelines			
+2025-06-09	14070be6	Merge pull request #55 from CarbonAra-CBA/feature/code-refactor			
+2025-06-09	95eb3e28	Merge branch 'main' into feature/code-refactor			
+2025-06-09	fc8cc1e1	feat: Update requirements.txt			
+2025-06-09	e0619b9a	feat: Update monthly_emissions_chart.js			
+2025-06-09	708bcaf1	feta: Update img_optimization.html			
+2025-06-09	28c296f9	feat: Update gov_analysis.html			
+2025-06-09	6dc8635c	feat: Add code extract detailed font information to lighthouse.py			
+2025-06-09	0c2e1478	feat: Add code to get monthly_emissions_data			
+2025-06-09	523ca872	Merge pull request #54 from CarbonAra-CBA/feature/code-refactor			
+2025-06-09	9d9e4ac6	refactor: Enhance resource size extraction to use resourceType instead of indices			
+2025-06-09	65d7e021	feat: Add website capture functionality and update img_optimization.html			
+2025-06-08	eeb046b9	feat: Improve carbon emission card ui			
+2025-06-08	4730c5f6	Merge branch 'main' into feature/code-refactor			
+2025-06-03	e61a7898	feat: Integrate DB data into carbon emission trend chart			
+2025-05-31	7e88326b	feat: Add measurement metadata to traffic and resource collections			
+2025-05-31	6461d14a	chore: Add comments			
+2025-05-31	6280b96b	feat: Add measured_urls collection to track URL measurement history			
+2025-05-31	d14c85b3	feat: Restrict performance test access to logged-in users			
+2025-05-30	5c2ca5d8	fix: Update logout URL			
+2025-05-30	746ea088	fix: Resolve database connection error			
+2025-03-18	31fc535a	fix: Ppdate content and access based on login status	 (origin/fature/Aws-Cognito-Auth)		
+2025-03-14	9c3fd551	feat: Add redirect to previous page after cognito login			
+2025-03-14	8e120536	feat: Add service restriction for non-logged-in users			
+2025-03-14	a2249b24	feat: Add aws cognito authentication and session management			
+2025-03-14	88a9fa48	chore: Add aws cognito environment variables and dependencies			
